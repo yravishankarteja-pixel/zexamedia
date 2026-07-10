@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, BarChart3 } from "lucide-react";
+import { StaggerContainer } from "@/components/animation/StaggerContainer";
+import { StaggerItem } from "@/components/animation/StaggerItem";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
 
 export const metadata: Metadata = {
@@ -18,7 +20,7 @@ const studies = [
     strategy: "Refined audience targeting, campaign structure, offer clarity, and enquiry tracking.",
     channels: ["Meta Ads", "Lead tracking", "Creative testing"],
     timeline: "45 days",
-    result: "CPL reduced from ₹380 to ₹110, with a 3x increase in admissions.",
+    result: "CPL reduced from \u20B9380 to \u20B9110, with a 3x increase in admissions.",
   },
   {
     client: "SV Gold Shop",
@@ -49,12 +51,10 @@ export default function CaseStudiesPage() {
         description="Selected growth snapshots from Zexa Media campaigns in Visakhapatnam."
       />
       <Section eyebrow="Proof" title="Structured growth stories worth studying.">
-        <div className="grid gap-6">
+        <StaggerContainer className="grid gap-6">
           {studies.map((study, index) => (
-            <article
-              key={study.client}
-              className="grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35 lg:grid-cols-[0.85fr_1.15fr] lg:p-6"
-            >
+            <StaggerItem key={study.client}>
+            <article className="grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35 lg:grid-cols-[0.85fr_1.15fr] lg:p-6">
               <div className="rounded-[1.5rem] border border-white/10 bg-[#071006] p-6">
                 <div className="mb-6 flex items-center justify-between gap-4">
                   <span className="rounded-full border border-[#8EEA4D]/25 bg-[#8EEA4D]/10 px-3 py-1 text-xs font-bold text-[#CFFFAB]">
@@ -114,8 +114,9 @@ export default function CaseStudiesPage() {
                 </Link>
               </GlassCard>
             </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
         <p className="mt-6 text-sm leading-7 text-white/50">
           Results vary by market, offer, budget and execution. These case studies are not guarantees
           of future performance.

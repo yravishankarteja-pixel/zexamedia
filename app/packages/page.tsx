@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, Star } from "lucide-react";
+import { StaggerContainer } from "@/components/animation/StaggerContainer";
+import { StaggerItem } from "@/components/animation/StaggerItem";
 import { GlassCard, PageHero, PageShell, Section, phoneHref } from "@/components/marketing-shell";
 
 export const metadata: Metadata = {
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
 const packages = [
   {
     name: "Basic Ads Starter",
-    price: "₹15,000/month",
+    price: "\u20B915,000/month",
     fit: "Best for businesses that want to start digital ads with a basic monthly plan.",
     recommended: false,
     includes: [
@@ -31,7 +33,7 @@ const packages = [
   },
   {
     name: "Growth Ads Package",
-    price: "₹25,000/month",
+    price: "\u20B925,000/month",
     fit: "Best for businesses that want to run both Google and Meta with stronger creative support.",
     recommended: false,
     includes: [
@@ -50,7 +52,7 @@ const packages = [
   },
   {
     name: "Local Growth Package",
-    price: "₹30,000/month",
+    price: "\u20B930,000/month",
     fit: "Best for gyms, clinics, restaurants, coaching institutes, and local service businesses that need ads, local SEO, and landing page support.",
     recommended: false,
     includes: [
@@ -73,7 +75,7 @@ const packages = [
   },
   {
     name: "Premium Growth Partner",
-    price: "₹50,000/month",
+    price: "\u20B950,000/month",
     fit: "Best for businesses that want full growth marketing with ads, content, landing pages, analytics, automation, and influencer support.",
     recommended: true,
     includes: [
@@ -110,7 +112,7 @@ const packages = [
 ];
 
 const comparisonRows = [
-  ["Monthly fee", "₹15,000", "₹25,000", "₹30,000", "₹50,000"],
+  ["Monthly fee", "\u20B915,000", "\u20B925,000", "\u20B930,000", "\u20B950,000"],
   ["Platforms", "Google OR Meta", "Google + Meta", "Google + Meta", "Google + Meta"],
   ["Static creatives", "10", "10", "10-12", "12-15"],
   ["Video shoots", "Add-on", "1/month", "2/month", "2/month"],
@@ -153,15 +155,15 @@ export default function PackagesPage() {
         imageSrc="/images/zexa-dashboard-review.png"
         imageAlt="Zexa Media reviewing marketing package performance dashboards with a business owner"
         metricLabel="Pricing clarity"
-        metricValue="From ₹15,000 to ₹50,000/month"
+        metricValue="From \u20B915,000 to \u20B950,000/month"
       />
 
       <Section eyebrow="Pricing" title="Premium monthly growth packages.">
-        <div className="grid gap-5 xl:grid-cols-4">
+        <StaggerContainer className="grid gap-5 xl:grid-cols-4">
           {packages.map((item) => (
-            <article
-              key={item.name}
-              className={`relative rounded-[2rem] border p-6 backdrop-blur-2xl ${
+            <StaggerItem key={item.name}>
+              <article
+                className={`relative flex h-full flex-col rounded-[2rem] border p-6 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/45 ${
                 item.recommended
                   ? "border-[#8EEA4D]/60 bg-[#8EEA4D]/10 shadow-[0_0_70px_rgba(142,234,77,0.18)]"
                   : "border-white/10 bg-white/[0.052]"
@@ -192,9 +194,10 @@ export default function PackagesPage() {
                   </div>
                 ))}
               </div>
-            </article>
+              </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </Section>
 
       <Section eyebrow="Comparison" title="Compare the final packages side by side.">
