@@ -24,8 +24,6 @@ import {
   Workflow,
 } from "lucide-react";
 
-const whatsappUrl =
-  "https://wa.me/919515256630?text=Hi%20Zexa%20Media%2C%20I%20want%20to%20book%20a%20free%20marketing%20audit.";
 const contactEmail = "contactzexamedia@gmail.com";
 
 const socialLinks = [
@@ -130,7 +128,7 @@ const proofCards = [
 
 const testimonial = {
   text: "Zexa Media made our lead flow clearer within the first month. We finally understood where enquiries were coming from and what to scale.",
-  clientName: "Client Name",
+  clientName: "Local Business Client",
   initials: "ZM",
 };
 

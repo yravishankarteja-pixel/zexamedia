@@ -62,6 +62,8 @@ function FooterColumn({
 }
 
 export function SiteFooter() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="relative border-t border-[#8EEA4D]/18 bg-[#030604] px-5 py-8 text-white sm:px-8">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#8EEA4D]/60 to-transparent" />
@@ -133,6 +135,7 @@ export function SiteFooter() {
               ["Blog", "/blog"],
               ["Free Audit", "/free-audit"],
               ["Contact", "/contact"],
+              ["Privacy Policy", "/privacy-policy"],
             ]}
           />
 
@@ -170,7 +173,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="flex flex-col gap-4 border-t border-white/10 bg-black/20 px-6 py-5 text-sm text-white/48 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
-          <span>© 2026 Zexa Media. All rights reserved.</span>
+          <span>© {year} Zexa Media. All rights reserved.</span>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link className="transition hover:text-[#8EEA4D]" href="/privacy-policy">
               Privacy Policy

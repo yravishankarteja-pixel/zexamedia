@@ -148,7 +148,7 @@ export default function PackagesPage() {
       />
       <PageHero
         eyebrow="Packages"
-        title="Final growth packages built for clear monthly execution."
+        title="Growth packages built for clear monthly execution."
         description="Choose the package that matches your current growth stage. Ad budget and third-party costs stay transparent and separate."
         imageSrc="/images/zexa-dashboard-review.png"
         imageAlt="Zexa Media reviewing marketing package performance dashboards with a business owner"
@@ -198,7 +198,15 @@ export default function PackagesPage() {
       </Section>
 
       <Section eyebrow="Comparison" title="Compare the final packages side by side.">
-        <div className="overflow-x-auto rounded-[2rem] border border-white/10 bg-white/[0.045] backdrop-blur-2xl">
+        <p className="mb-4 text-sm text-white/50">
+          On mobile, swipe horizontally to compare every package column.
+        </p>
+        <div
+          className="overflow-x-auto rounded-[2rem] border border-white/10 bg-white/[0.045] backdrop-blur-2xl"
+          role="region"
+          aria-label="Scrollable package comparison table"
+          tabIndex={0}
+        >
           <table className="w-full min-w-[920px] border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-white/10 text-white">
@@ -211,7 +219,10 @@ export default function PackagesPage() {
             </thead>
             <tbody>
               {comparisonRows.map((row) => (
-                <tr key={row[0]} className="border-b border-white/10 last:border-b-0">
+                <tr
+                  key={row[0]}
+                  className="border-b border-white/10 transition hover:bg-white/[0.035] last:border-b-0"
+                >
                   {row.map((cell, index) => (
                     <td
                       key={`${row[0]}-${cell}`}
