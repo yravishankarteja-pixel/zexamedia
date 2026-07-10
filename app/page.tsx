@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import CountUp from "react-countup";
 import {
   motion,
   useReducedMotion,
@@ -16,6 +15,7 @@ import {
   BadgeCheck,
   BarChart3,
   CheckCircle2,
+  ChevronDown,
   Megaphone,
   MessageCircle,
   Search,
@@ -35,36 +35,24 @@ const socialLinks = [
 ];
 
 const stats: Array<{
-  value: number;
+  value: string;
   label: string;
-  fallback: string;
-  start?: number;
-  format: (value: number) => string;
 }> = [
   {
-    value: 50,
+    value: "50+",
     label: "Clients Served",
-    fallback: "50+ Clients Served",
-    format: (value) => `${Math.round(value)}+`,
   },
   {
-    value: 2,
+    value: "\u20B92Cr+",
     label: "Ad Spend Managed",
-    fallback: "\u20B92Cr+ Ad Spend Managed",
-    format: (value) => `\u20B9${Math.round(value)}Cr+`,
   },
   {
-    value: 8,
-    start: 3,
+    value: "3x–8x",
     label: "ROAS Signal",
-    fallback: "3x–8x ROAS Signal",
-    format: (value) => `3x–${Math.round(value)}x`,
   },
   {
-    value: 4,
+    value: "4",
     label: "Cities Across AP",
-    fallback: "4 Cities Across AP",
-    format: (value) => `${Math.round(value)}`,
   },
 ];
 
@@ -447,19 +435,15 @@ export default function Home() {
             <div className="mx-auto max-w-7xl overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#0A100B]">
               <div className="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat) => (
-                  <div key={stat.label} aria-label={stat.fallback} className="bg-[#071006]/72 px-6 py-7">
-                    <p className="sr-only">{stat.fallback}</p>
-                    <p aria-hidden="true" className="min-h-12 text-4xl font-semibold text-white sm:text-5xl">
-                      <CountUp
-                        start={stat.start ?? 0}
-                        end={stat.value}
-                        duration={1.6}
-                        enableScrollSpy
-                        scrollSpyOnce
-                        formattingFn={stat.format}
-                      />
+                  <div
+                    key={stat.label}
+                    aria-label={`${stat.value} ${stat.label}`}
+                    className="bg-[#071006]/72 px-6 py-7"
+                  >
+                    <p className="min-h-12 text-4xl font-semibold text-white sm:text-5xl">
+                      {stat.value}
                     </p>
-                    <p aria-hidden="true" className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-white/38">
+                    <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-white/38">
                       {stat.label}
                     </p>
                   </div>
@@ -640,8 +624,8 @@ export default function Home() {
                 <summary className="cursor-pointer list-none text-lg font-semibold text-white marker:hidden">
                   <span className="flex items-center justify-between gap-4">
                     {item.question}
-                    <span className="grid size-8 shrink-0 place-items-center rounded-full border border-white/10 text-[#8EEA4D] transition group-open:rotate-45">
-                      +
+                    <span className="grid size-8 shrink-0 place-items-center rounded-full border border-white/10 text-[#8EEA4D] transition group-open:rotate-180">
+                      <ChevronDown className="size-4" />
                     </span>
                   </span>
                 </summary>

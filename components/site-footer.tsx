@@ -98,12 +98,14 @@ export function SiteFooter() {
           <FooterColumn
             title="Explore"
             links={[
+              ["Home", "/"],
               ["Services", "/services"],
               ["Growth System", "/growth-system"],
               ["Packages", "/packages"],
               ["Case Studies", "/case-studies"],
               ["Blog", "/blog"],
               ["Free Audit", "/free-audit"],
+              ["Contact", "/contact"],
             ]}
           />
 
@@ -141,7 +143,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="flex flex-col gap-4 border-t border-white/10 bg-black/20 px-6 py-5 text-sm text-white/48 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
-          <span>Â© 2026 Zexa Media. All rights reserved.</span>
+          <span>© 2026 Zexa Media. All rights reserved.</span>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link className="transition hover:text-[#8EEA4D]" href="/privacy-policy">
               Privacy Policy

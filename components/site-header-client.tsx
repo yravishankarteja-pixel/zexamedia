@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, Menu, X } from "lucide-react";
 
 const navItems = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Growth System", href: "/growth-system" },
   { label: "Packages", href: "/packages" },
@@ -20,7 +21,7 @@ export function SiteHeaderClient() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050806]/85 backdrop-blur-2xl">
       <nav className="mx-auto flex min-h-24 max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label="Zexa Media home">
-          <span className="relative block h-14 w-48 overflow-hidden sm:h-16 sm:w-56">
+          <span className="relative block h-14 w-48 overflow-hidden lg:w-44 xl:h-16 xl:w-56">
             <Image
               src="/zexa-media-logo-transparent.png"
               alt="Zexa Media"
@@ -32,7 +33,7 @@ export function SiteHeaderClient() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-8 lg:flex xl:gap-9">
+        <div className="hidden items-center gap-5 lg:flex xl:gap-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -46,7 +47,7 @@ export function SiteHeaderClient() {
 
         <Link
           href="/free-audit"
-          className="magnetic-cta hidden rounded-full bg-[#8EEA4D] px-5 py-3 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 lg:inline-flex"
+          className="magnetic-cta hidden rounded-full bg-[#8EEA4D] px-4 py-3 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 lg:inline-flex xl:px-5"
         >
           Book Free Audit
           <ArrowRight className="ml-2 size-4" />
