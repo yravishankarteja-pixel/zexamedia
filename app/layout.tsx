@@ -1,5 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
+import { MessageCircle } from "lucide-react";
+import { SiteHeaderClient } from "@/components/site-header-client";
+import { phoneHref, SiteFooter, whatsappUrl } from "@/components/site-footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -55,7 +59,27 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full bg-[#050806]">
+        <SiteHeaderClient />
+        {children}
+        <SiteFooter />
+        <Link
+          href={phoneHref}
+          className="magnetic-cta fixed bottom-5 left-1/2 z-40 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-[#8EEA4D]/30 bg-[#071006]/90 px-5 py-3 text-sm font-bold text-white shadow-[0_12px_32px_rgba(0,0,0,0.32)] backdrop-blur-2xl transition hover:border-[#8EEA4D] hover:text-[#8EEA4D] sm:inline-flex"
+        >
+          Call for Free Audit
+        </Link>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="whatsapp-float fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#8EEA4D] px-4 text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 sm:px-5"
+          aria-label="Chat with Zexa Media on WhatsApp"
+        >
+          <MessageCircle className="size-6" />
+          <span className="hidden text-sm font-bold sm:inline">WhatsApp</span>
+        </a>
+      </body>
     </html>
   );
 }

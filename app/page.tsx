@@ -23,7 +23,6 @@ import {
   TrendingUp,
   Workflow,
 } from "lucide-react";
-import { SiteHeaderClient } from "@/components/site-header-client";
 
 const whatsappUrl =
   "https://wa.me/919515256630?text=Hi%20Zexa%20Media%2C%20I%20want%20to%20book%20a%20free%20marketing%20audit.";
@@ -51,8 +50,8 @@ const stats: Array<{
   {
     value: 2,
     label: "Ad Spend Managed",
-    fallback: "₹2Cr+ Ad Spend Managed",
-    format: (value) => `₹${Math.round(value)}Cr+`,
+    fallback: "\u20B92Cr+ Ad Spend Managed",
+    format: (value) => `\u20B9${Math.round(value)}Cr+`,
   },
   {
     value: 8,
@@ -150,26 +149,26 @@ const testimonial = {
 const packages = [
   {
     name: "Basic Ads Starter",
-    price: "₹15,000",
+    price: "?15,000",
     whoFor: "For businesses testing one paid ads channel for the first time.",
     features: ["Google Ads or Meta Ads", "10 static creatives", "Basic lead tracking"],
   },
   {
     name: "Growth Ads Package",
-    price: "₹25,000",
+    price: "?25,000",
     whoFor: "For businesses ready to run Google and Meta together with stronger creative support.",
     features: ["Google + Meta Ads", "1 video shoot", "Monthly report"],
   },
   {
     name: "Local Growth Package",
-    price: "₹30,000",
+    price: "?30,000",
     whoFor:
       "For local businesses that need ads, local SEO, landing page support, and regular video content.",
     features: ["Local SEO support", "Landing page support", "2 video shoots"],
   },
   {
     name: "Premium Growth Partner",
-    price: "₹50,000",
+    price: "?50,000",
     whoFor: "For businesses that want full-funnel growth with tracking, automation, content, and strategy.",
     features: ["GA4, GTM, Meta Pixel", "Automation workflow", "Strategy review"],
     recommended: true,
@@ -232,7 +231,7 @@ const localBusinessSchema = {
     addressCountry: "IN",
   },
   areaServed: ["Visakhapatnam", "Vizag", "Andhra Pradesh", "India"],
-  priceRange: "₹15,000 - ₹50,000",
+  priceRange: "?15,000 - ?50,000",
 };
 
 const offerSchema = {
@@ -243,7 +242,7 @@ const offerSchema = {
     "@type": "Offer",
     position: index + 1,
     name: item.name,
-    price: item.price.replace(/[₹,]/g, ""),
+    price: item.price.replace(/[?,]/g, ""),
     priceCurrency: "INR",
     url: "https://zexamedia.in/packages",
     seller: {
@@ -359,10 +358,6 @@ export default function Home() {
       />
       <div className="premium-orb premium-orb-one" />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:112px_112px]" />
-
-      <div className="relative z-50">
-        <SiteHeaderClient />
-      </div>
 
       <div className="relative z-10">
         <section className="mx-auto grid min-h-[86vh] max-w-7xl items-center gap-10 px-5 pb-14 pt-28 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:pb-16 lg:pt-32">
@@ -682,108 +677,7 @@ export default function Home() {
             </div>
           </Reveal>
         </section>
-
-        <footer className="border-t border-white/10 bg-[#030604] px-5 py-10 sm:px-8">
-          <div className="mx-auto grid max-w-7xl gap-8 rounded-[1.5rem] border border-white/10 bg-[#0A100B] p-6 sm:p-8 lg:grid-cols-[1.2fr_0.65fr_0.95fr] lg:p-10">
-            <div>
-              <a href="#" className="inline-flex items-center" aria-label="Zexa Media home">
-                <span className="relative block h-20 w-64 overflow-hidden">
-                  <Image
-                    src="/zexa-media-logo-transparent.png"
-                    alt="Zexa Media"
-                    fill
-                    sizes="256px"
-                    className="object-contain object-left"
-                  />
-                </span>
-              </a>
-              <p className="mt-4 max-w-xl leading-8 text-white/64">
-                Growth marketing agency in Visakhapatnam for ads, content, tracking,
-                automation, and analytics.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-white/54">
-                Explore
-              </h3>
-              <div className="mt-5 grid gap-3 text-sm">
-                {[
-                  ["Services", "/services"],
-                  ["Growth System", "/growth-system"],
-                  ["Packages", "/packages"],
-                  ["Case Studies", "/case-studies"],
-                  ["Blog", "/blog"],
-                  ["Free Audit", "/free-audit"],
-                ].map(([label, href]) => (
-                  <a key={href} className="text-white/70 transition hover:text-[#8EEA4D]" href={href}>
-                    {label}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-white/54">
-                Contact
-              </h3>
-              <div className="mt-5 grid gap-3 text-sm leading-7 text-white/70">
-                <a className="transition hover:text-[#8EEA4D]" href={`mailto:${contactEmail}`}>
-                  {contactEmail}
-                </a>
-                <a className="transition hover:text-[#8EEA4D]" href={whatsappUrl} target="_blank">
-                  WhatsApp: +91 95152 56630
-                </a>
-                <span>Visakhapatnam, Andhra Pradesh</span>
-              </div>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {socialLinks.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Zexa Media on ${item.label}`}
-                    className="inline-flex size-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.045] text-white/72 transition hover:border-[#8EEA4D]/50 hover:text-[#8EEA4D]"
-                  >
-                    <span className="text-xs font-black tracking-[0.08em]">{item.short}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="mx-auto mt-6 flex max-w-7xl flex-col gap-4 rounded-2xl border border-white/10 bg-black/25 px-6 py-5 text-sm text-white/48 sm:flex-row sm:items-center sm:justify-between">
-            <span>© 2026 Zexa Media. All rights reserved.</span>
-            <div className="flex flex-wrap gap-x-5 gap-y-2">
-              <a className="transition hover:text-[#8EEA4D]" href="/privacy-policy">
-                Privacy Policy
-              </a>
-              <a className="transition hover:text-[#8EEA4D]" href="/contact">
-                Contact
-              </a>
-              <span>zexamedia.in</span>
-            </div>
-          </div>
-        </footer>
       </div>
-
-      <a
-        href="/free-audit"
-        className="magnetic-cta fixed bottom-5 left-1/2 z-40 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-[#8EEA4D]/30 bg-[#071006]/90 px-5 py-3 text-sm font-bold text-white shadow-[0_12px_32px_rgba(0,0,0,0.32)] backdrop-blur-2xl transition hover:border-[#8EEA4D] hover:text-[#8EEA4D] sm:inline-flex"
-      >
-        Book Free Audit
-      </a>
-
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-float fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#8EEA4D] px-4 text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 sm:px-5"
-        aria-label="Chat with Zexa Media on WhatsApp"
-      >
-        <MessageCircle className="size-6" />
-        <span className="hidden text-sm font-bold sm:inline">WhatsApp</span>
-      </a>
     </main>
   );
 }
