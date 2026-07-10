@@ -1,14 +1,14 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
+import { SiteHeaderClient } from "@/components/site-header-client";
 
 const navItems = [
-  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Growth System", href: "/growth-system" },
   { label: "Packages", href: "/packages" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -78,7 +78,7 @@ export function SiteHeader() {
           href={phoneHref}
           className="magnetic-cta hidden rounded-full bg-[#8EEA4D] px-5 py-3 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 sm:inline-flex"
         >
-          Call Zexa
+          Book Free Audit
         </Link>
       </nav>
     </header>
@@ -123,6 +123,7 @@ export function SiteFooter() {
           title="Explore"
           links={[
             ["Services", "/services"],
+            ["Growth System", "/growth-system"],
             ["Packages", "/packages"],
             ["Case Studies", "/case-studies"],
             ["Blog", "/blog"],
@@ -193,7 +194,7 @@ export function PageShell({ children }: Readonly<{ children: ReactNode }>) {
       <div className="premium-orb premium-orb-two" />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:96px_96px]" />
       <div className="relative z-10">
-        <SiteHeader />
+        <SiteHeaderClient />
         {children}
         <SiteFooter />
         <Link

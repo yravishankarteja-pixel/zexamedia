@@ -6,6 +6,7 @@ const routes = [
   "",
   "/about",
   "/services",
+  "/growth-system",
   "/services/performance-marketing",
   "/services/social-media-management",
   "/services/branding",

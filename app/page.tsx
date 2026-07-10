@@ -1,10 +1,9 @@
-"use client";
+﻿"use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import CountUp from "react-countup";
 import {
-  AnimatePresence,
   motion,
   useReducedMotion,
   useScroll,
@@ -17,28 +16,18 @@ import {
   BadgeCheck,
   BarChart3,
   CheckCircle2,
-  LineChart,
   Megaphone,
-  Menu,
   MessageCircle,
   Search,
   Target,
   TrendingUp,
   Workflow,
-  X,
 } from "lucide-react";
+import { SiteHeaderClient } from "@/components/site-header-client";
 
 const whatsappUrl =
   "https://wa.me/919515256630?text=Hi%20Zexa%20Media%2C%20I%20want%20to%20book%20a%20free%20marketing%20audit.";
 const contactEmail = "contactzexamedia@gmail.com";
-const phoneHref = "tel:+919515256630";
-
-const navItems = [
-  { label: "Services", href: "/services" },
-  { label: "Packages", href: "/packages" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "Contact", href: "/contact" },
-];
 
 const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/zexamedia_official/", short: "IG" },
@@ -116,24 +105,6 @@ const services = [
     title: "Analytics & Reporting",
     href: "/services",
     copy: "Know exactly what is working, wasting, and ready to scale.",
-  },
-];
-
-const reasons = [
-  {
-    icon: BadgeCheck,
-    title: "Strategy before spending",
-    copy: "Clear audience, offer, and channel direction before campaigns go live.",
-  },
-  {
-    icon: LineChart,
-    title: "Tracking before scaling",
-    copy: "Calls, forms, WhatsApp leads, CPL, and source quality stay visible.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Follow-up before losing leads",
-    copy: "Lead response systems reduce missed enquiries and wasted budget.",
   },
 ];
 
@@ -220,11 +191,6 @@ const faqs = [
     question: "How long until I see results from paid ads?",
     answer:
       "Google Ads can start generating early leads within days after launch, while Meta Ads usually need testing and optimization. Most campaigns need 2–4 weeks to identify stronger audiences, creatives, and offers.",
-  },
-  {
-    question: "Do you require long-term contracts?",
-    answer:
-      "We work through flexible monthly engagements. The goal is to earn your trust through performance, communication, and transparent reporting.",
   },
   {
     question: "What makes Zexa Media different from other agencies?",
@@ -334,7 +300,6 @@ function SectionHeading({
 }
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
   const progressScale = useSpring(scrollYProgress, {
@@ -395,92 +360,9 @@ export default function Home() {
       <div className="premium-orb premium-orb-one" />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:112px_112px]" />
 
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#050806]/82 backdrop-blur-2xl">
-        <nav className="mx-auto flex h-22 max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-          <a href="#" className="flex items-center" aria-label="Zexa Media home">
-            <span className="relative block h-14 w-48 overflow-hidden sm:h-16 sm:w-56">
-              <Image
-                src="/zexa-media-logo-transparent.png"
-                alt="Zexa Media"
-                fill
-                sizes="(max-width: 640px) 192px, 224px"
-                className="object-contain object-left"
-                priority
-              />
-            </span>
-          </a>
-
-          <div className="hidden items-center gap-9 lg:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="nav-link text-sm font-medium text-white/66 transition hover:text-white"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-
-          <div className="hidden items-center gap-3 lg:flex">
-            <a
-              href="/free-audit"
-              className="rounded-full border border-white/12 px-5 py-3 text-sm font-semibold text-white/78 transition hover:border-[#8EEA4D]/50 hover:text-white"
-            >
-              Book Free Audit
-            </a>
-            <a
-              href={phoneHref}
-              className="group rounded-full bg-[#8EEA4D] px-5 py-3 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5"
-            >
-              Call Zexa
-              <ArrowRight className="ml-2 inline size-4 transition group-hover:translate-x-1" />
-            </a>
-          </div>
-
-          <button
-            type="button"
-            className="grid size-11 place-items-center rounded-full border border-white/12 bg-white/5 lg:hidden"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={menuOpen}
-          >
-            {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
-        </nav>
-
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="border-t border-white/10 bg-[#071006]/96 px-5 py-5 backdrop-blur-2xl lg:hidden"
-            >
-              <div className="mx-auto flex max-w-7xl flex-col gap-2">
-                {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-2xl px-4 py-3 text-base font-medium text-white/75 transition hover:bg-white/6 hover:text-[#8EEA4D]"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ))}
-                <a
-                  href="/free-audit"
-                  className="mt-3 rounded-full bg-[#8EEA4D] px-5 py-4 text-center text-sm font-bold text-[#071006]"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Book Free Audit
-                </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
+      <div className="relative z-50">
+        <SiteHeaderClient />
+      </div>
 
       <div className="relative z-10">
         <section className="mx-auto grid min-h-[86vh] max-w-7xl items-center gap-10 px-5 pb-14 pt-28 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:pb-16 lg:pt-32">
@@ -493,13 +375,14 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.06}>
               <h1 className="max-w-5xl text-5xl font-semibold leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl">
-                Grow faster with ads, content, and tracking that prove ROI.
+                Your Business Deserves to{" "}
+                <span className="text-[#8EEA4D]">Grow Faster.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-white/64 sm:text-xl">
-                Zexa Media helps local businesses turn Google Ads, Meta Ads, social media,
-                and automation into measurable enquiries.
+                Zexa Media runs high-performance Google Ads, Meta Ads, social media campaigns,
+                and marketing automation engineered to deliver real ROI, not just reach.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
@@ -508,14 +391,14 @@ export default function Home() {
                   href="/free-audit"
                   className="magnetic-cta group inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#8EEA4D] focus:ring-offset-2 focus:ring-offset-[#050806]"
                 >
-                  Book Free Audit
+                  Call for Free Audit
                   <ArrowRight className="ml-2 size-5 transition group-hover:translate-x-1" />
                 </a>
                 <a
                   href="/packages"
                   className="premium-secondary-cta inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 transition hover:border-[#8EEA4D]/50 hover:bg-white/[0.09]"
                 >
-                  View Pricing
+                  See Our Packages
                 </a>
               </div>
             </Reveal>
@@ -662,21 +545,6 @@ export default function Home() {
         </section>
 
         <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
-          <SectionHeading eyebrow="Why Zexa Media" title="Built to reduce wasted marketing spend." />
-          <div className="grid gap-4 lg:grid-cols-3">
-            {reasons.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.05}>
-                <article className="group h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35">
-                  <item.icon className="mb-7 size-7 text-white/70 transition group-hover:text-[#8EEA4D]" strokeWidth={1.8} />
-                  <h3 className="text-2xl font-semibold">{item.title}</h3>
-                  <p className="mt-4 leading-7 text-white/56">{item.copy}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
           <SectionHeading
             eyebrow="Proof"
             title="Fast signals business owners care about."
@@ -715,7 +583,9 @@ export default function Home() {
                   }`}
                 >
                   <div className="mb-5 flex items-start justify-between gap-3">
-                    <span className="text-xs font-bold text-white/35">0{index + 1}</span>
+                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/35">
+                      Monthly
+                    </span>
                     {item.recommended && (
                       <span className="rounded-full bg-[#8EEA4D] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-[#071006]">
                         Recommended
@@ -733,6 +603,13 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
+                  <a
+                    href="/packages"
+                    className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-bold text-white transition hover:text-[#8EEA4D]"
+                  >
+                    View Full Package
+                    <ArrowRight className="size-4" />
+                  </a>
                 </article>
               </Reveal>
             ))}
@@ -833,6 +710,7 @@ export default function Home() {
               <div className="mt-5 grid gap-3 text-sm">
                 {[
                   ["Services", "/services"],
+                  ["Growth System", "/growth-system"],
                   ["Packages", "/packages"],
                   ["Case Studies", "/case-studies"],
                   ["Blog", "/blog"],
