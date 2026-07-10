@@ -7,7 +7,7 @@ export { contactEmail, phoneHref, phoneNumber, socialLinks, whatsappUrl } from "
 
 export function PageShell({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#050806] text-white">
+    <main className="site-page min-h-screen overflow-hidden bg-[#050806] text-white">
       <div className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.06),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.045),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_42%,#020302_100%)]" />
       <div className="premium-orb premium-orb-one" />
       <div className="premium-orb premium-orb-two" />
@@ -37,7 +37,7 @@ export function PageHero({
   metricValue?: string;
 }>) {
   return (
-    <section className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-28">
+    <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-20">
       <div>
         <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-[#8EEA4D]">
           {eyebrow}
@@ -60,6 +60,17 @@ export function PageHero({
           >
             Talk to Zexa
           </Link>
+        </div>
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          {["30-minute audit", "Clear next step", "Call or WhatsApp"].map((item) => (
+            <div
+              key={item}
+              className="flex min-h-12 items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.045] px-4 text-sm font-semibold text-white/62"
+            >
+              <span className="size-2 rounded-full bg-[#8EEA4D]" />
+              {item}
+            </div>
+          ))}
         </div>
       </div>
       {imageSrc && (
@@ -99,7 +110,7 @@ export function Section({
   children,
 }: Readonly<{ eyebrow: string; title: string; children: ReactNode }>) {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+    <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-18">
       <div className="mb-10 max-w-3xl">
         <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-[#8EEA4D]">
           {eyebrow}

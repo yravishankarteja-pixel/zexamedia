@@ -18,7 +18,7 @@ export function SiteHeaderClient() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050806]/85 backdrop-blur-2xl">
+    <header className="sticky top-0 z-[80] border-b border-white/10 bg-[#050806]/88 backdrop-blur-2xl">
       <nav className="mx-auto flex min-h-24 max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label="Zexa Media home">
           <span className="relative block h-14 w-48 overflow-hidden lg:w-44 xl:h-16 xl:w-56">
@@ -65,7 +65,7 @@ export function SiteHeaderClient() {
       </nav>
 
       {menuOpen && (
-        <div className="border-t border-white/10 bg-[#071006]/96 px-5 py-5 backdrop-blur-2xl lg:hidden">
+        <div className="relative z-[90] border-t border-white/10 bg-[#071006]/98 px-5 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-2">
             {navItems.map((item) => (
               <Link

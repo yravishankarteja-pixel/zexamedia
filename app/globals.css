@@ -166,6 +166,52 @@ html {
   transform: translateY(-4px);
 }
 
+.site-page section {
+  animation: section-rise 0.7s ease both;
+}
+
+.site-page article,
+.site-page details,
+.site-page .image-depth-card,
+.site-page [class*="rounded-[1.35rem]"],
+.site-page [class*="rounded-[1.5rem]"] {
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.site-page article:hover,
+.site-page details:hover,
+.site-page [class*="rounded-[1.35rem]"]:hover {
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+}
+
+.site-page a {
+  text-underline-offset: 5px;
+}
+
+.site-page a svg,
+header a svg,
+footer a svg {
+  transition: transform 0.24s ease;
+}
+
+.site-page a:hover svg,
+header a:hover svg,
+footer a:hover svg {
+  transform: translateX(3px);
+}
+
+header {
+  animation: header-drop 0.55s ease both;
+}
+
+footer {
+  animation: section-rise 0.7s ease both;
+}
+
 @keyframes data-flow {
   0%,
   100% {
@@ -213,6 +259,28 @@ html {
   50% {
     box-shadow: 0 14px 34px rgba(142, 234, 77, 0.22);
     transform: translateY(-2px) scale(1.02);
+  }
+}
+
+@keyframes section-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes header-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

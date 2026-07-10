@@ -137,26 +137,26 @@ const testimonial = {
 const packages = [
   {
     name: "Basic Ads Starter",
-    price: "?15,000",
+    price: "\u20B915,000",
     whoFor: "For businesses testing one paid ads channel for the first time.",
     features: ["Google Ads or Meta Ads", "10 static creatives", "Basic lead tracking"],
   },
   {
     name: "Growth Ads Package",
-    price: "?25,000",
+    price: "\u20B925,000",
     whoFor: "For businesses ready to run Google and Meta together with stronger creative support.",
     features: ["Google + Meta Ads", "1 video shoot", "Monthly report"],
   },
   {
     name: "Local Growth Package",
-    price: "?30,000",
+    price: "\u20B930,000",
     whoFor:
       "For local businesses that need ads, local SEO, landing page support, and regular video content.",
     features: ["Local SEO support", "Landing page support", "2 video shoots"],
   },
   {
     name: "Premium Growth Partner",
-    price: "?50,000",
+    price: "\u20B950,000",
     whoFor: "For businesses that want full-funnel growth with tracking, automation, content, and strategy.",
     features: ["GA4, GTM, Meta Pixel", "Automation workflow", "Strategy review"],
     recommended: true,
@@ -219,7 +219,7 @@ const localBusinessSchema = {
     addressCountry: "IN",
   },
   areaServed: ["Visakhapatnam", "Vizag", "Andhra Pradesh", "India"],
-  priceRange: "?15,000 - ?50,000",
+  priceRange: "\u20B915,000 - \u20B950,000",
 };
 
 const offerSchema = {
@@ -230,7 +230,7 @@ const offerSchema = {
     "@type": "Offer",
     position: index + 1,
     name: item.name,
-    price: item.price.replace(/[?,]/g, ""),
+    price: item.price.replace(/[₹,]/g, ""),
     priceCurrency: "INR",
     url: "https://zexamedia.in/packages",
     seller: {
@@ -322,7 +322,7 @@ export default function Home() {
   }, [reduceMotion]);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#050806] text-white">
+    <main className="site-page min-h-screen overflow-hidden bg-[#050806] text-white">
       <motion.div
         className="fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-[#8EEA4D]"
         style={{ scaleX: progressScale }}
@@ -348,7 +348,7 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:112px_112px]" />
 
       <div className="relative z-10">
-        <section className="mx-auto grid min-h-[86vh] max-w-7xl items-center gap-10 px-5 pb-14 pt-28 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:pb-16 lg:pt-32">
+        <section className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-12 pt-16 sm:px-8 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:pb-14 lg:pt-20">
           <div>
             <Reveal>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-sm font-semibold text-white/72">
@@ -389,7 +389,7 @@ export default function Home() {
 
           <Reveal delay={0.14}>
             <div className="relative mx-auto w-full max-w-[560px]">
-              <div className="relative aspect-[0.92] overflow-hidden rounded-[1.75rem] border border-white/12 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
+              <div className="image-depth-card relative aspect-[0.92] overflow-hidden rounded-[1.75rem] border border-white/12 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
                 <Image
                   src="/images/zexa-hero-strategy.png"
                   alt="Zexa Media strategist and business owner reviewing digital marketing analytics"
