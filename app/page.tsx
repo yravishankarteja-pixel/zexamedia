@@ -50,13 +50,34 @@ const stats: Array<{
   value: number;
   label: string;
   fallback: string;
-  prefix?: string;
-  suffix?: string;
+  start?: number;
+  format: (value: number) => string;
 }> = [
-  { value: 50, suffix: "+", label: "Clients Served", fallback: "50+ Clients Served" },
-  { value: 2, prefix: "₹", suffix: "Cr+", label: "Ad Spend Managed", fallback: "₹2Cr+ Ad Spend Managed" },
-  { value: 8, prefix: "3x–", suffix: "x", label: "ROAS Signal", fallback: "3x–8x ROAS Signal" },
-  { value: 4, label: "Cities Across AP", fallback: "4 Cities Across AP" },
+  {
+    value: 50,
+    label: "Clients Served",
+    fallback: "50+ Clients Served",
+    format: (value) => `${Math.round(value)}+`,
+  },
+  {
+    value: 2,
+    label: "Ad Spend Managed",
+    fallback: "₹2Cr+ Ad Spend Managed",
+    format: (value) => `₹${Math.round(value)}Cr+`,
+  },
+  {
+    value: 8,
+    start: 3,
+    label: "ROAS Signal",
+    fallback: "3x–8x ROAS Signal",
+    format: (value) => `3x–${Math.round(value)}x`,
+  },
+  {
+    value: 4,
+    label: "Cities Across AP",
+    fallback: "4 Cities Across AP",
+    format: (value) => `${Math.round(value)}`,
+  },
 ];
 
 const services = [
@@ -64,37 +85,37 @@ const services = [
     icon: Target,
     title: "Performance Marketing",
     href: "/services/performance-marketing",
-    copy: "Campaigns built for calls, leads, bookings, and sales.",
+    copy: "Turn ad spend into measurable leads, calls, and revenue.",
   },
   {
     icon: Search,
     title: "Google Ads",
     href: "/services/performance-marketing",
-    copy: "Capture high-intent searches before competitors do.",
+    copy: "Capture people already searching for your service.",
   },
   {
     icon: Megaphone,
     title: "Meta Ads",
     href: "/services/performance-marketing",
-    copy: "Turn local attention into measurable enquiries.",
+    copy: "Get in front of people before they know they need you.",
   },
   {
     icon: TrendingUp,
     title: "Social Media Growth",
     href: "/services/social-media-management",
-    copy: "Build demand with sharper content and consistent presence.",
+    copy: "Build daily trust with content that keeps your brand visible.",
   },
   {
     icon: Workflow,
     title: "Marketing Automation",
     href: "/services/automation",
-    copy: "Move leads faster with WhatsApp and follow-up systems.",
+    copy: "Never lose a lead to slow follow-up.",
   },
   {
     icon: BarChart3,
     title: "Analytics & Reporting",
     href: "/services",
-    copy: "Know what is working before scaling spend.",
+    copy: "Know exactly what is working, wasting, and ready to scale.",
   },
 ];
 
@@ -116,33 +137,99 @@ const reasons = [
   },
 ];
 
-const proofCards = [
-  { metric: "2x", title: "Walk-ins doubled", copy: "Local campaign and offer clarity improved appointment flow." },
-  { metric: "60%", title: "CPL down 60%", copy: "Weak sources were cut and winning creatives were scaled." },
-  { metric: "60s", title: "60-second lead response", copy: "WhatsApp-first follow-up helped owners act faster." },
+const caseSnapshots = [
+  {
+    clientName: "Moon Wellness Spa",
+    industry: "Wellness & Spa, Vizag",
+    headlineResult: "2x walk-ins in 60 days",
+    supportingMetric: "Google Ads + local campaign optimization",
+  },
+  {
+    clientName: "Local Service Business",
+    industry: "Service Business, Vizag",
+    headlineResult: "CPL reduced by 40%",
+    supportingMetric: "Meta Ads + WhatsApp lead tracking",
+  },
 ];
+
+const proofCards = [
+  {
+    metric: "2x",
+    title: "Walk-ins doubled",
+    copy: "Local campaign and offer clarity improved appointment flow.",
+  },
+  {
+    metric: "60%",
+    title: "CPL down 60%",
+    copy: "Weak sources were cut and winning creatives were scaled.",
+  },
+  {
+    metric: "60s",
+    title: "60-second lead response",
+    copy: "WhatsApp-first follow-up helped owners act faster.",
+  },
+];
+
+const testimonial = {
+  text: "Zexa Media made our lead flow clearer within the first month. We finally understood where enquiries were coming from and what to scale.",
+  clientName: "Client Name",
+  initials: "ZM",
+};
 
 const packages = [
   {
     name: "Basic Ads Starter",
     price: "₹15,000",
+    whoFor: "For businesses testing one paid ads channel for the first time.",
     features: ["Google Ads or Meta Ads", "10 static creatives", "Basic lead tracking"],
   },
   {
     name: "Growth Ads Package",
     price: "₹25,000",
+    whoFor: "For businesses ready to run Google and Meta together with stronger creative support.",
     features: ["Google + Meta Ads", "1 video shoot", "Monthly report"],
   },
   {
     name: "Local Growth Package",
     price: "₹30,000",
+    whoFor:
+      "For local businesses that need ads, local SEO, landing page support, and regular video content.",
     features: ["Local SEO support", "Landing page support", "2 video shoots"],
   },
   {
     name: "Premium Growth Partner",
     price: "₹50,000",
+    whoFor: "For businesses that want full-funnel growth with tracking, automation, content, and strategy.",
     features: ["GA4, GTM, Meta Pixel", "Automation workflow", "Strategy review"],
     recommended: true,
+  },
+];
+
+const faqs = [
+  {
+    question: "How much does Google Ads cost for a small business in Vizag?",
+    answer:
+      "Most small businesses can start with a monthly ad budget based on their industry, competition, and location. Zexa Media helps you choose a practical starting budget and tracks every lead source clearly.",
+  },
+  {
+    question: "Do you work with wellness, spa, gym, clinic, or local service clients?",
+    answer:
+      "Yes. Zexa Media works with local businesses such as wellness brands, clinics, gyms, education institutes, and service businesses that need calls, enquiries, walk-ins, and better lead follow-up.",
+  },
+  {
+    question: "How long until I see results from paid ads?",
+    answer:
+      "Google Ads can start generating early leads within days after launch, while Meta Ads usually need testing and optimization. Most campaigns need 2–4 weeks to identify stronger audiences, creatives, and offers.",
+  },
+  {
+    question: "Do you require long-term contracts?",
+    answer:
+      "We work through flexible monthly engagements. The goal is to earn your trust through performance, communication, and transparent reporting.",
+  },
+  {
+    question: "What makes Zexa Media different from other agencies?",
+    answer:
+      "Zexa Media focuses on growth systems, not just posting content or running ads. We combine strategy, tracking, creatives, paid ads, follow-up systems, and reporting so every rupee is connected to business outcomes.",
   },
 ];
 
@@ -428,7 +515,7 @@ export default function Home() {
                   href="/packages"
                   className="premium-secondary-cta inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 transition hover:border-[#8EEA4D]/50 hover:bg-white/[0.09]"
                 >
-                  View Packages
+                  View Pricing
                 </a>
               </div>
             </Reveal>
@@ -484,10 +571,15 @@ export default function Home() {
                 {stats.map((stat) => (
                   <div key={stat.label} aria-label={stat.fallback} className="bg-[#071006]/72 px-6 py-7">
                     <p className="sr-only">{stat.fallback}</p>
-                    <p aria-hidden="true" className="text-4xl font-semibold text-white sm:text-5xl">
-                      {stat.prefix}
-                      <CountUp end={stat.value} duration={1.6} enableScrollSpy scrollSpyOnce />
-                      {stat.suffix}
+                    <p aria-hidden="true" className="min-h-12 text-4xl font-semibold text-white sm:text-5xl">
+                      <CountUp
+                        start={stat.start ?? 0}
+                        end={stat.value}
+                        duration={1.6}
+                        enableScrollSpy
+                        scrollSpyOnce
+                        formattingFn={stat.format}
+                      />
                     </p>
                     <p aria-hidden="true" className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-white/38">
                       {stat.label}
@@ -497,6 +589,48 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
+          <div className="grid gap-4 lg:grid-cols-[1fr_0.82fr]">
+            <div className="grid gap-4 md:grid-cols-2">
+              {caseSnapshots.map((item, index) => (
+                <Reveal key={item.clientName} delay={index * 0.05}>
+                  <article className="h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/30">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
+                      Case snapshot
+                    </p>
+                    <h2 className="mt-5 text-2xl font-semibold text-white">{item.clientName}</h2>
+                    <p className="mt-2 text-sm text-white/46">{item.industry}</p>
+                    <p className="mt-7 text-3xl font-semibold leading-tight text-white">
+                      {item.headlineResult}
+                    </p>
+                    <p className="mt-4 leading-7 text-white/56">{item.supportingMetric}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal delay={0.08}>
+              <figure className="relative h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6">
+                <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#8EEA4D]/20 bg-[#8EEA4D]/8 px-4 py-2 text-xs font-bold text-[#CFFFAB]">
+                  <MessageCircle className="size-4" />
+                  WhatsApp feedback
+                </div>
+                <blockquote className="rounded-[1.25rem] rounded-tl-sm border border-white/10 bg-white/[0.055] p-5 text-lg leading-8 text-white/78">
+                  “{testimonial.text}”
+                </blockquote>
+                <figcaption className="mt-5 flex items-center gap-3">
+                  <span className="grid size-11 place-items-center rounded-full bg-[#8EEA4D] text-sm font-black text-[#071006]">
+                    {testimonial.initials}
+                  </span>
+                  <span>
+                    <span className="block font-semibold text-white">{testimonial.clientName}</span>
+                    <span className="block text-sm text-white/46">Local business owner</span>
+                  </span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
         </section>
 
         <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
@@ -590,6 +724,7 @@ export default function Home() {
                   </div>
                   <p className="text-sm font-semibold text-[#CFFFAB]">{item.price}/month</p>
                   <h3 className="mt-2 text-xl font-semibold text-white">{item.name}</h3>
+                  <p className="mt-4 min-h-20 text-sm leading-6 text-white/52">{item.whoFor}</p>
                   <div className="mt-6 grid gap-3">
                     {item.features.map((feature) => (
                       <div key={feature} className="flex gap-3 text-sm text-white/62">
@@ -603,7 +738,10 @@ export default function Home() {
             ))}
           </div>
           <Reveal>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8 grid justify-items-center gap-5 text-center">
+              <p className="max-w-2xl text-sm leading-7 text-white/52">
+                Flexible monthly engagements. Ad budget and third-party costs are billed separately.
+              </p>
               <a
                 href="/packages"
                 className="inline-flex min-h-13 items-center justify-center rounded-full border border-white/14 bg-white/[0.05] px-6 text-sm font-bold text-white transition hover:border-[#8EEA4D]/45 hover:text-[#8EEA4D]"
@@ -613,6 +751,32 @@ export default function Home() {
               </a>
             </div>
           </Reveal>
+        </section>
+
+        <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:pb-20">
+          <SectionHeading
+            eyebrow="FAQ"
+            title="Quick answers before you book."
+            copy="Built for search clarity and real buyer questions."
+          />
+          <div className="grid gap-3">
+            {faqs.map((item) => (
+              <details
+                key={item.question}
+                className="group rounded-[1.25rem] border border-white/10 bg-[#0A100B]/90 p-5"
+              >
+                <summary className="cursor-pointer list-none text-lg font-semibold text-white marker:hidden">
+                  <span className="flex items-center justify-between gap-4">
+                    {item.question}
+                    <span className="grid size-8 shrink-0 place-items-center rounded-full border border-white/10 text-[#8EEA4D] transition group-open:rotate-45">
+                      +
+                    </span>
+                  </span>
+                </summary>
+                <p className="mt-4 leading-7 text-white/58">{item.answer}</p>
+              </details>
+            ))}
+          </div>
         </section>
 
         <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24">
