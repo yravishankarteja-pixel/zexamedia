@@ -1,23 +1,34 @@
-import { BarChart3, Bot, LineChart, Search, ShieldCheck, UserRound, Zap } from "lucide-react";
+import {
+  BarChart3,
+  Bot,
+  LineChart,
+  MapPin,
+  MessageCircle,
+  Search,
+  ShieldCheck,
+  Target,
+  UserRound,
+  Users,
+} from "lucide-react";
 
 export function GrowthCircuitVisual() {
   return (
-    <div className="relative min-h-[320px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-2xl">
-      <div className="absolute inset-0 animated-grid opacity-45" />
+    <div className="relative min-h-[320px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0A100B]/90 p-6">
+      <div className="absolute inset-0 animated-grid opacity-20" />
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 640 360" aria-hidden="true">
-        <path d="M40 250C160 90 250 310 380 150S560 90 610 130" fill="none" stroke="#8EEA4D" strokeOpacity=".55" strokeWidth="2" />
+        <path d="M40 250C160 130 250 286 380 170S560 120 610 145" fill="none" stroke="#8EEA4D" strokeOpacity=".42" strokeWidth="2" />
         <path d="M40 290H600" stroke="white" strokeOpacity=".08" />
-        <path d="M120 300V210M230 300V170M340 300V230M450 300V130M560 300V180" stroke="#8EEA4D" strokeOpacity=".28" strokeWidth="10" />
+        <path d="M120 300V220M230 300V184M340 300V238M450 300V156M560 300V190" stroke="#8EEA4D" strokeOpacity=".18" strokeWidth="10" />
       </svg>
       <div className="relative grid h-full content-between gap-8">
         <div className="flex items-center justify-between">
-          <span className="rounded-full border border-[#8EEA4D]/25 bg-[#8EEA4D]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#CFFFAB]">
+          <span className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/60">
             Growth signal
           </span>
-          <LineChart className="size-7 text-[#8EEA4D]" />
+          <LineChart className="size-7 text-white/70" />
         </div>
         <div className="grid gap-3 sm:grid-cols-3">
-          {["Ads", "SEO", "Automation"].map((item) => (
+          {["Google Ads", "Local SEO", "Lead Flow"].map((item) => (
             <div key={item} className="rounded-2xl border border-white/10 bg-black/30 p-4">
               <p className="text-sm font-semibold text-white">{item}</p>
               <p className="mt-2 text-xs text-white/45">Live optimisation</p>
@@ -32,22 +43,22 @@ export function GrowthCircuitVisual() {
 export function MarketingOpsVisual() {
   const signals = [
     { label: "Search demand", Icon: Search, value: "92%" },
-    { label: "Ad efficiency", Icon: BarChart3, value: "3.8x" },
+    { label: "Ad efficiency", Icon: BarChart3, value: "3.2x" },
     { label: "Lead response", Icon: Bot, value: "60s" },
-    { label: "Scale trigger", Icon: Zap, value: "Ready" },
+    { label: "Audience fit", Icon: Users, value: "Ready" },
   ];
 
   return (
-    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#071006]/80 p-6">
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(142,234,77,.14),transparent_45%)]" />
+    <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0A100B]/90 p-6">
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(142,234,77,.08),transparent_45%)]" />
       <div className="relative grid gap-4">
         {signals.map(({ label, Icon, value }) => (
           <div key={label} className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.055] p-4">
             <span className="flex items-center gap-3 text-sm text-white/68">
-              <Icon className="size-5 text-[#8EEA4D]" />
+              <Icon className="size-5 text-white/62" strokeWidth={1.8} />
               {label}
             </span>
-            <span className="font-semibold text-[#8EEA4D]">{value}</span>
+            <span className="font-semibold text-[#CFFFAB]">{value}</span>
           </div>
         ))}
       </div>
@@ -57,15 +68,15 @@ export function MarketingOpsVisual() {
 
 export function HumanStrategyVisual() {
   return (
-    <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-2xl">
-      <div className="absolute inset-0 animated-grid opacity-25" />
-      <div className="absolute right-8 top-8 h-28 w-28 rounded-full border border-[#8EEA4D]/20 bg-[#8EEA4D]/10" />
+    <div className="relative min-h-[360px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0A100B]/90 p-6">
+      <div className="absolute inset-0 animated-grid opacity-15" />
+      <div className="absolute right-8 top-8 h-28 w-28 rounded-full border border-white/10 bg-white/[0.035]" />
       <div className="relative grid h-full gap-5">
         <div className="flex items-center justify-between">
-          <span className="rounded-full border border-[#8EEA4D]/25 bg-[#8EEA4D]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#CFFFAB]">
+          <span className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/60">
             Human-led strategy
           </span>
-          <UserRound className="size-7 text-[#8EEA4D]" />
+          <UserRound className="size-7 text-white/70" />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-[0.72fr_1fr]">
@@ -85,7 +96,7 @@ export function HumanStrategyVisual() {
                   className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/25 p-4"
                 >
                   <span className="text-sm text-white/66">{item}</span>
-                  <span className="text-sm font-semibold text-[#8EEA4D]">0{index + 1}</span>
+                  <span className="text-sm font-semibold text-[#CFFFAB]">0{index + 1}</span>
                 </div>
               ),
             )}
@@ -98,30 +109,33 @@ export function HumanStrategyVisual() {
 
 export function AutomationAnalyticsVisual() {
   return (
-    <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#071006]/90 p-6">
-      <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(142,234,77,.16),transparent_44%),radial-gradient(circle_at_80%_20%,rgba(142,234,77,.12),transparent_28%)]" />
+    <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0A100B]/90 p-6">
+      <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(142,234,77,.08),transparent_44%)]" />
       <div className="relative grid gap-5">
         <div className="flex items-center justify-between">
           <span className="text-sm font-bold uppercase tracking-[0.2em] text-white/40">
             Automation map
           </span>
-          <ShieldCheck className="size-6 text-[#8EEA4D]" />
+          <ShieldCheck className="size-6 text-white/70" />
         </div>
         <div className="grid gap-3">
           {[
-            ["Lead captured", "Meta / Google"],
-            ["Instant WhatsApp", "60 sec response"],
-            ["CRM updated", "No manual entry"],
-            ["Report sent", "Weekly snapshot"],
-          ].map(([step, note]) => (
+            ["Google Ads lead", "Search campaign"],
+            ["Meta lead form", "Audience campaign"],
+            ["WhatsApp alert", "60 sec response"],
+            ["Campaign report", "Weekly snapshot"],
+          ].map(([step, note], index) => {
+            const icons = [Target, Users, MessageCircle, MapPin];
+            const Icon = icons[index];
+            return (
             <div key={step} className="grid grid-cols-[auto_1fr] gap-3 rounded-2xl border border-white/10 bg-white/[0.055] p-4">
-              <span className="mt-1 size-3 rounded-full bg-[#8EEA4D] shadow-[0_0_16px_rgba(142,234,77,.7)]" />
+              <Icon className="mt-1 size-5 text-white/62" strokeWidth={1.8} />
               <span>
                 <span className="block font-semibold text-white">{step}</span>
                 <span className="mt-1 block text-sm text-white/45">{note}</span>
               </span>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </div>

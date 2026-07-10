@@ -1,0 +1,142 @@
+[
+    {
+        "Viewport":  "mobile",
+        "Page":  "home",
+        "Status":  200,
+        "Screenshot":  "mobile-home.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "mobile",
+        "Page":  "services",
+        "Status":  200,
+        "Screenshot":  "mobile-services.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "mobile",
+        "Page":  "packages",
+        "Status":  200,
+        "Screenshot":  "mobile-packages.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "mobile",
+        "Page":  "contact",
+        "Status":  200,
+        "Screenshot":  "mobile-contact.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "mobile",
+        "Page":  "free-audit",
+        "Status":  200,
+        "Screenshot":  "mobile-free-audit.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "tablet",
+        "Page":  "home",
+        "Status":  200,
+        "Screenshot":  "tablet-home.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "tablet",
+        "Page":  "services",
+        "Status":  200,
+        "Screenshot":  "tablet-services.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "tablet",
+        "Page":  "packages",
+        "Status":  200,
+        "Screenshot":  "tablet-packages.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "tablet",
+        "Page":  "contact",
+        "Status":  200,
+        "Screenshot":  "tablet-contact.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "tablet",
+        "Page":  "free-audit",
+        "Status":  200,
+        "Screenshot":  "tablet-free-audit.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "laptop",
+        "Page":  "home",
+        "Status":  200,
+        "Screenshot":  "laptop-home.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "laptop",
+        "Page":  "services",
+        "Status":  200,
+        "Screenshot":  "laptop-services.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "laptop",
+        "Page":  "packages",
+        "Status":  200,
+        "Screenshot":  "laptop-packages.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "laptop",
+        "Page":  "contact",
+        "Status":  200,
+        "Screenshot":  "laptop-contact.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "laptop",
+        "Page":  "free-audit",
+        "Status":  200,
+        "Screenshot":  "laptop-free-audit.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "desktop",
+        "Page":  "home",
+        "Status":  200,
+        "Screenshot":  "desktop-home.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "desktop",
+        "Page":  "services",
+        "Status":  200,
+        "Screenshot":  "desktop-services.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "desktop",
+        "Page":  "packages",
+        "Status":  200,
+        "Screenshot":  "desktop-packages.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "desktop",
+        "Page":  "contact",
+        "Status":  200,
+        "Screenshot":  "desktop-contact.png",
+        "Exists":  false
+    },
+    {
+        "Viewport":  "desktop",
+        "Page":  "free-audit",
+        "Status":  200,
+        "Screenshot":  "desktop-free-audit.png",
+        "Exists":  false
+    }
+]

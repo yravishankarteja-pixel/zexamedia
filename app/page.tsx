@@ -15,17 +15,17 @@ import Lenis from "lenis";
 import {
   ArrowRight,
   BarChart3,
-  Bot,
   CheckCircle2,
   ChevronRight,
-  Gem,
-  LineChart,
+  Film,
+  Megaphone,
   Menu,
   MessageCircle,
-  MousePointerClick,
+  Palette,
   Play,
   ShieldCheck,
-  Sparkles,
+  Target,
+  Workflow,
   X,
 } from "lucide-react";
 import {
@@ -67,36 +67,49 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-const stats = [
-  { value: 20, suffix: "+", label: "Clients served" },
-  { value: 50, prefix: "₹", suffix: "L+", label: "Ad spend managed" },
-  { value: 3.2, decimals: 1, suffix: "x", label: "Average ROAS signal" },
-  { value: 4, label: "Cities across AP" },
+const stats: Array<{
+  value: number;
+  label: string;
+  fallback: string;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+}> = [
+  { value: 50, suffix: "+", label: "Clients Served", fallback: "50+ Clients Served" },
+  { value: 2, prefix: "₹", suffix: "Cr+", label: "Ad Spend Managed", fallback: "₹2Cr+ Ad Spend Managed" },
+  {
+    value: 8,
+    prefix: "3x-",
+    suffix: "x",
+    label: "Average ROAS Delivered",
+    fallback: "3x-8x Average ROAS Delivered",
+  },
+  { value: 4, label: "Cities Across AP", fallback: "4 Cities Across AP" },
 ];
 
 const services = [
   {
-    icon: LineChart,
+    icon: Target,
     title: "Performance Marketing",
     copy: "Google Ads and Meta Ads campaigns built for leads, calls, and sales, not vanity reach.",
   },
   {
-    icon: Sparkles,
+    icon: Megaphone,
     title: "Social Media Management",
     copy: "Content calendars, Reels, captions, and community systems that build trust and demand.",
   },
   {
-    icon: Gem,
+    icon: Palette,
     title: "Branding & Positioning",
     copy: "Logo, brand kit, messaging, and market positioning that make your business easier to choose.",
   },
   {
-    icon: Bot,
+    icon: Workflow,
     title: "Marketing Automation",
     copy: "WhatsApp flows, lead notifications, CRM integrations, and follow-ups that work 24/7.",
   },
   {
-    icon: MousePointerClick,
+    icon: Film,
     title: "Content Production",
     copy: "Photoshoot direction and Reel production that give campaigns strong visual credibility.",
   },
@@ -146,10 +159,30 @@ const testimonials = [
 ];
 
 const packages = [
-  { name: "Basic Ads Starter", fit: "Start with one ad platform", price: "₹15k" },
-  { name: "Growth Ads Package", fit: "Google + Meta with creative support", price: "₹25k" },
-  { name: "Local Growth Package", fit: "Ads + local SEO + landing page", price: "₹30k" },
-  { name: "Premium Growth Partner", fit: "Full growth marketing partner", price: "₹50k" },
+  {
+    name: "Basic Ads Starter",
+    fit: "One platform launch plan for first-time ad campaigns.",
+    price: "₹15,000",
+    features: ["Google Ads or Meta Ads", "10 static creatives", "Basic lead tracking"],
+  },
+  {
+    name: "Growth Ads Package",
+    fit: "Google + Meta execution with stronger creative support.",
+    price: "₹25,000",
+    features: ["Google + Meta Ads", "1 video shoot", "Monthly report"],
+  },
+  {
+    name: "Local Growth Package",
+    fit: "Ads, local SEO, and landing page support for local businesses.",
+    price: "₹30,000",
+    features: ["2 video shoots", "Local SEO", "Landing page support"],
+  },
+  {
+    name: "Premium Growth Partner",
+    fit: "Full growth marketing, analytics, automation, and strategy.",
+    price: "₹50,000",
+    features: ["GA4 + GTM + Pixel", "Automation workflow", "Advanced strategy review"],
+  },
 ];
 
 const humanProof = [
@@ -320,7 +353,7 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#050806] text-white">
       <motion.div
-        className="fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-[#8EEA4D] shadow-[0_0_18px_rgba(142,234,77,0.75)]"
+        className="fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-[#8EEA4D] shadow-[0_6px_20px_rgba(142,234,77,0.24)]"
         style={{ scaleX: progressScale }}
       />
       <script
@@ -332,12 +365,12 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <motion.div
-        className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.16),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.08),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_42%,#020302_100%)]"
+        className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.065),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.045),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_42%,#020302_100%)]"
         style={{ y: heroParallax }}
       />
       <div className="premium-orb premium-orb-one" />
       <div className="premium-orb premium-orb-two" />
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:72px_72px]" />
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:96px_96px]" />
 
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#050806]/75 backdrop-blur-2xl">
         <nav className="mx-auto flex h-24 max-w-7xl items-center justify-between px-5 sm:px-8">
@@ -354,12 +387,12 @@ export default function Home() {
             </span>
           </a>
 
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-10 lg:flex">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="nav-link text-sm font-medium text-white/62 transition hover:text-[#8EEA4D]"
+                className="nav-link text-sm font-medium text-white/66 transition hover:text-white"
               >
                 {item.label}
               </a>
@@ -375,7 +408,7 @@ export default function Home() {
             </a>
             <a
               href={phoneHref}
-              className="group rounded-full bg-[#8EEA4D] px-5 py-3 text-sm font-bold text-[#071006] shadow-[0_0_36px_rgba(142,234,77,0.24)] transition hover:-translate-y-0.5 hover:shadow-[0_0_46px_rgba(142,234,77,0.42)]"
+              className="group rounded-full bg-[#8EEA4D] px-5 py-3 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5"
             >
               Call Zexa
               <ArrowRight className="ml-2 inline size-4 transition group-hover:translate-x-1" />
@@ -580,36 +613,37 @@ export default function Home() {
           </Reveal>
         </section>
 
-        <section className="relative -mt-8 px-5 sm:px-8">
-          <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/12 bg-white/[0.06] shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
+        <section className="relative -mt-4 px-5 sm:px-8">
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#0A100B] shadow-[0_24px_90px_rgba(0,0,0,0.28)]">
             <div className="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
               {stats.map((stat) => (
-                <div key={stat.label} className="bg-[#071006]/80 px-6 py-8">
-                  <p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-white/35">
+                <div key={stat.label} className="bg-[#071006]/72 px-6 py-8">
+                  <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-white/38">
                     {stat.label}
                   </p>
-                <p className="text-4xl font-semibold text-white sm:text-5xl">
-                  {stat.prefix}
-                  <CountUp
-                    end={stat.value}
-                    decimals={stat.decimals ?? 0}
-                    duration={2.2}
-                    enableScrollSpy
-                    scrollSpyOnce
-                  />
-                  {stat.suffix}
-                </p>
+                  <p className="sr-only">{stat.fallback}</p>
+                  <p aria-hidden="true" className="text-4xl font-semibold text-white sm:text-5xl">
+                    {stat.prefix}
+                    <CountUp
+                      end={stat.value}
+                      decimals={stat.decimals ?? 0}
+                      duration={1.7}
+                      enableScrollSpy
+                      scrollSpyOnce
+                    />
+                    {stat.suffix}
+                  </p>
                 </div>
               ))}
             </div>
-            <div className="flex flex-col gap-4 border-t border-white/10 bg-[#8EEA4D]/10 px-6 py-5 text-sm text-white/62 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-4 border-t border-white/10 bg-white/[0.035] px-6 py-5 text-sm text-white/62 sm:flex-row sm:items-center sm:justify-between">
               <span>Built for local businesses that need trackable growth, not activity reports.</span>
-              <span className="font-semibold text-[#CFFFAB]">Vizag first. ROI always.</span>
+              <span className="font-semibold text-white">Vizag first. ROI always.</span>
             </div>
           </div>
         </section>
 
-        <section id="services" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+        <section id="services" className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
           <Reveal>
             <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
               <div className="max-w-3xl">
@@ -630,11 +664,11 @@ export default function Home() {
                 delay={index * 0.05}
               >
                 <article
-                  className="group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.052] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/45 hover:bg-[#8EEA4D]/8"
+                  className="group relative flex h-full min-h-[240px] flex-col overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0A100B]/90 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35 hover:bg-white/[0.055]"
                 >
                   <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#8EEA4D]/45 to-transparent opacity-0 transition group-hover:opacity-100" />
                   <div className="relative mb-7 flex items-start justify-between gap-4">
-                    <div className="grid size-11 place-items-center rounded-full border border-[#8EEA4D]/20 bg-[#8EEA4D]/10 text-[#8EEA4D] transition group-hover:border-[#8EEA4D]/45 group-hover:shadow-[0_0_28px_rgba(142,234,77,0.28)]">
+                    <div className="grid size-11 place-items-center rounded-full border border-white/10 bg-white/[0.05] text-white/70 transition group-hover:border-[#8EEA4D]/35 group-hover:text-[#8EEA4D]">
                       <service.icon className="size-5" strokeWidth={1.8} />
                     </div>
                     <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-semibold text-white/35">
@@ -1023,8 +1057,8 @@ export default function Home() {
 
         <section id="packages" className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
           <Reveal>
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.055] p-8 backdrop-blur-2xl sm:p-10 lg:p-12">
-              <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="rounded-[1.5rem] border border-white/10 bg-[#0A100B] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-8 lg:p-10">
+              <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
                 <div>
                   <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-[#8EEA4D]">
                     Packages
@@ -1036,32 +1070,45 @@ export default function Home() {
                     From basic ad campaigns to full growth partnership, every plan is built
                     around clear execution, creative support, tracking, and measurable growth.
                   </p>
+                  <a
+                    href="/packages"
+                    className="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-white/14 bg-white/[0.05] px-5 text-sm font-bold text-white transition hover:border-[#8EEA4D]/45 hover:text-[#8EEA4D]"
+                  >
+                    Compare all packages
+                  </a>
                 </div>
-                <div className="grid gap-3">
+                <div className="grid gap-4 sm:grid-cols-2">
                   {packages.map((item, index) => (
                     <a
                       key={item.name}
                       href={phoneHref}
-                      className={`group grid gap-4 rounded-2xl border px-5 py-5 transition hover:-translate-y-0.5 hover:border-[#8EEA4D]/55 hover:bg-[#8EEA4D]/8 sm:grid-cols-[auto_1fr_auto] sm:items-center ${
+                      className={`group flex h-full flex-col rounded-[1.25rem] border p-5 transition hover:-translate-y-0.5 hover:border-[#8EEA4D]/45 hover:bg-white/[0.055] ${
                         item.name === "Premium Growth Partner"
-                          ? "border-[#8EEA4D]/45 bg-[#8EEA4D]/12 shadow-[0_0_42px_rgba(142,234,77,0.12)]"
+                          ? "border-[#8EEA4D]/42 bg-[#8EEA4D]/9"
                           : "border-white/10 bg-black/24"
                       }`}
                     >
-                      <span className="text-xs font-bold text-white/35">0{index + 1}</span>
-                      <span>
-                        <span className="flex flex-wrap items-center gap-2 font-semibold">
-                          {item.name}
-                          {item.name === "Premium Growth Partner" && (
-                            <span className="rounded-full bg-[#8EEA4D] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-[#071006]">
-                              Recommended
-                            </span>
-                          )}
-                        </span>
-                        <span className="mt-1 block text-sm text-white/45">{item.fit}</span>
+                      <span className="mb-5 flex items-center justify-between gap-4">
+                        <span className="text-xs font-bold text-white/35">0{index + 1}</span>
+                        {item.name === "Premium Growth Partner" && (
+                          <span className="rounded-full bg-[#8EEA4D] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-[#071006]">
+                            Recommended
+                          </span>
+                        )}
                       </span>
-                      <span className="inline-flex items-center justify-between gap-4 font-semibold text-[#8EEA4D]">
-                        {item.price}
+                      <span className="text-sm font-semibold text-[#CFFFAB]">{item.price}/month</span>
+                      <span className="mt-2 block text-xl font-semibold text-white">{item.name}</span>
+                      <span className="mt-3 block leading-7 text-white/54">{item.fit}</span>
+                      <span className="mt-5 grid gap-2">
+                        {item.features.map((feature) => (
+                          <span key={feature} className="flex items-center gap-2 text-sm text-white/58">
+                            <CheckCircle2 className="size-4 shrink-0 text-[#8EEA4D]" />
+                            {feature}
+                          </span>
+                        ))}
+                      </span>
+                      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-bold text-white transition group-hover:text-[#8EEA4D]">
+                        Book audit for this plan
                         <ChevronRight className="size-5 transition group-hover:translate-x-1" />
                       </span>
                     </a>
@@ -1113,8 +1160,8 @@ export default function Home() {
           </Reveal>
         </section>
 
-        <footer className="border-t border-white/10 bg-[#030604]/92 px-5 py-10 sm:px-8">
-          <div className="mx-auto grid max-w-7xl gap-8 rounded-[2rem] border border-white/10 bg-white/[0.035] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-2xl sm:p-8 lg:grid-cols-[1.2fr_0.65fr_0.95fr] lg:p-10">
+        <footer className="border-t border-white/10 bg-[#030604] px-5 py-10 sm:px-8">
+          <div className="mx-auto grid max-w-7xl gap-8 rounded-[1.5rem] border border-white/10 bg-[#0A100B] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:p-8 lg:grid-cols-[1.2fr_0.65fr_0.95fr] lg:p-10">
             <div>
               <a href="#" className="inline-flex items-center gap-3" aria-label="Zexa Media home">
                 <span className="relative block h-20 w-64 overflow-hidden">
@@ -1222,7 +1269,7 @@ export default function Home() {
 
       <a
         href={phoneHref}
-        className="magnetic-cta fixed bottom-5 left-1/2 z-40 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-[#8EEA4D]/30 bg-[#071006]/88 px-5 py-3 text-sm font-bold text-white shadow-[0_0_42px_rgba(142,234,77,0.22)] backdrop-blur-2xl transition hover:border-[#8EEA4D] hover:text-[#8EEA4D] sm:inline-flex"
+        className="magnetic-cta fixed bottom-5 left-1/2 z-40 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-[#8EEA4D]/30 bg-[#071006]/90 px-5 py-3 text-sm font-bold text-white shadow-[0_12px_32px_rgba(0,0,0,0.32)] backdrop-blur-2xl transition hover:border-[#8EEA4D] hover:text-[#8EEA4D] sm:inline-flex"
       >
         <Play className="size-4 fill-[#8EEA4D] text-[#8EEA4D]" />
         Call for Free Audit
@@ -1232,7 +1279,7 @@ export default function Home() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="whatsapp-float fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#8EEA4D] px-4 text-[#071006] shadow-[0_0_46px_rgba(142,234,77,0.42)] transition hover:-translate-y-1 sm:px-5"
+        className="whatsapp-float fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#8EEA4D] px-4 text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 sm:px-5"
         aria-label="Chat with Zexa Media on WhatsApp"
       >
         <MessageCircle className="size-6" />

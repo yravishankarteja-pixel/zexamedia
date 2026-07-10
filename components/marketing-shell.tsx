@@ -62,12 +62,12 @@ export function SiteHeader() {
           <BrandMark />
         </Link>
 
-        <div className="hidden items-center gap-7 lg:flex">
+        <div className="hidden items-center gap-9 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="nav-link text-sm font-medium text-white/62 transition hover:text-[#8EEA4D]"
+              className="nav-link text-sm font-medium text-white/66 transition hover:text-white"
             >
               {item.label}
             </Link>
@@ -76,7 +76,7 @@ export function SiteHeader() {
 
         <Link
           href={phoneHref}
-          className="magnetic-cta hidden rounded-full bg-[#8EEA4D] px-5 py-3 text-sm font-bold text-[#071006] shadow-[0_0_36px_rgba(142,234,77,0.24)] transition hover:-translate-y-0.5 hover:shadow-[0_0_46px_rgba(142,234,77,0.42)] sm:inline-flex"
+          className="magnetic-cta hidden rounded-full bg-[#8EEA4D] px-5 py-3 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 sm:inline-flex"
         >
           Call Zexa
         </Link>
@@ -87,8 +87,8 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#030604]/92 px-5 py-10 sm:px-8">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-2xl">
+    <footer className="border-t border-white/10 bg-[#030604] px-5 py-10 sm:px-8">
+      <div className="mx-auto max-w-7xl overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0A100B] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
         <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.2fr_0.65fr_0.95fr] lg:p-10">
         <div>
           <Link href="/" className="inline-flex flex-col gap-3" aria-label="Zexa Media home">
@@ -188,17 +188,17 @@ function FooterColumn({
 export function PageShell({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <main className="min-h-screen overflow-hidden bg-[#050806] text-white">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.13),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.07),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_42%,#020302_100%)]" />
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.06),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.045),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_42%,#020302_100%)]" />
       <div className="premium-orb premium-orb-one" />
       <div className="premium-orb premium-orb-two" />
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:72px_72px]" />
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:96px_96px]" />
       <div className="relative z-10">
         <SiteHeader />
         {children}
         <SiteFooter />
         <Link
           href={phoneHref}
-          className="magnetic-cta fixed bottom-5 left-1/2 z-40 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-[#8EEA4D]/30 bg-[#071006]/88 px-5 py-3 text-sm font-bold text-white shadow-[0_0_42px_rgba(142,234,77,0.22)] backdrop-blur-2xl transition hover:border-[#8EEA4D] hover:text-[#8EEA4D] sm:inline-flex"
+          className="magnetic-cta fixed bottom-5 left-1/2 z-40 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-[#8EEA4D]/30 bg-[#071006]/90 px-5 py-3 text-sm font-bold text-white shadow-[0_12px_32px_rgba(0,0,0,0.32)] backdrop-blur-2xl transition hover:border-[#8EEA4D] hover:text-[#8EEA4D] sm:inline-flex"
         >
           Call for Free Audit
         </Link>
@@ -206,7 +206,7 @@ export function PageShell({ children }: Readonly<{ children: ReactNode }>) {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="whatsapp-float fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#8EEA4D] px-4 text-[#071006] shadow-[0_0_46px_rgba(142,234,77,0.42)] transition hover:-translate-y-1 sm:px-5"
+          className="whatsapp-float fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#8EEA4D] px-4 text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 sm:px-5"
           aria-label="Chat with Zexa Media on WhatsApp"
         >
           <MessageCircle className="size-6" />
@@ -247,7 +247,7 @@ export function PageHero({
         <div className="mt-9 flex flex-col gap-4 sm:flex-row">
           <Link
             href={phoneHref}
-            className="magnetic-cta inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] shadow-[0_0_42px_rgba(142,234,77,0.30)] transition hover:-translate-y-1"
+            className="magnetic-cta inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1"
           >
             Call Zexa
             <ArrowRight className="ml-2 size-5" />
