@@ -50,7 +50,7 @@ export function PageHero({
           </p>
         </Reveal>
         <Reveal delay={0.08}>
-          <h1 className="max-w-5xl text-5xl font-semibold leading-[1.02] tracking-normal sm:text-6xl">
+          <h1 className="max-w-5xl text-4xl font-semibold leading-[1.06] tracking-normal sm:text-5xl lg:text-6xl">
             {title}
           </h1>
         </Reveal>
@@ -90,7 +90,7 @@ export function PageHero({
       </div>
       {imageSrc && (
         <Reveal delay={0.32} variant="scale-in">
-          <div className="image-depth-card relative min-h-[360px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] shadow-[0_30px_110px_rgba(0,0,0,0.38)] lg:min-h-[480px]">
+          <div className="image-depth-card hero-visual-float relative min-h-[340px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] shadow-[0_30px_110px_rgba(0,0,0,0.38)] lg:min-h-[460px]">
             <Image
               src={imageSrc}
               alt={imageAlt ?? title}
@@ -104,7 +104,7 @@ export function PageHero({
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#8EEA4D]">
                 {metricLabel}
               </p>
-              <p className="mt-3 text-2xl font-semibold">{metricValue}</p>
+              <p className="mt-3 text-xl font-semibold leading-tight sm:text-2xl">{metricValue}</p>
             </div>
           </div>
         </Reveal>
@@ -135,7 +135,7 @@ export function Section({
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-[#8EEA4D]">
             {eyebrow}
           </p>
-          <h2 className="text-4xl font-semibold leading-tight sm:text-5xl">{title}</h2>
+          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">{title}</h2>
         </div>
       </Reveal>
       <Reveal delay={0.08}>{children}</Reveal>

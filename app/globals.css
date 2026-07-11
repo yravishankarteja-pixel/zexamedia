@@ -103,6 +103,11 @@ html {
   transform: translateZ(0);
 }
 
+.hero-visual-float {
+  animation: hero-visual-float 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
 .image-depth-card::after {
   background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.1) 45%, transparent 70%);
   content: "";
@@ -247,6 +252,16 @@ footer {
   }
   50% {
     transform: translate3d(-28px, 22px, 0) scale(1.08);
+  }
+}
+
+@keyframes hero-visual-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
   }
 }
 

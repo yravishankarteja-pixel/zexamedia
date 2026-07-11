@@ -155,7 +155,7 @@ export default function PackagesPage() {
         imageSrc="/images/zexa-dashboard-review.png"
         imageAlt="Zexa Media reviewing marketing package performance dashboards with a business owner"
         metricLabel="Pricing clarity"
-        metricValue="From \u20B915,000 to \u20B950,000/month"
+        metricValue={"From ₹15,000 to ₹50,000/month"}
       />
 
       <Section eyebrow="Pricing" title="Premium monthly growth packages.">
