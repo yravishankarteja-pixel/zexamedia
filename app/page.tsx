@@ -228,7 +228,7 @@ const offerSchema = {
     "@type": "Offer",
     position: index + 1,
     name: item.name,
-    price: item.price.replace(/[₹,]/g, ""),
+    price: item.price.replace(/\D/g, ""),
     priceCurrency: "INR",
     url: "https://zexamedia.in/packages",
     seller: {
@@ -343,10 +343,14 @@ export default function Home() {
         style={{ y: heroParallax }}
       />
       <div className="premium-orb premium-orb-one" />
+      <div className="floating-geo geo-cube geo-cube-a" />
+      <div className="floating-geo geo-ring geo-ring-a" />
+      <div className="floating-geo geo-prism geo-prism-a" />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:112px_112px]" />
 
       <div className="relative z-10">
-        <section className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-12 pt-16 sm:px-8 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:pb-14 lg:pt-20">
+        <section className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 pb-12 pt-16 sm:px-8 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:pb-14 lg:pt-20">
+          <div className="pointer-events-none absolute left-1/2 top-6 hidden h-28 w-28 -translate-x-1/2 rounded-[2rem] border border-[#8EEA4D]/18 bg-[#8EEA4D]/10 blur-[0.2px] lg:block geo-float-local" />
           <div>
             <Reveal>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-sm font-semibold text-white/72">
@@ -387,7 +391,7 @@ export default function Home() {
 
           <Reveal delay={0.14}>
             <div className="relative mx-auto w-full max-w-[560px]">
-              <div className="image-depth-card relative aspect-[0.92] overflow-hidden rounded-[1.75rem] border border-white/12 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
+              <div className="image-depth-card hero-visual-float relative aspect-[0.92] overflow-hidden rounded-[1.75rem] border border-white/12 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
                 <Image
                   src="/images/zexa-hero-strategy.png"
                   alt="Zexa Media strategist and business owner reviewing digital marketing analytics"
@@ -431,6 +435,33 @@ export default function Home() {
         <section className="px-5 sm:px-8">
           <Reveal>
             <div className="mx-auto max-w-7xl overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#0A100B]">
+              <div className="trust-marquee border-b border-white/10 bg-white/[0.035] py-4">
+                <div className="trust-marquee-track flex w-max items-center gap-12 whitespace-nowrap px-6 text-xs font-bold uppercase tracking-[0.24em] text-white/42">
+                  {[
+                    "Google Ads",
+                    "Meta Ads",
+                    "WhatsApp Leads",
+                    "Landing Pages",
+                    "GA4 Tracking",
+                    "Automation",
+                    "Local SEO",
+                    "Campaign Reports",
+                    "Google Ads",
+                    "Meta Ads",
+                    "WhatsApp Leads",
+                    "Landing Pages",
+                    "GA4 Tracking",
+                    "Automation",
+                    "Local SEO",
+                    "Campaign Reports",
+                  ].map((item, index) => (
+                    <span key={`${item}-${index}`} className="inline-flex items-center gap-4">
+                      <span className="size-1.5 rounded-full bg-[#8EEA4D]" />
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
               <div className="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat) => (
                   <div
@@ -456,7 +487,7 @@ export default function Home() {
             <div className="grid gap-4 md:grid-cols-2">
               {caseSnapshots.map((item, index) => (
                 <Reveal key={item.clientName} delay={index * 0.05}>
-                  <article className="h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/30">
+                  <article className="root-style-card h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/30">
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
                       Case snapshot
                     </p>
@@ -504,7 +535,7 @@ export default function Home() {
               <Reveal key={service.title} delay={index * 0.04}>
                 <a
                   href={service.href}
-                  className="group flex h-full min-h-52 flex-col rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35 hover:bg-white/[0.055]"
+                  className="root-style-card group flex h-full min-h-52 flex-col rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35 hover:bg-white/[0.055]"
                 >
                   <div className="mb-7 grid size-11 place-items-center rounded-full border border-white/10 bg-white/[0.05] text-white/70 transition group-hover:border-[#8EEA4D]/35 group-hover:text-[#8EEA4D]">
                     <service.icon className="size-5" strokeWidth={1.8} />
@@ -532,7 +563,7 @@ export default function Home() {
               <Reveal key={item.title} delay={index * 0.05}>
                 <a
                   href="/case-studies"
-                  className="group block h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35"
+                  className="root-style-card group block h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35"
                 >
                   <p className="text-5xl font-semibold text-[#8EEA4D]">{item.metric}</p>
                   <h3 className="mt-5 text-2xl font-semibold text-white">{item.title}</h3>
@@ -553,7 +584,7 @@ export default function Home() {
             {packages.map((item, index) => (
               <Reveal key={item.name} delay={index * 0.04}>
                 <article
-                  className={`flex h-full flex-col rounded-[1.35rem] border p-6 ${
+                  className={`root-style-card flex h-full flex-col rounded-[1.35rem] border p-6 ${
                     item.recommended
                       ? "border-[#8EEA4D]/42 bg-[#8EEA4D]/9"
                       : "border-white/10 bg-[#0A100B]/90"
@@ -663,3 +694,5 @@ export default function Home() {
     </main>
   );
 }
+
+

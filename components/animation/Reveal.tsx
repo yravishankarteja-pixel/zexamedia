@@ -9,6 +9,8 @@ const variants = {
   "fade-left": { opacity: 0, x: 30 },
   "fade-right": { opacity: 0, x: -30 },
   "scale-in": { opacity: 0, scale: 0.97 },
+  "soft-drop": { opacity: 0, y: -18, filter: "blur(8px)" },
+  "soft-zoom": { opacity: 0, scale: 0.92, filter: "blur(10px)" },
 };
 
 type RevealVariant = keyof typeof variants;
@@ -30,9 +32,9 @@ export function Reveal({
     <motion.div
       className={className}
       initial={reduceMotion ? false : variants[variant]}
-      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+      whileInView={{ opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)" }}
       viewport={{ once: true, amount: 0.18 }}
-      transition={{ ...transitionBase, delay }}
+      transition={{ ...transitionBase, duration: 0.62, delay }}
     >
       {children}
     </motion.div>

@@ -13,6 +13,9 @@ export function PageShell({ children }: Readonly<{ children: ReactNode }>) {
       <div className="premium-orb premium-orb-one" />
       <div className="premium-orb premium-orb-two" />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:96px_96px]" />
+      <div className="floating-geo geo-cube geo-cube-a" />
+      <div className="floating-geo geo-ring geo-ring-a" />
+      <div className="floating-geo geo-prism geo-prism-a" />
       <div className="relative z-10">
         {children}
       </div>
@@ -44,20 +47,20 @@ export function PageHero({
       }`}
     >
       <div>
-        <Reveal delay={0}>
+        <Reveal delay={0} variant="soft-drop">
           <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-[#8EEA4D]">
             {eyebrow}
           </p>
         </Reveal>
-        <Reveal delay={0.08}>
+        <Reveal delay={0.08} variant="soft-zoom">
           <h1 className="max-w-5xl text-4xl font-semibold leading-[1.06] tracking-normal sm:text-5xl lg:text-6xl">
             {title}
           </h1>
         </Reveal>
-        <Reveal delay={0.16}>
+        <Reveal delay={0.16} variant="fade-up">
           <p className="mt-7 max-w-3xl text-lg leading-8 text-white/62">{description}</p>
         </Reveal>
-        <Reveal delay={0.24}>
+        <Reveal delay={0.24} variant="soft-drop">
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <Link
               href={phoneHref}
@@ -74,7 +77,7 @@ export function PageHero({
             </Link>
           </div>
         </Reveal>
-        <Reveal delay={0.32}>
+        <Reveal delay={0.32} variant="soft-drop">
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {["30-minute audit", "Clear next step", "Call or WhatsApp"].map((item) => (
               <div
@@ -116,7 +119,7 @@ export function PageHero({
 export function GlassCard({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <Reveal>
-      <div className="lift-card rounded-[1.75rem] border border-white/10 bg-white/[0.052] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition duration-300 hover:border-[#8EEA4D]/40 hover:bg-[#8EEA4D]/8">
+      <div className="lift-card root-style-card rounded-[1.75rem] border border-white/10 bg-white/[0.052] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition duration-300 hover:border-[#8EEA4D]/40 hover:bg-[#8EEA4D]/8">
         {children}
       </div>
     </Reveal>
