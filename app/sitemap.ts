@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
-
-const baseUrl = "https://zexamedia.in";
+import { absoluteUrl } from "@/lib/site-url";
 
 const routes = [
   "",
@@ -24,7 +23,7 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: absoluteUrl(route),
     lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route.includes("/blog/") ? 0.6 : 0.8,

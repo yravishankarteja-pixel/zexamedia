@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BarChart3, Bot, Camera, Gem, LineChart, Sparkles } from "lucide-react";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Marketing Services | Zexa Media Vizag",
   description:
     "Explore Zexa Media's growth marketing services: paid ads, social media, branding, automation, content production, SEO and analytics.",
-  alternates: { canonical: "https://zexamedia.in/services" },
+  alternates: { canonical: absoluteUrl("/services") },
 };
 
 const services = [

@@ -13,12 +13,13 @@ import {
   Workflow,
 } from "lucide-react";
 import { GlassCard, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "The Zexa Growth System | Zexa Media",
   description:
     "See how Zexa Media connects ads, content, tracking, landing pages, reporting, and automation into one growth system for local businesses.",
-  alternates: { canonical: "https://zexamedia.in/growth-system" },
+  alternates: { canonical: absoluteUrl("/growth-system") },
 };
 
 const services = [

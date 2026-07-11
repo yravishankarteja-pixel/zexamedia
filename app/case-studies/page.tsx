@@ -4,12 +4,13 @@ import { ArrowRight, BadgeCheck, BarChart3 } from "lucide-react";
 import { StaggerContainer } from "@/components/animation/StaggerContainer";
 import { StaggerItem } from "@/components/animation/StaggerItem";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Client Results & Case Studies | Zexa Media",
   description:
     "See how Zexa Media helped Vizag businesses generate leads, improve CPL, and grow their brand.",
-  alternates: { canonical: "https://zexamedia.in/case-studies" },
+  alternates: { canonical: absoluteUrl("/case-studies") },
 };
 
 const studies = [

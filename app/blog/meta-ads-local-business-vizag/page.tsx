@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "How to Run Meta Ads for a Local Business in Vizag",
   description:
     "Meta Ads can transform a local business in Visakhapatnam if you target right, write strong copy, and track the right metrics.",
-  alternates: { canonical: "https://zexamedia.in/blog/meta-ads-local-business-vizag" },
+  alternates: { canonical: absoluteUrl("/blog/meta-ads-local-business-vizag") },
 };
 
 export default function MetaAdsArticle() {

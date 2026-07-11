@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "What Is Growth Marketing? And Why Every Vizag Business Needs It",
   description:
     "Growth marketing is a data-driven system combining paid ads, content, automation and branding. Here's what it means for your business.",
-  alternates: { canonical: "https://zexamedia.in/blog/what-is-growth-marketing" },
+  alternates: { canonical: absoluteUrl("/blog/what-is-growth-marketing") },
 };
 
 export default function GrowthMarketingArticle() {

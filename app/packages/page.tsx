@@ -4,12 +4,13 @@ import { CheckCircle2, Star } from "lucide-react";
 import { StaggerContainer } from "@/components/animation/StaggerContainer";
 import { StaggerItem } from "@/components/animation/StaggerItem";
 import { GlassCard, PageHero, PageShell, Section, phoneHref } from "@/components/marketing-shell";
+import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Marketing Packages & Pricing | Zexa Media Vizag",
   description:
     "View Zexa Media's final monthly growth marketing packages from Basic Ads Starter to Premium Growth Partner.",
-  alternates: { canonical: "https://zexamedia.in/packages" },
+  alternates: { canonical: absoluteUrl("/packages") },
 };
 
 const packages = [
@@ -130,13 +131,13 @@ const packageSchema = {
     "@type": "Offer",
     position: index + 1,
     name: item.name,
-    price: item.price.replace(/[₹,]/g, "").replace("/month", ""),
+    price: item.price.replace(/[â‚¹,]/g, "").replace("/month", ""),
     priceCurrency: "INR",
     description: item.fit,
     seller: {
       "@type": "Organization",
       name: "Zexa Media",
-      url: "https://zexamedia.in",
+      url: siteUrl,
     },
   })),
 };
@@ -155,7 +156,7 @@ export default function PackagesPage() {
         imageSrc="/images/zexa-dashboard-review.png"
         imageAlt="Zexa Media reviewing marketing package performance dashboards with a business owner"
         metricLabel="Pricing clarity"
-        metricValue={"From ₹15,000 to ₹50,000/month"}
+        metricValue={"From â‚¹15,000 to â‚¹50,000/month"}
       />
 
       <Section eyebrow="Pricing" title="Premium monthly growth packages.">
@@ -256,3 +257,4 @@ export default function PackagesPage() {
     </PageShell>
   );
 }
+

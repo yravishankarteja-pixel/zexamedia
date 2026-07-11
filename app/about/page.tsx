@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "About Zexa Media | Our Story & Mission",
   description:
     "Zexa Media is a Visakhapatnam-based growth marketing agency built to help local businesses scale with data-driven strategy, automation, and performance marketing.",
-  alternates: { canonical: "https://zexamedia.in/about" },
+  alternates: { canonical: absoluteUrl("/about") },
 };
 
 export default function AboutPage() {

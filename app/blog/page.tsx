@@ -4,12 +4,13 @@ import { ArrowRight, BarChart3, Megaphone, Workflow } from "lucide-react";
 import { StaggerContainer } from "@/components/animation/StaggerContainer";
 import { StaggerItem } from "@/components/animation/StaggerItem";
 import { PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Marketing Blog | Growth Tips by Zexa Media",
   description:
     "Practical digital marketing tips and strategies from Zexa Media on Google Ads, Meta Ads, branding, automation and growth marketing.",
-  alternates: { canonical: "https://zexamedia.in/blog" },
+  alternates: { canonical: absoluteUrl("/blog") },
 };
 
 const posts = [

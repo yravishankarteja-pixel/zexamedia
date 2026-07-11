@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Marketing Automation Services | Zexa Media",
   description:
     "Automate leads, follow-ups and reporting with Zexa Media. We build workflows using Make, Zapier and WhatsApp automation.",
-  alternates: { canonical: "https://zexamedia.in/services/automation" },
+  alternates: { canonical: absoluteUrl("/services/automation") },
 };
 
 export default function AutomationPage() {

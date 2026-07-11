@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { AuditForm } from "@/components/audit-form";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Free Marketing Audit | Zexa Media Vizag",
   description:
     "Get a free marketing audit from Zexa Media. We review your ads, social media and website to show where you're losing money.",
-  alternates: { canonical: "https://zexamedia.in/free-audit" },
+  alternates: { canonical: absoluteUrl("/free-audit") },
 };
 
 export default function FreeAuditPage() {

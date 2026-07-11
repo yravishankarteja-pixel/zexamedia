@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Branding & Brand Identity Agency | Zexa Media",
   description:
     "Build a brand that stands out. Zexa Media creates logos, brand kits, and positioning strategies for businesses in Vizag and Andhra Pradesh.",
-  alternates: { canonical: "https://zexamedia.in/services/branding" },
+  alternates: { canonical: absoluteUrl("/services/branding") },
 };
 
 export default function BrandingPage() {

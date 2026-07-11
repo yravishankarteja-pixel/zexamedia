@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { CheckList, GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Performance Marketing | Google & Meta Ads - Zexa",
   description:
     "Drive qualified leads with expert Google Ads and Meta Ads management. Zexa Media runs ROI-focused paid campaigns for local and national businesses.",
-  alternates: { canonical: "https://zexamedia.in/services/performance-marketing" },
+  alternates: { canonical: absoluteUrl("/services/performance-marketing") },
 };
 
 export default function PerformanceMarketingPage() {

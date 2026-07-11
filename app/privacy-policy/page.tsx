@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Zexa Media",
   description:
     "Read Zexa Media's privacy policy for website visitors, audit requests, contact forms, analytics, and marketing communications.",
-  alternates: { canonical: "https://zexamedia.in/privacy-policy" },
+  alternates: { canonical: absoluteUrl("/privacy-policy") },
 };
 
 const sections = [

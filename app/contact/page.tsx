@@ -11,12 +11,13 @@ import {
   socialLinks,
   whatsappUrl,
 } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Contact Zexa Media | Book a Free Strategy Call",
   description:
     "Ready to grow? Contact Zexa Media for a free 30-minute marketing audit. Based in Visakhapatnam and serving businesses across India.",
-  alternates: { canonical: "https://zexamedia.in/contact" },
+  alternates: { canonical: absoluteUrl("/contact") },
 };
 
 export default function ContactPage() {

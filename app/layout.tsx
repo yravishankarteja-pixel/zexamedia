@@ -4,6 +4,7 @@ import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { SiteHeaderClient } from "@/components/site-header-client";
 import { phoneHref, SiteFooter, whatsappUrl } from "@/components/site-footer";
+import { absoluteUrl, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,23 +18,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zexamedia.in"),
+  metadataBase: new URL(siteUrl),
   title: "Zexa Media | Growth Marketing Agency Vizag",
   description:
     "Zexa Media helps Vizag businesses grow with Google Ads, Meta Ads, branding & automation. ROI-focused. Results-driven. Get a free audit today.",
   alternates: {
-    canonical: "https://zexamedia.in",
+    canonical: siteUrl,
   },
   openGraph: {
     title: "Zexa Media | Growth Marketing Agency Vizag",
     description:
       "ROI-focused growth marketing for Vizag businesses using Google Ads, Meta Ads, branding, social media, and automation.",
-    url: "https://zexamedia.in",
+    url: siteUrl,
     siteName: "Zexa Media",
     type: "website",
     images: [
       {
-        url: "https://zexamedia.in/zexa-media-logo.png",
+        url: absoluteUrl("/zexa-media-logo.png"),
         width: 1536,
         height: 1024,
         alt: "Zexa Media",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     title: "Zexa Media | Growth Marketing Agency Vizag",
     description:
       "ROI-focused growth marketing for Vizag businesses using Google Ads, Meta Ads, branding, social media, and automation.",
-    images: ["https://zexamedia.in/zexa-media-logo.png"],
+    images: [absoluteUrl("/zexa-media-logo.png")],
   },
 };
 

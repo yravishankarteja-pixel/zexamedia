@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Social Media Management Agency | Zexa Media",
   description:
     "Zexa Media manages Instagram, Facebook and reels content strategy. Consistent, creative, conversion-focused social media management in Vizag.",
-  alternates: { canonical: "https://zexamedia.in/services/social-media-management" },
+  alternates: { canonical: absoluteUrl("/services/social-media-management") },
 };
 
 export default function SocialMediaPage() {

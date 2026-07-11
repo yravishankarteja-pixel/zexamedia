@@ -23,6 +23,7 @@ import {
   TrendingUp,
   Workflow,
 } from "lucide-react";
+import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 const contactEmail = "contactzexamedia@gmail.com";
 
@@ -188,9 +189,9 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Zexa Media",
-  url: "https://zexamedia.in",
+  url: siteUrl,
   email: contactEmail,
-  logo: "https://zexamedia.in/zexa-media-logo-transparent.png",
+  logo: absoluteUrl("/zexa-media-logo-transparent.png"),
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+91-95152-56630",
@@ -206,10 +207,10 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Zexa Media",
-  url: "https://zexamedia.in",
+  url: siteUrl,
   email: contactEmail,
   telephone: "+91-95152-56630",
-  image: "https://zexamedia.in/zexa-media-logo-transparent.png",
+  image: absoluteUrl("/zexa-media-logo-transparent.png"),
   address: {
     "@type": "PostalAddress",
     addressLocality: "Visakhapatnam",
@@ -230,7 +231,7 @@ const offerSchema = {
     name: item.name,
     price: item.price.replace(/\D/g, ""),
     priceCurrency: "INR",
-    url: "https://zexamedia.in/packages",
+    url: absoluteUrl("/packages"),
     seller: {
       "@type": "Organization",
       name: "Zexa Media",

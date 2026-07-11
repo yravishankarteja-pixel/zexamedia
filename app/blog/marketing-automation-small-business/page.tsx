@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "5 Marketing Automations Every Small Business in India Should Set Up Today",
   description:
     "Most small businesses lose leads because of slow follow-up. These five marketing automations help fix that.",
-  alternates: { canonical: "https://zexamedia.in/blog/marketing-automation-small-business" },
+  alternates: { canonical: absoluteUrl("/blog/marketing-automation-small-business") },
 };
 
 export default function AutomationArticle() {
