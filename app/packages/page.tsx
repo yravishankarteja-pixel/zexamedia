@@ -1,6 +1,6 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { CheckCircle2, Star } from "lucide-react";
+import { CheckCircle2, ExternalLink, Star } from "lucide-react";
 import { StaggerContainer } from "@/components/animation/StaggerContainer";
 import { StaggerItem } from "@/components/animation/StaggerItem";
 import { GlassCard, PageHero, PageShell, Section, phoneHref } from "@/components/marketing-shell";
@@ -9,7 +9,7 @@ import { absoluteUrl, siteUrl } from "@/lib/site-url";
 export const metadata: Metadata = {
   title: "Marketing Packages & Pricing | Zexa Media Vizag",
   description:
-    "View Zexa Media's final monthly growth marketing packages from Basic Ads Starter to Premium Growth Partner.",
+    "Compare Zexa Media's monthly digital marketing packages for ads, social media, local SEO, landing pages, tracking and automation.",
   alternates: { canonical: absoluteUrl("/packages") },
 };
 
@@ -17,7 +17,10 @@ const packages = [
   {
     name: "Basic Ads Starter",
     price: "\u20B915,000/month",
+    priceValue: 15000,
     fit: "Best for businesses that want to start digital ads with a basic monthly plan.",
+    bestFor: "First-time advertisers testing one channel.",
+    outcome: "Launch one focused lead campaign with basic tracking and weekly optimisation.",
     recommended: false,
     includes: [
       "Only 1 platform: Google Ads OR Meta Ads",
@@ -29,13 +32,14 @@ const packages = [
       "Weekly campaign optimization",
       "Basic monthly performance report",
     ],
-    notIncluded: ["Video reels", "Video shoot", "Google + Meta both", "Landing page", "Influencer collaboration", "Ad budget"],
-    note: "If the client wants video shoot or reels, it will be charged separately.",
   },
   {
     name: "Growth Ads Package",
     price: "\u20B925,000/month",
+    priceValue: 25000,
     fit: "Best for businesses that want to run both Google and Meta with stronger creative support.",
+    bestFor: "Businesses ready to compare Google intent with Meta reach.",
+    outcome: "Run both major ad platforms with creative support and source-level lead tracking.",
     recommended: false,
     includes: [
       "Google Ads + Meta Ads",
@@ -49,12 +53,14 @@ const packages = [
       "Calls, WhatsApp, forms, and lead source tracking",
       "Monthly performance report",
     ],
-    notIncluded: ["Ad budget", "Influencer fee", "Landing page", "Advanced automation", "Third-party tool costs"],
   },
   {
     name: "Local Growth Package",
     price: "\u20B930,000/month",
+    priceValue: 30000,
     fit: "Best for gyms, clinics, restaurants, coaching institutes, and local service businesses that need ads, local SEO, and landing page support.",
+    bestFor: "Local service businesses that need ads plus better local discovery.",
+    outcome: "Connect paid ads, Google Business Profile, local SEO and landing page support.",
     recommended: false,
     includes: [
       "Google Ads + Meta Ads",
@@ -71,13 +77,14 @@ const packages = [
       "Google Sheet lead tracking structure",
       "Monthly performance insights and improvement plan",
     ],
-    notIncluded: ["Ad budget", "Influencer fee", "Advanced AI automation", "Paid tools or plugin costs", "Hosting/domain costs"],
-    note: "Landing page is included, limited to one professional landing page with necessary changes.",
   },
   {
     name: "Premium Growth Partner",
     price: "\u20B950,000/month",
+    priceValue: 50000,
     fit: "Best for businesses that want full growth marketing with ads, content, landing pages, analytics, automation, and influencer support.",
+    bestFor: "Serious growth teams that want one partner across ads, content, tracking and automation.",
+    outcome: "Build a complete monthly growth system with stronger reporting and lead response support.",
     recommended: true,
     includes: [
       "Google Ads + Meta Ads",
@@ -93,34 +100,87 @@ const packages = [
       "Calls, WhatsApp, forms, landing page leads, and campaign-wise source tracking",
       "Basic WhatsApp lead response automation",
       "Basic AI automation workflow for lead handling",
-      "Basic AI call/lead response structure guidance or setup",
       "Google Sheet or CRM-ready lead tracking structure",
       "Google Business Profile + local SEO optimization",
       "Local influencer coordination included",
       "Advanced monthly analytics and strategy review",
       "Monthly scaling plan and next action roadmap",
     ],
-    notIncluded: [
-      "Ad budget",
-      "Influencer fee",
-      "WhatsApp API charges",
-      "AI calling tool cost or credits",
-      "CRM subscription cost",
-      "Domain, hosting, landing page tool, or paid plugin costs",
-    ],
-    note: "Package fee covers strategy, execution, management, creatives, tracking, reporting, and optimization.",
   },
 ];
 
 const comparisonRows = [
   ["Monthly fee", "\u20B915,000", "\u20B925,000", "\u20B930,000", "\u20B950,000"],
   ["Platforms", "Google OR Meta", "Google + Meta", "Google + Meta", "Google + Meta"],
-  ["Static creatives", "10", "10", "10-12", "12-15"],
+  ["Static creatives", "10/month", "10/month", "10-12/month", "12-15/month"],
   ["Video shoots", "Add-on", "1/month", "2/month", "2/month"],
-  ["Landing page", "No", "No", "Included", "Professional + monthly improvements"],
-  ["Local SEO / GBP", "No", "No", "Included", "Included"],
-  ["Automation", "No", "Basic tracking", "Sheet tracking", "WhatsApp + basic AI workflow"],
+  ["Reels", "Add-on", "Basic reels from footage", "Reels from footage", "Premium reels from footage"],
+  ["Landing page", "Not included", "Not included", "Included", "Professional + monthly improvements"],
+  ["Tracking", "Basic calls, WhatsApp, forms", "Lead source tracking", "Landing page + sheet tracking", "GA4, GTM, Meta Pixel + source tracking"],
+  ["Local SEO / GBP", "Not included", "Not included", "Included", "Included"],
+  ["Automation", "Not included", "Not included", "Google Sheet tracking", "WhatsApp + basic AI workflow"],
   ["Recommended for", "Ad starters", "Growing ad accounts", "Local service businesses", "Full growth partner"],
+];
+
+const decisionCards = [
+  {
+    title: "Choose Basic Ads Starter if",
+    copy: "you want one platform launched properly before increasing your monthly marketing spend.",
+    link: "/services/performance-marketing",
+    linkLabel: "See paid ads service",
+  },
+  {
+    title: "Choose Growth Ads Package if",
+    copy: "you need Google and Meta running together with better creative support and basic retargeting.",
+    link: "/services/social-media-management",
+    linkLabel: "See social media service",
+  },
+  {
+    title: "Choose Local Growth Package if",
+    copy: "you depend on calls, visits, appointments or nearby enquiries and need local SEO plus landing page support.",
+    link: "/services",
+    linkLabel: "See all services",
+  },
+  {
+    title: "Choose Premium Growth Partner if",
+    copy: "you want Zexa to manage the full growth engine: ads, content, landing page improvements, analytics and automation.",
+    link: "/services/automation",
+    linkLabel: "See automation service",
+  },
+];
+
+const addOns = [
+  ["Website Design", "Up to 5 pages, mobile responsive build and core content setup.", "\u20B925,000 one-time"],
+  ["Landing Page Design", "Single conversion-focused page with copy and CTA structure.", "\u20B910,000 one-time"],
+  ["Logo + Brand Kit", "Logo, colours, fonts and a practical brand guidelines PDF.", "\u20B912,000 one-time"],
+  ["Reel Production", "Four Reels per month with scripting, direction, editing and captions.", "\u20B912,000/month"],
+  ["WhatsApp Automation", "Lead notification and a 5-step follow-up sequence.", "\u20B98,000 one-time"],
+  ["Google Business Profile", "Profile optimisation and monthly post management.", "\u20B95,000/month"],
+  ["SEO Starter Pack", "On-page SEO for 5 pages with schema markup.", "\u20B915,000 one-time"],
+  ["Monthly Blog Content", "Four SEO-optimised articles of 800 to 1200 words each.", "\u20B910,000/month"],
+];
+
+const packageFaqs = [
+  {
+    question: "How much does a digital marketing agency charge in India?",
+    answer:
+      "Digital marketing agency fees in India commonly range from about \u20B915,000 to \u20B91,50,000 per month depending on scope, city, deliverables and team size. Zexa Media packages start at \u20B915,000/month and scale based on ads, content, local SEO, landing pages, tracking and automation needs.",
+  },
+  {
+    question: "Is ad budget included in the package fee?",
+    answer:
+      "No. Ad budget is paid separately to platforms such as Google or Meta. The Zexa Media package fee covers strategy, setup, creative support, management, optimisation, tracking and reporting based on the selected package.",
+  },
+  {
+    question: "Which package is best for a local business in Vizag?",
+    answer:
+      "Local Growth Package is usually the best fit for gyms, clinics, restaurants, coaching institutes and local service businesses because it combines Google Ads, Meta Ads, Google Business Profile work, local SEO and landing page support.",
+  },
+  {
+    question: "Can I upgrade my package later?",
+    answer:
+      "Yes. A business can start with a smaller package and upgrade once the campaign has enough data, the offer is clearer and the team is ready to handle more leads.",
+  },
 ];
 
 const packageSchema = {
@@ -131,13 +191,26 @@ const packageSchema = {
     "@type": "Offer",
     position: index + 1,
     name: item.name,
-    price: item.price.replace(/[â‚¹,]/g, "").replace("/month", ""),
+    price: item.priceValue,
     priceCurrency: "INR",
     description: item.fit,
     seller: {
       "@type": "Organization",
       name: "Zexa Media",
       url: siteUrl,
+    },
+  })),
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: packageFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
     },
   })),
 };
@@ -149,14 +222,18 @@ export default function PackagesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(packageSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <PageHero
         eyebrow="Packages"
         title="Growth packages built for clear monthly execution."
         description="Choose the package that matches your current growth stage. Ad budget and third-party costs stay transparent and separate."
         imageSrc="/images/zexa-dashboard-review.png"
-        imageAlt="Zexa Media reviewing marketing package performance dashboards with a business owner"
+        imageAlt="Zexa Media marketing packages and pricing dashboard for Vizag businesses"
         metricLabel="Pricing clarity"
-        metricValue={"From â‚¹15,000 to â‚¹50,000/month"}
+        metricValue={"\u20B915,000 to \u20B950,000/month"}
       />
 
       <Section eyebrow="Pricing" title="Premium monthly growth packages.">
@@ -165,40 +242,65 @@ export default function PackagesPage() {
             <StaggerItem key={item.name}>
               <article
                 className={`relative flex h-full flex-col rounded-[2rem] border p-6 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/45 ${
-                item.recommended
-                  ? "border-[#8EEA4D]/60 bg-[#8EEA4D]/10 shadow-[0_0_70px_rgba(142,234,77,0.18)]"
-                  : "border-white/10 bg-white/[0.052]"
-              }`}
-            >
-              {item.recommended && (
-                <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-[#8EEA4D] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#071006]">
-                  <Star className="size-4 fill-[#071006]" />
-                  Recommended
-                </div>
-              )}
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#8EEA4D]">
-                {item.price}
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold">{item.name}</h2>
-              <p className="mt-4 min-h-24 leading-7 text-white/58">{item.fit}</p>
-              <Link
-                href={phoneHref}
-                className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] transition hover:-translate-y-0.5"
+                  item.recommended
+                    ? "border-[#8EEA4D]/60 bg-[#8EEA4D]/10 shadow-[0_0_70px_rgba(142,234,77,0.18)]"
+                    : "border-white/10 bg-white/[0.052]"
+                }`}
               >
-                Call to Start
-              </Link>
-              <div className="mt-7 grid gap-3">
-                {item.includes.slice(0, item.recommended ? 10 : 8).map((feature) => (
-                  <div key={feature} className="flex gap-3 text-sm text-white/68">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#8EEA4D]" />
-                    <span>{feature}</span>
+                {item.recommended && (
+                  <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-[#8EEA4D] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#071006]">
+                    <Star className="size-4 fill-[#071006]" />
+                    Recommended
                   </div>
-                ))}
-              </div>
+                )}
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#8EEA4D]">
+                  {item.price}
+                </p>
+                <h2 className="mt-4 text-3xl font-semibold">{item.name}</h2>
+                <p className="mt-4 min-h-24 leading-7 text-white/58">{item.fit}</p>
+                <div className="mt-5 rounded-2xl border border-white/10 bg-black/18 p-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/42">
+                    Best for
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-white/72">{item.bestFor}</p>
+                </div>
+                <Link
+                  href={phoneHref}
+                  className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] transition hover:-translate-y-0.5"
+                >
+                  Call to Start
+                </Link>
+                <p className="mt-5 text-sm font-semibold leading-6 text-white/78">{item.outcome}</p>
+                <div className="mt-7 grid gap-3">
+                  {item.includes.slice(0, item.recommended ? 12 : 9).map((feature) => (
+                    <div key={feature} className="flex gap-3 text-sm text-white/68">
+                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#8EEA4D]" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </article>
             </StaggerItem>
           ))}
         </StaggerContainer>
+      </Section>
+
+      <Section eyebrow="Package chooser" title="Not sure which package fits? Start here.">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {decisionCards.map((card) => (
+            <GlassCard key={card.title}>
+              <h2 className="text-xl font-semibold">{card.title}</h2>
+              <p className="mt-4 min-h-28 leading-7 text-white/62">{card.copy}</p>
+              <Link
+                href={card.link}
+                className="mt-5 inline-flex items-center text-sm font-bold text-[#8EEA4D] transition hover:text-white"
+              >
+                {card.linkLabel}
+                <ExternalLink className="ml-2 size-4" />
+              </Link>
+            </GlassCard>
+          ))}
+        </div>
       </Section>
 
       <Section eyebrow="Comparison" title="Compare the final packages side by side.">
@@ -242,19 +344,76 @@ export default function PackagesPage() {
         </div>
       </Section>
 
+      <Section eyebrow="Add-ons" title="Add extra support when the package needs more firepower.">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {addOns.map(([name, copy, price]) => (
+            <GlassCard key={name}>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#8EEA4D]">
+                {price}
+              </p>
+              <h2 className="mt-4 text-xl font-semibold">{name}</h2>
+              <p className="mt-4 leading-7 text-white/62">{copy}</p>
+            </GlassCard>
+          ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="How it works" title="What happens after you choose a package.">
+        <div className="grid gap-5 lg:grid-cols-3">
+          {[
+            ["Audit and scope", "We review your current ads, social media, website, tracking and lead flow before locking the final scope."],
+            ["Launch plan", "You get a clear 30-day execution plan with platforms, content priorities, tracking setup and reporting expectations."],
+            ["Weekly optimisation", "Campaigns, creatives and lead quality are reviewed weekly so the monthly work improves with real data."],
+          ].map(([title, copy]) => (
+            <GlassCard key={title}>
+              <h2 className="text-2xl font-semibold">{title}</h2>
+              <p className="mt-4 leading-8 text-white/62">{copy}</p>
+            </GlassCard>
+          ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="FAQ" title="Pricing questions business owners ask first.">
+        <div className="grid gap-5 lg:grid-cols-2">
+          {packageFaqs.map((faq) => (
+            <GlassCard key={faq.question}>
+              <h2 className="text-2xl font-semibold">{faq.question}</h2>
+              <p className="mt-4 leading-8 text-white/62">{faq.answer}</p>
+            </GlassCard>
+          ))}
+        </div>
+      </Section>
+
       <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-8">
-        <GlassCard>
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
-            Costs paid separately
-          </p>
-          <p className="mt-4 leading-8 text-white/66">
-            Ad budget, influencer fee, WhatsApp API, AI calling tools, CRM, hosting, domain,
-            landing page tools, paid plugins, and third-party software costs are separate from
-            the package fee unless explicitly agreed in writing.
-          </p>
-        </GlassCard>
+        <div className="grid gap-5 lg:grid-cols-[1fr_0.55fr] lg:items-stretch">
+          <GlassCard>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
+              Costs paid separately
+            </p>
+            <p className="mt-4 leading-8 text-white/66">
+              Ad budget, influencer fee, WhatsApp API, AI calling tools, CRM, hosting, domain,
+              landing page tools, paid plugins, and third-party software costs are separate from
+              the package fee unless explicitly agreed in writing.
+            </p>
+          </GlassCard>
+          <GlassCard>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
+              Not sure yet?
+            </p>
+            <h2 className="mt-4 text-2xl font-semibold">We will recommend the right starting point.</h2>
+            <p className="mt-4 leading-7 text-white/62">
+              Book a free audit and we will suggest the package that matches your goals,
+              budget and current growth stage.
+            </p>
+            <Link
+              href="/free-audit"
+              className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#8EEA4D] px-6 text-sm font-bold text-[#071006] transition hover:-translate-y-0.5"
+            >
+              Call For Free Audit
+            </Link>
+          </GlassCard>
+        </div>
       </section>
     </PageShell>
   );
 }
-

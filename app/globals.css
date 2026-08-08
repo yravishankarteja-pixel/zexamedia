@@ -165,6 +165,16 @@ html {
   transform: translateZ(0);
 }
 
+.anime-reveal-target {
+  opacity: 0;
+  transform: translateY(26px) scale(0.985);
+  will-change: opacity, transform, filter;
+}
+
+.anime-revealed {
+  will-change: auto;
+}
+
 .hero-visual-float {
   animation: hero-visual-float 6.5s ease-in-out infinite;
   will-change: transform;
@@ -261,10 +271,11 @@ html {
 
 .root-style-card {
   transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .root-style-card:hover {
-  transform: translateY(-8px) rotateX(1deg) rotateY(-1deg);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.26);
 }
 
 .site-page a {

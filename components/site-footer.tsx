@@ -1,33 +1,30 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
+import {
+  contactEmail,
+  fullAddress,
+  mapUrl,
+  phoneHref,
+  phoneNumber,
+  secondaryPhoneHref,
+  secondaryPhoneNumber,
+  serviceAreaLabel,
+  socialLinks,
+  whatsappUrl,
+} from "@/lib/business-info";
 
-export const whatsappUrl =
-  "https://wa.me/919515256630?text=Hi%20Zexa%20Media%2C%20I%20want%20to%20book%20a%20free%20marketing%20audit.";
-
-export const contactEmail = "contactzexamedia@gmail.com";
-export const phoneNumber = "+91 95152 56630";
-export const phoneHref = "tel:+919515256630";
-
-export const socialLinks = [
-  {
-    label: "Instagram",
-    handle: "@zexamedia_official",
-    href: "https://www.instagram.com/zexamedia_official/",
-    short: "IG",
-  },
-  {
-    label: "Facebook",
-    handle: "@zexamedia_official",
-    href: "https://www.facebook.com/zexamedia_official",
-    short: "FB",
-  },
-  {
-    label: "LinkedIn",
-    handle: "@zexamedia_official",
-    href: "https://www.linkedin.com/company/zexamedia-official/",
-    short: "IN",
-  },
-];
+export {
+  contactEmail,
+  fullAddress,
+  mapUrl,
+  phoneHref,
+  phoneNumber,
+  secondaryPhoneHref,
+  secondaryPhoneNumber,
+  serviceAreaLabel,
+  socialLinks,
+  whatsappUrl,
+};
 
 function BrandMark() {
   return (
@@ -145,6 +142,12 @@ export function SiteFooter() {
               <a className="transition hover:text-[#8EEA4D]" href={`mailto:${contactEmail}`}>
                 {contactEmail}
               </a>
+              <a className="transition hover:text-[#8EEA4D]" href={phoneHref}>
+                Phone: {phoneNumber}
+              </a>
+              <a className="transition hover:text-[#8EEA4D]" href={secondaryPhoneHref}>
+                Alternate: {secondaryPhoneNumber}
+              </a>
               <a
                 className="transition hover:text-[#8EEA4D]"
                 href={whatsappUrl}
@@ -153,8 +156,15 @@ export function SiteFooter() {
               >
                 WhatsApp: {phoneNumber}
               </a>
-              <span>Visakhapatnam, Andhra Pradesh</span>
-              <span>Serving Vizag, Hyderabad, and clients across India.</span>
+              <a
+                className="transition hover:text-[#8EEA4D]"
+                href={mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {fullAddress}
+              </a>
+              <span>Serving {serviceAreaLabel}.</span>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               {socialLinks.map((item) => (

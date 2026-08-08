@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { contactEmail, phoneNumber, secondaryPhoneNumber } from "@/lib/business-info";
 import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ const sections = [
   },
   {
     title: "Contact",
-    copy: "For privacy questions or data requests, contact Zexa Media at contactzexamedia@gmail.com or call +91 95152 56630.",
+    copy: `For privacy questions or data requests, contact Zexa Media at ${contactEmail} or call ${phoneNumber} / ${secondaryPhoneNumber}.`,
   },
 ];
 

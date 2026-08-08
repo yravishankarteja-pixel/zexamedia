@@ -16,6 +16,7 @@ import {
   BarChart3,
   CheckCircle2,
   ChevronDown,
+  MapPin,
   Megaphone,
   MessageCircle,
   Search,
@@ -23,15 +24,20 @@ import {
   TrendingUp,
   Workflow,
 } from "lucide-react";
+import {
+  addressCountry,
+  addressLocality,
+  addressRegion,
+  areaServed,
+  businessName,
+  contactEmail,
+  phoneE164,
+  postalCode,
+  secondaryPhoneE164,
+  socialLinks,
+  streetAddress,
+} from "@/lib/business-info";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
-
-const contactEmail = "contactzexamedia@gmail.com";
-
-const socialLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/zexamedia_official/", short: "IG" },
-  { label: "Facebook", href: "https://www.facebook.com/zexamedia_official", short: "FB" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/zexamedia-official/", short: "IN" },
-];
 
 const stats: Array<{
   value: string;
@@ -127,6 +133,21 @@ const proofCards = [
   },
 ];
 
+const localSignals = [
+  {
+    title: "Dwaraka Nagar presence",
+    copy: "Zexa Media is based near GK Towers and Kalanikethan Shopping Mall in Dwaraka Nagar, Visakhapatnam.",
+  },
+  {
+    title: "Vizag service-area campaigns",
+    copy: "Campaigns can be shaped around local buyer intent across Dwaraka Nagar, MVP Colony, Rushikonda, Gajuwaka, Madhurawada and nearby Andhra Pradesh markets.",
+  },
+  {
+    title: "Local audience context",
+    copy: "Messaging can account for Telugu-speaking audiences, city-level competition, walk-in intent, calls, WhatsApp enquiries and appointment-led businesses.",
+  },
+];
+
 const testimonial = {
   text: "Zexa Media made our lead flow clearer within the first month. We finally understood where enquiries were coming from and what to scale.",
   clientName: "Local Business Client",
@@ -188,37 +209,54 @@ const faqs = [
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Zexa Media",
+  "@id": absoluteUrl("/#organization"),
+  name: businessName,
   url: siteUrl,
   email: contactEmail,
   logo: absoluteUrl("/zexa-media-logo-transparent.png"),
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+91-95152-56630",
+    telephone: phoneE164,
     contactType: "customer service",
   },
   sameAs: socialLinks.map((item) => item.href),
   description:
     "Zexa Media is a growth marketing agency in Visakhapatnam helping businesses grow with Google Ads, Meta Ads, social media, branding, and marketing automation.",
-  areaServed: ["Visakhapatnam", "Vizag", "Andhra Pradesh", "India"],
+  areaServed,
 };
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Zexa Media",
+  "@id": absoluteUrl("/#localbusiness"),
+  name: businessName,
   url: siteUrl,
   email: contactEmail,
-  telephone: "+91-95152-56630",
+  telephone: [phoneE164, secondaryPhoneE164],
   image: absoluteUrl("/zexa-media-logo-transparent.png"),
+  parentOrganization: {
+    "@id": absoluteUrl("/#organization"),
+  },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Visakhapatnam",
-    addressRegion: "Andhra Pradesh",
-    addressCountry: "IN",
+    streetAddress,
+    addressLocality,
+    addressRegion,
+    postalCode,
+    addressCountry,
   },
-  areaServed: ["Visakhapatnam", "Vizag", "Andhra Pradesh", "India"],
+  areaServed,
   priceRange: "\u20B915,000 - \u20B950,000",
+  hasMap:
+    "https://www.google.com/maps/search/?api=1&query=Zexa%20Media%20GK%20Towers%20Dwaraka%20Nagar%20Visakhapatnam",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: "19:00",
+    },
+  ],
 };
 
 const offerSchema = {
@@ -361,13 +399,13 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.06}>
               <h1 className="max-w-5xl text-5xl font-semibold leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl">
-                Your Business Deserves to{" "}
-                <span className="text-[#8EEA4D]">Grow Faster.</span>
+                Performance Marketing Agency in{" "}
+                <span className="text-[#8EEA4D]">Visakhapatnam.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-white/64 sm:text-xl">
-                Zexa Media runs high-performance Google Ads, Meta Ads, social media campaigns,
+                Zexa Media runs high-performance Google Ads, Meta Ads, lead-generation campaigns,
                 and marketing automation engineered to deliver real ROI, not just reach.
               </p>
             </Reveal>
@@ -395,7 +433,7 @@ export default function Home() {
               <div className="image-depth-card hero-visual-float relative aspect-[0.92] overflow-hidden rounded-[1.75rem] border border-white/12 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
                 <Image
                   src="/images/zexa-hero-strategy.png"
-                  alt="Zexa Media strategist and business owner reviewing digital marketing analytics"
+                  alt="Zexa Media performance marketing agency in Visakhapatnam reviewing Google Ads and lead generation analytics"
                   fill
                   sizes="(max-width: 1024px) 92vw, 560px"
                   className="object-cover"
@@ -545,6 +583,32 @@ export default function Home() {
                   <p className="mt-3 leading-7 text-white/56">{service.copy}</p>
                   <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-white/70 transition group-hover:text-[#8EEA4D]">
                     View service
+                    <ArrowRight className="size-4 transition group-hover:translate-x-1" />
+                  </span>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+          <SectionHeading
+            eyebrow="Local signals"
+            title="Built in Visakhapatnam, tuned for local demand."
+            copy="Zexa Media combines city-level search intent, local competition context, and practical lead follow-up for Vizag businesses."
+          />
+          <div className="grid gap-4 md:grid-cols-3">
+            {localSignals.map((item, index) => (
+              <Reveal key={item.title} delay={index * 0.05}>
+                <a
+                  href="/contact"
+                  className="root-style-card group block h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35"
+                >
+                  <MapPin className="mb-6 size-6 text-[#8EEA4D]" strokeWidth={1.8} />
+                  <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                  <p className="mt-4 leading-7 text-white/56">{item.copy}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white/70 transition group-hover:text-[#8EEA4D]">
+                    Contact local team
                     <ArrowRight className="size-4 transition group-hover:translate-x-1" />
                   </span>
                 </a>

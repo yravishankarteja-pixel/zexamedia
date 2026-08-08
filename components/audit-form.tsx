@@ -82,7 +82,7 @@ export function AuditForm({ compact = false }: Readonly<{ compact?: boolean }>) 
           label="Monthly Marketing Budget"
           value={form.budget}
           onChange={(value) => updateField("budget", value)}
-          options={["Under ₹20k", "₹20k-₹50k", "₹50k-₹1L", "Above ₹1L"]}
+          options={["Under \u20B920k", "\u20B920k-\u20B950k", "\u20B950k-\u20B91L", "Above \u20B91L"]}
           inputClass={inputClass}
         />
       </div>

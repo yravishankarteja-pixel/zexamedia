@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
+import { AnimeSiteMotion } from "@/components/animation/anime-site-motion";
 import { SiteHeaderClient } from "@/components/site-header-client";
 import { phoneHref, SiteFooter, whatsappUrl } from "@/components/site-footer";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
@@ -21,9 +22,9 @@ const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Zexa Media | Growth Marketing Agency Vizag",
+  title: "Performance Marketing Agency in Visakhapatnam | Zexa Media",
   description:
-    "Zexa Media helps Vizag businesses grow with Google Ads, Meta Ads, branding & automation. ROI-focused. Results-driven. Get a free audit today.",
+    "Zexa Media helps Vizag businesses grow with Google Ads, Meta Ads, lead generation, marketing automation, and clear ROI tracking.",
   alternates: {
     canonical: siteUrl,
   },
@@ -35,9 +36,9 @@ export const metadata: Metadata = {
       }
     : {}),
   openGraph: {
-    title: "Zexa Media | Growth Marketing Agency Vizag",
+    title: "Performance Marketing Agency in Visakhapatnam | Zexa Media",
     description:
-      "ROI-focused growth marketing for Vizag businesses using Google Ads, Meta Ads, branding, social media, and automation.",
+      "Google Ads, Meta Ads, lead generation, automation, and ROI-focused growth systems for businesses in Visakhapatnam.",
     url: siteUrl,
     siteName: "Zexa Media",
     type: "website",
@@ -52,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zexa Media | Growth Marketing Agency Vizag",
+    title: "Performance Marketing Agency in Visakhapatnam | Zexa Media",
     description:
-      "ROI-focused growth marketing for Vizag businesses using Google Ads, Meta Ads, branding, social media, and automation.",
+      "Google Ads, Meta Ads, lead generation, automation, and ROI-focused growth systems for businesses in Visakhapatnam.",
     images: [absoluteUrl("/zexa-media-logo.png")],
   },
 };
@@ -71,6 +72,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-[#050806]">
         <SiteHeaderClient />
+        <AnimeSiteMotion />
         {children}
         <SiteFooter />
         <Link

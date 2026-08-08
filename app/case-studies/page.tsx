@@ -1,17 +1,65 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, BarChart3 } from "lucide-react";
 import { StaggerContainer } from "@/components/animation/StaggerContainer";
 import { StaggerItem } from "@/components/animation/StaggerItem";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
-import { absoluteUrl } from "@/lib/site-url";
+import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  title: "Client Results & Case Studies | Zexa Media",
+  title: "Clients, Partners & Case Studies | Zexa Media",
   description:
-    "See how Zexa Media helped Vizag businesses generate leads, improve CPL, and grow their brand.",
+    "Explore Zexa Media clients, partners and selected growth snapshots from Vizag businesses across wellness, education, consulting and technology.",
   alternates: { canonical: absoluteUrl("/case-studies") },
 };
+
+const pageUrl = absoluteUrl("/case-studies");
+
+const partners = [
+  {
+    name: "Shree Beautician Academy",
+    category: "Beauty education / Wellness",
+    logo: "/images/partners/shree-beautician-academy.png",
+    alt: "Shree Beautician Academy partner logo",
+  },
+  {
+    name: "Moon Wellness Spa",
+    category: "Wellness / Spa",
+    logo: "/images/partners/moon-wellness-spa.webp",
+    alt: "Moon Wellness Spa partner logo",
+  },
+  {
+    name: "Sky Space AI On STEM Technology",
+    category: "Education technology / STEM",
+    logo: "/images/partners/sky-space-ai-stem-technology.png",
+    alt: "Sky Space AI On STEM Technology partner logo",
+  },
+  {
+    name: "Sanmay Consulting",
+    category: "Consulting / Education guidance",
+    logo: "/images/partners/sanmay-consulting.jpg",
+    alt: "Sanmay Consulting partner logo",
+  },
+  {
+    name: "Joy Wellness Spa",
+    category: "Wellness / Spa",
+    logo: "/images/partners/joy-wellness-spa.png",
+    alt: "Joy Wellness Spa partner logo",
+  },
+  {
+    name: "Fluenta Spoken English",
+    category: "Education / Spoken English",
+    logo: "/images/partners/fluenta-spoken-english.jpeg",
+    alt: "Fluenta Spoken English partner logo",
+  },
+  {
+    name: "School & education partners",
+    category: "Schools / Education",
+    logo: null,
+    alt: "",
+  },
+];
 
 const studies = [
   {
@@ -43,14 +91,78 @@ const studies = [
   },
 ];
 
+const partnerSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${pageUrl}#partners`,
+  url: pageUrl,
+  name: "Zexa Media Clients, Partners and Case Studies",
+  description:
+    "Clients, partners and selected growth snapshots from Zexa Media, a growth marketing agency in Visakhapatnam.",
+  publisher: {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: "Zexa Media",
+    url: siteUrl,
+  },
+  mainEntity: {
+    "@type": "ItemList",
+    name: "Zexa Media client and partner list",
+    itemListElement: partners.map((partner, index) => ({
+      "@type": "Organization",
+      position: index + 1,
+      name: partner.name,
+      description: partner.category,
+      ...(partner.logo ? { logo: absoluteUrl(partner.logo) } : {}),
+    })),
+  },
+};
+
 export default function CaseStudiesPage() {
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(partnerSchema) }}
+      />
       <PageHero
         eyebrow="Case studies"
-        title="Real businesses. Real results. Real numbers."
-        description="Selected growth snapshots from Zexa Media campaigns in Visakhapatnam."
+        title="Clients, partners and selected growth stories."
+        description="A look at brands and businesses connected with Zexa Media across wellness, beauty, education, consulting, technology and local growth campaigns."
       />
+
+      <Section eyebrow="Clients and partners" title="Brands and local businesses connected with Zexa Media.">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {partners.map((partner) => (
+            <GlassCard key={partner.name}>
+              <div className="flex min-h-44 items-center justify-center rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-5">
+                {partner.logo ? (
+                  <Image
+                    src={partner.logo}
+                    alt={partner.alt}
+                    width={420}
+                    height={220}
+                    className="max-h-28 w-auto max-w-full object-contain"
+                  />
+                ) : (
+                  <div className="grid size-24 place-items-center rounded-full border border-[#8EEA4D]/30 bg-[#8EEA4D]/10 text-3xl font-black text-[#8EEA4D]">
+                    S
+                  </div>
+                )}
+              </div>
+              <h2 className="mt-6 text-2xl font-semibold">{partner.name}</h2>
+              <p className="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-[#8EEA4D]">
+                {partner.category}
+              </p>
+            </GlassCard>
+          ))}
+        </div>
+        <p className="mt-6 text-sm leading-7 text-white/50">
+          Partner names and logos are shown as relationship signals. Performance results are only
+          listed in the selected growth snapshots below where details are available.
+        </p>
+      </Section>
+
       <Section eyebrow="Proof" title="Structured growth stories worth studying.">
         <StaggerContainer className="grid gap-6">
           {studies.map((study, index) => (

@@ -6,6 +6,7 @@ import {
   BarChart3,
   CheckCircle2,
   LineChart,
+  MapPin,
   Megaphone,
   MessageCircle,
   Search,
@@ -16,16 +17,16 @@ import { GlassCard, PageShell, Section } from "@/components/marketing-shell";
 import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  title: "The Zexa Growth System | Zexa Media",
+  title: "Growth Marketing System for Vizag Businesses | Zexa Media",
   description:
-    "See how Zexa Media connects ads, content, tracking, landing pages, reporting, and automation into one growth system for local businesses.",
+    "See how Zexa Media connects ads, content, tracking, landing pages, reporting, and automation into one growth system for businesses in Visakhapatnam.",
   alternates: { canonical: absoluteUrl("/growth-system") },
 };
 
 const services = [
   ["Performance Marketing", "Campaigns built around calls, leads, bookings, and revenue.", Target],
-  ["Google Ads", "Capture people already searching for your service.", Search],
-  ["Meta Ads", "Create demand before buyers actively compare options.", Megaphone],
+  ["Google Ads", "Capture people searching for your service in Vizag and nearby markets.", Search],
+  ["Meta Ads", "Create demand before local buyers actively compare options.", Megaphone],
   ["Social Media Growth", "Build daily trust with useful, consistent brand visibility.", BadgeCheck],
   ["Marketing Automation", "Improve response speed with WhatsApp and follow-up workflows.", Workflow],
   ["Analytics & Reporting", "Track what is working, wasting, and ready to scale.", BarChart3],
@@ -60,6 +61,13 @@ const proof = [
   ["Better lead tracking", "Owners could see what campaign generated each enquiry."],
 ] as const;
 
+const localUseCases = [
+  ["Clinics and doctors", "Calls, appointment enquiries, local search ads, landing page clarity, and follow-up speed."],
+  ["Education and coaching", "Lead forms, WhatsApp enquiries, bilingual creatives, parent and student intent, and admissions tracking."],
+  ["Spas and wellness", "Walk-ins, bookings, offer testing, Instagram trust, and repeat enquiry follow-up."],
+  ["Real estate and local services", "Project enquiries, service-area campaigns, sales call tracking, and audience qualification."],
+] as const;
+
 export default function GrowthSystemPage() {
   return (
     <PageShell>
@@ -73,7 +81,7 @@ export default function GrowthSystemPage() {
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-white/62">
             Zexa Media connects ads, content, landing pages, tracking, reporting, and
-            automation into one growth system for local businesses.
+            automation into one growth system for local businesses in Visakhapatnam and Andhra Pradesh.
           </p>
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <Link
@@ -130,7 +138,7 @@ export default function GrowthSystemPage() {
 
       <Section
         eyebrow="The Missed Lead Problem"
-        title="Most Businesses Don’t Need More Leads. They Need Better Follow-Up."
+        title="Most businesses do not need only more leads. They need better follow-up."
       >
         <div className="grid gap-4 lg:grid-cols-4">
           {[
@@ -142,6 +150,18 @@ export default function GrowthSystemPage() {
             <GlassCard key={item}>
               <MessageCircle className="mb-6 size-6 text-[#8EEA4D]" />
               <h2 className="text-xl font-semibold">{item}</h2>
+            </GlassCard>
+          ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="Local use cases" title="Growth systems for real Visakhapatnam buyer journeys.">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {localUseCases.map(([title, copy]) => (
+            <GlassCard key={title}>
+              <MapPin className="mb-6 size-6 text-[#8EEA4D]" />
+              <h2 className="text-xl font-semibold">{title}</h2>
+              <p className="mt-4 leading-7 text-white/58">{copy}</p>
             </GlassCard>
           ))}
         </div>

@@ -4,7 +4,18 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/animation/Reveal";
 import { phoneHref } from "@/components/site-footer";
-export { contactEmail, phoneHref, phoneNumber, socialLinks, whatsappUrl } from "@/components/site-footer";
+export {
+  contactEmail,
+  fullAddress,
+  mapUrl,
+  phoneHref,
+  phoneNumber,
+  secondaryPhoneHref,
+  secondaryPhoneNumber,
+  serviceAreaLabel,
+  socialLinks,
+  whatsappUrl,
+} from "@/components/site-footer";
 
 export function PageShell({ children }: Readonly<{ children: ReactNode }>) {
   return (
