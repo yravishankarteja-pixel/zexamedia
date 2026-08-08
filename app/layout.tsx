@@ -17,6 +17,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Zexa Media | Growth Marketing Agency Vizag",
@@ -25,6 +27,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  ...(googleSiteVerification
+    ? {
+        verification: {
+          google: googleSiteVerification,
+        },
+      }
+    : {}),
   openGraph: {
     title: "Zexa Media | Growth Marketing Agency Vizag",
     description:
