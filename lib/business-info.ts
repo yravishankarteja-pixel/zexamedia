@@ -25,8 +25,9 @@ export const mapUrl =
   "https://www.google.com/maps/search/?api=1&query=Zexa%20Media%20GK%20Towers%20Dwaraka%20Nagar%20Visakhapatnam";
 
 export const officeHours = "Monday to Saturday, 9:00 AM - 7:00 PM IST";
-export const areaServed = ["Visakhapatnam", "Vizag", "Andhra Pradesh", "India"];
-export const serviceAreaLabel = "Vizag, Hyderabad, Andhra Pradesh, and clients across India";
+export const areaServed = ["Worldwide", "Visakhapatnam", "Vizag", "Andhra Pradesh", "India"];
+export const serviceAreaLabel =
+  "Visakhapatnam, India, and remote clients across worldwide markets";
 
 export const socialLinks = [
   {

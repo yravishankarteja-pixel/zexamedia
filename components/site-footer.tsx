@@ -126,6 +126,8 @@ export function SiteFooter() {
             links={[
               ["Home", "/"],
               ["Services", "/services"],
+              ["Remote Services", "/remote-marketing-services"],
+              ["How We Work", "/how-we-work"],
               ["Growth System", "/growth-system"],
               ["Packages", "/packages"],
               ["Case Studies", "/case-studies"],
@@ -183,7 +185,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="flex flex-col gap-4 border-t border-white/10 bg-black/20 px-6 py-5 text-sm text-white/48 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
-          <span>© {year} Zexa Media. All rights reserved.</span>
+          <span>Copyright {year} Zexa Media. All rights reserved.</span>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link className="transition hover:text-[#8EEA4D]" href="/privacy-policy">
               Privacy Policy

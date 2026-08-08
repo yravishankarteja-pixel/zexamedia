@@ -16,6 +16,10 @@ export default function AutomationArticle() {
         eyebrow="Marketing automation small business India"
         title="5 marketing automations every small business should set up."
         description="The solution to slow follow-up is not always more staff. Often, it is smarter lead systems."
+        imageSrc="/images/zexa-dashboard-review.png"
+        imageAlt="Marketing automation dashboard for small business lead follow-up"
+        metricLabel="Automation guide"
+        metricValue="Lead alerts, follow-up, CRM, and reporting"
       />
       <Section eyebrow="Guide" title="Automations that stop leads slipping away.">
         <div className="grid gap-4 md:grid-cols-2">

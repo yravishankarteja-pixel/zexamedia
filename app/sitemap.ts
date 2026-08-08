@@ -1,11 +1,15 @@
 import type { MetadataRoute } from "next";
+import { globalServiceRoutes } from "@/lib/global-commercial-pages";
 import { absoluteUrl } from "@/lib/site-url";
 
 const routes = [
   "",
   "/about",
   "/services",
+  "/remote-marketing-services",
+  "/how-we-work",
   "/growth-system",
+  ...globalServiceRoutes,
   "/performance-marketing-agency-visakhapatnam",
   "/digital-marketing-agency-visakhapatnam",
   "/google-ads-agency-visakhapatnam",

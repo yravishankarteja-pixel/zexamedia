@@ -81,6 +81,10 @@ export default function PerformanceMarketingPage() {
         eyebrow="Performance marketing agency in Vizag"
         title="Performance Marketing Agency in Visakhapatnam"
         description="Zexa Media runs Google Ads, Meta Ads, PPC and lead-generation campaigns for Vizag businesses that need qualified enquiries, cleaner tracking and better return on ad spend."
+        imageSrc="/images/zexa-hero-strategy.png"
+        imageAlt="Zexa Media performance marketing strategy dashboard"
+        metricLabel="Campaign system"
+        metricValue="Google Ads, Meta Ads, tracking, and optimisation"
       />
 
       <Section eyebrow="What's included" title="Paid campaigns built around leads, not vanity metrics.">

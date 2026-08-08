@@ -16,6 +16,10 @@ export default function MetaAdsArticle() {
         eyebrow="Meta Ads for local business Vizag"
         title="How to run Meta Ads for a local business in Vizag."
         description="Meta Ads help local businesses reach the right person, in the right neighbourhood, before they start searching for alternatives."
+        imageSrc="/images/zexa-content-shoot.png"
+        imageAlt="Meta Ads creative planning for local business campaigns"
+        metricLabel="Meta Ads guide"
+        metricValue="Creative, targeting, Reels, and WhatsApp leads"
       />
       <Section eyebrow="Guide" title="The local campaign system.">
         <GlassCard>

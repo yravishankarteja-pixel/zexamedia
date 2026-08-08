@@ -16,6 +16,10 @@ export default function GrowthMarketingArticle() {
         eyebrow="Growth marketing agency"
         title="What is growth marketing?"
         description="Growth marketing connects every marketing activity to measurable outcomes: leads, conversions, revenue, and long-term scale."
+        imageSrc="/images/zexa-dashboard-review.png"
+        imageAlt="Growth marketing dashboard showing campaign analytics and conversion signals"
+        metricLabel="Growth guide"
+        metricValue="Strategy, experiments, analytics, and scale"
       />
       <Section eyebrow="Guide" title="A full-system approach to business growth.">
         <GlassCard>

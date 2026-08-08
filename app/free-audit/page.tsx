@@ -4,9 +4,9 @@ import { CheckList, GlassCard, PageHero, PageShell, Section } from "@/components
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  title: "Free Marketing Audit | Zexa Media Vizag",
+  title: "Free Remote Marketing Audit | Zexa Media",
   description:
-    "Get a free marketing audit from Zexa Media. We review your ads, social media and website to show where you're losing money.",
+    "Get a free remote marketing audit from Zexa Media. We review your ads, social media, website, tracking and lead flow to show what to fix first.",
   alternates: { canonical: absoluteUrl("/free-audit") },
 };
 
@@ -39,12 +39,47 @@ const auditCovers = [
   ],
 ];
 
+const remoteAuditTrust = [
+  [
+    "No location limit",
+    "The audit can be handled online for businesses in any city, state or country as long as the offer, website and marketing context are clear.",
+  ],
+  [
+    "View-only access first",
+    "If account access is needed, view-only access or screenshots are enough for diagnosis. Zexa does not change campaigns without permission.",
+  ],
+  [
+    "Timezone-friendly planning",
+    "For remote clients, the audit call and follow-up can be planned around a practical overlap instead of forcing one local schedule.",
+  ],
+  [
+    "Clear next action",
+    "The output is not a generic sales pitch. You get a priority order for what should be fixed, tested, paused or built next.",
+  ],
+];
+
 const auditSteps = [
-  ["01", "Book a time slot", "Share your details through the form so we can understand your business and current priority."],
+  ["01", "Submit details", "Share your business, website, current channels, target market and the main problem you want solved."],
   ["02", "Share context", "Send view-only access or screenshots when needed. We do not change anything without permission."],
-  ["03", "We review everything", "We review your ads, website, social media, competitors and lead flow before the audit call."],
-  ["04", "Audit call", "You get a 30-minute walkthrough of what is working, what is wasting money and what to fix first."],
-  ["05", "Written summary", "You receive a practical summary you can use whether or not you decide to work with Zexa Media."],
+  ["03", "Remote review", "We review your ads, website, social media, competitors, tracking and lead flow before the audit call."],
+  ["04", "Audit call", "You get a focused walkthrough of what is working, what is wasting money and what to fix first."],
+  ["05", "Next-step summary", "You receive practical next actions you can use whether or not you decide to work with Zexa Media."],
+];
+
+const accessItems = [
+  "Website or landing page link.",
+  "Social media profile links.",
+  "Ad account screenshots or view-only access if ads are already running.",
+  "Analytics, Search Console or tracking screenshots if available.",
+  "A short note on your target market, service area, budget and current lead problem.",
+];
+
+const auditDeliverables = [
+  "What is currently working.",
+  "What is wasting budget or attention.",
+  "Which channel should be fixed first.",
+  "Whether Google Ads, Meta Ads, SEO, landing pages or automation should come next.",
+  "A practical action order for the next 30 days.",
 ];
 
 const auditFaqs = [
@@ -92,7 +127,9 @@ const auditPageSchema = {
       "@id": `${siteUrl}/#localbusiness`,
       name: "Zexa Media",
     },
-    areaServed: ["Visakhapatnam", "Vizag", "Andhra Pradesh", "India"],
+    areaServed: ["Worldwide", "Visakhapatnam", "Vizag", "Andhra Pradesh", "India"],
+    serviceOutput:
+      "Remote marketing audit summary covering ads, website, social media, tracking, lead flow and next-step priorities.",
   },
 };
 
@@ -121,14 +158,29 @@ export default function FreeAuditPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <PageHero
-        eyebrow="Free marketing audit"
-        title="Free Marketing Audit for Businesses in Vizag"
-        description="In 30 minutes, Zexa Media reviews your Google Ads, Meta Ads, social media, website and lead flow, then gives you a clear picture of what is working, what is wasting money and what to fix first."
+        eyebrow="Free remote marketing audit"
+        title="Free Marketing Audit for Businesses Anywhere"
+        description="Zexa Media reviews your Google Ads, Meta Ads, social media, website, tracking and lead flow online, then gives you a clear picture of what is working, what is wasting money and what to fix first."
+        imageSrc="/images/zexa-founder-audit.png"
+        imageAlt="Zexa Media free remote marketing audit for businesses worldwide"
+        metricLabel="Remote audit"
+        metricValue="Ads, website, tracking, lead flow, and next actions"
       />
 
       <Section eyebrow="What the audit covers" title="A sharper view of your growth system.">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {auditCovers.map(([title, copy]) => (
+            <GlassCard key={title}>
+              <h2 className="text-xl font-semibold">{title}</h2>
+              <p className="mt-4 leading-7 text-white/62">{copy}</p>
+            </GlassCard>
+          ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="Remote audit trust" title="Built for businesses beyond one location.">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {remoteAuditTrust.map(([title, copy]) => (
             <GlassCard key={title}>
               <h2 className="text-xl font-semibold">{title}</h2>
               <p className="mt-4 leading-7 text-white/62">{copy}</p>
@@ -154,11 +206,28 @@ export default function FreeAuditPage() {
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
               Audit promise
             </p>
-            <h2 className="mt-4 text-3xl font-semibold">₹0. 30 minutes. A clearer path to growth.</h2>
+            <h2 className="mt-4 text-3xl font-semibold">Free audit. Clearer next step. No pressure.</h2>
             <p className="mt-5 leading-8 text-white/62">
               You will not get vague advice. You will get a practical priority order based on
               your current marketing, budget and business stage.
             </p>
+          </GlassCard>
+        </div>
+      </Section>
+
+      <Section eyebrow="What to share" title="Helpful context before the audit call.">
+        <div className="grid gap-5 lg:grid-cols-2">
+          <GlassCard>
+            <h2 className="text-2xl font-semibold">Access and assets</h2>
+            <div className="mt-6">
+              <CheckList items={accessItems} />
+            </div>
+          </GlassCard>
+          <GlassCard>
+            <h2 className="text-2xl font-semibold">What you receive</h2>
+            <div className="mt-6">
+              <CheckList items={auditDeliverables} />
+            </div>
           </GlassCard>
         </div>
       </Section>

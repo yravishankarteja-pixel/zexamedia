@@ -81,6 +81,10 @@ export default function BrandingPage() {
         eyebrow="Branding agency in Vizag"
         title="Brand Identity Design for Businesses in Visakhapatnam"
         description="Zexa Media builds logo systems, brand kits, visual identity and positioning strategy for businesses that need to look credible, memorable and consistent across every customer touchpoint."
+        imageSrc="/images/zexa-content-shoot.png"
+        imageAlt="Zexa Media branding and visual identity content production"
+        metricLabel="Brand clarity"
+        metricValue="Positioning, visuals, messaging, and recall"
       />
 
       <Section eyebrow="Deliverables" title="Brand systems that go deeper than aesthetics.">

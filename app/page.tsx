@@ -14,14 +14,17 @@ import {
   ArrowRight,
   BadgeCheck,
   BarChart3,
+  ClipboardCheck,
   CheckCircle2,
   ChevronDown,
   MapPin,
   Megaphone,
   MessageCircle,
   Search,
+  ShieldCheck,
   Target,
   TrendingUp,
+  Users,
   Workflow,
 } from "lucide-react";
 import {
@@ -145,6 +148,29 @@ const localSignals = [
   {
     title: "Local audience context",
     copy: "Messaging can account for Telugu-speaking audiences, city-level competition, walk-in intent, calls, WhatsApp enquiries and appointment-led businesses.",
+  },
+];
+
+const trustEvidence = [
+  {
+    icon: ShieldCheck,
+    title: "No ranking or lead guarantees",
+    copy: "Zexa sets realistic expectations and avoids false promises. Results depend on offer, market, budget, tracking, response speed and sales handling.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Audit before recommendation",
+    copy: "The first step is diagnosis: ads, website, social presence, tracking and follow-up are reviewed before suggesting a service path.",
+  },
+  {
+    icon: BarChart3,
+    title: "Reports built for decisions",
+    copy: "Reporting explains what changed, what improved, what wasted budget and what should happen next.",
+  },
+  {
+    icon: Users,
+    title: "Client-owned visibility",
+    copy: "Campaigns, pages, data and assets are kept transparent so business owners understand what is being built.",
   },
 ];
 
@@ -519,6 +545,25 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
+          <SectionHeading
+            eyebrow="Trust system"
+            title="Proof is stronger when the process is transparent."
+            copy="Zexa Media improves trust by showing the work, explaining the tradeoffs, and keeping every next step tied to business outcomes."
+          />
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {trustEvidence.map((item, index) => (
+              <Reveal key={item.title} delay={index * 0.04}>
+                <article className="root-style-card h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35">
+                  <item.icon className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
+                  <h2 className="text-xl font-semibold text-white">{item.title}</h2>
+                  <p className="mt-4 leading-7 text-white/58">{item.copy}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </section>
 
         <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">

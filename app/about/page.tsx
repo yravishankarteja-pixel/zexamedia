@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BadgeCheck, BarChart3, ShieldCheck, Workflow } from "lucide-react";
 import { CheckList, GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
 import {
   addressCountry,
@@ -45,6 +46,29 @@ const values = [
   [
     "Systems, Not Luck",
     "Sustainable growth comes from repeatable systems: tracking, follow-up, reporting, creative testing and optimisation.",
+  ],
+];
+
+const founderExpertise = [
+  [
+    "Performance mindset",
+    "Campaign planning starts with leads, conversion paths, tracking and business goals instead of vanity metrics.",
+    BarChart3,
+  ],
+  [
+    "Transparent execution",
+    "Clients should know what is being tested, what is being changed and why the next action matters.",
+    ShieldCheck,
+  ],
+  [
+    "System-led growth",
+    "Ads, content, landing pages, follow-up and reporting work better when they are connected.",
+    Workflow,
+  ],
+  [
+    "Founder attention",
+    "Strategy and growth direction stay close to the founder instead of being handed off without context.",
+    BadgeCheck,
   ],
 ];
 
@@ -96,6 +120,14 @@ const aboutPageSchema = {
     areaServed,
     description:
       "Performance marketing and growth marketing agency serving businesses in Visakhapatnam and across India.",
+    founder: {
+      "@type": "Person",
+      name: "Teja",
+      jobTitle: "Founder",
+      worksFor: {
+        "@id": `${siteUrl}/#localbusiness`,
+      },
+    },
   },
 };
 
@@ -127,6 +159,10 @@ export default function AboutPage() {
         eyebrow="About Zexa Media"
         title="Growth Marketing Agency Built in Visakhapatnam"
         description="Zexa Media was founded with one belief: every business, no matter its size, deserves marketing that actually works. We are rooted in Vizag and built for ambitious businesses across Andhra Pradesh and India."
+        imageSrc="/images/zexa-founder-audit.png"
+        imageAlt="Zexa Media founder reviewing marketing strategy and growth audit"
+        metricLabel="Built for growth"
+        metricValue="Strategy, tracking, creative, and follow-up"
       />
 
       <Section eyebrow="Our story" title="Why we started Zexa Media.">
@@ -175,6 +211,18 @@ export default function AboutPage() {
               results, transparency, and long-term partnerships.
             </p>
           </GlassCard>
+        </div>
+      </Section>
+
+      <Section eyebrow="Founder expertise" title="What clients should expect from Zexa Media.">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {founderExpertise.map(([title, copy, Icon]) => (
+            <GlassCard key={title as string}>
+              <Icon className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
+              <h2 className="text-xl font-semibold">{title as string}</h2>
+              <p className="mt-4 leading-7 text-white/62">{copy as string}</p>
+            </GlassCard>
+          ))}
         </div>
       </Section>
 

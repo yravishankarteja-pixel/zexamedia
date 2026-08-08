@@ -81,6 +81,10 @@ export default function SocialMediaPage() {
         eyebrow="Social media management agency in Vizag"
         title="Social Media Management Agency in Visakhapatnam"
         description="Zexa Media manages Instagram, Facebook, Reels and social media content strategy for Vizag businesses that need consistent brand presence, stronger local trust and more qualified enquiries."
+        imageSrc="/images/zexa-content-shoot.png"
+        imageAlt="Zexa Media social media content production for campaigns"
+        metricLabel="Social growth"
+        metricValue="Reels, content calendars, creatives, and community trust"
       />
 
       <Section eyebrow="What we do" title="Content that educates, entertains, and converts.">

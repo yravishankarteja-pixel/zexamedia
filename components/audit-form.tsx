@@ -70,10 +70,13 @@ export function AuditForm({ compact = false }: Readonly<{ compact?: boolean }>) 
           onChange={(value) => updateField("service", value)}
           options={[
             "Google Ads / Meta Ads",
+            "Performance marketing",
+            "Lead generation",
             "Social media management",
-            "Local SEO / Google Business Profile",
+            "SEO / AI search visibility",
             "Landing page + tracking",
             "Marketing automation",
+            "Remote marketing audit",
             "Full growth partnership",
           ]}
           inputClass={inputClass}
@@ -82,7 +85,13 @@ export function AuditForm({ compact = false }: Readonly<{ compact?: boolean }>) 
           label="Monthly Marketing Budget"
           value={form.budget}
           onChange={(value) => updateField("budget", value)}
-          options={["Under \u20B920k", "\u20B920k-\u20B950k", "\u20B950k-\u20B91L", "Above \u20B91L"]}
+          options={[
+            "Under \u20B920k",
+            "\u20B920k-\u20B950k",
+            "\u20B950k-\u20B91L",
+            "Above \u20B91L",
+            "Not sure yet",
+          ]}
           inputClass={inputClass}
         />
       </div>

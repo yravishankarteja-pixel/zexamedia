@@ -81,6 +81,10 @@ export default function AutomationPage() {
         eyebrow="Marketing automation agency"
         title="Marketing Automation for Faster Lead Follow-Up"
         description="Zexa Media builds WhatsApp automation, CRM workflows, lead notifications and reporting systems for businesses that cannot afford to miss enquiries after ads, landing pages or social media campaigns go live."
+        imageSrc="/images/zexa-dashboard-review.png"
+        imageAlt="Zexa Media marketing automation and lead reporting dashboard"
+        metricLabel="Automation flow"
+        metricValue="Lead alerts, WhatsApp, CRM, and reporting"
       />
 
       <Section eyebrow="What we automate" title="Lead flow systems that protect your ad spend.">

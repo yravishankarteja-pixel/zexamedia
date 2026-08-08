@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, BarChart3 } from "lucide-react";
+import { ArrowRight, BadgeCheck, BarChart3, ClipboardCheck, ShieldCheck } from "lucide-react";
 import { StaggerContainer } from "@/components/animation/StaggerContainer";
 import { StaggerItem } from "@/components/animation/StaggerItem";
 import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
@@ -44,7 +44,7 @@ const partners = [
   {
     name: "Joy Wellness Spa",
     category: "Wellness / Spa",
-    logo: "/images/partners/joy-wellness-spa.png",
+    logo: "/images/partners/joy-wellness-spa.webp",
     alt: "Joy Wellness Spa partner logo",
   },
   {
@@ -91,6 +91,25 @@ const studies = [
   },
 ];
 
+const credibilityChecks = [
+  [
+    "Named business context",
+    "Each snapshot explains the business category, challenge, timeline and channels used so the result has context.",
+  ],
+  [
+    "No universal promises",
+    "Results are not presented as guaranteed outcomes. Market, offer, budget, tracking and follow-up can change performance.",
+  ],
+  [
+    "Campaign learning focus",
+    "The goal is to show what was fixed: targeting, offer clarity, lead tracking, social visibility or response flow.",
+  ],
+  [
+    "Audit-led next step",
+    "A new business should not copy a case study blindly. The audit identifies which part of the growth system needs attention first.",
+  ],
+];
+
 const partnerSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -129,21 +148,27 @@ export default function CaseStudiesPage() {
         eyebrow="Case studies"
         title="Clients, partners and selected growth stories."
         description="A look at brands and businesses connected with Zexa Media across wellness, beauty, education, consulting, technology and local growth campaigns."
+        imageSrc="/images/zexa-dashboard-review.png"
+        imageAlt="Zexa Media campaign dashboard for selected growth stories"
+        metricLabel="Proof signals"
+        metricValue="Partners, case snapshots, and campaign learning"
       />
 
       <Section eyebrow="Clients and partners" title="Brands and local businesses connected with Zexa Media.">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {partners.map((partner) => (
             <GlassCard key={partner.name}>
-              <div className="flex min-h-44 items-center justify-center rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-5">
+              <div className="flex aspect-[2.35] items-center justify-center rounded-[1.25rem] border border-white/10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_48%,rgba(0,0,0,0.16))] p-5">
                 {partner.logo ? (
-                  <Image
-                    src={partner.logo}
-                    alt={partner.alt}
-                    width={420}
-                    height={220}
-                    className="max-h-28 w-auto max-w-full object-contain"
-                  />
+                  <div className="relative h-full max-h-28 w-full max-w-[13rem]">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.alt}
+                      fill
+                      sizes="(max-width: 768px) 64vw, 208px"
+                      className="object-contain drop-shadow-[0_12px_26px_rgba(0,0,0,0.35)]"
+                    />
+                  </div>
                 ) : (
                   <div className="grid size-24 place-items-center rounded-full border border-[#8EEA4D]/30 bg-[#8EEA4D]/10 text-3xl font-black text-[#8EEA4D]">
                     S
@@ -163,6 +188,36 @@ export default function CaseStudiesPage() {
         </p>
       </Section>
 
+      <Section eyebrow="Credibility" title="Why these proof signals are presented carefully.">
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          <GlassCard>
+            <ShieldCheck className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
+            <h2 className="text-2xl font-semibold">Strong proof should create trust, not unrealistic expectations.</h2>
+            <p className="mt-4 leading-8 text-white/62">
+              Zexa Media uses case snapshots to show campaign direction, business context and
+              learning. Results vary by offer, audience, budget, sales handling and timing, so the
+              right next step is always a fresh audit of the current business.
+            </p>
+            <Link
+              href="/free-audit"
+              className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] transition hover:-translate-y-0.5"
+            >
+              Audit My Business
+              <ArrowRight className="ml-2 size-4" />
+            </Link>
+          </GlassCard>
+          <div className="grid gap-4 md:grid-cols-2">
+            {credibilityChecks.map(([title, copy]) => (
+              <GlassCard key={title}>
+                <ClipboardCheck className="mb-6 size-6 text-[#8EEA4D]" strokeWidth={1.8} />
+                <h2 className="text-xl font-semibold">{title}</h2>
+                <p className="mt-4 leading-7 text-white/62">{copy}</p>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       <Section eyebrow="Proof" title="Structured growth stories worth studying.">
         <StaggerContainer className="grid gap-6">
           {studies.map((study, index) => (
@@ -177,14 +232,22 @@ export default function CaseStudiesPage() {
                     Case 0{index + 1}
                   </span>
                 </div>
-                <div className="grid min-h-56 place-items-center rounded-[1.25rem] border border-dashed border-white/14 bg-white/[0.035] p-6 text-center">
-                  <div>
-                    <BarChart3 className="mx-auto size-10 text-[#8EEA4D]" />
-                    <p className="mt-4 text-sm font-semibold text-white/72">
-                      Future campaign screenshot placeholder
+                <div className="relative min-h-56 overflow-hidden rounded-[1.25rem] border border-white/14 bg-white/[0.035]">
+                  <Image
+                    src="/images/zexa-dashboard-review.png"
+                    alt="Illustrative Zexa Media dashboard visual for growth campaign review"
+                    fill
+                    sizes="(max-width: 1024px) 92vw, 420px"
+                    className="object-cover opacity-80"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.05),rgba(5,8,6,0.82))]" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <BarChart3 className="size-8 text-[#8EEA4D]" />
+                    <p className="mt-3 text-sm font-semibold text-white/82">
+                      Campaign review visual
                     </p>
-                    <p className="mt-2 text-xs leading-5 text-white/42">
-                      Placeholder only. Not genuine campaign evidence.
+                    <p className="mt-1 text-xs leading-5 text-white/52">
+                      Illustrative dashboard image. Results are described separately.
                     </p>
                   </div>
                 </div>
