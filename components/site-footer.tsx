@@ -28,15 +28,15 @@ export {
 
 function BrandMark() {
   return (
-    <span className="relative block h-16 w-56 overflow-hidden">
-      <Image
-        src="/zexa-media-logo-transparent.png"
-        alt="Zexa Media"
-        fill
-        sizes="224px"
-        className="object-contain object-left"
-      />
-    </span>
+    <Image
+      src="/zexa-media-logo-transparent.png"
+      alt="Zexa Media"
+      width={224}
+      height={64}
+      sizes="224px"
+      style={{ width: "224px", maxWidth: "100%", height: "auto" }}
+      className="object-contain object-left"
+    />
   );
 }
 
