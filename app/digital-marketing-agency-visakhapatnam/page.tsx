@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
+  BarChart3,
   Bot,
-  Camera,
   CheckCircle2,
   Gem,
   LineChart,
   MapPin,
+  Megaphone,
+  MousePointerClick,
   Search,
   Sparkles,
+  Target,
 } from "lucide-react";
 import { CheckList, GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
 import {
@@ -29,9 +32,9 @@ import {
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Agency Visakhapatnam | Zexa Media",
+  title: "Best Digital Marketing Agency in Vizag | Zexa Media",
   description:
-    "Zexa Media is a digital marketing agency in Visakhapatnam for Google Ads, Meta Ads, social media, branding, automation, SEO, content, analytics and lead generation.",
+    "Zexa Media is a performance-driven digital marketing agency in Vizag helping businesses generate qualified leads through Google Ads, Meta Ads, SEO, landing pages, tracking and automation.",
   alternates: { canonical: absoluteUrl("/digital-marketing-agency-visakhapatnam") },
 };
 
@@ -39,11 +42,22 @@ const pageUrl = absoluteUrl("/digital-marketing-agency-visakhapatnam");
 
 const serviceMix = [
   ["Performance Marketing", "Google Ads, Meta Ads, campaign planning and lead-generation optimisation.", LineChart],
+  ["Google Ads", "Search campaigns, local intent keywords, call leads, negative keywords and conversion tracking.", Search],
+  ["Meta Ads", "Facebook and Instagram campaigns with creative testing, retargeting and WhatsApp lead paths.", Megaphone],
   ["Social Media Management", "Instagram, Facebook, Reels, content calendars, captions and local brand trust.", Sparkles],
+  ["Landing Pages", "Conversion-focused pages with clear offers, proof, forms, WhatsApp CTAs and mobile speed.", MousePointerClick],
+  ["Conversion Tracking", "GA4, Google Tag Manager, Meta Pixel, CAPI planning, calls, forms and WhatsApp events.", Target],
   ["Branding & Positioning", "Logo, brand kit, offer clarity, visual identity and market positioning.", Gem],
   ["Marketing Automation", "WhatsApp lead flow, CRM handoff, reminders, reporting and follow-up systems.", Bot],
   ["SEO & AI Search Visibility", "On-page SEO, local entity signals, schema and answer-ready content structure.", Search],
-  ["Content Production", "Photoshoot direction, Reels, campaign assets and landing-page visuals.", Camera],
+  ["Analytics & Reporting", "Dashboards and monthly reviews that connect spend, source quality, CPL and next actions.", BarChart3],
+] as const;
+
+const proofStats = [
+  ["50+", "Clients Served"],
+  ["Rs.2Cr+", "Ad Spend Managed"],
+  ["3x-8x", "ROAS ranges documented in the content base"],
+  ["4", "Cities Across AP"],
 ] as const;
 
 const outcomes = [
@@ -62,23 +76,90 @@ const localIndustries = [
   "Consulting, B2B services and professional firms",
 ];
 
+const topicCluster = [
+  ["Performance marketing services in Vizag", "/performance-marketing-agency-visakhapatnam"],
+  ["Google Ads management in Vizag", "/google-ads-agency-visakhapatnam"],
+  ["Meta Ads services", "/meta-ads-agency-visakhapatnam"],
+  ["Lead generation services", "/lead-generation-agency-visakhapatnam"],
+  ["Marketing automation for local businesses", "/marketing-automation-agency-visakhapatnam"],
+  ["SEO and local SEO services in Visakhapatnam", "/seo-company-visakhapatnam"],
+] as const;
+
+const growthFlow = [
+  "Traffic",
+  "Landing Page",
+  "Tracking",
+  "Lead",
+  "Follow-Up",
+  "Conversion",
+  "Reporting",
+  "Scaling",
+] as const;
+
 const process = [
-  ["01", "Audit the current system", "Review ads, social profiles, website pages, tracking, offers and lead follow-up."],
-  ["02", "Choose the priority channel", "Decide whether ads, content, branding, automation, SEO or landing pages should come first."],
-  ["03", "Build connected assets", "Create campaigns, content, pages, tracking and follow-up around one clear growth goal."],
-  ["04", "Measure and improve", "Use reports and lead quality feedback to improve the next month of execution."],
+  ["01", "Free Growth Audit", "Review ads, landing pages, social profiles, tracking, offers and lead follow-up gaps."],
+  ["02", "Strategy & Funnel Planning", "Decide which channels, offers, pages, budgets and follow-up workflows should come first."],
+  ["03", "Launch, Track & Optimize", "Create campaigns, content, pages and analytics around calls, forms, WhatsApp and sales conversations."],
+  ["04", "Review, Automate & Scale", "Use reports and lead-quality feedback to improve conversion, response speed and budget allocation."],
+] as const;
+
+const caseStudySlots = [
+  ["Education", "Lead quality, admission enquiries, CPL, follow-up speed and conversion learnings."],
+  ["Healthcare", "Search intent, landing-page trust, call tracking, booking flow and patient enquiry quality."],
+  ["Local Business", "Walk-in demand, WhatsApp response, local visibility, retargeting and reporting clarity."],
+  ["Training Institute", "Campaign structure, Meta creative tests, form quality, admissions and lead-to-booking rate."],
 ] as const;
 
 const faqs = [
   {
-    question: "What does a digital marketing agency in Visakhapatnam do?",
+    question: "What does a digital marketing agency in Vizag do?",
     answer:
       "A digital marketing agency in Visakhapatnam helps businesses grow through online channels such as Google Ads, Meta Ads, social media, branding, SEO, content, landing pages, analytics and lead follow-up. The best channel mix depends on the business goal and current bottleneck.",
   },
   {
-    question: "Is digital marketing different from performance marketing?",
+    question: "How much does digital marketing cost in Vizag?",
     answer:
-      "Yes. Digital marketing is the broader system that can include branding, social media, content, SEO, paid ads, automation and analytics. Performance marketing is the measurable paid-campaign part focused on leads, calls, sales conversations and return on ad spend.",
+      "Digital marketing costs in Vizag depend on scope, channels, ad budget, content needs, landing pages, tracking and automation. A small paid-campaign starter plan may need a different budget than full growth marketing with Google Ads, Meta Ads, SEO, reporting and lead follow-up.",
+  },
+  {
+    question: "Which is better for my business, Google Ads or Meta Ads?",
+    answer:
+      "Google Ads is often stronger when people already search for your service. Meta Ads is useful for demand creation, retargeting, creative testing and WhatsApp enquiries. Many businesses need both, but the right starting point depends on search demand, offer clarity, budget and tracking readiness.",
+  },
+  {
+    question: "Does Zexa Media provide performance marketing in Visakhapatnam?",
+    answer:
+      "Yes. Zexa Media provides performance marketing in Visakhapatnam through Google Ads, Meta Ads, landing-page support, conversion tracking, reporting and lead follow-up systems. The focus is measurable enquiries and business outcomes rather than reach alone.",
+  },
+  {
+    question: "Can you generate leads for local businesses?",
+    answer:
+      "Zexa Media can help local businesses build lead-generation systems using ads, landing pages, WhatsApp paths, forms, tracking and follow-up workflows. Lead quality depends on the offer, market demand, response speed, budget, competition and sales handling.",
+  },
+  {
+    question: "Do you provide Google Ads management in Vizag?",
+    answer:
+      "Yes. Zexa Media manages Google Ads campaigns for Vizag businesses, including keyword strategy, Search campaigns, local intent targeting, call and form conversion tracking, negative keywords, landing-page review and weekly optimisation.",
+  },
+  {
+    question: "Do you manage Meta Ads in Vizag?",
+    answer:
+      "Yes. Zexa Media manages Meta Ads for Instagram and Facebook, including audience strategy, creative testing, retargeting, lead forms, WhatsApp enquiry paths, Meta Pixel planning, CAPI consideration and lead-quality feedback.",
+  },
+  {
+    question: "Do you provide marketing automation and WhatsApp automation?",
+    answer:
+      "Yes. Zexa Media builds practical marketing automation for lead alerts, WhatsApp follow-up, CRM handoff, appointment reminders, reporting workflows and AI-assisted lead qualification where suitable.",
+  },
+  {
+    question: "How do I choose the best digital marketing agency in Vizag?",
+    answer:
+      "Choose a digital marketing agency by checking whether they understand your business model, set up tracking properly, report transparently, improve lead quality, show real case studies where available, and focus on follow-up and business outcomes. Avoid agencies that promise guaranteed rankings, leads or ROAS.",
+  },
+  {
+    question: "What makes Zexa different from a traditional digital marketing company?",
+    answer:
+      "Zexa Media focuses on strategy before spending, tracking before scaling, and follow-up before losing leads. The work connects ads, landing pages, automation and reporting so business owners can see what is producing qualified enquiries and what needs improvement.",
   },
   {
     question: "Which businesses in Vizag should hire a digital marketing agency?",
@@ -86,11 +167,45 @@ const faqs = [
       "Businesses that need better enquiries, stronger local trust, clearer content, reliable tracking or faster lead follow-up can benefit. This includes clinics, education brands, real estate businesses, wellness brands, local services, consultants and retail businesses.",
   },
   {
+    question: "Is digital marketing different from performance marketing?",
+    answer:
+      "Yes. Digital marketing is the broader system that can include branding, social media, content, SEO, paid ads, automation and analytics. Performance marketing is the measurable paid-campaign part focused on leads, calls, sales conversations and return on ad spend.",
+  },
+  {
     question: "Does Zexa Media force every business into the same package?",
     answer:
       "No. Zexa Media starts with an audit and recommends the highest-impact next step. Some businesses need Google Ads first, some need brand clarity, some need social content, and some need tracking or automation before spending more.",
   },
 ];
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${pageUrl}#webpage`,
+  url: pageUrl,
+  name: "Performance-Driven Digital Marketing Agency in Vizag",
+  description: metadata.description,
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: businessName,
+    url: siteUrl,
+  },
+  about: {
+    "@id": `${pageUrl}#service`,
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  name: businessName,
+  url: siteUrl,
+  publisher: {
+    "@id": `${siteUrl}/#localbusiness`,
+  },
+};
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -187,18 +302,93 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
 
       <PageHero
         eyebrow="Digital marketing agency in Visakhapatnam"
-        title="Digital marketing built around visibility, trust and qualified leads."
-        description="Zexa Media helps Visakhapatnam businesses connect ads, social media, branding, automation, SEO, content and analytics into one practical growth system."
+        title="Performance-Driven Digital Marketing Agency in Vizag"
+        description="Looking for a digital marketing agency in Vizag focused on qualified leads and measurable growth? Zexa Media combines Google Ads, Meta Ads, performance marketing, SEO, landing pages, conversion tracking and marketing automation to build complete customer acquisition systems for businesses in Visakhapatnam."
         imageSrc="/images/zexa-content-shoot.png"
         imageAlt="Zexa Media digital marketing agency in Visakhapatnam creating campaign content"
         metricLabel="Connected execution"
         metricValue="Ads, social, branding, SEO, automation, and reporting"
+        primaryCta="Book a Free Growth Audit"
+        primaryHref="/free-audit"
+        secondaryCta="Explore Our Growth System"
+        secondaryHref="/growth-system"
       />
 
-      <Section eyebrow="Service mix" title="A complete digital marketing system, not disconnected tasks.">
+      <Section eyebrow="Verified proof" title="Trust signals from the approved Zexa content base.">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {proofStats.map(([value, label]) => (
+            <GlassCard key={label}>
+              <p className="text-4xl font-semibold text-[#8EEA4D]">{value}</p>
+              <h2 className="mt-4 text-xl font-semibold">{label}</h2>
+              <p className="mt-3 leading-7 text-white/58">
+                Used only because this metric already exists in the project content source.
+              </p>
+            </GlassCard>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Why Zexa"
+        title="Why Businesses Choose Zexa as Their Digital Marketing Agency in Vizag"
+      >
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          <GlassCard>
+            <h2 className="text-2xl font-semibold">Strategy before spending.</h2>
+            <p className="mt-4 leading-8 text-white/62">
+              Zexa Media does not treat marketing as a list of disconnected activities.
+              We clarify the offer, audience, funnel, tracking and follow-up before
+              increasing spend, so budget decisions are based on business reality.
+            </p>
+          </GlassCard>
+          <GlassCard>
+            <h2 className="text-2xl font-semibold">Tracking before scaling. Follow-up before losing leads.</h2>
+            <p className="mt-4 leading-8 text-white/62">
+              The work focuses on qualified enquiries, cost per lead, cost per acquisition,
+              conversion rate, lead-to-booking rate, sales attribution, ROAS and revenue
+              growth. Vanity metrics are useful only when they support a real conversion path.
+            </p>
+          </GlassCard>
+        </div>
+      </Section>
+
+      <Section eyebrow="Growth system" title="Performance marketing that goes beyond running ads.">
+        <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+          <GlassCard>
+            <h2 className="text-2xl font-semibold">A connected customer acquisition flow.</h2>
+            <p className="mt-4 leading-8 text-white/62">
+              As a performance marketing agency in Vizag, Zexa connects traffic, pages,
+              tracking and follow-up so growth marketing becomes measurable. The aim is not
+              only cheaper clicks, but better customer acquisition and clearer lead generation.
+            </p>
+          </GlassCard>
+          <div className="grid gap-3">
+            {growthFlow.map((step, index) => (
+              <GlassCard key={step}>
+                <div className="flex items-center justify-between gap-4">
+                  <h2 className="text-xl font-semibold">{step}</h2>
+                  <span className="text-sm font-bold text-[#8EEA4D]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section eyebrow="Service mix" title="Digital Marketing Services in Visakhapatnam">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {serviceMix.map(([title, copy, Icon]) => (
             <GlassCard key={title}>
@@ -206,6 +396,24 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
               <h2 className="text-2xl font-semibold">{title}</h2>
               <p className="mt-4 leading-7 text-white/62">{copy}</p>
             </GlassCard>
+          ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="Topic cluster" title="Explore specialist local marketing services.">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {topicCluster.map(([label, href]) => (
+            <Link key={href} href={href} className="group">
+              <GlassCard>
+                <h2 className="text-2xl font-semibold transition group-hover:text-[#8EEA4D]">
+                  {label}
+                </h2>
+                <p className="mt-4 inline-flex items-center text-sm font-bold text-[#8EEA4D]">
+                  Open service page
+                  <ArrowRight className="ml-2 size-4" />
+                </p>
+              </GlassCard>
+            </Link>
           ))}
         </div>
       </Section>
@@ -255,6 +463,18 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
         </div>
       </Section>
 
+      <Section eyebrow="Service areas" title="Serving Businesses Across Visakhapatnam">
+        <GlassCard>
+          <h2 className="text-2xl font-semibold">Local SEO signals without doorway pages.</h2>
+          <p className="mt-4 leading-8 text-white/62">
+            Zexa Media supports businesses across Visakhapatnam, including Dwaraka Nagar,
+            MVP Colony, Siripuram, Seethammadhara, Madhurawada, Rushikonda, Gajuwaka,
+            Akkayyapalem, NAD and Beach Road. These areas are mentioned because they reflect
+            real local relevance for city-wide campaigns, not because each area needs a thin page.
+          </p>
+        </GlassCard>
+      </Section>
+
       <Section eyebrow="Process" title="A practical route from audit to execution.">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {process.map(([step, title, copy]) => (
@@ -264,6 +484,20 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
               </p>
               <h2 className="mt-5 text-xl font-semibold">{title}</h2>
               <p className="mt-4 leading-7 text-white/62">{copy}</p>
+            </GlassCard>
+          ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="Proof roadmap" title="Case study slots for genuine client data.">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {caseStudySlots.map(([industry, fields]) => (
+            <GlassCard key={industry}>
+              <h2 className="text-xl font-semibold">{industry}</h2>
+              <p className="mt-4 leading-7 text-white/62">{fields}</p>
+              <p className="mt-5 text-sm font-semibold text-white/48">
+                Populate only with approved real data.
+              </p>
             </GlassCard>
           ))}
         </div>
@@ -294,7 +528,7 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
               href="/free-audit"
               className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] transition hover:-translate-y-1"
             >
-              Book Free Audit
+              Book Free Growth Audit
             </Link>
             <Link
               href="/services"

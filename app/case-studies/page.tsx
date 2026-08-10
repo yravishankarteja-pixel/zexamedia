@@ -30,6 +30,12 @@ const partners = [
     alt: "Moon Wellness Spa partner logo",
   },
   {
+    name: "Tara Wellness Spa",
+    category: "Wellness / Spa",
+    logo: null,
+    alt: "",
+  },
+  {
     name: "Sky Space AI On STEM Technology",
     category: "Education technology / STEM",
     logo: "/images/partners/sky-space-ai-stem-technology.png",
@@ -65,6 +71,8 @@ const studies = [
   {
     client: "Spoken English Institute",
     category: "Education / Coaching",
+    proofImage: null,
+    proofImageAlt: "",
     challenge: "Low lead volume, high cost per enquiry and unclear targeting.",
     strategy: "Refined audience targeting, campaign structure, offer clarity, and enquiry tracking.",
     channels: ["Meta Ads", "Lead tracking", "Creative testing"],
@@ -74,6 +82,8 @@ const studies = [
   {
     client: "SV Gold Shop",
     category: "Jewellery / Local Retail",
+    proofImage: null,
+    proofImageAlt: "",
     challenge: "No meaningful digital presence and heavy dependence on walk-ins and word of mouth.",
     strategy: "Built a lead-focused digital presence and campaign flow for qualified enquiries.",
     channels: ["Local campaigns", "Lead forms", "Follow-up structure"],
@@ -81,13 +91,43 @@ const studies = [
     result: "48 qualified leads in the first month, with loan disbursals increasing by 40%.",
   },
   {
+    client: "Tara Wellness Spa",
+    category: "Wellness / Spa",
+    proofImage: "/images/case-studies/tara-wellness-google-ads-proof.png",
+    proofImageAlt: "Cropped Google Ads performance snapshot for Tara Wellness Spa",
+    challenge: "Needed measurable paid-search visibility and clearer reporting for local wellness enquiries.",
+    strategy:
+      "Managed Google Ads with conversion tracking focused on clicks, enquiry actions, cost visibility and campaign optimization.",
+    channels: ["Google Ads", "Conversion tracking", "Campaign reporting"],
+    timeline: "Dec 8, 2025 to May 1, 2026",
+    result:
+      "Generated 5.18K clicks and 182 recorded conversions on approximately Rs.120K ad spend, with Rs.23.18 average CPC.",
+  },
+  {
     client: "Moon Wellness Spa",
     category: "Wellness / Spa",
+    proofImage: "/images/case-studies/moon-wellness-google-ads-proof.png",
+    proofImageAlt: "Cropped Google Ads performance snapshot for Moon Wellness Spa",
     challenge: "Inconsistent bookings, weak social presence and poor online visibility.",
-    strategy: "Improved local campaign positioning, social visibility, and booking-oriented content.",
-    channels: ["Google Ads", "Instagram growth", "Local visibility"],
-    timeline: "6 weeks",
-    result: "Walk-in appointments doubled, and Instagram grew from approximately 200 to 1,800 followers.",
+    strategy:
+      "Managed Google Ads with local campaign positioning, conversion tracking, cost visibility and booking-oriented optimization.",
+    channels: ["Google Ads", "Conversion tracking", "Local visibility"],
+    timeline: "Dec 18, 2025 to Aug 10, 2026",
+    result:
+      "Generated 61,862 impressions, 4,339 clicks and 599.50 recorded conversions on Rs.209,655.28 ad spend, with a 7.01% CTR and Rs.48.32 average CPC.",
+  },
+  {
+    client: "Joy Wellness Spa",
+    category: "Wellness / Spa",
+    proofImage: "/images/case-studies/joy-wellness-google-ads-proof.png",
+    proofImageAlt: "Cropped Google Ads performance snapshot for Joy Wellness Spa",
+    challenge: "Needed sustained paid-search visibility and measurable enquiry tracking for wellness-service demand.",
+    strategy:
+      "Managed Google Ads with conversion tracking, campaign reporting, CTR monitoring and cost-per-click visibility.",
+    channels: ["Google Ads", "Conversion tracking", "Search campaign reporting"],
+    timeline: "Jan 5, 2026 to Aug 10, 2026",
+    result:
+      "Generated 50,214 impressions, 4,626 clicks and 394 recorded conversions on Rs.185,395.86 ad spend, with a 9.21% CTR and Rs.40.08 average CPC.",
   },
 ];
 
@@ -233,23 +273,35 @@ export default function CaseStudiesPage() {
                   </span>
                 </div>
                 <div className="relative min-h-56 overflow-hidden rounded-[1.25rem] border border-white/14 bg-white/[0.035]">
-                  <Image
-                    src="/images/zexa-dashboard-review.png"
-                    alt="Illustrative Zexa Media dashboard visual for growth campaign review"
-                    fill
-                    sizes="(max-width: 1024px) 92vw, 420px"
-                    className="object-cover opacity-80"
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.05),rgba(5,8,6,0.82))]" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <BarChart3 className="size-8 text-[#8EEA4D]" />
-                    <p className="mt-3 text-sm font-semibold text-white/82">
-                      Campaign review visual
-                    </p>
-                    <p className="mt-1 text-xs leading-5 text-white/52">
-                      Illustrative dashboard image. Results are described separately.
-                    </p>
-                  </div>
+                  {study.proofImage ? (
+                    <Image
+                      src={study.proofImage}
+                      alt={study.proofImageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 92vw, 420px"
+                      className="object-cover object-left-top"
+                    />
+                  ) : (
+                    <>
+                      <Image
+                        src="/images/zexa-dashboard-review.png"
+                        alt="Illustrative Zexa Media dashboard visual for growth campaign review"
+                        fill
+                        sizes="(max-width: 1024px) 92vw, 420px"
+                        className="object-cover opacity-80"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.05),rgba(5,8,6,0.82))]" />
+                      <div className="absolute bottom-0 left-0 right-0 p-5">
+                        <BarChart3 className="size-8 text-[#8EEA4D]" />
+                        <p className="mt-3 text-sm font-semibold text-white/82">
+                          Campaign review visual
+                        </p>
+                        <p className="mt-1 text-xs leading-5 text-white/52">
+                          Illustrative dashboard image. Results are described separately.
+                        </p>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
               <GlassCard>

@@ -416,6 +416,38 @@ export default function ServicesPage() {
               </span>
             </GlassCard>
           </Link>
+          <Link href="/marketing-automation-agency-visakhapatnam" className="group">
+            <GlassCard>
+              <Bot className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
+              <h2 className="text-2xl font-semibold transition group-hover:text-[#8EEA4D]">
+                Marketing Automation Agency Visakhapatnam
+              </h2>
+              <p className="mt-4 leading-7 text-white/62">
+                A focused page for WhatsApp automation, CRM workflows, lead alerts,
+                AI-assisted qualification, reminders and reporting automation.
+              </p>
+              <span className="mt-5 inline-flex items-center text-sm font-bold text-[#8EEA4D]">
+                Open local page
+                <ArrowRight className="ml-2 size-4 transition group-hover:translate-x-1" />
+              </span>
+            </GlassCard>
+          </Link>
+          <Link href="/seo-company-visakhapatnam" className="group">
+            <GlassCard>
+              <Search className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
+              <h2 className="text-2xl font-semibold transition group-hover:text-[#8EEA4D]">
+                SEO Company Visakhapatnam
+              </h2>
+              <p className="mt-4 leading-7 text-white/62">
+                A focused page for technical SEO, local SEO, content planning, schema,
+                Google Business Profile alignment and organic visibility.
+              </p>
+              <span className="mt-5 inline-flex items-center text-sm font-bold text-[#8EEA4D]">
+                Open local page
+                <ArrowRight className="ml-2 size-4 transition group-hover:translate-x-1" />
+              </span>
+            </GlassCard>
+          </Link>
           <GlassCard>
             <Search className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
             <h2 className="text-2xl font-semibold">Local pages support city-level discovery</h2>

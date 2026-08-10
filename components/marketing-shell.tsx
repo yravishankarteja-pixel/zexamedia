@@ -42,6 +42,10 @@ export function PageHero({
   imageAlt,
   metricLabel = "Growth system",
   metricValue = "Live strategy",
+  primaryCta = "Call Zexa",
+  primaryHref = phoneHref,
+  secondaryCta = "Talk to Zexa",
+  secondaryHref = "/contact",
 }: Readonly<{
   eyebrow: string;
   title: string;
@@ -50,6 +54,10 @@ export function PageHero({
   imageAlt?: string;
   metricLabel?: string;
   metricValue?: string;
+  primaryCta?: string;
+  primaryHref?: string;
+  secondaryCta?: string;
+  secondaryHref?: string;
 }>) {
   return (
     <section
@@ -74,17 +82,17 @@ export function PageHero({
         <Reveal delay={0.24} variant="soft-drop">
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <Link
-              href={phoneHref}
+              href={primaryHref}
               className="magnetic-cta inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1"
             >
-              Call Zexa
+              {primaryCta}
               <ArrowRight className="ml-2 size-5" />
             </Link>
             <Link
-              href="/contact"
+              href={secondaryHref}
               className="premium-secondary-cta inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 backdrop-blur-xl transition hover:border-[#8EEA4D]/60 hover:bg-[#8EEA4D]/10"
             >
-              Talk to Zexa
+              {secondaryCta}
             </Link>
           </div>
         </Reveal>

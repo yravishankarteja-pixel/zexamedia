@@ -105,29 +105,40 @@ const services = [
 
 const caseSnapshots = [
   {
-    clientName: "Moon Wellness Spa",
+    clientName: "Tara Wellness Spa",
     industry: "Wellness & Spa, Vizag",
-    headlineResult: "2x walk-ins in 60 days",
-    supportingMetric: "Google Ads + local campaign optimization",
+    headlineResult: "182 recorded conversions",
+    supportingMetric: "5.18K clicks from roughly Rs.120K Google Ads spend",
   },
   {
-    clientName: "Local Service Business",
-    industry: "Service Business, Vizag",
-    headlineResult: "CPL reduced by 40%",
-    supportingMetric: "Meta Ads + WhatsApp lead tracking",
+    clientName: "Moon Wellness Spa",
+    industry: "Wellness & Spa, Vizag",
+    headlineResult: "599.50 recorded conversions",
+    supportingMetric: "4,339 clicks from Rs.209,655.28 Google Ads spend",
+  },
+  {
+    clientName: "Joy Wellness Spa",
+    industry: "Wellness & Spa, Vizag",
+    headlineResult: "394 recorded conversions",
+    supportingMetric: "4,626 clicks from Rs.185,395.86 Google Ads spend",
   },
 ];
 
 const proofCards = [
   {
-    metric: "2x",
-    title: "Walk-ins doubled",
-    copy: "Local campaign and offer clarity improved appointment flow.",
+    metric: "182",
+    title: "Recorded conversions",
+    copy: "Tara Wellness Spa Google Ads account snapshot from Dec 8, 2025 to May 1, 2026.",
   },
   {
-    metric: "60%",
-    title: "CPL down 60%",
-    copy: "Weak sources were cut and winning creatives were scaled.",
+    metric: "599.50",
+    title: "Moon conversions",
+    copy: "Moon Wellness Spa Google Ads account snapshot from Dec 18, 2025 to Aug 10, 2026.",
+  },
+  {
+    metric: "394",
+    title: "Joy conversions",
+    copy: "Joy Wellness Spa Google Ads account snapshot from Jan 5, 2026 to Aug 10, 2026.",
   },
   {
     metric: "60s",

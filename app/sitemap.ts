@@ -15,6 +15,8 @@ const routes = [
   "/google-ads-agency-visakhapatnam",
   "/meta-ads-agency-visakhapatnam",
   "/lead-generation-agency-visakhapatnam",
+  "/marketing-automation-agency-visakhapatnam",
+  "/seo-company-visakhapatnam",
   "/services/performance-marketing",
   "/services/social-media-management",
   "/services/branding",
