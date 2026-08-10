@@ -79,6 +79,7 @@ export function SiteHeaderClient() {
             width={180}
             height={50}
             sizes="(max-width: 768px) 140px, 180px"
+            style={{ width: "min(180px, 42vw)", height: "auto" }}
             className="h-auto w-[128px] max-w-[42vw] object-contain sm:w-[150px] md:w-[170px] xl:w-[180px]"
             priority
           />
