@@ -9,23 +9,19 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { easeOutExpo } from "@/components/animation/motion";
 
 const mainNavItems = [
-  { label: "Home", href: "/" },
-  { label: "How We Work", href: "/how-we-work" },
+  { label: "Growth System", href: "/growth-system" },
+  { label: "Packages", href: "/packages" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
 const serviceMenuItems = [
   { label: "Services Overview", href: "/services" },
-  { label: "Remote Services", href: "/remote-marketing-services" },
   { label: "Performance Marketing", href: "/performance-marketing-agency" },
   { label: "Google Ads", href: "/google-ads-agency" },
   { label: "Meta Ads", href: "/meta-ads-agency" },
   { label: "Lead Generation", href: "/lead-generation-agency" },
   { label: "Marketing Automation", href: "/marketing-automation-agency" },
-  { label: "Growth System", href: "/growth-system" },
-  { label: "Packages", href: "/packages" },
 ];
 
 export function SiteHeaderClient() {
@@ -76,17 +72,16 @@ export function SiteHeaderClient() {
       }`}
     >
       <nav className="mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:min-h-[5.5rem]">
-        <Link href="/" className="flex items-center gap-3" aria-label="Zexa Media home">
-          <span className="relative block h-12 w-40 overflow-hidden sm:w-44 lg:w-40 xl:h-14 xl:w-48">
-            <Image
-              src="/zexa-media-logo-transparent.png"
-              alt="Zexa Media"
-              fill
-              sizes="(max-width: 640px) 160px, 192px"
-              className="object-contain object-left"
-              priority
-            />
-          </span>
+        <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Zexa Media home">
+          <Image
+            src="/zexa-media-logo-transparent.png"
+            alt="Zexa Media"
+            width={180}
+            height={50}
+            sizes="(max-width: 768px) 140px, 180px"
+            className="h-auto w-[128px] max-w-[42vw] object-contain sm:w-[150px] md:w-[170px] xl:w-[180px]"
+            priority
+          />
         </Link>
 
         <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.035] px-2 py-2 lg:flex">

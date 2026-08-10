@@ -425,39 +425,43 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:112px_112px]" />
 
       <div className="relative z-10">
-        <section className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 pb-12 pt-16 sm:px-8 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:pb-14 lg:pt-20">
+        <section className="relative mx-auto grid w-full max-w-7xl min-w-0 items-center gap-10 overflow-hidden px-5 pb-12 pt-16 sm:px-8 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:pb-14 lg:pt-20">
           <div className="pointer-events-none absolute left-1/2 top-6 hidden h-28 w-28 -translate-x-1/2 rounded-[2rem] border border-[#8EEA4D]/18 bg-[#8EEA4D]/10 blur-[0.2px] lg:block geo-float-local" />
-          <div>
+          <div className="min-w-0">
             <Reveal>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-sm font-semibold text-white/72">
-                <BadgeCheck className="size-4 text-[#8EEA4D]" />
-                Performance marketing agency in Visakhapatnam
+              <div className="mb-6 flex w-full max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-sm font-semibold text-white/72 sm:inline-flex sm:w-auto">
+                <BadgeCheck className="size-4 shrink-0 text-[#8EEA4D]" />
+                <span className="min-w-0 truncate">
+                  Performance marketing agency in Visakhapatnam
+                </span>
               </div>
             </Reveal>
             <Reveal delay={0.06}>
-              <h1 className="max-w-5xl text-5xl font-semibold leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl">
-                Performance Marketing Agency in{" "}
-                <span className="text-[#8EEA4D]">Visakhapatnam.</span>
+              <h1 className="max-w-full text-4xl font-semibold leading-[1.02] tracking-normal text-white [overflow-wrap:anywhere] sm:max-w-5xl sm:text-6xl sm:leading-[0.98] lg:text-7xl">
+                <span className="block sm:inline">Performance</span>{" "}
+                <span className="block sm:inline">Marketing</span>{" "}
+                <span className="block sm:inline">Agency in</span>
+                <span className="block text-[#8EEA4D]">Visakhapatnam.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-white/64 sm:text-xl">
+              <p className="mt-7 max-w-full text-lg leading-8 text-white/64 sm:max-w-2xl sm:text-xl">
                 Zexa Media runs high-performance Google Ads, Meta Ads, lead-generation campaigns,
                 and marketing automation engineered to deliver real ROI, not just reach.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-9 flex max-w-full flex-col gap-4 sm:flex-row">
                 <a
                   href="/free-audit"
-                  className="magnetic-cta group inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#8EEA4D] focus:ring-offset-2 focus:ring-offset-[#050806]"
+                  className="magnetic-cta group inline-flex min-h-14 w-full max-w-full items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#8EEA4D] focus:ring-offset-2 focus:ring-offset-[#050806] sm:w-auto"
                 >
                   Call for Free Audit
                   <ArrowRight className="ml-2 size-5 transition group-hover:translate-x-1" />
                 </a>
                 <a
                   href="/packages"
-                  className="premium-secondary-cta inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 transition hover:border-[#8EEA4D]/50 hover:bg-white/[0.09]"
+                  className="premium-secondary-cta inline-flex min-h-14 w-full max-w-full items-center justify-center rounded-full border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 transition hover:border-[#8EEA4D]/50 hover:bg-white/[0.09] sm:w-auto"
                 >
                   See Our Packages
                 </a>
@@ -466,7 +470,7 @@ export default function Home() {
           </div>
 
           <Reveal delay={0.14}>
-            <div className="relative mx-auto w-full max-w-[560px]">
+            <div className="relative mx-auto w-full max-w-full min-w-0 sm:max-w-[560px]">
               <div className="image-depth-card hero-visual-float relative aspect-[0.92] overflow-hidden rounded-[1.75rem] border border-white/12 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
                 <Image
                   src="/images/zexa-hero-strategy.png"
