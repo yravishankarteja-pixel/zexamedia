@@ -71,6 +71,21 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        {/* Google tag (gtag.js) */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-TSY10BW7VW"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-TSY10BW7VW');`,
+          }}
+        />
         {/* Google-provided snippet is kept verbatim for the requested head placement. */}
         {/* eslint-disable-next-line @next/next/next-script-for-ga */}
         <script
