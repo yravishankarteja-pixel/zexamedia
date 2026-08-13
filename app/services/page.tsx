@@ -84,11 +84,11 @@ const services = [
 ];
 
 const industries = [
-  ["Healthcare & Wellness", "Clinics, doctors, dental, IVF, spas, fitness and aesthetics businesses."],
+  ["Healthcare & Wellness", "Clinics, doctors, dental, IVF, spas, fitness and aesthetics businesses.", "/industries/digital-marketing-for-doctors-clinics-vizag"],
   ["Education & Coaching", "Institutes, schools, training centres and career-focused education brands."],
   ["Finance & Gold", "Gold loan, mortgage, finance and advisory businesses that need trust-led lead generation."],
-  ["Retail & Local Services", "Showrooms, salons, restaurants, repair services and local consumer brands."],
-  ["Real Estate", "Builders, developers, brokers and project campaigns that need qualified enquiries."],
+  ["Retail & Local Services", "Showrooms, salons, restaurants, repair services and local consumer brands.", "/industries/digital-marketing-for-salons-vizag"],
+  ["Real Estate", "Builders, developers, brokers and project campaigns that need qualified enquiries.", "/industries/digital-marketing-for-real-estate-vizag"],
   ["Professional Services", "Consultants, service firms and B2B businesses that need credibility and pipeline."],
 ];
 
@@ -217,10 +217,15 @@ export default function ServicesPage() {
 
       <Section eyebrow="Who we work with" title="Industries we serve across local and worldwide markets.">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {industries.map(([industry, copy]) => (
+          {industries.map(([industry, copy, href]) => (
             <GlassCard key={industry}>
               <h2 className="text-xl font-semibold">{industry}</h2>
               <p className="mt-4 leading-7 text-white/62">{copy}</p>
+              {href && (
+                <Link href={href} className="mt-5 inline-flex items-center text-sm font-bold text-[#8EEA4D]">
+                  Explore industry <ArrowRight className="ml-2 size-4" />
+                </Link>
+              )}
             </GlassCard>
           ))}
         </div>

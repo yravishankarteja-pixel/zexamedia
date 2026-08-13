@@ -126,6 +126,7 @@ export function SiteFooter() {
             links={[
               ["Home", "/"],
               ["Services", "/services"],
+              ["Industries", "/industries"],
               ["Remote Services", "/remote-marketing-services"],
               ["How We Work", "/how-we-work"],
               ["Growth System", "/growth-system"],

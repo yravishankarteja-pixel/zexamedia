@@ -1,11 +1,14 @@
 import type { MetadataRoute } from "next";
 import { globalServiceRoutes } from "@/lib/global-commercial-pages";
+import { industryRoutes } from "@/lib/industry-pages";
 import { absoluteUrl } from "@/lib/site-url";
 
 const routes = [
   "",
   "/about",
   "/services",
+  "/industries",
+  ...industryRoutes,
   "/remote-marketing-services",
   "/how-we-work",
   "/growth-system",

@@ -9,6 +9,7 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { easeOutExpo } from "@/components/animation/motion";
 
 const mainNavItems = [
+  { label: "Industries", href: "/industries" },
   { label: "Growth System", href: "/growth-system" },
   { label: "Packages", href: "/packages" },
   { label: "Case Studies", href: "/case-studies" },
