@@ -84,11 +84,12 @@ const services = [
 ];
 
 const industries = [
-  ["Healthcare & Wellness", "Clinics, doctors, dental, IVF, spas, fitness and aesthetics businesses.", "/industries/digital-marketing-for-doctors-clinics-vizag"],
+  ["Doctors & Clinics", "Doctors, dental practices, diagnostic centres, fertility clinics and multi-location healthcare practices.", "/industries/doctors-clinics"],
+  ["Spas & Wellness", "Day spas, wellness studios, beauty centres and multi-branch wellness brands.", "/industries/spas-wellness"],
   ["Education & Coaching", "Institutes, schools, training centres and career-focused education brands."],
   ["Finance & Gold", "Gold loan, mortgage, finance and advisory businesses that need trust-led lead generation."],
-  ["Retail & Local Services", "Showrooms, salons, restaurants, repair services and local consumer brands.", "/industries/digital-marketing-for-salons-vizag"],
-  ["Real Estate", "Builders, developers, brokers and project campaigns that need qualified enquiries.", "/industries/digital-marketing-for-real-estate-vizag"],
+  ["Retail & Local Services", "Showrooms, salons, restaurants, repair services and local consumer brands.", "/industries/salons"],
+  ["Real Estate", "Builders, developers, brokers and project campaigns that need qualified enquiries.", "/industries/real-estate"],
   ["Professional Services", "Consultants, service firms and B2B businesses that need credibility and pipeline."],
 ];
 

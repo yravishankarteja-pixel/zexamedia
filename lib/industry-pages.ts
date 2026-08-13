@@ -23,7 +23,7 @@ export type IndustryPageConfig = {
 
 export const industryPages: IndustryPageConfig[] = [
   {
-    slug: "digital-marketing-for-doctors-clinics-vizag",
+    slug: "doctors-clinics",
     industry: "Doctors & Clinics",
     eyebrow: "Healthcare marketing in Visakhapatnam",
     title: "Digital marketing for doctors and clinics in Vizag.",
@@ -64,7 +64,7 @@ export const industryPages: IndustryPageConfig[] = [
     relatedServices: [["Google Ads management", "/google-ads-agency-visakhapatnam"], ["Lead generation", "/lead-generation-agency-visakhapatnam"], ["Marketing automation", "/marketing-automation-agency-visakhapatnam"]],
   },
   {
-    slug: "digital-marketing-for-spas-vizag",
+    slug: "spas-wellness",
     industry: "Spas & Wellness",
     eyebrow: "Spa marketing in Visakhapatnam",
     title: "Digital marketing for spas and wellness brands in Vizag.",
@@ -83,7 +83,7 @@ export const industryPages: IndustryPageConfig[] = [
     relatedServices: [["Meta Ads management", "/meta-ads-agency-visakhapatnam"], ["Social media management", "/services/social-media-management"], ["Lead generation", "/lead-generation-agency-visakhapatnam"]],
   },
   {
-    slug: "digital-marketing-for-salons-vizag",
+    slug: "salons",
     industry: "Salons",
     eyebrow: "Salon marketing in Visakhapatnam",
     title: "Digital marketing for salons in Vizag.",
@@ -102,7 +102,7 @@ export const industryPages: IndustryPageConfig[] = [
     relatedServices: [["Social media management", "/services/social-media-management"], ["Meta Ads management", "/meta-ads-agency-visakhapatnam"], ["Branding and positioning", "/services/branding"]],
   },
   {
-    slug: "digital-marketing-for-real-estate-vizag",
+    slug: "real-estate",
     industry: "Real Estate",
     eyebrow: "Real estate marketing in Visakhapatnam",
     title: "Digital marketing for real estate businesses in Vizag.",
