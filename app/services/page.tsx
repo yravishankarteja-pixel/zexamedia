@@ -394,7 +394,7 @@ export default function ServicesPage() {
             <GlassCard>
               <Sparkles className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
               <h2 className="text-2xl font-semibold transition group-hover:text-[#8EEA4D]">
-                Digital Marketing Agency Visakhapatnam
+                Best Digital Marketing Agency in Vizag
               </h2>
               <p className="mt-4 leading-7 text-white/62">
                 A broad local page for businesses that need ads, social media, branding,
