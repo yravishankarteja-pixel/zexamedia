@@ -126,6 +126,7 @@ export function SiteFooter() {
             links={[
               ["Home", "/"],
               ["Services", "/services"],
+              ["Digital Marketing Agency Vizag", "/digital-marketing-agency-visakhapatnam"],
               ["Industries", "/industries"],
               ["Doctors & Clinics", "/industries/doctors-clinics"],
               ["Spas & Wellness", "/industries/spas-wellness"],
