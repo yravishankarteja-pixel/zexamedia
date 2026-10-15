@@ -8,23 +8,27 @@ import { phoneHref, SiteFooter, whatsappUrl } from "@/components/site-footer";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
+
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Performance Marketing Agency in Visakhapatnam | Zexa Media",
+  title: "Zexa Media | Digital Marketing & Performance Marketing Agency",
   description:
-    "Zexa Media helps Vizag businesses grow with Google Ads, Meta Ads, lead generation, marketing automation, and clear ROI tracking.",
+    "Zexa Media helps businesses grow with Google Ads, Meta Ads, SEO, lead generation and marketing automation from Visakhapatnam, India.",
   alternates: {
     canonical: siteUrl,
   },
@@ -36,9 +40,9 @@ export const metadata: Metadata = {
       }
     : {}),
   openGraph: {
-    title: "Performance Marketing Agency in Visakhapatnam | Zexa Media",
+    title: "Zexa Media | Digital Marketing & Performance Marketing Agency",
     description:
-      "Google Ads, Meta Ads, lead generation, automation, and ROI-focused growth systems for businesses in Visakhapatnam.",
+      "Google Ads, Meta Ads, SEO, lead generation and marketing automation from Zexa Media in Visakhapatnam, India.",
     url: siteUrl,
     siteName: "Zexa Media",
     type: "website",
@@ -53,12 +57,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Performance Marketing Agency in Visakhapatnam | Zexa Media",
+    title: "Zexa Media | Digital Marketing & Performance Marketing Agency",
     description:
-      "Google Ads, Meta Ads, lead generation, automation, and ROI-focused growth systems for businesses in Visakhapatnam.",
+      "Google Ads, Meta Ads, SEO, lead generation and marketing automation from Zexa Media in Visakhapatnam, India.",
     images: [absoluteUrl("/zexa-media-logo.png")],
   },
 };
+
 
 export default function RootLayout({
   children,
@@ -82,6 +87,7 @@ export default function RootLayout({
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
+
 
 gtag('config', 'G-TSY10BW7VW');`,
           }}
