@@ -1,5 +1,6 @@
 ﻿"use client";
 
+
 import { useEffect } from "react";
 import Image from "next/image";
 import {
@@ -42,6 +43,7 @@ import {
 } from "@/lib/business-info";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
+
 const stats: Array<{
   value: string;
   label: string;
@@ -63,6 +65,7 @@ const stats: Array<{
     label: "Cities Across AP",
   },
 ];
+
 
 const services = [
   {
@@ -103,6 +106,7 @@ const services = [
   },
 ];
 
+
 const caseSnapshots = [
   {
     clientName: "Tara Wellness Spa",
@@ -123,6 +127,7 @@ const caseSnapshots = [
     supportingMetric: "4,626 clicks from Rs.185,395.86 Google Ads spend",
   },
 ];
+
 
 const proofCards = [
   {
@@ -147,6 +152,7 @@ const proofCards = [
   },
 ];
 
+
 const localSignals = [
   {
     title: "Dwaraka Nagar presence",
@@ -161,6 +167,7 @@ const localSignals = [
     copy: "Messaging can account for Telugu-speaking audiences, city-level competition, walk-in intent, calls, WhatsApp enquiries and appointment-led businesses.",
   },
 ];
+
 
 const trustEvidence = [
   {
@@ -185,11 +192,13 @@ const trustEvidence = [
   },
 ];
 
+
 const testimonial = {
   text: "Zexa Media made our lead flow clearer within the first month. We finally understood where enquiries were coming from and what to scale.",
   clientName: "Local Business Client",
   initials: "ZM",
 };
+
 
 const packages = [
   {
@@ -220,6 +229,7 @@ const packages = [
   },
 ];
 
+
 const faqs = [
   {
     question: "How much does Google Ads cost for a small business in Vizag?",
@@ -243,14 +253,28 @@ const faqs = [
   },
 ];
 
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": absoluteUrl("/#organization"),
   name: businessName,
+  alternateName: "ZexaMedia",
   url: siteUrl,
   email: contactEmail,
-  logo: absoluteUrl("/zexa-media-logo-transparent.png"),
+  logo: {
+    "@type": "ImageObject",
+    "@id": absoluteUrl("/#logo"),
+    url: absoluteUrl("/zexa-media-logo-transparent.png"),
+    contentUrl: absoluteUrl("/zexa-media-logo-transparent.png"),
+    caption: businessName,
+  },
+  founder: {
+    "@type": "Person",
+    "@id": absoluteUrl("/#founder"),
+    name: "Ravi Shankar Teja",
+    jobTitle: "Founder",
+  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: phoneE164,
@@ -258,8 +282,22 @@ const organizationSchema = {
   },
   sameAs: socialLinks.map((item) => item.href),
   description:
-    "Zexa Media is a growth marketing agency in Visakhapatnam helping businesses grow with Google Ads, Meta Ads, social media, branding, and marketing automation.",
+    "Zexa Media is a digital growth and performance marketing agency in Visakhapatnam helping businesses with Google Ads, Meta Ads, SEO, lead generation and marketing automation.",
   areaServed,
+};
+
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": absoluteUrl("/#website"),
+  url: siteUrl,
+  name: businessName,
+  alternateName: ["ZexaMedia", "zexamedia.in"],
+  publisher: {
+    "@id": absoluteUrl("/#organization"),
+  },
+  inLanguage: "en-IN",
 };
 
 const localBusinessSchema = {
@@ -296,6 +334,7 @@ const localBusinessSchema = {
   ],
 };
 
+
 const offerSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -308,16 +347,17 @@ const offerSchema = {
     priceCurrency: "INR",
     url: absoluteUrl("/packages"),
     seller: {
-      "@type": "Organization",
-      name: "Zexa Media",
+      "@id": absoluteUrl("/#organization"),
     },
   })),
 };
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
+
 
 function Reveal({
   children,
@@ -325,6 +365,7 @@ function Reveal({
   className = "",
 }: Readonly<{ children: React.ReactNode; delay?: number; className?: string }>) {
   const reduceMotion = useReducedMotion();
+
 
   return (
     <motion.div
@@ -339,6 +380,7 @@ function Reveal({
     </motion.div>
   );
 }
+
 
 function SectionHeading({
   eyebrow,
@@ -360,6 +402,7 @@ function SectionHeading({
   );
 }
 
+
 export default function Home() {
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
@@ -370,10 +413,12 @@ export default function Home() {
   });
   const heroParallax = useTransform(scrollYProgress, [0, 0.35], [0, reduceMotion ? 0 : 42]);
 
+
   useEffect(() => {
     if (reduceMotion) {
       return;
     }
+
 
     const lenis = new Lenis({
       duration: 1,
@@ -381,19 +426,23 @@ export default function Home() {
       wheelMultiplier: 0.9,
     });
 
+
     let frame = 0;
     function raf(time: number) {
       lenis.raf(time);
       frame = requestAnimationFrame(raf);
     }
 
+
     frame = requestAnimationFrame(raf);
+
 
     return () => {
       cancelAnimationFrame(frame);
       lenis.destroy();
     };
   }, [reduceMotion]);
+
 
   return (
     <main className="site-page min-h-screen overflow-hidden bg-[#050806] text-white">
@@ -407,12 +456,17 @@ export default function Home() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }}
       />
+
 
       <motion.div
         className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.055),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.045),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_48%,#020302_100%)]"
@@ -423,6 +477,7 @@ export default function Home() {
       <div className="floating-geo geo-ring geo-ring-a" />
       <div className="floating-geo geo-prism geo-prism-a" />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:112px_112px]" />
+
 
       <div className="relative z-10">
         <section className="relative mx-auto grid w-full max-w-7xl min-w-0 items-center gap-10 overflow-hidden px-5 pb-12 pt-16 sm:px-8 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:pb-14 lg:pt-20">
@@ -469,6 +524,7 @@ export default function Home() {
             </Reveal>
           </div>
 
+
           <Reveal delay={0.14}>
             <div className="relative mx-auto w-full max-w-full min-w-0 sm:max-w-[560px]">
               <div className="image-depth-card hero-visual-float relative aspect-[0.92] overflow-hidden rounded-[1.75rem] border border-white/12 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
@@ -511,6 +567,7 @@ export default function Home() {
             </div>
           </Reveal>
         </section>
+
 
         <section className="px-5 sm:px-8">
           <Reveal>
@@ -562,6 +619,7 @@ export default function Home() {
           </Reveal>
         </section>
 
+
         <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
           <SectionHeading
             eyebrow="Trust system"
@@ -580,6 +638,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+
 
         <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
           <div className="grid gap-4 lg:grid-cols-[1fr_0.82fr]">
@@ -623,6 +682,7 @@ export default function Home() {
           </div>
         </section>
 
+
         <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
           <SectionHeading
             eyebrow="Services"
@@ -651,6 +711,7 @@ export default function Home() {
           </div>
         </section>
 
+
         <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
           <SectionHeading
             eyebrow="Local signals"
@@ -677,6 +738,7 @@ export default function Home() {
           </div>
         </section>
 
+
         <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
           <SectionHeading
             eyebrow="Proof"
@@ -698,6 +760,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+
 
         <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
           <SectionHeading
@@ -763,6 +826,7 @@ export default function Home() {
           </Reveal>
         </section>
 
+
         <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:pb-20">
           <SectionHeading
             eyebrow="FAQ"
@@ -788,6 +852,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+
 
         <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24">
           <Reveal>
@@ -819,5 +884,3 @@ export default function Home() {
     </main>
   );
 }
-
-
