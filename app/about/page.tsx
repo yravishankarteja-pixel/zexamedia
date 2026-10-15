@@ -13,6 +13,7 @@ import {
 } from "@/lib/business-info";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
+
 export const metadata: Metadata = {
   title: "About Zexa Media | Our Story & Mission",
   description:
@@ -20,7 +21,9 @@ export const metadata: Metadata = {
   alternates: { canonical: absoluteUrl("/about") },
 };
 
+
 const pageUrl = absoluteUrl("/about");
+
 
 const values = [
   [
@@ -49,6 +52,7 @@ const values = [
   ],
 ];
 
+
 const founderExpertise = [
   [
     "Performance mindset",
@@ -72,6 +76,7 @@ const founderExpertise = [
   ],
 ];
 
+
 const aboutFaqs = [
   {
     question: "What does Zexa Media do?",
@@ -89,6 +94,7 @@ const aboutFaqs = [
       "Zexa Media focuses on growth systems, not only posting content or running isolated ads. The work connects campaigns, content, tracking, landing pages, follow-up automation and reporting so business owners can see what is moving the needle.",
   },
 ];
+
 
 const aboutPageSchema = {
   "@context": "https://schema.org",
@@ -122,7 +128,8 @@ const aboutPageSchema = {
       "Performance marketing and growth marketing agency serving businesses in Visakhapatnam and across India.",
     founder: {
       "@type": "Person",
-      name: "Teja",
+      "@id": `${siteUrl}/#founder`,
+      name: "Ravi Shankar Teja",
       jobTitle: "Founder",
       worksFor: {
         "@id": `${siteUrl}/#localbusiness`,
@@ -130,6 +137,7 @@ const aboutPageSchema = {
     },
   },
 };
+
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -143,6 +151,7 @@ const faqSchema = {
     },
   })),
 };
+
 
 export default function AboutPage() {
   return (
@@ -164,6 +173,7 @@ export default function AboutPage() {
         metricLabel="Built for growth"
         metricValue="Strategy, tracking, creative, and follow-up"
       />
+
 
       <Section eyebrow="Our story" title="Why we started Zexa Media.">
         <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
@@ -190,10 +200,13 @@ export default function AboutPage() {
               Zexa Media was built to give Vizag businesses that edge: sharper campaigns,
               stronger follow-up and clearer reporting.
             </p>
-            <p className="mt-6 font-semibold text-[#8EEA4D]">Teja, Founder, Zexa Media</p>
+            <p className="mt-6 font-semibold text-[#8EEA4D]">
+              Ravi Shankar Teja, Founder, Zexa Media
+            </p>
           </GlassCard>
         </div>
       </Section>
+
 
       <Section eyebrow="Mission and vision" title="Results, transparency, and long-term partnerships.">
         <div className="grid gap-4 md:grid-cols-2">
@@ -214,6 +227,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
+
       <Section eyebrow="Founder expertise" title="What clients should expect from Zexa Media.">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {founderExpertise.map(([title, copy, Icon]) => (
@@ -226,6 +240,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
+
       <Section eyebrow="What we believe" title="The operating principles behind Zexa Media.">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {values.map(([title, copy]) => (
@@ -236,6 +251,7 @@ export default function AboutPage() {
           ))}
         </div>
       </Section>
+
 
       <Section eyebrow="Local focus" title="Why Visakhapatnam businesses need a different marketing approach.">
         <div className="grid gap-5 lg:grid-cols-[1fr_1fr]">
@@ -259,6 +275,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
+
       <Section eyebrow="FAQ" title="About Zexa Media.">
         <div className="grid gap-5 lg:grid-cols-3">
           {aboutFaqs.map((faq) => (
@@ -269,6 +286,7 @@ export default function AboutPage() {
           ))}
         </div>
       </Section>
+
 
       <Section eyebrow="Next step" title="Work with a team focused on your growth system.">
         <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
