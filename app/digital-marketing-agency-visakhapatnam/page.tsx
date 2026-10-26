@@ -32,10 +32,33 @@ import {
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  title: "Best Digital Marketing Agency in Vizag | Zexa Media",
+  title: "Digital Marketing Agency in Vizag | Zexa Media",
   description:
     "Zexa Media is a performance-driven digital marketing agency in Vizag helping businesses generate qualified leads through Google Ads, Meta Ads, SEO, landing pages, tracking and automation.",
   alternates: { canonical: absoluteUrl("/digital-marketing-agency-visakhapatnam") },
+  openGraph: {
+    title: "Digital Marketing Agency in Vizag | Zexa Media",
+    description:
+      "Google Ads, Meta Ads, SEO, landing pages, conversion tracking and automation for businesses in Visakhapatnam.",
+    url: absoluteUrl("/digital-marketing-agency-visakhapatnam"),
+    siteName: businessName,
+    type: "website",
+    images: [
+      {
+        url: absoluteUrl("/zexa-media-logo.png"),
+        width: 1536,
+        height: 1024,
+        alt: "Zexa Media digital marketing agency in Vizag",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digital Marketing Agency in Vizag | Zexa Media",
+    description:
+      "Google Ads, Meta Ads, SEO, landing pages, conversion tracking and automation for businesses in Visakhapatnam.",
+    images: [absoluteUrl("/zexa-media-logo.png")],
+  },
 };
 
 const pageUrl = absoluteUrl("/digital-marketing-agency-visakhapatnam");
@@ -53,11 +76,11 @@ const serviceMix = [
   ["Analytics & Reporting", "Dashboards and monthly reviews that connect spend, source quality, CPL and next actions.", BarChart3],
 ] as const;
 
-const proofStats = [
-  ["50+", "Clients Served"],
-  ["Rs.2Cr+", "Ad Spend Managed"],
-  ["3x-8x", "ROAS ranges documented in the content base"],
-  ["4", "Cities Across AP"],
+const capabilitySignals = [
+  ["Google Ads", "High-intent demand capture"],
+  ["Meta Ads", "Demand creation and retargeting"],
+  ["GA4 + GTM", "Conversion measurement"],
+  ["WhatsApp", "Lead response and follow-up"],
 ] as const;
 
 const outcomes = [
@@ -103,11 +126,10 @@ const process = [
   ["04", "Review, Automate & Scale", "Use reports and lead-quality feedback to improve conversion, response speed and budget allocation."],
 ] as const;
 
-const caseStudySlots = [
-  ["Education", "Lead quality, admission enquiries, CPL, follow-up speed and conversion learnings."],
-  ["Healthcare", "Search intent, landing-page trust, call tracking, booking flow and patient enquiry quality."],
-  ["Local Business", "Walk-in demand, WhatsApp response, local visibility, retargeting and reporting clarity."],
-  ["Training Institute", "Campaign structure, Meta creative tests, form quality, admissions and lead-to-booking rate."],
+const caseStudyLinks = [
+  ["Tara Wellness Spa", "Google Ads, conversion tracking and campaign reporting."],
+  ["Moon Wellness Spa", "Local search campaigns, conversion tracking and booking-oriented optimisation."],
+  ["Joy Wellness Spa", "Paid-search visibility, enquiry tracking and campaign reporting."],
 ] as const;
 
 const faqs = [
@@ -183,7 +205,7 @@ const webPageSchema = {
   "@type": "WebPage",
   "@id": `${pageUrl}#webpage`,
   url: pageUrl,
-  name: "Best Digital Marketing Agency in Vizag for Measurable Growth",
+  name: "Digital Marketing Agency in Vizag for Leads and Growth",
   description: metadata.description,
   isPartOf: {
     "@type": "WebSite",
@@ -196,22 +218,11 @@ const webPageSchema = {
   },
 };
 
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${siteUrl}/#website`,
-  name: businessName,
-  url: siteUrl,
-  publisher: {
-    "@id": `${siteUrl}/#localbusiness`,
-  },
-};
-
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${pageUrl}#service`,
-  name: "Best Digital Marketing Agency in Vizag",
+  name: "Digital Marketing Agency in Vizag",
   serviceType: "Digital Marketing",
   url: pageUrl,
   provider: {
@@ -306,15 +317,10 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-
       <PageHero
-        eyebrow="Best digital marketing agency in Vizag for measurable growth"
-        title="Best Digital Marketing Agency in Vizag for Leads, Tracking & Growth"
-        description="Looking for the best digital marketing agency in Vizag for your business? Zexa Media combines Google Ads, Meta Ads, performance marketing, SEO, landing pages, conversion tracking and marketing automation to build measurable customer acquisition systems for businesses in Visakhapatnam."
+        eyebrow="Digital marketing agency in Vizag for measurable growth"
+        title="Digital Marketing Agency in Vizag for Leads & Growth"
+        description="Zexa Media combines Google Ads, Meta Ads, performance marketing, SEO, landing pages, conversion tracking and marketing automation to build measurable customer acquisition systems for businesses in Visakhapatnam."
         imageSrc="/images/zexa-content-shoot.png"
         imageAlt="Zexa Media digital marketing agency in Visakhapatnam creating campaign content"
         metricLabel="Connected execution"
@@ -325,15 +331,12 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
         secondaryHref="/growth-system"
       />
 
-      <Section eyebrow="Verified proof" title="Trust signals from the approved Zexa content base.">
+      <Section eyebrow="Connected capabilities" title="The systems behind measurable digital growth.">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {proofStats.map(([value, label]) => (
+          {capabilitySignals.map(([value, label]) => (
             <GlassCard key={label}>
-              <p className="text-4xl font-semibold text-[#8EEA4D]">{value}</p>
+              <p className="text-2xl font-semibold text-[#8EEA4D]">{value}</p>
               <h2 className="mt-4 text-xl font-semibold">{label}</h2>
-              <p className="mt-3 leading-7 text-white/58">
-                Used only because this metric already exists in the project content source.
-              </p>
             </GlassCard>
           ))}
         </div>
@@ -341,7 +344,7 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
 
       <Section
         eyebrow="Why Zexa"
-        title="Why Businesses Consider Zexa Among the Best Digital Marketing Agencies in Vizag"
+        title="Why Vizag businesses choose Zexa Media for digital growth"
       >
         <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
           <GlassCard>
@@ -365,7 +368,7 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
 
       <Section
         eyebrow="Choose with confidence"
-        title="What defines the best digital marketing agency in Vizag?"
+        title="How to choose a digital marketing agency in Vizag"
       >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {[
@@ -508,17 +511,41 @@ export default function DigitalMarketingAgencyVisakhapatnamPage() {
         </div>
       </Section>
 
-      <Section eyebrow="Proof roadmap" title="Case study slots for genuine client data.">
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {caseStudySlots.map(([industry, fields]) => (
-            <GlassCard key={industry}>
-              <h2 className="text-xl font-semibold">{industry}</h2>
-              <p className="mt-4 leading-7 text-white/62">{fields}</p>
-              <p className="mt-5 text-sm font-semibold text-white/48">
-                Populate only with approved real data.
-              </p>
-            </GlassCard>
+      <Section eyebrow="Campaign evidence" title="Selected client work with documented context.">
+        <div className="grid gap-4 md:grid-cols-3">
+          {caseStudyLinks.map(([client, summary]) => (
+            <Link key={client} href="/case-studies" className="group">
+              <GlassCard>
+                <h2 className="text-xl font-semibold transition group-hover:text-[#8EEA4D]">
+                  {client}
+                </h2>
+                <p className="mt-4 leading-7 text-white/62">{summary}</p>
+                <p className="mt-5 inline-flex items-center text-sm font-bold text-[#8EEA4D]">
+                  Review the case study
+                  <ArrowRight className="ml-2 size-4" />
+                </p>
+              </GlassCard>
+            </Link>
           ))}
+        </div>
+      </Section>
+
+      <Section eyebrow="Pricing and fit" title="Choose a practical starting scope before increasing spend.">
+        <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+          <GlassCard>
+            <h2 className="text-2xl font-semibold">Agency scope and advertising budget stay separate.</h2>
+            <p className="mt-4 leading-8 text-white/62">
+              The right engagement depends on the channels, content, landing pages, tracking and
+              follow-up support your business needs. Review the available scopes, then use the free
+              audit to confirm which work should come first.
+            </p>
+          </GlassCard>
+          <Link
+            href="/packages"
+            className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 transition hover:border-[#8EEA4D]/60"
+          >
+            View Packages
+          </Link>
         </div>
       </Section>
 
