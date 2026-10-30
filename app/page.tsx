@@ -42,9 +42,8 @@ const stats: Array<{
     label: "Clients Served",
   },
   {
-    value: "\u20B92Cr+",
-    // TODO: Verify the ₹2Cr+ managed-spend and 50+ client totals before treating this as audited proof.
-    label: "Managed across 50+ clients",
+    value: "₹50L+",
+    label: "Ad spend managed",
   },
   {
     value: "~₹442",
