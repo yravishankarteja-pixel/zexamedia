@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Marketing Automation Agency India | Zexa Media",
   description:
     "Zexa Media builds WhatsApp automation, CRM workflows, lead follow-ups and reporting systems for businesses in Vizag and India.",
-  alternates: { canonical: absoluteUrl("/services/automation") },
+  alternates: { canonical: absoluteUrl("/marketing-automation-agency") },
 };
 
 const pageUrl = absoluteUrl("/services/automation");

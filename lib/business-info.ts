@@ -1,6 +1,7 @@
 export const businessName = "Zexa Media";
 
-export const contactEmail = "contactzexamedia@gmail.com";
+// TODO: Add Zexa Media's verified domain email address (for example, an address on zexamedia.in).
+export const contactEmail: string | undefined = undefined;
 
 export const phoneNumber = "+91 95152 56630";
 export const phoneE164 = "+919515256630";

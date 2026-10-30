@@ -67,29 +67,27 @@ const partners = [
   },
 ];
 
-const studies = [
-  {
-    client: "Spoken English Institute",
-    category: "Education / Coaching",
-    proofImage: null,
-    proofImageAlt: "",
-    challenge: "Low lead volume, high cost per enquiry and unclear targeting.",
-    strategy: "Refined audience targeting, campaign structure, offer clarity, and enquiry tracking.",
-    channels: ["Meta Ads", "Lead tracking", "Creative testing"],
-    timeline: "45 days",
-    result: "CPL reduced from \u20B9380 to \u20B9110, with a 3x increase in admissions.",
-  },
-  {
-    client: "SV Gold Shop",
-    category: "Jewellery / Local Retail",
-    proofImage: null,
-    proofImageAlt: "",
-    challenge: "No meaningful digital presence and heavy dependence on walk-ins and word of mouth.",
-    strategy: "Built a lead-focused digital presence and campaign flow for qualified enquiries.",
-    channels: ["Local campaigns", "Lead forms", "Follow-up structure"],
-    timeline: "60 days",
-    result: "48 qualified leads in the first month, with loan disbursals increasing by 40%.",
-  },
+type CaseStudy = {
+  client: string;
+  category: string;
+  proofImage: string | null;
+  proofImageAlt: string;
+  challenge: string;
+  strategy: string;
+  channels: string[];
+  timeline: string;
+  spend: string;
+  clicks: string;
+  conversions: string;
+  costPerConversion: string;
+  clickToConversion: string;
+  lastUpdated: string;
+  ctr?: string;
+  averageCpc?: string;
+  impressionShare?: string;
+};
+
+const studies: CaseStudy[] = [
   {
     client: "Tara Wellness Spa",
     category: "Wellness / Spa",
@@ -100,8 +98,12 @@ const studies = [
       "Managed Google Ads with conversion tracking focused on clicks, enquiry actions, cost visibility and campaign optimization.",
     channels: ["Google Ads", "Conversion tracking", "Campaign reporting"],
     timeline: "Dec 8, 2025 to May 1, 2026",
-    result:
-      "Generated 5.18K clicks and 182 recorded conversions on approximately Rs.120K ad spend, with Rs.23.18 average CPC.",
+    spend: "~₹1,20,000",
+    clicks: "5.18K",
+    conversions: "182",
+    costPerConversion: "~₹659",
+    clickToConversion: "3.5%",
+    lastUpdated: "May 1, 2026",
   },
   {
     client: "Moon Wellness Spa",
@@ -113,8 +115,12 @@ const studies = [
       "Managed Google Ads with local campaign positioning, conversion tracking, cost visibility and booking-oriented optimization.",
     channels: ["Google Ads", "Conversion tracking", "Local visibility"],
     timeline: "Dec 18, 2025 to Aug 10, 2026",
-    result:
-      "Generated 61,862 impressions, 4,339 clicks and 599.50 recorded conversions on Rs.209,655.28 ad spend, with a 7.01% CTR and Rs.48.32 average CPC.",
+    spend: "₹2,09,655",
+    clicks: "4,339",
+    conversions: "599.5",
+    costPerConversion: "~₹350",
+    clickToConversion: "13.8%",
+    lastUpdated: "August 10, 2026",
   },
   {
     client: "Joy Wellness Spa",
@@ -126,8 +132,34 @@ const studies = [
       "Managed Google Ads with conversion tracking, campaign reporting, CTR monitoring and cost-per-click visibility.",
     channels: ["Google Ads", "Conversion tracking", "Search campaign reporting"],
     timeline: "Jan 5, 2026 to Aug 10, 2026",
-    result:
-      "Generated 50,214 impressions, 4,626 clicks and 394 recorded conversions on Rs.185,395.86 ad spend, with a 9.21% CTR and Rs.40.08 average CPC.",
+    spend: "₹1,85,396",
+    clicks: "4,626",
+    conversions: "394",
+    costPerConversion: "~₹470",
+    clickToConversion: "8.5%",
+    lastUpdated: "August 10, 2026",
+  },
+  {
+    // TODO: Replace this descriptor with the approved client name.
+    client: "Wellness Spa, Madhurawada",
+    category: "Wellness / Spa",
+    proofImage: null,
+    proofImageAlt: "",
+    challenge: "Needed measurable local search enquiries and clearer visibility into campaign efficiency.",
+    strategy:
+      "Managed Google Ads with local targeting, conversion tracking, click and cost monitoring, and impression-share improvement.",
+    channels: ["Google Ads", "Conversion tracking", "Local search"],
+    timeline: "Aug 31 to Oct 30, 2026",
+    spend: "₹44,400",
+    clicks: "656",
+    conversions: "91",
+    costPerConversion: "~₹488",
+    clickToConversion: "13.9%",
+    ctr: "10.83%",
+    averageCpc: "~₹68",
+    impressionShare: "33% to 48%",
+    lastUpdated: "October 30, 2026",
+    // TODO: Confirm whether a paused-campaign note should be displayed. It is intentionally omitted.
   },
 ];
 
@@ -259,6 +291,14 @@ export default function CaseStudiesPage() {
       </Section>
 
       <Section eyebrow="Proof" title="Structured growth stories worth studying.">
+        <div className="mb-6 grid gap-3 rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-4 text-sm leading-6 text-white/58 sm:grid-cols-2">
+          <p>
+            Conversions = [TODO: confirm calls + WhatsApp clicks + form fills].
+          </p>
+          <p className="sm:text-right">
+            Pooled result: ~₹442 average cost per conversion across four wellness accounts.
+          </p>
+        </div>
         <StaggerContainer className="grid gap-6">
           {studies.map((study, index) => (
             <StaggerItem key={study.client}>
@@ -329,9 +369,30 @@ export default function CaseStudiesPage() {
                 <div className="mt-7 rounded-[1.25rem] border border-[#8EEA4D]/25 bg-[#8EEA4D]/8 p-5">
                   <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-[#CFFFAB]">
                     <BadgeCheck className="size-4" />
-                    Key result
+                    Campaign metrics
                   </p>
-                  <p className="mt-3 text-xl font-semibold leading-8 text-white">{study.result}</p>
+                  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    {[
+                      ["Spend", study.spend],
+                      ["Clicks", study.clicks],
+                      ["Conversions", study.conversions],
+                      ["Cost / conversion", study.costPerConversion],
+                      ["Click-to-conversion", study.clickToConversion],
+                      ...(study.ctr ? [["CTR", study.ctr]] : []),
+                      ...(study.averageCpc ? [["Average CPC", study.averageCpc]] : []),
+                      ...(study.impressionShare
+                        ? [["Impression share", study.impressionShare]]
+                        : []),
+                    ].map(([label, value]) => (
+                      <div key={label} className="min-w-0 rounded-xl border border-white/10 bg-black/15 p-3">
+                        <p className="text-xs uppercase tracking-[0.12em] text-white/38">{label}</p>
+                        <p className="mt-1 break-words font-semibold text-white">{value}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-white/42">
+                    Last updated: {study.lastUpdated}
+                  </p>
                 </div>
                 <Link
                   href="/free-audit"

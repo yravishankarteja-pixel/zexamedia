@@ -71,7 +71,7 @@ export function SiteFooter() {
               Zexa Media
             </p>
             <p className="mt-2 text-sm text-white/66">
-              Growth marketing, tracking, automation, and lead follow-up for serious local brands.
+              More enquiries. Faster follow-up. Clear reporting.
             </p>
           </div>
           <Link
@@ -126,6 +126,11 @@ export function SiteFooter() {
             links={[
               ["Home", "/"],
               ["Services", "/services"],
+              ["Performance Marketing", "/performance-marketing-agency"],
+              ["Google Ads", "/google-ads-agency"],
+              ["Meta Ads", "/meta-ads-agency"],
+              ["Lead Generation", "/lead-generation-agency"],
+              ["Marketing Automation", "/marketing-automation-agency"],
               ["Digital Marketing Agency Vizag", "/digital-marketing-agency-visakhapatnam"],
               ["Industries", "/industries"],
               ["Doctors & Clinics", "/industries/doctors-clinics"],
@@ -147,9 +152,13 @@ export function SiteFooter() {
           <div>
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-white/54">Contact</h3>
             <div className="mt-5 grid gap-3 text-sm leading-7 text-white/70">
-              <a className="transition hover:text-[#8EEA4D]" href={`mailto:${contactEmail}`}>
-                {contactEmail}
-              </a>
+              {contactEmail ? (
+                <a className="transition hover:text-[#8EEA4D]" href={`mailto:${contactEmail}`}>
+                  {contactEmail}
+                </a>
+              ) : (
+                <span>Domain email: pending verification</span>
+              )}
               <a className="transition hover:text-[#8EEA4D]" href={phoneHref}>
                 Phone: {phoneNumber}
               </a>

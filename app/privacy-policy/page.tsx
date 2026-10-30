@@ -33,7 +33,9 @@ const sections = [
   },
   {
     title: "Contact",
-    copy: `For privacy questions or data requests, contact Zexa Media at ${contactEmail} or call ${phoneNumber} / ${secondaryPhoneNumber}.`,
+    copy: contactEmail
+      ? `For privacy questions or data requests, contact Zexa Media at ${contactEmail} or call ${phoneNumber} / ${secondaryPhoneNumber}.`
+      : `For privacy questions or data requests, call Zexa Media at ${phoneNumber} / ${secondaryPhoneNumber}. A verified domain email address will be added here once confirmed.`,
   },
 ];
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Performance Marketing Agency Vizag | Zexa Media",
   description:
     "Zexa Media runs Google Ads, Meta Ads, PPC and lead generation campaigns for businesses in Vizag with clear tracking and ROI reporting.",
-  alternates: { canonical: absoluteUrl("/services/performance-marketing") },
+  alternates: { canonical: absoluteUrl("/performance-marketing-agency") },
 };
 
 const pageUrl = absoluteUrl("/services/performance-marketing");

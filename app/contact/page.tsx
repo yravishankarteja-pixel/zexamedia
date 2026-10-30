@@ -157,9 +157,13 @@ export default function ContactPage() {
               </p>
               <p>
                 Email:{" "}
-                <a className="text-[#8EEA4D]" href={`mailto:${contactEmail}`}>
-                  {contactEmail}
-                </a>
+                {contactEmail ? (
+                  <a className="text-[#8EEA4D]" href={`mailto:${contactEmail}`}>
+                    {contactEmail}
+                  </a>
+                ) : (
+                  <span className="text-white/52">Domain email pending verification</span>
+                )}
               </p>
               <p>
                 Phone:{" "}

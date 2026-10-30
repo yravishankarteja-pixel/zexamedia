@@ -54,11 +54,12 @@ const stats: Array<{
   },
   {
     value: "\u20B92Cr+",
-    label: "Ad Spend Managed",
+    // TODO: Verify the ₹2Cr+ managed-spend and 50+ client totals before treating this as audited proof.
+    label: "Managed across 50+ clients",
   },
   {
-    value: "3x–8x",
-    label: "ROAS Signal",
+    value: "~₹442",
+    label: "Avg. cost per conversion across 4 wellness accounts",
   },
   {
     value: "4",
@@ -71,19 +72,19 @@ const services = [
   {
     icon: Target,
     title: "Performance Marketing",
-    href: "/services/performance-marketing",
+    href: "/performance-marketing-agency",
     copy: "Turn ad spend into measurable leads, calls, and revenue.",
   },
   {
     icon: Search,
     title: "Google Ads",
-    href: "/services/performance-marketing",
+    href: "/google-ads-agency",
     copy: "Capture people already searching for your service.",
   },
   {
     icon: Megaphone,
     title: "Meta Ads",
-    href: "/services/performance-marketing",
+    href: "/meta-ads-agency",
     copy: "Get in front of people before they know they need you.",
   },
   {
@@ -95,8 +96,14 @@ const services = [
   {
     icon: Workflow,
     title: "Marketing Automation",
-    href: "/services/automation",
+    href: "/marketing-automation-agency",
     copy: "Never lose a lead to slow follow-up.",
+  },
+  {
+    icon: Users,
+    title: "Lead Generation",
+    href: "/lead-generation-agency",
+    copy: "Connect campaigns, landing pages, tracking, and follow-up around qualified enquiries.",
   },
   {
     icon: BarChart3,
@@ -111,20 +118,55 @@ const caseSnapshots = [
   {
     clientName: "Tara Wellness Spa",
     industry: "Wellness & Spa, Vizag",
-    headlineResult: "182 recorded conversions",
-    supportingMetric: "5.18K clicks from roughly Rs.120K Google Ads spend",
+    spend: "~₹1,20,000",
+    conversions: "182",
+    clicks: "5.18K",
+    costPerConversion: "~₹659",
+    clickToConversion: "3.5%",
+    period: "Dec 8, 2025 to May 1, 2026",
+    additionalMetrics: [] as Array<[string, string]>,
+    lastUpdated: "May 1, 2026",
   },
   {
     clientName: "Moon Wellness Spa",
     industry: "Wellness & Spa, Vizag",
-    headlineResult: "599.50 recorded conversions",
-    supportingMetric: "4,339 clicks from Rs.209,655.28 Google Ads spend",
+    spend: "₹2,09,655",
+    conversions: "599.5",
+    clicks: "4,339",
+    costPerConversion: "~₹350",
+    clickToConversion: "13.8%",
+    period: "Dec 18, 2025 to Aug 10, 2026",
+    additionalMetrics: [] as Array<[string, string]>,
+    lastUpdated: "August 10, 2026",
   },
   {
     clientName: "Joy Wellness Spa",
     industry: "Wellness & Spa, Vizag",
-    headlineResult: "394 recorded conversions",
-    supportingMetric: "4,626 clicks from Rs.185,395.86 Google Ads spend",
+    spend: "₹1,85,396",
+    conversions: "394",
+    clicks: "4,626",
+    costPerConversion: "~₹470",
+    clickToConversion: "8.5%",
+    period: "Jan 5, 2026 to Aug 10, 2026",
+    additionalMetrics: [] as Array<[string, string]>,
+    lastUpdated: "August 10, 2026",
+  },
+  {
+    // TODO: Replace this descriptor with the approved client name.
+    clientName: "Wellness Spa, Madhurawada",
+    industry: "Wellness & Spa, Madhurawada",
+    spend: "₹44,400",
+    conversions: "91",
+    clicks: "656",
+    costPerConversion: "~₹488",
+    clickToConversion: "13.9%",
+    period: "Aug 31 to Oct 30, 2026",
+    additionalMetrics: [
+      ["CTR", "10.83%"],
+      ["Average CPC", "~₹68"],
+      ["Impression share", "33% to 48%"],
+    ] as Array<[string, string]>,
+    lastUpdated: "October 30, 2026",
   },
 ];
 
@@ -146,9 +188,24 @@ const proofCards = [
     copy: "Joy Wellness Spa Google Ads account snapshot from Jan 5, 2026 to Aug 10, 2026.",
   },
   {
-    metric: "60s",
-    title: "60-second lead response",
-    copy: "WhatsApp-first follow-up helped owners act faster.",
+    metric: "91",
+    title: "Madhurawada conversions",
+    copy: "656 clicks from ₹44,400 Google Ads spend between Aug 31 and Oct 30, 2026.",
+  },
+];
+
+const SHOW_PENDING_INDUSTRY_PROOF = false;
+
+const pendingIndustryProof = [
+  {
+    title: "Doctors & Clinics",
+    // TODO: Add an approved healthcare case study with verified source data and client permission.
+    copy: "Proof card pending verified campaign data and approval.",
+  },
+  {
+    title: "Real Estate",
+    // TODO: Add an approved real-estate case study with verified source data and client permission.
+    copy: "Proof card pending verified campaign data and approval.",
   },
 ];
 
@@ -195,7 +252,14 @@ const trustEvidence = [
 
 const testimonial = {
   text: "Zexa Media made our lead flow clearer within the first month. We finally understood where enquiries were coming from and what to scale.",
-  clientName: "Local Business Client",
+  // TODO: Add the approved testimonial author's name.
+  name: null as string | null,
+  // TODO: Add the approved testimonial author's business name.
+  business: null as string | null,
+  // TODO: Add the approved testimonial photo path.
+  photo: null as string | null,
+  // TODO: Add the verified Google review count.
+  googleReviewCount: null as number | null,
   initials: "ZM",
 };
 
@@ -234,7 +298,7 @@ const faqs = [
   {
     question: "How much does Google Ads cost for a small business in Vizag?",
     answer:
-      "Most small businesses can start with a monthly ad budget based on their industry, competition, and location. Zexa Media helps you choose a practical starting budget and tracks every lead source clearly.",
+      "A practical starting range is ₹[TODO: minimum]–₹[TODO: maximum]/month in ad spend, separate from our management fee. The right budget depends on search demand, competition, location, conversion rate and lead value.",
   },
   {
     question: "Do you work with wellness, spa, gym, clinic, or local service clients?",
@@ -334,6 +398,9 @@ const localBusinessSchema = {
   ],
 };
 
+const HOME_H1 = "Google Ads & Meta Ads Agency in Visakhapatnam: Leads You Can Track";
+// Alternate B: "599 Conversions from ₹2.1L Ad Spend. Performance Marketing in Vizag."
+// Alternate C: "More Calls and WhatsApp Enquiries for Vizag Businesses, Tracked to the Rupee"
 
 const offerSchema = {
   "@context": "https://schema.org",
@@ -493,10 +560,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.06}>
               <h1 className="max-w-full text-4xl font-semibold leading-[1.02] tracking-normal text-white [overflow-wrap:anywhere] sm:max-w-5xl sm:text-6xl sm:leading-[0.98] lg:text-7xl">
-                <span className="block sm:inline">Performance</span>{" "}
-                <span className="block sm:inline">Marketing</span>{" "}
-                <span className="block sm:inline">Agency in</span>
-                <span className="block text-[#8EEA4D]">Visakhapatnam.</span>
+                {HOME_H1}
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
@@ -511,7 +575,7 @@ export default function Home() {
                   href="/free-audit"
                   className="magnetic-cta group inline-flex min-h-14 w-full max-w-full items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#8EEA4D] focus:ring-offset-2 focus:ring-offset-[#050806] sm:w-auto"
                 >
-                  Call for Free Audit
+                  Book Free Audit
                   <ArrowRight className="ml-2 size-5 transition group-hover:translate-x-1" />
                 </a>
                 <a
@@ -540,26 +604,20 @@ export default function Home() {
                 <div className="absolute bottom-5 left-5 right-5 rounded-[1.25rem] border border-white/12 bg-black/58 p-5 backdrop-blur-xl sm:bottom-7 sm:left-7 sm:right-7">
                   <div className="mb-4 flex items-center justify-between gap-4">
                     <p className="font-semibold text-white">Campaign Snapshot</p>
-                    <span className="rounded-full bg-[#8EEA4D]/14 px-3 py-1 text-xs font-bold text-[#CFFFAB]">
-                      LIVE
+                    <span className="text-xs font-bold uppercase tracking-[0.16em] text-white/45">
+                      Moon Wellness Spa
                     </span>
                   </div>
                   {[
-                    ["Google Ads Leads", "184", "72%"],
-                    ["WhatsApp Response", "60s", "86%"],
-                    ["ROAS Signal", "3x–8x", "78%"],
-                  ].map(([label, value, width]) => (
-                    <div key={label} className="mb-4 last:mb-0">
-                      <div className="mb-2 flex justify-between gap-4 text-sm">
+                    ["Recorded conversions", "599.5"],
+                    ["Google Ads spend", "₹2,09,655"],
+                    ["Cost per conversion", "~₹350"],
+                  ].map(([label, value]) => (
+                    <div key={label} className="mb-3 last:mb-0">
+                      <div className="flex justify-between gap-4 rounded-xl border border-white/8 bg-white/[0.035] px-3 py-2.5 text-sm">
                         <span className="text-white/62">{label}</span>
                         <span className="font-semibold text-white">{value}</span>
                       </div>
-                      <span className="block h-2 overflow-hidden rounded-full bg-white/12">
-                        <span
-                          className="block h-full rounded-full bg-[#8EEA4D]"
-                          style={{ width }}
-                        />
-                      </span>
                     </div>
                   ))}
                 </div>
@@ -651,13 +709,44 @@ export default function Home() {
                     </p>
                     <h2 className="mt-5 text-2xl font-semibold text-white">{item.clientName}</h2>
                     <p className="mt-2 text-sm text-white/46">{item.industry}</p>
-                    <p className="mt-7 text-3xl font-semibold leading-tight text-white">
-                      {item.headlineResult}
+                    <p className="mt-2 text-xs leading-5 text-white/38">{item.period}</p>
+                    <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
+                      {[
+                        ["Spend", item.spend],
+                        ["Conversions", item.conversions],
+                        ["Clicks", item.clicks],
+                        ["Cost / conversion", item.costPerConversion],
+                        ["Click-to-conversion", item.clickToConversion],
+                        ...item.additionalMetrics,
+                      ].map(([label, value]) => (
+                        <div
+                          key={label}
+                          className="min-w-0 rounded-xl border border-white/8 bg-white/[0.035] p-3 last:col-span-2"
+                        >
+                          <p className="text-xs uppercase tracking-[0.12em] text-white/38">{label}</p>
+                          <p className="mt-1 break-words font-semibold text-white">{value}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-white/40">
+                      Last updated: {item.lastUpdated}
                     </p>
-                    <p className="mt-4 leading-7 text-white/56">{item.supportingMetric}</p>
                   </article>
                 </Reveal>
               ))}
+              {SHOW_PENDING_INDUSTRY_PROOF &&
+                pendingIndustryProof.map((item) => (
+                  <article
+                    key={item.title}
+                    className="root-style-card h-full rounded-[1.35rem] border border-dashed border-white/10 bg-[#0A100B]/70 p-6"
+                  >
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/38">
+                      Proof pending
+                    </p>
+                    <h2 className="mt-5 text-2xl font-semibold text-white">{item.title}</h2>
+                    <p className="mt-4 leading-7 text-white/56">{item.copy}</p>
+                  </article>
+                ))}
             </div>
             <Reveal delay={0.08}>
               <figure className="relative h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6">
@@ -669,24 +758,46 @@ export default function Home() {
                   “{testimonial.text}”
                 </blockquote>
                 <figcaption className="mt-5 flex items-center gap-3">
-                  <span className="grid size-11 place-items-center rounded-full bg-[#8EEA4D] text-sm font-black text-[#071006]">
-                    {testimonial.initials}
-                  </span>
+                  {testimonial.photo ? (
+                    <Image
+                      src={testimonial.photo}
+                      alt={testimonial.name ? `${testimonial.name} testimonial` : "Client testimonial"}
+                      width={44}
+                      height={44}
+                      className="size-11 rounded-full object-cover"
+                    />
+                  ) : (
+                    <span className="grid size-11 place-items-center rounded-full bg-[#8EEA4D] text-sm font-black text-[#071006]">
+                      {testimonial.initials}
+                    </span>
+                  )}
                   <span>
-                    <span className="block font-semibold text-white">{testimonial.clientName}</span>
-                    <span className="block text-sm text-white/46">Local business owner</span>
+                    <span className="block font-semibold text-white">
+                      {testimonial.name ?? "Client name pending approval"}
+                    </span>
+                    <span className="block text-sm text-white/46">
+                      {testimonial.business ?? "Business name pending approval"}
+                    </span>
+                    {testimonial.googleReviewCount !== null && (
+                      <span className="block text-xs text-white/38">
+                        {testimonial.googleReviewCount} Google reviews
+                      </span>
+                    )}
                   </span>
                 </figcaption>
               </figure>
             </Reveal>
           </div>
+          <p className="mt-5 text-sm leading-6 text-white/48">
+            Conversions = [TODO: confirm calls + WhatsApp clicks + form fills].
+          </p>
         </section>
 
 
         <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
           <SectionHeading
             eyebrow="Services"
-            title="Six ways we turn attention into enquiries."
+            title={`${services.length} ways we turn attention into enquiries.`}
             copy="Short, focused execution across the channels that matter most."
           />
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -745,7 +856,7 @@ export default function Home() {
             title="Fast signals business owners care about."
             copy="More proof and context lives on the case studies page."
           />
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {proofCards.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.05}>
                 <a
