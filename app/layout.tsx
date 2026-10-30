@@ -1,10 +1,9 @@
 ﻿import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import Script from "next/script";
 import { SiteHeaderClient } from "@/components/site-header-client";
-import { phoneHref, SiteFooter, whatsappUrl } from "@/components/site-footer";
+import { SiteFooter, whatsappUrl } from "@/components/site-footer";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
@@ -112,12 +111,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <SiteHeaderClient />
         {children}
         <SiteFooter />
-        <Link
-          href={phoneHref}
-          className="magnetic-cta fixed bottom-5 left-1/2 z-40 hidden -translate-x-1/2 items-center gap-2 rounded-full border border-[#8EEA4D]/30 bg-[#071006]/90 px-5 py-3 text-sm font-bold text-white shadow-[0_12px_32px_rgba(0,0,0,0.32)] backdrop-blur-2xl transition hover:border-[#8EEA4D] hover:text-[#8EEA4D] sm:inline-flex"
-        >
-          Book Free Audit
-        </Link>
         <a
           href={whatsappUrl}
           target="_blank"

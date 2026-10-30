@@ -409,7 +409,7 @@ export default function PackagesPage() {
               href="/free-audit"
               className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#8EEA4D] px-6 text-sm font-bold text-[#071006] transition hover:-translate-y-0.5"
             >
-              Call For Free Audit
+              Book Free Audit
             </Link>
           </GlassCard>
         </div>

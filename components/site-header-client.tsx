@@ -7,14 +7,13 @@ import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 
 const mainNavItems = [
-  { label: "Industries", href: "/industries" },
   { label: "Growth System", href: "/growth-system" },
   { label: "Packages", href: "/packages" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Contact", href: "/contact" },
 ];
 
-const mobileNavItems = [...mainNavItems, { label: "About", href: "/about" }];
+const mobileNavItems = [{ label: "Industries", href: "/industries" }, ...mainNavItems, { label: "About", href: "/about" }];
 
 const serviceMenuItems = [
   { label: "Services Overview", href: "/services" },
@@ -23,6 +22,18 @@ const serviceMenuItems = [
   { label: "Meta Ads", href: "/meta-ads-agency" },
   { label: "Lead Generation", href: "/lead-generation-agency" },
   { label: "Marketing Automation", href: "/marketing-automation-agency" },
+];
+
+const industryMenuItems = [
+  { label: "Industries Overview", href: "/industries" },
+  { label: "Doctors & Clinics", href: "/industries/doctors-clinics" },
+  { label: "Dental Clinics", href: "/industries/dental-clinics" },
+  { label: "Fertility & IVF", href: "/industries/fertility-ivf" },
+  { label: "Education & Coaching", href: "/industries/education-coaching" },
+  { label: "Gyms & Fitness", href: "/industries/gyms-fitness" },
+  { label: "Spas & Wellness", href: "/industries/spas-wellness" },
+  { label: "Salons", href: "/industries/salons" },
+  { label: "Real Estate", href: "/industries/real-estate" },
 ];
 
 export function SiteHeaderClient() {
@@ -59,6 +70,7 @@ export function SiteHeaderClient() {
       ? pathname === "/"
       : pathname === href || pathname.startsWith(`${href}/`);
   const servicesActive = serviceMenuItems.some((item) => isActive(item.href));
+  const industriesActive = industryMenuItems.some((item) => isActive(item.href));
 
   return (
     <header
@@ -117,6 +129,18 @@ export function SiteHeaderClient() {
                     </Link>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="group relative">
+            <Link href="/industries" aria-current={industriesActive ? "page" : undefined} className={`nav-link inline-flex min-h-10 items-center gap-1.5 rounded-full px-4 text-sm font-semibold transition hover:bg-white/[0.055] hover:text-white ${industriesActive ? "text-[#8EEA4D]" : "text-white/68"}`}>
+              Industries <ChevronDown className="size-4 transition group-hover:rotate-180" />
+            </Link>
+            <div className="invisible absolute left-0 top-full z-[100] w-[28rem] translate-y-3 pt-3 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+              <div className="overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#071006]/96 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+                <p className="border-b border-white/10 px-4 py-3 text-xs font-black uppercase tracking-[0.22em] text-[#8EEA4D]">Industry paths</p>
+                <div className="grid grid-cols-2 gap-1 p-2">{industryMenuItems.map((item) => <Link key={item.href} href={item.href} className={`rounded-2xl px-3 py-2.5 text-sm font-semibold leading-tight transition hover:bg-[#8EEA4D]/10 hover:text-[#8EEA4D] ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}>{item.label}</Link>)}</div>
               </div>
             </div>
           </div>
@@ -206,6 +230,11 @@ export function SiteHeaderClient() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-3">
+              <p className="px-1 pb-2 text-xs font-black uppercase tracking-[0.2em] text-[#8EEA4D]">Industries</p>
+              <div className="grid gap-2 sm:grid-cols-2">{industryMenuItems.slice(1).map((item) => <Link key={item.href} href={item.href} className={`block rounded-2xl px-4 py-3 text-sm font-semibold transition hover:bg-white/6 hover:text-[#8EEA4D] ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`} onClick={() => setMenuOpen(false)}>{item.label}</Link>)}</div>
             </div>
 
             <Link

@@ -1,81 +1,41 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ShieldCheck, Target } from "lucide-react";
+import { ArrowRight, CheckCircle2, Search, ShieldCheck, Target } from "lucide-react";
 import { CheckList, GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
 import type { IndustryPageConfig } from "@/lib/industry-pages";
-import { areaServed, businessName } from "@/lib/business-info";
+import { areaServed, businessName, whatsappUrl } from "@/lib/business-info";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 const jsonLd = (value: unknown) => JSON.stringify(value).replace(/</g, "\\u003c");
 
+function DetailedContent({ config }: Readonly<{ config: IndustryPageConfig }>) {
+  return <>
+    <Section eyebrow="Search behaviour" title={`How ${config.industry.toLowerCase()} customers search`}><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{config.searchIntents?.map(([title, copy]) => <GlassCard key={title}><Search className="mb-5 size-6 text-[#8EEA4D]" /><h2 className="text-xl font-semibold">{title}</h2><p className="mt-3 leading-7 text-white/62">{copy}</p></GlassCard>)}</div></Section>
+    <Section eyebrow="Campaign system" title="What we run"><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{config.deliverables?.map(([title, copy]) => <GlassCard key={title}><Target className="mb-5 size-6 text-[#8EEA4D]" /><h2 className="text-xl font-semibold">{title}</h2><p className="mt-3 leading-7 text-white/62">{copy}</p></GlassCard>)}</div></Section>
+    <Section eyebrow="Lead measurement" title="How we track"><p className="mb-7 max-w-3xl leading-8 text-white/66">A lead is counted only when a prospective customer takes an agreed contact action. Reporting keeps those actions separate so a click is never presented as an appointment, admission or membership.</p><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{config.leadEvents?.map(([title, copy]) => <GlassCard key={title}><h2 className="text-xl font-semibold">{title}</h2><p className="mt-3 leading-7 text-white/62">{copy}</p></GlassCard>)}</div></Section>
+    {config.proof ? <Section eyebrow="Verified proof" title={config.proof.title}><GlassCard><p className="max-w-3xl leading-8 text-white/66">{config.proof.summary}</p><div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{config.proof.metrics.map(([label, value]) => <div key={label} className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-2xl font-black text-[#8EEA4D]">{value}</p><p className="mt-2 text-sm text-white/60">{label}</p></div>)}</div></GlassCard></Section> : null}
+    <Section eyebrow="30 / 60 / 90 days" title="What to expect"><div className="grid gap-4 lg:grid-cols-3">{config.timeline?.map(([period, title, copy]) => <GlassCard key={period}><p className="text-sm font-black uppercase tracking-[0.18em] text-[#8EEA4D]">{period}</p><h2 className="mt-4 text-xl font-semibold">{title}</h2><p className="mt-3 leading-7 text-white/62">{copy}</p></GlassCard>)}</div></Section>
+    <Section eyebrow="Responsible advertising" title="Clear claims and practical safeguards"><GlassCard><ShieldCheck className="mb-5 size-7 text-[#8EEA4D]" /><div className="grid gap-7 lg:grid-cols-[1fr_1.5fr]"><div><h2 className="text-2xl font-semibold">Campaign safeguards</h2>{config.complianceLine ? <p className="mt-4 leading-7 text-white/70">{config.complianceLine}</p> : null}</div><CheckList items={config.safeguards} /></div></GlassCard></Section>
+    <Faqs config={config} />
+    {config.relatedIndustries?.length ? <Section eyebrow="Related guidance" title="Continue with the most relevant path"><div className="grid gap-4 md:grid-cols-2">{config.relatedIndustries.map(([label, href, copy]) => <Link key={href} href={href} className="group block h-full"><GlassCard><h2 className="text-xl font-semibold group-hover:text-[#8EEA4D]">{label}</h2><p className="mt-3 leading-7 text-white/62">{copy}</p><span className="mt-5 inline-flex items-center text-sm font-bold text-[#8EEA4D]">Explore <ArrowRight className="ml-2 size-4" /></span></GlassCard></Link>)}</div></Section> : null}
+    <Services config={config} detailed />
+  </>;
+}
+
+function Faqs({ config }: Readonly<{ config: IndustryPageConfig }>) {
+  return <Section eyebrow="FAQ" title={`Questions about marketing for ${config.industry.toLowerCase()}.`}><div className="grid gap-4 md:grid-cols-2">{config.faqs.map((faq) => <GlassCard key={faq.question}><h2 className="text-xl font-semibold">{faq.question}</h2><p className="mt-4 leading-8 text-white/62">{faq.answer}</p></GlassCard>)}</div></Section>;
+}
+
+function Services({ config, detailed = false }: Readonly<{ config: IndustryPageConfig; detailed?: boolean }>) {
+  return <Section eyebrow="Connected services" title="Build the supporting system"><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{config.relatedServices.map(([label, href]) => <Link key={href} href={href} className="group block h-full"><GlassCard><h2 className="text-xl font-semibold group-hover:text-[#8EEA4D]">{label}</h2><span className="mt-5 inline-flex items-center text-sm font-bold text-[#8EEA4D]">View service <ArrowRight className="ml-2 size-4" /></span></GlassCard></Link>)}</div><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link href="/free-audit" className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-7 font-bold text-[#071006]">Book Free Audit</Link>{detailed ? <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 px-7 font-semibold">WhatsApp</a> : <Link href="/industries" className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 px-7 font-semibold">Explore all industries</Link>}</div></Section>;
+}
+
 export function IndustryPage({ config }: Readonly<{ config: IndustryPageConfig }>) {
   const pageUrl = absoluteUrl(`/industries/${config.slug}`);
   const schemas = [
-    {
-      "@context": "https://schema.org", "@type": "Service", "@id": `${pageUrl}#service`,
-      name: `Digital Marketing for ${config.industry} in Visakhapatnam`, url: pageUrl,
-      description: config.metaDescription, serviceType: "Digital Marketing",
-      provider: { "@type": "LocalBusiness", "@id": `${siteUrl}/#localbusiness`, name: businessName, url: siteUrl },
-      areaServed,
-      audience: { "@type": "Audience", audienceType: config.industry },
-    },
-    {
-      "@context": "https://schema.org", "@type": "FAQPage",
-      mainEntity: config.faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
-    },
-    {
-      "@context": "https://schema.org", "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-        { "@type": "ListItem", position: 2, name: "Industries", item: absoluteUrl("/industries") },
-        { "@type": "ListItem", position: 3, name: config.industry, item: pageUrl },
-      ],
-    },
+    { "@context": "https://schema.org", "@type": "Service", "@id": `${pageUrl}#service`, name: `Digital Marketing for ${config.industry} in Visakhapatnam`, url: pageUrl, description: config.metaDescription, serviceType: "Digital Marketing", provider: { "@type": "LocalBusiness", "@id": `${siteUrl}/#localbusiness`, name: businessName, url: siteUrl }, areaServed, audience: { "@type": "Audience", audienceType: config.industry } },
+    { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: config.faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: siteUrl }, { "@type": "ListItem", position: 2, name: "Industries", item: absoluteUrl("/industries") }, { "@type": "ListItem", position: 3, name: config.industry, item: pageUrl }] },
   ];
-
-  return (
-    <PageShell>
-      {schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />)}
-      <PageHero eyebrow={config.eyebrow} title={config.title} description={config.description} imageSrc={config.imageSrc} imageAlt={config.imageAlt} metricLabel="Growth focus" metricValue="Qualified enquiries, clearer attribution" />
-
-      <Section eyebrow="Who this is for" title="Built around the way your market discovers and chooses.">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {config.audiences.map((item) => <GlassCard key={item}><CheckCircle2 className="mb-6 size-7 text-[#8EEA4D]" /><h2 className="text-xl font-semibold">{item}</h2></GlassCard>)}
-        </div>
-      </Section>
-
-      <Section eyebrow="Growth problems" title="Fix the journey, not just the ad.">
-        <div className="grid gap-4 md:grid-cols-2">
-          {config.challenges.map(([title, copy]) => <GlassCard key={title}><Target className="mb-6 size-7 text-[#8EEA4D]" /><h2 className="text-2xl font-semibold">{title}</h2><p className="mt-4 leading-8 text-white/62">{copy}</p></GlassCard>)}
-        </div>
-      </Section>
-
-      <Section eyebrow="Channel strategy" title="Each channel has a specific job.">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {config.channels.map(([title, copy]) => <GlassCard key={title}><h2 className="text-xl font-semibold">{title}</h2><p className="mt-4 leading-7 text-white/62">{copy}</p></GlassCard>)}
-        </div>
-      </Section>
-
-      <Section eyebrow="Process" title="From market context to measurable improvement.">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {config.process.map(([step, title, copy]) => <GlassCard key={step}><p className="text-sm font-black tracking-[0.2em] text-[#8EEA4D]">{step}</p><h2 className="mt-5 text-xl font-semibold">{title}</h2><p className="mt-4 leading-7 text-white/62">{copy}</p></GlassCard>)}
-        </div>
-      </Section>
-
-      <Section eyebrow="Measurement and safeguards" title="Evidence first. Responsible claims always.">
-        <div className="grid gap-5 lg:grid-cols-2">
-          <GlassCard><h2 className="text-2xl font-semibold">What to measure</h2><div className="mt-6"><CheckList items={config.measurements} /></div></GlassCard>
-          <GlassCard><ShieldCheck className="mb-6 size-7 text-[#8EEA4D]" /><h2 className="text-2xl font-semibold">Campaign safeguards</h2><div className="mt-6"><CheckList items={config.safeguards} /></div></GlassCard>
-        </div>
-      </Section>
-
-      <Section eyebrow="FAQ" title={`Questions about marketing for ${config.industry.toLowerCase()}.`}>
-        <div className="grid gap-4 md:grid-cols-2">{config.faqs.map((faq) => <GlassCard key={faq.question}><h2 className="text-xl font-semibold">{faq.question}</h2><p className="mt-4 leading-8 text-white/62">{faq.answer}</p></GlassCard>)}</div>
-      </Section>
-
-      <Section eyebrow="Connected services" title="Build the right supporting system.">
-        <div className="grid gap-4 md:grid-cols-3">{config.relatedServices.map(([label, href]) => <Link key={href} href={href} className="group"><GlassCard><h2 className="text-xl font-semibold group-hover:text-[#8EEA4D]">{label}</h2><span className="mt-5 inline-flex items-center text-sm font-bold text-[#8EEA4D]">View service <ArrowRight className="ml-2 size-4" /></span></GlassCard></Link>)}</div>
-        <div className="mt-8 flex flex-wrap gap-3"><Link href="/free-audit" className="inline-flex min-h-14 items-center rounded-full bg-[#8EEA4D] px-7 font-bold text-[#071006]">Book a free marketing audit</Link><Link href="/industries" className="inline-flex min-h-14 items-center rounded-full border border-white/14 px-7 font-semibold">Explore all industries</Link></div>
-      </Section>
-    </PageShell>
-  );
+  const detailed = Boolean(config.searchIntents?.length);
+  return <PageShell>{schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />)}<PageHero eyebrow={config.eyebrow} title={config.title} description={config.description} imageSrc={config.imageSrc} imageAlt={config.imageAlt} metricLabel="Growth focus" metricValue="Qualified enquiries, clearer attribution" />{detailed ? <DetailedContent config={config} /> : <><Section eyebrow="Who this is for" title="Built around the way your market discovers and chooses."><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">{config.audiences.map((item) => <GlassCard key={item}><CheckCircle2 className="mb-6 size-7 text-[#8EEA4D]" /><h2 className="text-xl font-semibold">{item}</h2></GlassCard>)}</div></Section><Section eyebrow="Growth problems" title="Fix the journey, not just the ad."><div className="grid gap-4 md:grid-cols-2">{config.challenges.map(([title, copy]) => <GlassCard key={title}><Target className="mb-6 size-7 text-[#8EEA4D]" /><h2 className="text-2xl font-semibold">{title}</h2><p className="mt-4 leading-8 text-white/62">{copy}</p></GlassCard>)}</div></Section><Section eyebrow="Channel strategy" title="Each channel has a specific job."><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">{config.channels.map(([title, copy]) => <GlassCard key={title}><h2 className="text-xl font-semibold">{title}</h2><p className="mt-4 leading-7 text-white/62">{copy}</p></GlassCard>)}</div></Section><Section eyebrow="Process" title="From market context to measurable improvement."><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">{config.process.map(([step, title, copy]) => <GlassCard key={step}><p className="text-sm font-black tracking-[0.2em] text-[#8EEA4D]">{step}</p><h2 className="mt-5 text-xl font-semibold">{title}</h2><p className="mt-4 leading-7 text-white/62">{copy}</p></GlassCard>)}</div></Section><Section eyebrow="Measurement and safeguards" title="Evidence first. Responsible claims always."><div className="grid gap-5 lg:grid-cols-2"><GlassCard><h2 className="text-2xl font-semibold">What to measure</h2><div className="mt-6"><CheckList items={config.measurements} /></div></GlassCard><GlassCard><ShieldCheck className="mb-6 size-7 text-[#8EEA4D]" /><h2 className="text-2xl font-semibold">Campaign safeguards</h2><div className="mt-6"><CheckList items={config.safeguards} /></div></GlassCard></div></Section><Faqs config={config} /><Services config={config} /></>}</PageShell>;
 }

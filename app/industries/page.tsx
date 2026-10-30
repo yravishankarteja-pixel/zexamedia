@@ -7,7 +7,7 @@ import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "Industry Marketing Expertise in Vizag | Zexa Media",
-  description: "Explore responsible, measurable digital marketing strategies for doctors, clinics, spas, salons and real estate businesses in Visakhapatnam.",
+  description: "Explore measurable marketing for healthcare, education, fitness, wellness, salons and real estate businesses in Visakhapatnam.",
   alternates: { canonical: absoluteUrl("/industries") },
 };
 

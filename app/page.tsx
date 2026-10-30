@@ -476,8 +476,8 @@ export default function Home() {
       <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:112px_112px]" />
 
 
-      <div className="relative z-10">
-        <section className="relative mx-auto grid w-full max-w-7xl min-w-0 items-center gap-10 overflow-hidden px-5 pb-12 pt-16 sm:px-8 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:pb-14 lg:pt-20">
+      <div className="relative z-10 flex flex-col">
+        <section style={{ order: 1 }} className="relative mx-auto grid w-full max-w-7xl min-w-0 items-center gap-10 overflow-hidden px-5 pb-12 pt-16 sm:px-8 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:pb-14 lg:pt-20">
           <div className="pointer-events-none absolute left-1/2 top-6 hidden h-28 w-28 -translate-x-1/2 rounded-[2rem] border border-[#8EEA4D]/18 bg-[#8EEA4D]/10 blur-[0.2px] lg:block geo-float-local" />
           <div className="min-w-0">
             <Reveal>
@@ -558,7 +558,7 @@ export default function Home() {
         </section>
 
 
-        <section className="px-5 sm:px-8">
+        <section style={{ order: 2 }} className="px-5 sm:px-8">
           <Reveal>
             <div className="mx-auto max-w-7xl overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#0A100B]">
               <div className="trust-marquee border-b border-white/10 bg-white/[0.035] py-4">
@@ -588,7 +588,7 @@ export default function Home() {
         </section>
 
 
-        <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
+        <section style={{ order: 4 }} className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
           <SectionHeading
             eyebrow="Trust system"
             title="Proof is stronger when the process is transparent."
@@ -608,7 +608,7 @@ export default function Home() {
         </section>
 
 
-        <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
+        <section style={{ order: 6 }} className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
           <div className="grid gap-4 lg:grid-cols-[1fr_0.82fr]">
             <div className="grid gap-4 md:grid-cols-2">
               {caseSnapshots.map((item, index) => (
@@ -627,7 +627,6 @@ export default function Home() {
                         ["Clicks", item.clicks],
                         ["Cost / conversion", item.costPerConversion],
                         ["Click-to-conversion", item.clickToConversion],
-                        ...item.additionalMetrics,
                       ].map(([label, value]) => (
                         <div
                           key={label}
@@ -706,7 +705,7 @@ export default function Home() {
         </section>
 
 
-        <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+        <section style={{ order: 3 }} className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
           <SectionHeading
             eyebrow="Services"
             title={`${services.length} ways we turn attention into enquiries.`}
@@ -735,7 +734,7 @@ export default function Home() {
         </section>
 
 
-        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section style={{ order: 5 }} className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
           <SectionHeading
             eyebrow="Local signals"
             title="Built in Visakhapatnam, tuned for local demand."
@@ -762,7 +761,7 @@ export default function Home() {
         </section>
 
 
-        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section style={{ order: 7 }} className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
           <SectionHeading
             eyebrow="Proof"
             title="Fast signals business owners care about."
@@ -785,12 +784,12 @@ export default function Home() {
         </section>
 
 
-        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section style={{ order: 8 }} className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
           <FounderBlock variant="compact" />
         </section>
 
 
-        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section style={{ order: 9 }} className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
           <SectionHeading
             eyebrow="Packages"
             title="Simple monthly growth plans."
@@ -855,7 +854,7 @@ export default function Home() {
         </section>
 
 
-        <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section style={{ order: 10 }} className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:pb-20">
           <SectionHeading
             eyebrow="FAQ"
             title="Quick answers before you book."
@@ -882,7 +881,7 @@ export default function Home() {
         </section>
 
 
-        <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24">
+        <section style={{ order: 11 }} className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24">
           <Reveal>
             <div className="relative overflow-hidden rounded-[1.5rem] border border-[#8EEA4D]/22 bg-[#8EEA4D] p-8 text-[#071006] sm:p-10 lg:p-12">
               <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
