@@ -14,6 +14,8 @@ const mainNavItems = [
   { label: "Contact", href: "/contact" },
 ];
 
+const mobileNavItems = [...mainNavItems, { label: "About", href: "/about" }];
+
 const serviceMenuItems = [
   { label: "Services Overview", href: "/services" },
   { label: "Performance Marketing", href: "/performance-marketing-agency" },
@@ -160,7 +162,7 @@ export function SiteHeaderClient() {
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-3">
             <div className="grid gap-2">
-              {mainNavItems.map((item, index) => (
+              {mobileNavItems.map((item, index) => (
                 <div
                   key={item.href}
                   className="mobile-menu-item"

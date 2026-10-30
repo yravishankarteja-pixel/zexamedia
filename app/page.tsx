@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FounderBlock } from "@/components/founder-block";
 import {
   ArrowRight,
   BadgeCheck,
@@ -781,6 +782,11 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </section>
+
+
+        <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+          <FounderBlock variant="compact" />
         </section>
 
 

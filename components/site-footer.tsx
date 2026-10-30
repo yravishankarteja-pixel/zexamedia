@@ -127,6 +127,7 @@ export function SiteFooter() {
             title="Explore"
             links={[
               ["Home", "/"],
+              ["About", "/about"],
               ["Services", "/services"],
               ["Performance Marketing", "/performance-marketing-agency"],
               ["Google Ads", "/google-ads-agency"],

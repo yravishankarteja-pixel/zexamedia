@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BadgeCheck, BarChart3, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowRight, BadgeCheck, BarChart3, MapPin, MessageCircle, ShieldCheck, Workflow } from "lucide-react";
+import { FounderBlock } from "@/components/founder-block";
 import { CheckList, GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import { founder } from "@/data/founder";
 import {
   addressCountry,
   addressLocality,
   addressRegion,
   areaServed,
   businessName,
+  fullAddress,
+  mapUrl,
   postalCode,
   streetAddress,
 } from "@/lib/business-info";
@@ -15,9 +19,9 @@ import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 
 export const metadata: Metadata = {
-  title: "About Zexa Media | Our Story & Mission",
+  title: "About Zexa Media | Founder & Growth Approach",
   description:
-    "Zexa Media is a Visakhapatnam-based growth marketing agency built to help local businesses scale with data-driven strategy, automation, and performance marketing.",
+    "Meet the founder of Zexa Media and learn how our Visakhapatnam team connects paid media, tracking and follow-up into practical growth systems.",
   alternates: { canonical: absoluteUrl("/about") },
 };
 
@@ -77,6 +81,25 @@ const founderExpertise = [
 ];
 
 
+const approachPoints = [
+  [
+    "Start with the business goal",
+    "We identify the enquiry, sales or follow-up outcome before selecting channels and campaign tactics.",
+    BarChart3,
+  ],
+  [
+    "Connect the full journey",
+    "Paid media, landing pages, conversion tracking and lead follow-up work as one measurable system.",
+    Workflow,
+  ],
+  [
+    "Report with clarity",
+    "Business owners should understand what is being tested, what changed and what the next action is.",
+    ShieldCheck,
+  ],
+];
+
+
 const aboutFaqs = [
   {
     question: "What does Zexa Media do?",
@@ -127,15 +150,26 @@ const aboutPageSchema = {
     description:
       "Performance marketing and growth marketing agency serving businesses in Visakhapatnam and across India.",
     founder: {
-      "@type": "Person",
       "@id": `${siteUrl}/#founder`,
-      name: "Ravi Shankar Teja",
-      jobTitle: "Founder",
-      worksFor: {
-        "@id": `${siteUrl}/#localbusiness`,
-      },
     },
   },
+};
+
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${siteUrl}/#founder`,
+  name: founder.name,
+  jobTitle: founder.title,
+  image: absoluteUrl(founder.photo),
+  worksFor: {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: businessName,
+    url: siteUrl,
+  },
+  sameAs: [founder.linkedinUrl],
 };
 
 
@@ -164,6 +198,10 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
       <PageHero
         eyebrow="About Zexa Media"
         title="Growth Marketing Agency Built in Visakhapatnam"
@@ -173,6 +211,24 @@ export default function AboutPage() {
         metricLabel="Built for growth"
         metricValue="Strategy, tracking, creative, and follow-up"
       />
+
+
+      <Section eyebrow="Founder" title="Founder-led strategy, grounded in Visakhapatnam.">
+        <FounderBlock variant="full" />
+      </Section>
+
+
+      <Section eyebrow="Our approach" title="A practical path from attention to measurable enquiries.">
+        <div className="grid gap-4 md:grid-cols-3">
+          {approachPoints.map(([title, copy, Icon]) => (
+            <GlassCard key={title as string}>
+              <Icon className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
+              <h2 className="text-xl font-semibold">{title as string}</h2>
+              <p className="mt-4 leading-7 text-white/62">{copy as string}</p>
+            </GlassCard>
+          ))}
+        </div>
+      </Section>
 
 
       <Section eyebrow="Our story" title="Why we started Zexa Media.">
@@ -276,6 +332,28 @@ export default function AboutPage() {
       </Section>
 
 
+      <Section eyebrow="Visit Zexa Media" title="Based in Dwaraka Nagar, Visakhapatnam.">
+        <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+          <GlassCard>
+            <MapPin className="mb-6 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
+            <h2 className="text-2xl font-semibold">Dwaraka Nagar office</h2>
+            <address className="mt-4 max-w-2xl not-italic leading-8 text-white/62">
+              {fullAddress}
+            </address>
+          </GlassCard>
+          <a
+            href={mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 bg-white/[0.05] px-7 text-base font-semibold text-white transition hover:border-[#8EEA4D]/50 hover:text-[#8EEA4D]"
+          >
+            View on Google Maps
+            <ArrowRight className="ml-2 size-5" />
+          </a>
+        </div>
+      </Section>
+
+
       <Section eyebrow="FAQ" title="About Zexa Media.">
         <div className="grid gap-5 lg:grid-cols-3">
           {aboutFaqs.map((faq) => (
@@ -313,6 +391,38 @@ export default function AboutPage() {
           </div>
         </div>
       </Section>
+
+
+      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24">
+        <div className="rounded-[1.5rem] border border-[#8EEA4D]/22 bg-[#8EEA4D] p-8 text-[#071006] sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10 lg:p-12">
+          <div>
+            <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-[#245C1B]">
+              Founder-led audit
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+              Start with a clearer view of your growth system.
+            </h2>
+          </div>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:mt-0">
+            <Link
+              href={founder.ctas.audit.href}
+              className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#071006] px-7 text-base font-bold text-white transition hover:-translate-y-0.5"
+            >
+              {founder.ctas.audit.label}
+              <ArrowRight className="ml-2 size-5" />
+            </Link>
+            <a
+              href={founder.ctas.whatsapp.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-14 items-center justify-center rounded-full border border-[#071006]/20 px-7 text-base font-bold text-[#071006] transition hover:bg-[#071006]/8"
+            >
+              <MessageCircle className="mr-2 size-5" />
+              {founder.ctas.whatsapp.label}
+            </a>
+          </div>
+        </div>
+      </section>
     </PageShell>
   );
 }
