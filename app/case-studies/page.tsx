@@ -20,7 +20,7 @@ const partners = [
   {
     name: "Shree Beautician Academy",
     category: "Beauty education / Wellness",
-    logo: "/images/partners/shree-beautician-academy.png",
+    logo: "/images/partners/shree-beautician-academy.webp",
     alt: "Shree Beautician Academy partner logo",
   },
   {
@@ -38,7 +38,7 @@ const partners = [
   {
     name: "Sky Space AI On STEM Technology",
     category: "Education technology / STEM",
-    logo: "/images/partners/sky-space-ai-stem-technology.png",
+    logo: "/images/partners/sky-space-ai-stem-technology.webp",
     alt: "Sky Space AI On STEM Technology partner logo",
   },
   {
@@ -91,7 +91,7 @@ const studies: CaseStudy[] = [
   {
     client: "Tara Wellness Spa",
     category: "Wellness / Spa",
-    proofImage: "/images/case-studies/tara-wellness-google-ads-proof.png",
+    proofImage: "/images/case-studies/tara-wellness-google-ads-proof.webp",
     proofImageAlt: "Cropped Google Ads performance snapshot for Tara Wellness Spa",
     challenge: "Needed measurable paid-search visibility and clearer reporting for local wellness enquiries.",
     strategy:
@@ -108,7 +108,7 @@ const studies: CaseStudy[] = [
   {
     client: "Moon Wellness Spa",
     category: "Wellness / Spa",
-    proofImage: "/images/case-studies/moon-wellness-google-ads-proof.png",
+    proofImage: "/images/case-studies/moon-wellness-google-ads-proof.webp",
     proofImageAlt: "Cropped Google Ads performance snapshot for Moon Wellness Spa",
     challenge: "Inconsistent bookings, weak social presence and poor online visibility.",
     strategy:
@@ -125,7 +125,7 @@ const studies: CaseStudy[] = [
   {
     client: "Joy Wellness Spa",
     category: "Wellness / Spa",
-    proofImage: "/images/case-studies/joy-wellness-google-ads-proof.png",
+    proofImage: "/images/case-studies/joy-wellness-google-ads-proof.webp",
     proofImageAlt: "Cropped Google Ads performance snapshot for Joy Wellness Spa",
     challenge: "Needed sustained paid-search visibility and measurable enquiry tracking for wellness-service demand.",
     strategy:
@@ -238,6 +238,7 @@ export default function CaseStudiesPage() {
                       alt={partner.alt}
                       fill
                       sizes="(max-width: 768px) 64vw, 208px"
+                      loading="lazy"
                       className="object-contain drop-shadow-[0_12px_26px_rgba(0,0,0,0.35)]"
                     />
                   </div>
@@ -319,15 +320,17 @@ export default function CaseStudiesPage() {
                       alt={study.proofImageAlt}
                       fill
                       sizes="(max-width: 1024px) 92vw, 420px"
+                      loading="lazy"
                       className="object-cover object-left-top"
                     />
                   ) : (
                     <>
                       <Image
-                        src="/images/zexa-dashboard-review.png"
+                        src="/images/zexa-dashboard-review.webp"
                         alt="Illustrative Zexa Media dashboard visual for growth campaign review"
                         fill
                         sizes="(max-width: 1024px) 92vw, 420px"
+                        loading="lazy"
                         className="object-cover opacity-80"
                       />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.05),rgba(5,8,6,0.82))]" />

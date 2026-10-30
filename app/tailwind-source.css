@@ -137,6 +137,46 @@ html {
 
 .trust-marquee-track {
   animation: trust-marquee 22s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.trust-marquee-track::before,
+.trust-marquee-track::after {
+  content: "•  Google Ads    •  Meta Ads    •  WhatsApp Leads    •  Landing Pages    •  GA4 Tracking    •  Automation    •  Local SEO    •  Campaign Reports    ";
+  flex: none;
+  padding-inline: 1.5rem;
+  white-space: pre;
+}
+
+.scroll-progress {
+  animation: scroll-progress linear;
+  animation-timeline: scroll(root);
+  transform: scaleX(0);
+}
+
+.site-header {
+  animation: header-drop 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.mobile-menu-enter,
+.mobile-menu-item,
+.page-transition {
+  animation: section-rise 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.section-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@supports (animation-timeline: view()) {
+  .section-reveal {
+    animation: section-rise 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-range: entry 10% cover 28%;
+    animation-timeline: view();
+  }
 }
 
 .nav-link {
@@ -165,16 +205,6 @@ html {
 
 .image-depth-card {
   transform: translateZ(0);
-}
-
-.anime-reveal-target {
-  opacity: 0;
-  transform: translateY(26px) scale(0.985);
-  will-change: opacity, transform, filter;
-}
-
-.anime-revealed {
-  will-change: auto;
 }
 
 .hero-visual-float {
@@ -378,6 +408,12 @@ footer {
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-progress {
+  to {
+    transform: scaleX(1);
   }
 }
 

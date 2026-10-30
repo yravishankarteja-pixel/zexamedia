@@ -59,6 +59,8 @@ export function PageHero({
   secondaryCta?: string;
   secondaryHref?: string;
 }>) {
+  const optimizedImageSrc = imageSrc?.replace(/\.png$/, ".webp");
+
   return (
     <section
       className={`mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:items-center lg:py-20 ${
@@ -110,16 +112,17 @@ export function PageHero({
           </div>
         </Reveal>
       </div>
-      {imageSrc && (
+      {optimizedImageSrc && (
         <Reveal delay={0.32} variant="scale-in">
           <div className="image-depth-card hero-visual-float relative min-h-[340px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] shadow-[0_30px_110px_rgba(0,0,0,0.38)] lg:min-h-[460px]">
             <Image
-              src={imageSrc}
+              src={optimizedImageSrc}
               alt={imageAlt ?? title}
               fill
               sizes="(max-width: 1024px) 92vw, 620px"
               className="object-cover"
               priority
+              fetchPriority="high"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.05),rgba(5,8,6,0.88)),radial-gradient(circle_at_75%_20%,rgba(142,234,77,0.2),transparent_32%)]" />
             <div className="absolute bottom-6 left-6 right-6 rounded-3xl border border-white/12 bg-black/42 p-5 backdrop-blur-2xl">

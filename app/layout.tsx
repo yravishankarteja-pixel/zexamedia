@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
-import { AnimeSiteMotion } from "@/components/animation/anime-site-motion";
+import Script from "next/script";
 import { SiteHeaderClient } from "@/components/site-header-client";
 import { phoneHref, SiteFooter, whatsappUrl } from "@/components/site-footer";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
@@ -12,12 +12,8 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
-
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 
@@ -73,16 +69,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} h-full antialiased`}
     >
-      <head>
-        {/* Google tag (gtag.js) */}
-        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script
-          async
+      <body className="min-h-full bg-[#050806]">
+        <Script
+          id="google-analytics-library"
           src="https://www.googletagmanager.com/gtag/js?id=G-TSY10BW7VW"
+          strategy="lazyOnload"
         />
-        <script
+        <Script
+          id="google-analytics-config"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -92,9 +89,9 @@ gtag('js', new Date());
 gtag('config', 'G-TSY10BW7VW');`,
           }}
         />
-        {/* Google-provided snippet is kept verbatim for the requested head placement. */}
-        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -103,8 +100,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-NTH8PNQW');`,
           }}
         />
-      </head>
-      <body className="min-h-full bg-[#050806]">
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-NTH8PNQW"
@@ -115,7 +110,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         <SiteHeaderClient />
-        <AnimeSiteMotion />
         {children}
         <SiteFooter />
         <Link

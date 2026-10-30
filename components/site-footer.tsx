@@ -29,11 +29,13 @@ export {
 function BrandMark() {
   return (
     <Image
-      src="/zexa-media-logo-transparent.png"
+      src="/zexa-media-logo-transparent.webp"
       alt="Zexa Media"
-      width={224}
-      height={64}
+      width={300}
+      height={97}
       sizes="224px"
+      loading="lazy"
+      unoptimized
       style={{ width: "224px", maxWidth: "100%", height: "auto" }}
       className="object-contain object-left"
     />

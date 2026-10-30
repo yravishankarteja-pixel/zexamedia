@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
-import { easeOutExpo } from "@/components/animation/motion";
 
 const mainNavItems = [
   { label: "Industries", href: "/industries" },
@@ -30,7 +28,6 @@ export function SiteHeaderClient() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const menuId = useId();
-  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -62,11 +59,8 @@ export function SiteHeaderClient() {
   const servicesActive = serviceMenuItems.some((item) => isActive(item.href));
 
   return (
-    <motion.header
-      initial={reduceMotion ? false : { opacity: 0, y: -12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, ease: easeOutExpo }}
-      className={`sticky top-0 z-[80] border-b transition duration-[250ms] ${
+    <header
+      className={`site-header sticky top-0 z-[80] min-h-20 border-b transition duration-[250ms] lg:min-h-[5.5rem] ${
         scrolled
           ? "border-white/12 bg-[#050806]/88 shadow-[0_14px_34px_rgba(0,0,0,0.24)] backdrop-blur-2xl"
           : "border-white/8 bg-[#050806]/78 backdrop-blur-xl"
@@ -75,14 +69,14 @@ export function SiteHeaderClient() {
       <nav className="mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:min-h-[5.5rem]">
         <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Zexa Media home">
           <Image
-            src="/zexa-media-logo-transparent.png"
+            src="/zexa-media-logo-transparent.webp"
             alt="Zexa Media"
-            width={180}
-            height={50}
+            width={300}
+            height={97}
             sizes="(max-width: 768px) 140px, 180px"
+            unoptimized
             style={{ width: "min(180px, 42vw)", height: "auto" }}
             className="h-auto w-[128px] max-w-[42vw] object-contain sm:w-[150px] md:w-[170px] xl:w-[180px]"
-            priority
           />
         </Link>
 
@@ -160,21 +154,17 @@ export function SiteHeaderClient() {
       </nav>
 
       {menuOpen && (
-        <motion.div
+        <div
           id={menuId}
-          initial={reduceMotion ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.22 }}
-          className="relative z-[90] border-t border-white/10 bg-[#071006]/98 px-5 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl lg:hidden"
+          className="mobile-menu-enter relative z-[90] border-t border-white/10 bg-[#071006]/98 px-5 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl lg:hidden"
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-3">
             <div className="grid gap-2">
               {mainNavItems.map((item, index) => (
-                <motion.div
+                <div
                   key={item.href}
-                  initial={reduceMotion ? false : { opacity: 0, y: -12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.24, delay: index * 0.04, ease: easeOutExpo }}
+                  className="mobile-menu-item"
+                  style={{ animationDelay: `${index * 0.04}s` }}
                 >
                   <Link
                     href={item.href}
@@ -186,7 +176,7 @@ export function SiteHeaderClient() {
                   >
                     {item.label}
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -196,11 +186,10 @@ export function SiteHeaderClient() {
               </p>
               <div className="grid gap-2 sm:grid-cols-2">
                 {serviceMenuItems.map((item, index) => (
-                  <motion.div
+                  <div
                     key={item.href}
-                    initial={reduceMotion ? false : { opacity: 0, y: -12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.24, delay: 0.14 + index * 0.03, ease: easeOutExpo }}
+                    className="mobile-menu-item"
+                    style={{ animationDelay: `${0.14 + index * 0.03}s` }}
                   >
                     <Link
                       href={item.href}
@@ -212,7 +201,7 @@ export function SiteHeaderClient() {
                     >
                       {item.label}
                     </Link>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -225,8 +214,8 @@ export function SiteHeaderClient() {
               Book Free Audit
             </Link>
           </div>
-        </motion.div>
+        </div>
       )}
-    </motion.header>
+    </header>
   );
 }

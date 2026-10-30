@@ -1,16 +1,4 @@
-﻿"use client";
-
-
-import { useEffect } from "react";
 import Image from "next/image";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import Lenis from "lenis";
 import {
   ArrowRight,
   BadgeCheck,
@@ -420,31 +408,18 @@ const offerSchema = {
 };
 
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
-
 function Reveal({
   children,
   delay = 0,
   className = "",
 }: Readonly<{ children: React.ReactNode; delay?: number; className?: string }>) {
-  const reduceMotion = useReducedMotion();
-
-
   return (
-    <motion.div
-      variants={fadeUp}
-      initial={reduceMotion ? "visible" : "hidden"}
-      whileInView="visible"
-      viewport={{ once: true, margin: "-70px" }}
-      transition={{ duration: 0.58, delay, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
+    <div
+      className={`section-reveal ${className}`}
+      style={{ animationDelay: `${delay}s` }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -471,52 +446,9 @@ function SectionHeading({
 
 
 export default function Home() {
-  const reduceMotion = useReducedMotion();
-  const { scrollYProgress } = useScroll();
-  const progressScale = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 24,
-    restDelta: 0.001,
-  });
-  const heroParallax = useTransform(scrollYProgress, [0, 0.35], [0, reduceMotion ? 0 : 42]);
-
-
-  useEffect(() => {
-    if (reduceMotion) {
-      return;
-    }
-
-
-    const lenis = new Lenis({
-      duration: 1,
-      smoothWheel: true,
-      wheelMultiplier: 0.9,
-    });
-
-
-    let frame = 0;
-    function raf(time: number) {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    }
-
-
-    frame = requestAnimationFrame(raf);
-
-
-    return () => {
-      cancelAnimationFrame(frame);
-      lenis.destroy();
-    };
-  }, [reduceMotion]);
-
-
   return (
     <main className="site-page min-h-screen overflow-hidden bg-[#050806] text-white">
-      <motion.div
-        className="fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-[#8EEA4D]"
-        style={{ scaleX: progressScale }}
-      />
+      <div className="scroll-progress fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-[#8EEA4D]" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -535,10 +467,7 @@ export default function Home() {
       />
 
 
-      <motion.div
-        className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.055),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.045),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_48%,#020302_100%)]"
-        style={{ y: heroParallax }}
-      />
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.055),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.045),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_48%,#020302_100%)]" />
       <div className="premium-orb premium-orb-one" />
       <div className="floating-geo geo-cube geo-cube-a" />
       <div className="floating-geo geo-ring geo-ring-a" />
@@ -593,12 +522,13 @@ export default function Home() {
             <div className="relative mx-auto w-full max-w-full min-w-0 sm:max-w-[560px]">
               <div className="image-depth-card hero-visual-float relative aspect-[0.92] overflow-hidden rounded-[1.75rem] border border-white/12 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
                 <Image
-                  src="/images/zexa-hero-strategy.png"
+                  src="/images/zexa-hero-strategy.webp"
                   alt="Zexa Media performance marketing agency in Visakhapatnam reviewing Google Ads and lead generation analytics"
                   fill
-                  sizes="(max-width: 1024px) 92vw, 560px"
+                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 560px, 560px"
                   className="object-cover"
                   priority
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.03),rgba(5,8,6,0.58)),linear-gradient(90deg,rgba(5,8,6,0.12),transparent)]" />
                 <div className="absolute bottom-5 left-5 right-5 rounded-[1.25rem] border border-white/12 bg-black/58 p-5 backdrop-blur-xl sm:bottom-7 sm:left-7 sm:right-7">
@@ -631,31 +561,10 @@ export default function Home() {
           <Reveal>
             <div className="mx-auto max-w-7xl overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#0A100B]">
               <div className="trust-marquee border-b border-white/10 bg-white/[0.035] py-4">
-                <div className="trust-marquee-track flex w-max items-center gap-12 whitespace-nowrap px-6 text-xs font-bold uppercase tracking-[0.24em] text-white/42">
-                  {[
-                    "Google Ads",
-                    "Meta Ads",
-                    "WhatsApp Leads",
-                    "Landing Pages",
-                    "GA4 Tracking",
-                    "Automation",
-                    "Local SEO",
-                    "Campaign Reports",
-                    "Google Ads",
-                    "Meta Ads",
-                    "WhatsApp Leads",
-                    "Landing Pages",
-                    "GA4 Tracking",
-                    "Automation",
-                    "Local SEO",
-                    "Campaign Reports",
-                  ].map((item, index) => (
-                    <span key={`${item}-${index}`} className="inline-flex items-center gap-4">
-                      <span className="size-1.5 rounded-full bg-[#8EEA4D]" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
+                <div
+                  className="trust-marquee-track text-xs font-bold uppercase tracking-[0.24em] text-white/42"
+                  aria-label="Google Ads, Meta Ads, WhatsApp Leads, Landing Pages, GA4 Tracking, Automation, Local SEO, Campaign Reports"
+                />
               </div>
               <div className="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat) => (
@@ -764,6 +673,8 @@ export default function Home() {
                       alt={testimonial.name ? `${testimonial.name} testimonial` : "Client testimonial"}
                       width={44}
                       height={44}
+                      sizes="44px"
+                      loading="lazy"
                       className="size-11 rounded-full object-cover"
                     />
                   ) : (
