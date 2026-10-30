@@ -27,28 +27,34 @@ export {
   whatsappUrl,
 };
 
-const footerGroups: Array<{ title: string; links: Array<[string, string]> }> = [
-  {
-    title: "Services",
-    links: [
-      ["Performance Marketing", "/performance-marketing-agency"],
-      ["Google Ads", "/google-ads-agency"],
-      ["Meta Ads", "/meta-ads-agency"],
-      ["Lead Generation", "/lead-generation-agency"],
-      ["Marketing Automation", "/marketing-automation-agency"],
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      ["About Zexa Media", "/about"],
-      ["Growth System", "/growth-system"],
-      ["Industries", "/industries"],
-      ["Case Studies", "/case-studies"],
-      ["Packages", "/packages"],
-      ["Contact", "/contact"],
-    ],
-  },
+const exploreLinks: Array<[string, string]> = [
+  ["Home", "/"],
+  ["About", "/about"],
+  ["Services", "/services"],
+  ["Performance Marketing", "/performance-marketing-agency"],
+  ["Google Ads", "/google-ads-agency"],
+  ["Meta Ads", "/meta-ads-agency"],
+  ["Lead Generation", "/lead-generation-agency"],
+  ["Marketing Automation", "/marketing-automation-agency"],
+  ["Digital Marketing Agency Vizag", "/digital-marketing-agency-visakhapatnam"],
+  ["Industries", "/industries"],
+  ["Doctors & Clinics", "/industries/doctors-clinics"],
+  ["Dental Clinics", "/industries/dental-clinics"],
+  ["Fertility & IVF", "/industries/fertility-ivf"],
+  ["Education & Coaching", "/industries/education-coaching"],
+  ["Gyms & Fitness", "/industries/gyms-fitness"],
+  ["Spas & Wellness", "/industries/spas-wellness"],
+  ["Salons", "/industries/salons"],
+  ["Real Estate", "/industries/real-estate"],
+  ["Remote Services", "/remote-marketing-services"],
+  ["How We Work", "/how-we-work"],
+  ["Growth System", "/growth-system"],
+  ["Packages", "/packages"],
+  ["Case Studies", "/case-studies"],
+  ["Blog", "/blog"],
+  ["Free Audit", "/free-audit"],
+  ["Contact", "/contact"],
+  ["Privacy Policy", "/privacy-policy"],
 ];
 
 function BrandMark() {
@@ -63,21 +69,6 @@ function BrandMark() {
       unoptimized
       className="h-auto w-[180px] object-contain object-left sm:w-[210px]"
     />
-  );
-}
-
-function FooterLinks({ title, links }: Readonly<{ title: string; links: Array<[string, string]> }>) {
-  return (
-    <div>
-      <h3 className="text-xs font-black uppercase tracking-[0.22em] text-[#8EEA4D]">{title}</h3>
-      <nav className="mt-5 grid gap-3" aria-label={`${title} footer links`}>
-        {links.map(([label, href]) => (
-          <Link key={href} href={href} className="w-fit text-sm font-medium text-white/64 transition hover:translate-x-0.5 hover:text-white">
-            {label}
-          </Link>
-        ))}
-      </nav>
-    </div>
   );
 }
 
@@ -104,8 +95,8 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="grid gap-10 px-1 py-12 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.7fr_0.7fr_1.1fr] lg:gap-12 lg:py-14">
-          <div className="sm:col-span-2 lg:col-span-1">
+        <div className="grid gap-10 px-1 py-12 lg:grid-cols-[1.05fr_1.65fr_1fr] lg:gap-14 lg:py-14">
+          <div>
             <Link href="/" className="inline-flex" aria-label="Zexa Media home"><BrandMark /></Link>
             <p className="mt-5 max-w-sm text-sm leading-7 text-white/58">Performance marketing and digital growth systems for businesses that need qualified leads, dependable tracking and faster follow-up.</p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -117,7 +108,16 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {footerGroups.map((group) => <FooterLinks key={group.title} {...group} />)}
+          <div>
+            <h3 className="text-xs font-black uppercase tracking-[0.22em] text-[#8EEA4D]">Explore</h3>
+            <nav aria-label="Explore footer links" className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+              {exploreLinks.map(([label, href]) => (
+                <Link key={href} href={href} className="w-fit text-sm font-medium leading-6 text-white/64 transition hover:translate-x-0.5 hover:text-white">
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
           <div>
             <h3 className="text-xs font-black uppercase tracking-[0.22em] text-[#8EEA4D]">Contact</h3>

@@ -10,6 +10,7 @@ const mainNavItems = [
   { label: "Growth System", href: "/growth-system" },
   { label: "Packages", href: "/packages" },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -94,7 +95,7 @@ export function SiteHeaderClient() {
           />
         </Link>
 
-        <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.035] px-2 py-2 lg:flex">
+        <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.035] px-2 py-2 xl:flex">
           <div className="group relative">
             <Link
               href="/services"
@@ -137,10 +138,10 @@ export function SiteHeaderClient() {
             <Link href="/industries" aria-current={industriesActive ? "page" : undefined} className={`nav-link inline-flex min-h-10 items-center gap-1.5 rounded-full px-4 text-sm font-semibold transition hover:bg-white/[0.055] hover:text-white ${industriesActive ? "text-[#8EEA4D]" : "text-white/68"}`}>
               Industries <ChevronDown className="size-4 transition group-hover:rotate-180" />
             </Link>
-            <div className="invisible absolute left-0 top-full z-[100] w-[28rem] translate-y-3 pt-3 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+            <div style={{ width: "22rem" }} className="invisible absolute left-0 top-full z-[100] max-w-[calc(100vw-2rem)] translate-y-3 pt-3 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
               <div className="overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#071006]/96 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
                 <p className="border-b border-white/10 px-4 py-3 text-xs font-black uppercase tracking-[0.22em] text-[#8EEA4D]">Industry paths</p>
-                <div className="grid grid-cols-2 gap-1 p-2">{industryMenuItems.map((item) => <Link key={item.href} href={item.href} className={`rounded-2xl px-3 py-2.5 text-sm font-semibold leading-tight transition hover:bg-[#8EEA4D]/10 hover:text-[#8EEA4D] ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}>{item.label}</Link>)}</div>
+                <div className="grid gap-1 p-2">{industryMenuItems.map((item) => <Link key={item.href} href={item.href} className={`block rounded-2xl px-4 py-2.5 text-sm font-semibold leading-tight transition hover:bg-[#8EEA4D]/10 hover:text-[#8EEA4D] ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}>{item.label}</Link>)}</div>
               </div>
             </div>
           </div>
@@ -161,7 +162,7 @@ export function SiteHeaderClient() {
 
         <Link
           href="/free-audit"
-          className="magnetic-cta hidden min-h-11 items-center rounded-full bg-[#8EEA4D] px-4 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 lg:inline-flex xl:px-5"
+          className="magnetic-cta hidden min-h-11 items-center rounded-full bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 xl:inline-flex"
         >
           Book Free Audit
           <ArrowRight className="ml-2 size-4" />
@@ -169,7 +170,7 @@ export function SiteHeaderClient() {
 
         <button
           type="button"
-          className="grid size-11 place-items-center rounded-full border border-white/12 bg-white/5 lg:hidden"
+          className="grid size-11 place-items-center rounded-full border border-white/12 bg-white/5 xl:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
@@ -182,7 +183,7 @@ export function SiteHeaderClient() {
       {menuOpen && (
         <div
           id={menuId}
-          className="mobile-menu-enter relative z-[90] border-t border-white/10 bg-[#071006]/98 px-5 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl lg:hidden"
+          className="mobile-menu-enter relative z-[90] border-t border-white/10 bg-[#071006]/98 px-5 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl xl:hidden"
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-3">
             <div className="grid gap-2">
