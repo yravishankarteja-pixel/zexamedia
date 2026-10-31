@@ -95,7 +95,7 @@ export function SiteHeaderClient() {
           />
         </Link>
 
-        <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.035] px-2 py-2 xl:flex">
+        <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.035] px-2 py-2 lg:flex">
           <div className="group relative">
             <Link
               href="/services"
@@ -162,7 +162,7 @@ export function SiteHeaderClient() {
 
         <Link
           href="/free-audit"
-          className="magnetic-cta hidden min-h-11 items-center rounded-full bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 xl:inline-flex"
+          className="magnetic-cta hidden min-h-11 items-center rounded-full bg-[#8EEA4D] px-4 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 lg:inline-flex xl:px-5"
         >
           Book Free Audit
           <ArrowRight className="ml-2 size-4" />
@@ -170,7 +170,7 @@ export function SiteHeaderClient() {
 
         <button
           type="button"
-          className="grid size-11 place-items-center rounded-full border border-white/12 bg-white/5 xl:hidden"
+          className="grid size-11 place-items-center rounded-full border border-white/12 bg-white/5 lg:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
@@ -183,7 +183,7 @@ export function SiteHeaderClient() {
       {menuOpen && (
         <div
           id={menuId}
-          className="mobile-menu-enter relative z-[90] border-t border-white/10 bg-[#071006]/98 px-5 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl xl:hidden"
+          className="mobile-menu-enter relative z-[90] border-t border-white/10 bg-[#071006]/98 px-5 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl lg:hidden"
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-3">
             <div className="grid gap-2">

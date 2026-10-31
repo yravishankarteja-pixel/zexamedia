@@ -27,9 +27,7 @@ export {
   whatsappUrl,
 };
 
-const exploreLinks: Array<[string, string]> = [
-  ["Home", "/"],
-  ["About", "/about"],
+const serviceLinks: Array<[string, string]> = [
   ["Services", "/services"],
   ["Performance Marketing", "/performance-marketing-agency"],
   ["Google Ads", "/google-ads-agency"],
@@ -37,7 +35,9 @@ const exploreLinks: Array<[string, string]> = [
   ["Lead Generation", "/lead-generation-agency"],
   ["Marketing Automation", "/marketing-automation-agency"],
   ["Digital Marketing Agency Vizag", "/digital-marketing-agency-visakhapatnam"],
-  ["Industries", "/industries"],
+];
+
+const industryLinks: Array<[string, string]> = [
   ["Doctors & Clinics", "/industries/doctors-clinics"],
   ["Dental Clinics", "/industries/dental-clinics"],
   ["Fertility & IVF", "/industries/fertility-ivf"],
@@ -46,6 +46,12 @@ const exploreLinks: Array<[string, string]> = [
   ["Spas & Wellness", "/industries/spas-wellness"],
   ["Salons", "/industries/salons"],
   ["Real Estate", "/industries/real-estate"],
+];
+
+const companyLinks: Array<[string, string]> = [
+  ["Home", "/"],
+  ["About", "/about"],
+  ["Industries Overview", "/industries"],
   ["Remote Services", "/remote-marketing-services"],
   ["How We Work", "/how-we-work"],
   ["Growth System", "/growth-system"],
@@ -56,6 +62,21 @@ const exploreLinks: Array<[string, string]> = [
   ["Contact", "/contact"],
   ["Privacy Policy", "/privacy-policy"],
 ];
+
+function FooterLinkGroup({ title, links }: Readonly<{ title: string; links: Array<[string, string]> }>) {
+  return (
+    <div>
+      <h3 className="text-xs font-black uppercase tracking-[0.22em] text-[#8EEA4D]">{title}</h3>
+      <nav aria-label={`${title} footer links`} className="mt-5 grid gap-3">
+        {links.map(([label, href]) => (
+          <Link key={href} href={href} className="w-fit text-sm font-medium leading-6 text-white/62 transition hover:translate-x-0.5 hover:text-white">
+            {label}
+          </Link>
+        ))}
+      </nav>
+    </div>
+  );
+}
 
 function BrandMark() {
   return (
@@ -95,7 +116,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="grid gap-10 px-1 py-12 lg:grid-cols-[1.05fr_1.65fr_1fr] lg:gap-14 lg:py-14">
+        <div className="grid gap-10 px-1 py-12 sm:grid-cols-2 xl:grid-cols-4 xl:gap-12 xl:py-14">
           <div>
             <Link href="/" className="inline-flex" aria-label="Zexa Media home"><BrandMark /></Link>
             <p className="mt-5 max-w-sm text-sm leading-7 text-white/58">Performance marketing and digital growth systems for businesses that need qualified leads, dependable tracking and faster follow-up.</p>
@@ -108,26 +129,18 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-xs font-black uppercase tracking-[0.22em] text-[#8EEA4D]">Explore</h3>
-            <nav aria-label="Explore footer links" className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-              {exploreLinks.map(([label, href]) => (
-                <Link key={href} href={href} className="w-fit text-sm font-medium leading-6 text-white/64 transition hover:translate-x-0.5 hover:text-white">
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </div>
+          <FooterLinkGroup title="Services" links={serviceLinks} />
+          <FooterLinkGroup title="Industries" links={industryLinks} />
+          <FooterLinkGroup title="Company" links={companyLinks} />
+        </div>
 
-          <div>
-            <h3 className="text-xs font-black uppercase tracking-[0.22em] text-[#8EEA4D]">Contact</h3>
-            <div className="mt-5 grid gap-4 text-sm text-white/64">
-              {contactEmail ? <a href={`mailto:${contactEmail}`} className="flex gap-3 transition hover:text-white"><Mail className="mt-0.5 size-4 shrink-0 text-[#8EEA4D]" /><span className="break-all">{contactEmail}</span></a> : null}
-              <a href={phoneHref} className="flex gap-3 transition hover:text-white"><Phone className="mt-0.5 size-4 shrink-0 text-[#8EEA4D]" /><span>{phoneNumber}</span></a>
-              <a href={secondaryPhoneHref} className="flex gap-3 transition hover:text-white"><Phone className="mt-0.5 size-4 shrink-0 text-[#8EEA4D]" /><span>{secondaryPhoneNumber}</span></a>
-              <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="flex gap-3 leading-6 transition hover:text-white"><MapPin className="mt-1 size-4 shrink-0 text-[#8EEA4D]" /><span>{fullAddress}</span></a>
-            </div>
+        <div className="grid gap-5 border-t border-white/8 py-7 text-sm text-white/62 md:grid-cols-[auto_auto_1fr] md:items-start md:gap-8">
+          {contactEmail ? <a href={`mailto:${contactEmail}`} className="flex gap-3 transition hover:text-white"><Mail className="mt-0.5 size-4 shrink-0 text-[#8EEA4D]" /><span className="break-all">{contactEmail}</span></a> : null}
+          <div className="grid gap-3">
+            <a href={phoneHref} className="flex gap-3 transition hover:text-white"><Phone className="mt-0.5 size-4 shrink-0 text-[#8EEA4D]" /><span>{phoneNumber}</span></a>
+            <a href={secondaryPhoneHref} className="flex gap-3 transition hover:text-white"><Phone className="mt-0.5 size-4 shrink-0 text-[#8EEA4D]" /><span>{secondaryPhoneNumber}</span></a>
           </div>
+          <a href={mapUrl} target="_blank" rel="noopener noreferrer" className="flex gap-3 leading-6 transition hover:text-white md:justify-self-end md:text-right"><MapPin className="mt-1 size-4 shrink-0 text-[#8EEA4D]" /><span className="max-w-xl">{fullAddress}</span></a>
         </div>
 
         <div className="flex flex-col gap-4 border-t border-white/8 py-5 text-xs text-white/38 sm:flex-row sm:items-center sm:justify-between">
