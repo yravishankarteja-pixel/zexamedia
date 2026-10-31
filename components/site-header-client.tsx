@@ -90,17 +90,17 @@ export function SiteHeaderClient() {
             height={97}
             sizes="(max-width: 768px) 140px, 180px"
             unoptimized
-            style={{ width: "min(180px, 42vw)", height: "auto" }}
-            className="h-auto w-[128px] max-w-[42vw] object-contain sm:w-[150px] md:w-[170px] xl:w-[180px]"
+            style={{ height: "auto" }}
+            className="h-auto w-[128px] max-w-[42vw] object-contain sm:w-[150px] md:w-[145px] xl:w-[180px]"
           />
         </Link>
 
-        <div className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.035] px-2 py-2 lg:flex">
+        <div className="hidden items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.035] px-1.5 py-2 md:flex xl:gap-1 xl:px-2">
           <div className="group relative">
             <Link
               href="/services"
               aria-current={servicesActive ? "page" : undefined}
-              className={`nav-link inline-flex min-h-10 items-center gap-1.5 rounded-full px-4 text-sm font-semibold transition hover:bg-white/[0.055] hover:text-white ${
+              className={`nav-link inline-flex min-h-10 items-center gap-1 rounded-full px-2.5 text-xs font-semibold transition hover:bg-white/[0.055] hover:text-white xl:gap-1.5 xl:px-4 xl:text-sm ${
                 servicesActive ? "text-[#8EEA4D]" : "text-white/68"
               }`}
             >
@@ -135,7 +135,7 @@ export function SiteHeaderClient() {
           </div>
 
           <div className="group relative">
-            <Link href="/industries" aria-current={industriesActive ? "page" : undefined} className={`nav-link inline-flex min-h-10 items-center gap-1.5 rounded-full px-4 text-sm font-semibold transition hover:bg-white/[0.055] hover:text-white ${industriesActive ? "text-[#8EEA4D]" : "text-white/68"}`}>
+            <Link href="/industries" aria-current={industriesActive ? "page" : undefined} className={`nav-link inline-flex min-h-10 items-center gap-1 rounded-full px-2.5 text-xs font-semibold transition hover:bg-white/[0.055] hover:text-white xl:gap-1.5 xl:px-4 xl:text-sm ${industriesActive ? "text-[#8EEA4D]" : "text-white/68"}`}>
               Industries <ChevronDown className="size-4 transition group-hover:rotate-180" />
             </Link>
             <div style={{ width: "22rem" }} className="invisible absolute left-0 top-full z-[100] max-w-[calc(100vw-2rem)] translate-y-3 pt-3 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
@@ -151,7 +151,7 @@ export function SiteHeaderClient() {
               key={item.href}
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className={`nav-link inline-flex min-h-10 items-center whitespace-nowrap rounded-full px-4 text-sm font-semibold transition hover:bg-white/[0.055] hover:text-white ${
+              className={`nav-link inline-flex min-h-10 items-center whitespace-nowrap rounded-full px-2.5 text-xs font-semibold transition hover:bg-white/[0.055] hover:text-white xl:px-4 xl:text-sm ${
                 isActive(item.href) ? "text-[#8EEA4D]" : "text-white/66"
               }`}
             >
@@ -162,7 +162,7 @@ export function SiteHeaderClient() {
 
         <Link
           href="/free-audit"
-          className="magnetic-cta hidden min-h-11 items-center rounded-full bg-[#8EEA4D] px-4 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 lg:inline-flex xl:px-5"
+          className="magnetic-cta hidden min-h-11 items-center rounded-full bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] shadow-[0_12px_34px_rgba(0,0,0,0.24)] transition hover:-translate-y-0.5 xl:inline-flex"
         >
           Book Free Audit
           <ArrowRight className="ml-2 size-4" />
@@ -170,7 +170,7 @@ export function SiteHeaderClient() {
 
         <button
           type="button"
-          className="grid size-11 place-items-center rounded-full border border-white/12 bg-white/5 lg:hidden"
+          className="grid size-11 place-items-center rounded-full border border-white/12 bg-white/5 md:hidden"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
@@ -183,7 +183,7 @@ export function SiteHeaderClient() {
       {menuOpen && (
         <div
           id={menuId}
-          className="mobile-menu-enter relative z-[90] border-t border-white/10 bg-[#071006]/98 px-5 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl lg:hidden"
+          className="mobile-menu-enter relative z-[90] border-t border-white/10 bg-[#071006]/98 px-5 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl md:hidden"
         >
           <div className="mx-auto flex max-w-7xl flex-col gap-3">
             <div className="grid gap-2">
