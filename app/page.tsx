@@ -528,6 +528,7 @@ export default function Home() {
                   className="object-cover"
                   priority
                   fetchPriority="high"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.03),rgba(5,8,6,0.58)),linear-gradient(90deg,rgba(5,8,6,0.12),transparent)]" />
                 <div className="absolute bottom-4 left-4 right-4 rounded-[1.25rem] border border-[#8EEA4D]/22 bg-black/72 p-4 backdrop-blur-xl sm:bottom-6 sm:left-auto sm:right-6 sm:w-[58%] sm:p-5">

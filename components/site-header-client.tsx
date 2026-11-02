@@ -62,6 +62,7 @@ const industryMenuItems = [
 
 export function SiteHeaderClient() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [megaOpen, setMegaOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const menuId = useId();
@@ -88,7 +89,10 @@ export function SiteHeaderClient() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        setMegaOpen(false);
+      }
     };
 
     window.addEventListener("keydown", onKeyDown);
@@ -134,24 +138,35 @@ export function SiteHeaderClient() {
         </Link>
 
         <div className="hidden min-w-0 flex-1 items-center justify-center lg:flex">
-          <div className="group/mega relative flex items-center">
-            <Link
-              href="/services"
+          <div
+            className="relative flex items-center"
+            onMouseEnter={() => setMegaOpen(true)}
+            onMouseLeave={() => setMegaOpen(false)}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) setMegaOpen(false);
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => setMegaOpen((open) => !open)}
+              aria-expanded={megaOpen}
               aria-current={servicesActive ? "page" : undefined}
               className={`relative inline-flex min-h-12 items-center gap-1 px-3 text-[0.8rem] font-semibold transition hover:text-[#8EEA4D] xl:px-4 xl:text-sm ${servicesActive ? "text-[#8EEA4D]" : "text-white/76"}`}
             >
               Services
-              <ChevronDown className="size-4 transition group-hover/mega:rotate-180 group-focus-within/mega:rotate-180" />
-            </Link>
-            <Link
-              href="/industries"
+              <ChevronDown className={`size-4 transition ${megaOpen ? "rotate-180" : ""}`} />
+            </button>
+            <button
+              type="button"
+              onClick={() => setMegaOpen((open) => !open)}
+              aria-expanded={megaOpen}
               aria-current={industriesActive ? "page" : undefined}
               className={`relative inline-flex min-h-12 items-center gap-1 px-3 text-[0.8rem] font-semibold transition hover:text-[#8EEA4D] xl:px-4 xl:text-sm ${industriesActive ? "text-[#8EEA4D]" : "text-white/76"}`}
             >
               Industries
-              <ChevronDown className="size-4 transition group-hover/mega:rotate-180 group-focus-within/mega:rotate-180" />
-            </Link>
-            <div className="invisible absolute left-1/2 top-full z-[100] w-[min(48rem,calc(100vw-3rem))] -translate-x-1/2 translate-y-2 pt-3 opacity-0 transition duration-200 group-hover/mega:visible group-hover/mega:translate-y-0 group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:translate-y-0 group-focus-within/mega:opacity-100">
+              <ChevronDown className={`size-4 transition ${megaOpen ? "rotate-180" : ""}`} />
+            </button>
+            <div className={`absolute left-1/2 top-full z-[100] w-[min(48rem,calc(100vw-3rem))] -translate-x-1/2 pt-3 transition duration-200 ${megaOpen ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}>
               <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-[#8EEA4D]/25 bg-[#071008]/98 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.64),0_0_40px_rgba(142,234,77,0.08)] backdrop-blur-2xl">
                 {[{ title: "Services", copy: "Our end-to-end growth marketing services.", items: serviceMenuItems }, { title: "Industries", copy: "Focused paths for local and service businesses.", items: industryMenuItems }].map((column, columnIndex) => (
                   <div key={column.title} className={columnIndex ? "border-l border-white/10 pl-4" : "pr-4"}>
@@ -166,7 +181,7 @@ export function SiteHeaderClient() {
                     </div>
                     <div className="grid gap-0.5">
                       {column.items.map((item) => (
-                        <Link key={item.href} href={item.href} className={`group/item flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition hover:bg-[#8EEA4D]/10 hover:text-white ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}>
+                        <Link key={item.href} href={item.href} onClick={() => setMegaOpen(false)} className={`group/item flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition hover:bg-[#8EEA4D]/10 hover:text-white ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}>
                           <item.icon className="size-4 shrink-0 text-[#8EEA4D]" strokeWidth={1.8} />
                           <span>{item.label}</span>
                           <ChevronRight className="ml-auto size-4 text-white/28 transition group-hover/item:translate-x-0.5 group-hover/item:text-[#8EEA4D]" />
