@@ -98,7 +98,11 @@ export function SiteHeaderClient() {
       }`}
     >
       <nav className="mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-5 px-5 py-3 sm:px-8 lg:min-h-[5.25rem]">
-        <Link href="/" className="flex shrink-0 items-center" aria-label="Zexa Media home">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center rounded-xl border border-transparent px-1 py-1 transition hover:border-white/10 hover:bg-white/[0.035] lg:px-3 lg:py-2"
+          aria-label="Zexa Media home"
+        >
           <Image
             src="/zexa-media-logo-transparent.webp"
             alt="Zexa Media"
@@ -110,12 +114,12 @@ export function SiteHeaderClient() {
           />
         </Link>
 
-        <div className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 lg:flex xl:gap-1">
-          <div className="group relative">
+        <div className="hidden min-w-0 flex-1 items-stretch justify-center rounded-xl border border-white/12 bg-white/[0.035] shadow-[0_12px_32px_rgba(0,0,0,0.22)] lg:flex">
+          <div className="group relative border-r border-white/10">
             <Link
               href="/services"
               aria-current={servicesActive ? "page" : undefined}
-              className={`inline-flex min-h-11 items-center gap-1 rounded-full px-3 text-sm font-semibold transition hover:bg-white/[0.06] hover:text-white xl:px-4 ${servicesActive ? "text-[#8EEA4D]" : "text-white/72"}`}
+              className={`inline-flex min-h-12 items-center gap-1 rounded-l-xl px-3 text-[0.8rem] font-semibold transition hover:bg-white/[0.06] hover:text-white xl:px-4 xl:text-sm ${servicesActive ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}
             >
               Services
               <ChevronDown className="size-4 transition group-hover:rotate-180 group-focus-within:rotate-180" />
@@ -132,11 +136,11 @@ export function SiteHeaderClient() {
             </div>
           </div>
 
-          <div className="group relative">
+          <div className="group relative border-r border-white/10">
             <Link
               href="/industries"
               aria-current={industriesActive ? "page" : undefined}
-              className={`inline-flex min-h-11 items-center gap-1 rounded-full px-3 text-sm font-semibold transition hover:bg-white/[0.06] hover:text-white xl:px-4 ${industriesActive ? "text-[#8EEA4D]" : "text-white/72"}`}
+              className={`inline-flex min-h-12 items-center gap-1 px-3 text-[0.8rem] font-semibold transition hover:bg-white/[0.06] hover:text-white xl:px-4 xl:text-sm ${industriesActive ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}
             >
               Industries
               <ChevronDown className="size-4 transition group-hover:rotate-180 group-focus-within:rotate-180" />
@@ -153,12 +157,12 @@ export function SiteHeaderClient() {
             </div>
           </div>
 
-          {mainNavItems.map((item) => (
+          {mainNavItems.map((item, index) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className={`inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-2.5 text-sm font-semibold transition hover:bg-white/[0.06] hover:text-white xl:px-4 ${item.label === "Blog" ? "hidden xl:inline-flex" : ""} ${isActive(item.href) ? "text-[#8EEA4D]" : "text-white/70"}`}
+              className={`min-h-12 items-center whitespace-nowrap border-r border-white/10 px-2.5 text-[0.8rem] font-semibold transition hover:bg-white/[0.06] hover:text-white xl:px-4 xl:text-sm ${item.label === "Blog" ? "hidden xl:inline-flex" : "inline-flex"} ${index === mainNavItems.length - 1 ? "rounded-r-xl border-r-0" : ""} ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/70"}`}
             >
               {item.label}
             </Link>
