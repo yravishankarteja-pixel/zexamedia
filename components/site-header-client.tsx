@@ -166,10 +166,10 @@ export function SiteHeaderClient() {
               Industries
               <ChevronDown className={`size-4 transition ${megaOpen ? "rotate-180" : ""}`} />
             </button>
-            <div className={`absolute left-1/2 top-full z-[100] w-[min(48rem,calc(100vw-3rem))] -translate-x-1/2 pt-3 transition duration-200 ${megaOpen ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}>
+            <div className={`absolute left-1/2 top-full z-[100] w-[48rem] max-w-[calc(100vw-3rem)] -translate-x-1/2 pt-3 transition duration-200 ${megaOpen ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}>
               <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-[#8EEA4D]/25 bg-[#071008]/98 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.64),0_0_40px_rgba(142,234,77,0.08)] backdrop-blur-2xl">
                 {[{ title: "Services", copy: "Our end-to-end growth marketing services.", items: serviceMenuItems }, { title: "Industries", copy: "Focused paths for local and service businesses.", items: industryMenuItems }].map((column, columnIndex) => (
-                  <div key={column.title} className={columnIndex ? "border-l border-white/10 pl-4" : "pr-4"}>
+                  <div key={column.title} className={`min-w-0 ${columnIndex ? "border-l border-white/10 pl-4" : "pr-4"}`}>
                     <div className="mb-3 flex items-start gap-3 px-2">
                       <div className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-xl bg-[#8EEA4D]/12 text-[#8EEA4D]">
                         {columnIndex ? <Building2 className="size-5" /> : <Sparkles className="size-5" />}

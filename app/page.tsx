@@ -519,7 +519,10 @@ export default function Home() {
 
           <Reveal delay={0.14}>
             <div className="relative mx-auto w-full max-w-full min-w-0 sm:max-w-[720px]">
-              <div className="image-depth-card relative aspect-[1.16] overflow-hidden rounded-[1.75rem] border border-[#8EEA4D]/30 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42),0_0_55px_rgba(142,234,77,0.08)]">
+              <div
+                className="image-depth-card relative min-h-[320px] overflow-hidden rounded-[1.75rem] border border-[#8EEA4D]/30 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42),0_0_55px_rgba(142,234,77,0.08)] sm:min-h-[420px] lg:min-h-[500px]"
+                style={{ aspectRatio: "15 / 8" }}
+              >
                 <Image
                   src="/images/zexa-hero-strategy.webp"
                   alt="Zexa Media performance marketing agency in Visakhapatnam reviewing Google Ads and lead generation analytics"
