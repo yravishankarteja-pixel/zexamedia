@@ -2,7 +2,6 @@ import Image from "next/image";
 import { FounderBlock } from "@/components/founder-block";
 import {
   ArrowRight,
-  BadgeCheck,
   BarChart3,
   ClipboardCheck,
   CheckCircle2,
@@ -431,11 +430,11 @@ function SectionHeading({
 }: Readonly<{ eyebrow: string; title: string; copy?: string }>) {
   return (
     <Reveal>
-      <div className="mx-auto mb-9 max-w-3xl text-center">
+      <div className="mb-9 max-w-3xl text-left">
         <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#8EEA4D]">
           {eyebrow}
         </p>
-        <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
+        <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[2.65rem]">
           {title}
         </h2>
         {copy && <p className="mt-5 text-base leading-7 text-white/58 sm:text-lg">{copy}</p>}
@@ -467,7 +466,7 @@ export default function Home() {
       />
 
 
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.055),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.045),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_48%,#020302_100%)]" />
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_78%_12%,rgba(142,234,77,0.13),transparent_25%),linear-gradient(128deg,rgba(142,234,77,0.07),transparent_34%),linear-gradient(180deg,#030704_0%,#071008_48%,#020302_100%)]" />
       <div className="premium-orb premium-orb-one" />
       <div className="floating-geo geo-cube geo-cube-a" />
       <div className="floating-geo geo-ring geo-ring-a" />
@@ -476,20 +475,20 @@ export default function Home() {
 
 
       <div className="relative z-10 flex flex-col">
-        <section style={{ order: 1 }} className="relative mx-auto grid w-full max-w-7xl min-w-0 items-center gap-10 overflow-hidden px-5 pb-12 pt-16 sm:px-8 sm:pt-18 lg:grid-cols-[1.02fr_0.98fr] lg:pb-14 lg:pt-20">
+        <section style={{ order: 1 }} className="relative mx-auto grid w-full max-w-[90rem] min-w-0 items-center gap-10 overflow-hidden px-5 pb-12 pt-14 sm:px-8 lg:grid-cols-[0.92fr_1.08fr] lg:pb-16 lg:pt-16">
           <div className="pointer-events-none absolute left-1/2 top-6 hidden h-28 w-28 -translate-x-1/2 rounded-[2rem] border border-[#8EEA4D]/18 bg-[#8EEA4D]/10 blur-[0.2px] lg:block geo-float-local" />
           <div className="min-w-0">
             <Reveal>
-              <div className="mb-6 flex w-full max-w-full items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-sm font-semibold text-white/72 sm:inline-flex sm:w-auto">
-                <BadgeCheck className="size-4 shrink-0 text-[#8EEA4D]" />
+              <div className="mb-6 flex w-full max-w-full items-center gap-3 text-xs font-extrabold uppercase tracking-[0.2em] text-[#8EEA4D] sm:inline-flex sm:w-auto">
                 <span className="min-w-0 truncate">
                   Performance marketing agency in Visakhapatnam
                 </span>
+                <span className="h-px w-14 bg-[#8EEA4D]/70" />
               </div>
             </Reveal>
             <Reveal delay={0.06}>
-              <h1 className="max-w-full text-4xl font-semibold leading-[1.02] tracking-normal text-white [overflow-wrap:anywhere] sm:max-w-5xl sm:text-6xl sm:leading-[0.98] lg:text-7xl">
-                {HOME_H1}
+              <h1 aria-label={HOME_H1} className="max-w-full text-4xl font-semibold leading-[1.02] tracking-[-0.035em] text-white [overflow-wrap:anywhere] sm:max-w-5xl sm:text-6xl sm:leading-[0.98] lg:text-[4.5rem]">
+                Google Ads &amp; Meta Ads Agency in Visakhapatnam: <span className="text-[#8EEA4D]">Leads You Can Track</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
@@ -519,19 +518,19 @@ export default function Home() {
 
 
           <Reveal delay={0.14}>
-            <div className="relative mx-auto w-full max-w-full min-w-0 sm:max-w-[560px]">
-              <div className="image-depth-card hero-visual-float relative aspect-[0.92] overflow-hidden rounded-[1.75rem] border border-white/12 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42)]">
+            <div className="relative mx-auto w-full max-w-full min-w-0 sm:max-w-[720px]">
+              <div className="image-depth-card relative aspect-[1.16] overflow-hidden rounded-[1.75rem] border border-[#8EEA4D]/30 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42),0_0_55px_rgba(142,234,77,0.08)]">
                 <Image
                   src="/images/zexa-hero-strategy.webp"
                   alt="Zexa Media performance marketing agency in Visakhapatnam reviewing Google Ads and lead generation analytics"
                   fill
-                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 560px, 560px"
+                  sizes="(max-width: 640px) 92vw, (max-width: 1024px) 720px, 52vw"
                   className="object-cover"
                   priority
                   fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.03),rgba(5,8,6,0.58)),linear-gradient(90deg,rgba(5,8,6,0.12),transparent)]" />
-                <div className="absolute bottom-5 left-5 right-5 rounded-[1.25rem] border border-white/12 bg-black/58 p-5 backdrop-blur-xl sm:bottom-7 sm:left-7 sm:right-7">
+                <div className="absolute bottom-4 left-4 right-4 rounded-[1.25rem] border border-[#8EEA4D]/22 bg-black/72 p-4 backdrop-blur-xl sm:bottom-6 sm:left-auto sm:right-6 sm:w-[58%] sm:p-5">
                   <div className="mb-4 flex items-center justify-between gap-4">
                     <p className="font-semibold text-white">Campaign Snapshot</p>
                     <span className="text-xs font-bold uppercase tracking-[0.16em] text-white/45">
@@ -559,7 +558,7 @@ export default function Home() {
 
         <section style={{ order: 2 }} className="px-5 sm:px-8">
           <Reveal>
-            <div className="mx-auto max-w-7xl overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#0A100B]">
+            <div className="mx-auto max-w-[90rem] overflow-hidden rounded-[1.25rem] border border-[#8EEA4D]/20 bg-[#071008]/94 shadow-[0_18px_60px_rgba(0,0,0,0.3)]">
               <div className="trust-marquee border-b border-white/10 bg-white/[0.035] py-4">
                 <div
                   className="trust-marquee-track text-xs font-bold uppercase tracking-[0.24em] text-white/42"
@@ -704,18 +703,18 @@ export default function Home() {
         </section>
 
 
-        <section style={{ order: 3 }} className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+        <section style={{ order: 3 }} className="mx-auto max-w-[90rem] px-5 py-16 sm:px-8 lg:py-20">
           <SectionHeading
             eyebrow="Services"
             title={`${services.length} ways we turn attention into enquiries.`}
             copy="Short, focused execution across the channels that matter most."
           />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => (
               <Reveal key={service.title} delay={index * 0.04}>
                 <a
                   href={service.href}
-                  className="root-style-card group flex h-full min-h-52 flex-col rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35 hover:bg-white/[0.055]"
+                  className="root-style-card group flex h-full min-h-52 flex-col rounded-[1.2rem] border border-[#8EEA4D]/16 bg-[linear-gradient(145deg,rgba(17,35,19,.9),rgba(5,12,7,.95))] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/45 hover:shadow-[0_20px_50px_rgba(0,0,0,.35)]"
                 >
                   <div className="mb-7 grid size-11 place-items-center rounded-full border border-white/10 bg-white/[0.05] text-white/70 transition group-hover:border-[#8EEA4D]/35 group-hover:text-[#8EEA4D]">
                     <service.icon className="size-5" strokeWidth={1.8} />

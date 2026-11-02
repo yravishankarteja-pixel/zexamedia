@@ -4,7 +4,25 @@ import { useEffect, useId, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Building2,
+  ChevronDown,
+  ChevronRight,
+  CircleDollarSign,
+  Dumbbell,
+  GraduationCap,
+  HeartPulse,
+  Menu,
+  Megaphone,
+  Search,
+  Sparkles,
+  Stethoscope,
+  Target,
+  Workflow,
+  X,
+} from "lucide-react";
 
 const mainNavItems = [
   { label: "Growth System", href: "/growth-system" },
@@ -21,24 +39,25 @@ const mobileNavItems = [
 ];
 
 const serviceMenuItems = [
-  { label: "Services Overview", href: "/services" },
-  { label: "Performance Marketing", href: "/performance-marketing-agency" },
-  { label: "Google Ads", href: "/google-ads-agency" },
-  { label: "Meta Ads", href: "/meta-ads-agency" },
-  { label: "Lead Generation", href: "/lead-generation-agency" },
-  { label: "Marketing Automation", href: "/marketing-automation-agency" },
+  { label: "Services Overview", href: "/services", icon: Sparkles },
+  { label: "Performance Marketing", href: "/performance-marketing-agency", icon: Target },
+  { label: "Google Ads", href: "/google-ads-agency", icon: Search },
+  { label: "Meta Ads", href: "/meta-ads-agency", icon: Megaphone },
+  { label: "Lead Generation", href: "/lead-generation-agency", icon: CircleDollarSign },
+  { label: "Marketing Automation", href: "/marketing-automation-agency", icon: Workflow },
+  { label: "Analytics & Reporting", href: "/services", icon: BarChart3 },
 ];
 
 const industryMenuItems = [
-  { label: "Industries Overview", href: "/industries" },
-  { label: "Doctors & Clinics", href: "/industries/doctors-clinics" },
-  { label: "Dental Clinics", href: "/industries/dental-clinics" },
-  { label: "Fertility & IVF", href: "/industries/fertility-ivf" },
-  { label: "Education & Coaching", href: "/industries/education-coaching" },
-  { label: "Gyms & Fitness", href: "/industries/gyms-fitness" },
-  { label: "Spas & Wellness", href: "/industries/spas-wellness" },
-  { label: "Salons", href: "/industries/salons" },
-  { label: "Real Estate", href: "/industries/real-estate" },
+  { label: "Industries Overview", href: "/industries", icon: Building2 },
+  { label: "Doctors & Clinics", href: "/industries/doctors-clinics", icon: Stethoscope },
+  { label: "Dental Clinics", href: "/industries/dental-clinics", icon: Sparkles },
+  { label: "Fertility & IVF", href: "/industries/fertility-ivf", icon: HeartPulse },
+  { label: "Education & Coaching", href: "/industries/education-coaching", icon: GraduationCap },
+  { label: "Gyms & Fitness", href: "/industries/gyms-fitness", icon: Dumbbell },
+  { label: "Spas & Wellness", href: "/industries/spas-wellness", icon: Sparkles },
+  { label: "Salons", href: "/industries/salons", icon: Sparkles },
+  { label: "Real Estate", href: "/industries/real-estate", icon: Building2 },
 ];
 
 export function SiteHeaderClient() {
@@ -114,55 +133,58 @@ export function SiteHeaderClient() {
           />
         </Link>
 
-        <div className="hidden min-w-0 flex-1 items-stretch justify-center rounded-xl border border-white/12 bg-white/[0.035] shadow-[0_12px_32px_rgba(0,0,0,0.22)] lg:flex">
-          <div className="group relative border-r border-white/10">
+        <div className="hidden min-w-0 flex-1 items-center justify-center lg:flex">
+          <div className="group/mega relative flex items-center">
             <Link
               href="/services"
               aria-current={servicesActive ? "page" : undefined}
-              className={`inline-flex min-h-12 items-center gap-1 rounded-l-xl px-3 text-[0.8rem] font-semibold transition hover:bg-white/[0.06] hover:text-white xl:px-4 xl:text-sm ${servicesActive ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}
+              className={`relative inline-flex min-h-12 items-center gap-1 px-3 text-[0.8rem] font-semibold transition hover:text-[#8EEA4D] xl:px-4 xl:text-sm ${servicesActive ? "text-[#8EEA4D]" : "text-white/76"}`}
             >
               Services
-              <ChevronDown className="size-4 transition group-hover:rotate-180 group-focus-within:rotate-180" />
+              <ChevronDown className="size-4 transition group-hover/mega:rotate-180 group-focus-within/mega:rotate-180" />
             </Link>
-            <div className="invisible absolute left-0 top-full z-[100] w-[23rem] translate-y-2 pt-3 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-              <div className="rounded-2xl border border-white/12 bg-[#09110B]/98 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
-                <p className="px-3 pb-3 text-[0.68rem] font-black uppercase tracking-[0.2em] text-[#8EEA4D]">Services</p>
-                <div className="grid grid-cols-2 gap-1">
-                  {serviceMenuItems.map((item) => (
-                    <Link key={item.href} href={item.href} className={dropdownLinkClass(item.href)} onClick={() => setMenuOpen(false)}>{item.label}</Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="group relative border-r border-white/10">
             <Link
               href="/industries"
               aria-current={industriesActive ? "page" : undefined}
-              className={`inline-flex min-h-12 items-center gap-1 px-3 text-[0.8rem] font-semibold transition hover:bg-white/[0.06] hover:text-white xl:px-4 xl:text-sm ${industriesActive ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}
+              className={`relative inline-flex min-h-12 items-center gap-1 px-3 text-[0.8rem] font-semibold transition hover:text-[#8EEA4D] xl:px-4 xl:text-sm ${industriesActive ? "text-[#8EEA4D]" : "text-white/76"}`}
             >
               Industries
-              <ChevronDown className="size-4 transition group-hover:rotate-180 group-focus-within:rotate-180" />
+              <ChevronDown className="size-4 transition group-hover/mega:rotate-180 group-focus-within/mega:rotate-180" />
             </Link>
-            <div className="invisible absolute left-0 top-full z-[100] w-[26rem] translate-y-2 pt-3 opacity-0 transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-              <div className="rounded-2xl border border-white/12 bg-[#09110B]/98 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
-                <p className="px-3 pb-3 text-[0.68rem] font-black uppercase tracking-[0.2em] text-[#8EEA4D]">Industries</p>
-                <div className="grid grid-cols-2 gap-1">
-                  {industryMenuItems.map((item) => (
-                    <Link key={item.href} href={item.href} className={dropdownLinkClass(item.href)} onClick={() => setMenuOpen(false)}>{item.label}</Link>
-                  ))}
-                </div>
+            <div className="invisible absolute left-1/2 top-full z-[100] w-[min(48rem,calc(100vw-3rem))] -translate-x-1/2 translate-y-2 pt-3 opacity-0 transition duration-200 group-hover/mega:visible group-hover/mega:translate-y-0 group-hover/mega:opacity-100 group-focus-within/mega:visible group-focus-within/mega:translate-y-0 group-focus-within/mega:opacity-100">
+              <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-[#8EEA4D]/25 bg-[#071008]/98 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.64),0_0_40px_rgba(142,234,77,0.08)] backdrop-blur-2xl">
+                {[{ title: "Services", copy: "Our end-to-end growth marketing services.", items: serviceMenuItems }, { title: "Industries", copy: "Focused paths for local and service businesses.", items: industryMenuItems }].map((column, columnIndex) => (
+                  <div key={column.title} className={columnIndex ? "border-l border-white/10 pl-4" : "pr-4"}>
+                    <div className="mb-3 flex items-start gap-3 px-2">
+                      <div className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-xl bg-[#8EEA4D]/12 text-[#8EEA4D]">
+                        {columnIndex ? <Building2 className="size-5" /> : <Sparkles className="size-5" />}
+                      </div>
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EEA4D]">{column.title}</p>
+                        <p className="mt-1 text-xs text-white/45">{column.copy}</p>
+                      </div>
+                    </div>
+                    <div className="grid gap-0.5">
+                      {column.items.map((item) => (
+                        <Link key={item.href} href={item.href} className={`group/item flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition hover:bg-[#8EEA4D]/10 hover:text-white ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}>
+                          <item.icon className="size-4 shrink-0 text-[#8EEA4D]" strokeWidth={1.8} />
+                          <span>{item.label}</span>
+                          <ChevronRight className="ml-auto size-4 text-white/28 transition group-hover/item:translate-x-0.5 group-hover/item:text-[#8EEA4D]" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {mainNavItems.map((item, index) => (
+          {mainNavItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
-              className={`min-h-12 items-center whitespace-nowrap border-r border-white/10 px-2.5 text-[0.8rem] font-semibold transition hover:bg-white/[0.06] hover:text-white xl:px-4 xl:text-sm ${item.label === "Blog" ? "hidden xl:inline-flex" : "inline-flex"} ${index === mainNavItems.length - 1 ? "rounded-r-xl border-r-0" : ""} ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/70"}`}
+              className={`min-h-12 items-center whitespace-nowrap px-2.5 text-[0.8rem] font-semibold transition hover:text-[#8EEA4D] xl:px-4 xl:text-sm ${item.label === "Blog" || item.label === "Contact" ? "hidden xl:inline-flex" : "inline-flex"} ${isActive(item.href) ? "text-[#8EEA4D]" : "text-white/72"}`}
             >
               {item.label}
             </Link>
