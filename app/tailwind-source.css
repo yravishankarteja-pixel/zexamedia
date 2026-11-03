@@ -25,6 +25,56 @@ html {
   overflow-x: clip;
 }
 
+.site-page {
+  isolation: isolate;
+  position: relative;
+}
+
+.site-page::before,
+.site-page::after {
+  content: "";
+  inset: -24vmax;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+.site-page::before {
+  animation: ambient-glow-drift 24s ease-in-out infinite alternate;
+  background:
+    radial-gradient(circle at 20% 24%, rgba(97, 224, 3, 0.2), transparent 24%),
+    radial-gradient(circle at 78% 36%, rgba(142, 234, 77, 0.11), transparent 21%),
+    radial-gradient(circle at 48% 82%, rgba(97, 224, 3, 0.09), transparent 26%);
+  filter: blur(34px);
+  opacity: 0.78;
+  will-change: transform;
+}
+
+.ambient-surface {
+  animation: ambient-surface-shift 18s ease-in-out infinite alternate;
+  transform: scale(1.04);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.ambient-grid-layer {
+  animation: ambient-grid-layer-drift 36s linear infinite;
+  transform: scale(1.12);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.site-page::after {
+  animation: ambient-grid-float 34s linear infinite;
+  background-image:
+    linear-gradient(rgba(142, 234, 77, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(142, 234, 77, 0.07) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(circle at center, black, transparent 68%);
+  opacity: 0.32;
+  will-change: transform;
+}
+
 ::selection {
   background: #61e003;
   color: #071006;
@@ -569,6 +619,45 @@ footer {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes ambient-glow-drift {
+  0% {
+    transform: translate3d(-3%, -2%, 0) rotate(-3deg) scale(0.96);
+  }
+  50% {
+    transform: translate3d(4%, 3%, 0) rotate(3deg) scale(1.04);
+  }
+  100% {
+    transform: translate3d(-1%, 6%, 0) rotate(-1deg) scale(1);
+  }
+}
+
+@keyframes ambient-grid-float {
+  from {
+    transform: translate3d(-44px, -44px, 0);
+  }
+  to {
+    transform: translate3d(44px, 44px, 0);
+  }
+}
+
+@keyframes ambient-surface-shift {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1.05);
+  }
+  to {
+    transform: translate3d(1.5%, 1%, 0) scale(1.09);
+  }
+}
+
+@keyframes ambient-grid-layer-drift {
+  from {
+    transform: translate3d(-28px, -28px, 0) scale(1.12);
+  }
+  to {
+    transform: translate3d(68px, 68px, 0) scale(1.12);
   }
 }
 
