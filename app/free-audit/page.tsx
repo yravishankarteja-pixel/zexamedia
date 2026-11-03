@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { AuditForm } from "@/components/audit-form";
-import { CheckList, GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import {
+  CheckList,
+  GlassCard,
+  PageHero,
+  PageShell,
+  Section,
+} from "@/components/marketing-shell";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
@@ -59,11 +65,31 @@ const remoteAuditTrust = [
 ];
 
 const auditSteps = [
-  ["01", "Submit details", "Share your business, website, current channels, target market and the main problem you want solved."],
-  ["02", "Share context", "Send view-only access or screenshots when needed. We do not change anything without permission."],
-  ["03", "Remote review", "We review your ads, website, social media, competitors, tracking and lead flow before the audit call."],
-  ["04", "Audit call", "You get a focused walkthrough of what is working, what is wasting money and what to fix first."],
-  ["05", "Next-step summary", "You receive practical next actions you can use whether or not you decide to work with Zexa Media."],
+  [
+    "01",
+    "Submit details",
+    "Share your business, website, current channels, target market and the main problem you want solved.",
+  ],
+  [
+    "02",
+    "Share context",
+    "Send view-only access or screenshots when needed. We do not change anything without permission.",
+  ],
+  [
+    "03",
+    "Remote review",
+    "We review your ads, website, social media, competitors, tracking and lead flow before the audit call.",
+  ],
+  [
+    "04",
+    "Audit call",
+    "You get a focused walkthrough of what is working, what is wasting money and what to fix first.",
+  ],
+  [
+    "05",
+    "Next-step summary",
+    "You receive practical next actions you can use whether or not you decide to work with Zexa Media.",
+  ],
 ];
 
 const accessItems = [
@@ -127,7 +153,13 @@ const auditPageSchema = {
       "@id": `${siteUrl}/#localbusiness`,
       name: "Zexa Media",
     },
-    areaServed: ["Worldwide", "Visakhapatnam", "Vizag", "Andhra Pradesh", "India"],
+    areaServed: [
+      "Worldwide",
+      "Visakhapatnam",
+      "Vizag",
+      "Andhra Pradesh",
+      "India",
+    ],
     serviceOutput:
       "Remote marketing audit summary covering ads, website, social media, tracking, lead flow and next-step priorities.",
   },
@@ -167,7 +199,10 @@ export default function FreeAuditPage() {
         metricValue="Ads, website, tracking, lead flow, and next actions"
       />
 
-      <Section eyebrow="What the audit covers" title="A sharper view of your growth system.">
+      <Section
+        eyebrow="What the audit covers"
+        title="A sharper view of your growth system."
+      >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {auditCovers.map(([title, copy]) => (
             <GlassCard key={title}>
@@ -178,7 +213,10 @@ export default function FreeAuditPage() {
         </div>
       </Section>
 
-      <Section eyebrow="Remote audit trust" title="Built for businesses beyond one location.">
+      <Section
+        eyebrow="Remote audit trust"
+        title="Built for businesses beyond one location."
+      >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {remoteAuditTrust.map(([title, copy]) => (
             <GlassCard key={title}>
@@ -189,7 +227,10 @@ export default function FreeAuditPage() {
         </div>
       </Section>
 
-      <Section eyebrow="Who should book" title="This audit is useful when your growth feels unclear.">
+      <Section
+        eyebrow="Who should book"
+        title="This audit is useful when your growth feels unclear."
+      >
         <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
           <GlassCard>
             <CheckList
@@ -206,16 +247,21 @@ export default function FreeAuditPage() {
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
               Audit promise
             </p>
-            <h2 className="mt-4 text-3xl font-semibold">Free audit. Clearer next step. No pressure.</h2>
+            <h2 className="mt-4 text-3xl font-semibold">
+              Free audit. Clearer next step. No pressure.
+            </h2>
             <p className="mt-5 leading-8 text-white/62">
-              You will not get vague advice. You will get a practical priority order based on
-              your current marketing, budget and business stage.
+              You will not get vague advice. You will get a practical priority
+              order based on your current marketing, budget and business stage.
             </p>
           </GlassCard>
         </div>
       </Section>
 
-      <Section eyebrow="What to share" title="Helpful context before the audit call.">
+      <Section
+        eyebrow="What to share"
+        title="Helpful context before the audit call."
+      >
         <div className="grid gap-5 lg:grid-cols-2">
           <GlassCard>
             <h2 className="text-2xl font-semibold">Access and assets</h2>
@@ -232,11 +278,16 @@ export default function FreeAuditPage() {
         </div>
       </Section>
 
-      <Section eyebrow="Audit process" title="Simple steps before we give recommendations.">
+      <Section
+        eyebrow="Audit process"
+        title="Simple steps before we give recommendations."
+      >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {auditSteps.map(([step, title, copy]) => (
             <GlassCard key={step}>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">{step}</p>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
+                {step}
+              </p>
               <h2 className="mt-4 text-xl font-semibold">{title}</h2>
               <p className="mt-4 leading-7 text-white/62">{copy}</p>
             </GlassCard>
@@ -244,18 +295,32 @@ export default function FreeAuditPage() {
         </div>
       </Section>
 
-      <Section eyebrow="Book audit" title="Share a few details before the call.">
-        <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+      <Section
+        eyebrow="Book audit"
+        title="Share a few details before the call."
+      >
+        <div className="grid gap-6 lg:grid-cols-[3fr_2fr] lg:items-start">
           <GlassCard>
             <AuditForm />
           </GlassCard>
           <GlassCard>
             <h2 className="text-2xl font-semibold">What happens next</h2>
             <div className="mt-6 grid gap-4 text-white/62">
-              <p>1. We confirm your request and review your business context.</p>
-              <p>2. We identify the biggest growth leak and the fastest practical fix.</p>
-              <p>3. You get a clear next-action roadmap before spending more budget.</p>
-              <p>4. If Zexa can help, we explain the right service or package. If not, we still tell you what to do next.</p>
+              <p>
+                1. We confirm your request and review your business context.
+              </p>
+              <p>
+                2. We identify the biggest growth leak and the fastest practical
+                fix.
+              </p>
+              <p>
+                3. You get a clear next-action roadmap before spending more
+                budget.
+              </p>
+              <p>
+                4. If Zexa can help, we explain the right service or package. If
+                not, we still tell you what to do next.
+              </p>
             </div>
           </GlassCard>
         </div>

@@ -1,9 +1,9 @@
 ﻿import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { MessageCircle } from "lucide-react";
 import Script from "next/script";
 import { SiteHeaderClient } from "@/components/site-header-client";
-import { SiteFooter, whatsappUrl } from "@/components/site-footer";
+import { SiteFooter } from "@/components/site-footer";
+import { StickyContactBar, WhatsAppFloat } from "@/components/sticky-contact";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 import "./globals.css";
 
@@ -111,16 +111,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <SiteHeaderClient />
         {children}
         <SiteFooter />
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="whatsapp-float fixed bottom-5 right-5 z-40 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#8EEA4D] px-4 text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 sm:px-5"
-          aria-label="Chat with Zexa Media on WhatsApp"
-        >
-          <MessageCircle className="size-6" />
-          <span className="hidden text-sm font-bold sm:inline">WhatsApp</span>
-        </a>
+        <StickyContactBar />
+        <WhatsAppFloat />
       </body>
     </html>
   );

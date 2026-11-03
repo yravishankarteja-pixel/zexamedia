@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, BarChart3, ClipboardCheck, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  BarChart3,
+  ClipboardCheck,
+  ShieldCheck,
+} from "lucide-react";
 import { StaggerContainer } from "@/components/animation/StaggerContainer";
 import { StaggerItem } from "@/components/animation/StaggerItem";
-import { GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import {
+  GlassCard,
+  PageHero,
+  PageShell,
+  Section,
+} from "@/components/marketing-shell";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
@@ -92,8 +103,10 @@ const studies: CaseStudy[] = [
     client: "Tara Wellness Spa",
     category: "Wellness / Spa",
     proofImage: "/images/case-studies/tara-wellness-google-ads-proof.webp",
-    proofImageAlt: "Cropped Google Ads performance snapshot for Tara Wellness Spa",
-    challenge: "Needed measurable paid-search visibility and clearer reporting for local wellness enquiries.",
+    proofImageAlt:
+      "Cropped Google Ads performance snapshot for Tara Wellness Spa",
+    challenge:
+      "Needed measurable paid-search visibility and clearer reporting for local wellness enquiries.",
     strategy:
       "Managed Google Ads with conversion tracking focused on clicks, enquiry actions, cost visibility and campaign optimization.",
     channels: ["Google Ads", "Conversion tracking", "Campaign reporting"],
@@ -109,8 +122,10 @@ const studies: CaseStudy[] = [
     client: "Moon Wellness Spa",
     category: "Wellness / Spa",
     proofImage: "/images/case-studies/moon-wellness-google-ads-proof.webp",
-    proofImageAlt: "Cropped Google Ads performance snapshot for Moon Wellness Spa",
-    challenge: "Inconsistent bookings, weak social presence and poor online visibility.",
+    proofImageAlt:
+      "Cropped Google Ads performance snapshot for Moon Wellness Spa",
+    challenge:
+      "Inconsistent bookings, weak social presence and poor online visibility.",
     strategy:
       "Managed Google Ads with local campaign positioning, conversion tracking, cost visibility and booking-oriented optimization.",
     channels: ["Google Ads", "Conversion tracking", "Local visibility"],
@@ -126,11 +141,17 @@ const studies: CaseStudy[] = [
     client: "Joy Wellness Spa",
     category: "Wellness / Spa",
     proofImage: "/images/case-studies/joy-wellness-google-ads-proof.webp",
-    proofImageAlt: "Cropped Google Ads performance snapshot for Joy Wellness Spa",
-    challenge: "Needed sustained paid-search visibility and measurable enquiry tracking for wellness-service demand.",
+    proofImageAlt:
+      "Cropped Google Ads performance snapshot for Joy Wellness Spa",
+    challenge:
+      "Needed sustained paid-search visibility and measurable enquiry tracking for wellness-service demand.",
     strategy:
       "Managed Google Ads with conversion tracking, campaign reporting, CTR monitoring and cost-per-click visibility.",
-    channels: ["Google Ads", "Conversion tracking", "Search campaign reporting"],
+    channels: [
+      "Google Ads",
+      "Conversion tracking",
+      "Search campaign reporting",
+    ],
     timeline: "Jan 5, 2026 to Aug 10, 2026",
     spend: "₹1,85,396",
     clicks: "4,626",
@@ -145,7 +166,8 @@ const studies: CaseStudy[] = [
     category: "Wellness / Spa",
     proofImage: null,
     proofImageAlt: "",
-    challenge: "Needed measurable local search enquiries and clearer visibility into campaign efficiency.",
+    challenge:
+      "Needed measurable local search enquiries and clearer visibility into campaign efficiency.",
     strategy:
       "Managed Google Ads with local targeting, conversion tracking, click and cost monitoring, and impression-share improvement.",
     channels: ["Google Ads", "Conversion tracking", "Local search"],
@@ -226,11 +248,14 @@ export default function CaseStudiesPage() {
         metricValue="Partners, case snapshots, and campaign learning"
       />
 
-      <Section eyebrow="Clients and partners" title="Brands and local businesses connected with Zexa Media.">
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <Section
+        eyebrow="Clients and partners"
+        title="Brands and local businesses connected with Zexa Media."
+      >
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
           {partners.map((partner) => (
             <GlassCard key={partner.name}>
-              <div className="flex aspect-[2.35] items-center justify-center rounded-[1.25rem] border border-white/10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),rgba(255,255,255,0.025)_48%,rgba(0,0,0,0.16))] p-5">
+              <div className="flex aspect-[15/8] items-center justify-center rounded-xl border border-white/10 bg-[#0D160F] p-4">
                 {partner.logo ? (
                   <div className="relative h-full max-h-28 w-full max-w-[13rem]">
                     <Image
@@ -248,7 +273,9 @@ export default function CaseStudiesPage() {
                   </div>
                 )}
               </div>
-              <h2 className="mt-6 text-2xl font-semibold">{partner.name}</h2>
+              <h2 className="mt-5 text-lg font-semibold sm:text-xl">
+                {partner.name}
+              </h2>
               <p className="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-[#8EEA4D]">
                 {partner.category}
               </p>
@@ -256,24 +283,34 @@ export default function CaseStudiesPage() {
           ))}
         </div>
         <p className="mt-6 text-sm leading-7 text-white/50">
-          Partner names and logos are shown as relationship signals. Performance results are only
-          listed in the selected growth snapshots below where details are available.
+          Partner names and logos are shown as relationship signals. Performance
+          results are only listed in the selected growth snapshots below where
+          details are available.
         </p>
       </Section>
 
-      <Section eyebrow="Credibility" title="Why these proof signals are presented carefully.">
+      <Section
+        eyebrow="Credibility"
+        title="Why these proof signals are presented carefully."
+      >
         <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
           <GlassCard>
-            <ShieldCheck className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
-            <h2 className="text-2xl font-semibold">Strong proof should create trust, not unrealistic expectations.</h2>
+            <ShieldCheck
+              className="mb-7 size-7 text-[#8EEA4D]"
+              strokeWidth={1.8}
+            />
+            <h2 className="text-2xl font-semibold">
+              Strong proof should create trust, not unrealistic expectations.
+            </h2>
             <p className="mt-4 leading-8 text-white/62">
-              Zexa Media uses case snapshots to show campaign direction, business context and
-              learning. Results vary by offer, audience, budget, sales handling and timing, so the
-              right next step is always a fresh audit of the current business.
+              Zexa Media uses case snapshots to show campaign direction,
+              business context and learning. Results vary by offer, audience,
+              budget, sales handling and timing, so the right next step is
+              always a fresh audit of the current business.
             </p>
             <Link
               href="/free-audit"
-              className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] transition hover:-translate-y-0.5"
+              className="mt-auto inline-flex min-h-12 items-center justify-center rounded-lg bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] transition-colors hover:bg-[#9AF060]"
             >
               Audit My Business
               <ArrowRight className="ml-2 size-4" />
@@ -282,7 +319,10 @@ export default function CaseStudiesPage() {
           <div className="grid gap-4 md:grid-cols-2">
             {credibilityChecks.map(([title, copy]) => (
               <GlassCard key={title}>
-                <ClipboardCheck className="mb-6 size-6 text-[#8EEA4D]" strokeWidth={1.8} />
+                <ClipboardCheck
+                  className="mb-6 size-6 text-[#8EEA4D]"
+                  strokeWidth={1.8}
+                />
                 <h2 className="text-xl font-semibold">{title}</h2>
                 <p className="mt-4 leading-7 text-white/62">{copy}</p>
               </GlassCard>
@@ -291,127 +331,141 @@ export default function CaseStudiesPage() {
         </div>
       </Section>
 
-      <Section eyebrow="Proof" title="Structured growth stories worth studying.">
+      <Section
+        eyebrow="Proof"
+        title="Structured growth stories worth studying."
+      >
         <div className="mb-6 grid gap-3 rounded-[1.25rem] border border-white/10 bg-white/[0.035] p-4 text-sm leading-6 text-white/58 sm:grid-cols-2">
           <p>
             Conversions = [TODO: confirm calls + WhatsApp clicks + form fills].
           </p>
           <p className="sm:text-right">
-            Pooled result: ~₹442 average cost per conversion across four wellness accounts.
+            Pooled result: ~₹442 average cost per conversion across four
+            wellness accounts.
           </p>
         </div>
         <StaggerContainer className="grid gap-6">
           {studies.map((study, index) => (
             <StaggerItem key={study.client}>
-            <article className="grid gap-5 rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35 lg:grid-cols-[0.85fr_1.15fr] lg:p-6">
-              <div className="rounded-[1.5rem] border border-white/10 bg-[#071006] p-6">
-                <div className="mb-6 flex items-center justify-between gap-4">
-                  <span className="rounded-full border border-[#8EEA4D]/25 bg-[#8EEA4D]/10 px-3 py-1 text-xs font-bold text-[#CFFFAB]">
-                    {study.category}
-                  </span>
-                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/36">
-                    Case 0{index + 1}
-                  </span>
-                </div>
-                <div className="relative min-h-56 overflow-hidden rounded-[1.25rem] border border-white/14 bg-white/[0.035]">
-                  {study.proofImage ? (
-                    <Image
-                      src={study.proofImage}
-                      alt={study.proofImageAlt}
-                      fill
-                      sizes="(max-width: 1024px) 92vw, 420px"
-                      loading="lazy"
-                      className="object-cover object-left-top"
-                    />
-                  ) : (
-                    <>
+              <article className="grid gap-6 rounded-2xl border border-white/10 bg-[#111B14] p-5 transition-colors duration-150 hover:border-[#8EEA4D]/35 lg:grid-cols-[45fr_55fr] lg:p-6">
+                <div className="rounded-[1.5rem] border border-white/10 bg-[#071006] p-6">
+                  <div className="mb-6 flex items-center justify-between gap-4">
+                    <span className="rounded-full border border-[#8EEA4D]/25 bg-[#8EEA4D]/10 px-3 py-1 text-xs font-bold text-[#CFFFAB]">
+                      {study.category}
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/36">
+                      Case 0{index + 1}
+                    </span>
+                  </div>
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/14 bg-white/[0.035]">
+                    {study.proofImage ? (
                       <Image
-                        src="/images/zexa-dashboard-review.webp"
-                        alt="Illustrative Zexa Media dashboard visual for growth campaign review"
+                        src={study.proofImage}
+                        alt={study.proofImageAlt}
                         fill
                         sizes="(max-width: 1024px) 92vw, 420px"
                         loading="lazy"
-                        className="object-cover opacity-80"
+                        className="object-cover object-left-top"
                       />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.05),rgba(5,8,6,0.82))]" />
-                      <div className="absolute bottom-0 left-0 right-0 p-5">
-                        <BarChart3 className="size-8 text-[#8EEA4D]" />
-                        <p className="mt-3 text-sm font-semibold text-white/82">
-                          Campaign review visual
-                        </p>
-                        <p className="mt-1 text-xs leading-5 text-white/52">
-                          Illustrative dashboard image. Results are described separately.
-                        </p>
-                      </div>
-                    </>
-                  )}
+                    ) : (
+                      <>
+                        <Image
+                          src="/images/zexa-dashboard-review.webp"
+                          alt="Illustrative Zexa Media dashboard visual for growth campaign review"
+                          fill
+                          sizes="(max-width: 1024px) 92vw, 420px"
+                          loading="lazy"
+                          className="object-cover opacity-80"
+                        />
+                        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.05),rgba(5,8,6,0.82))]" />
+                        <div className="absolute bottom-0 left-0 right-0 p-5">
+                          <BarChart3 className="size-8 text-[#8EEA4D]" />
+                          <p className="mt-3 text-sm font-semibold text-white/82">
+                            Campaign review visual
+                          </p>
+                          <p className="mt-1 text-xs leading-5 text-white/52">
+                            Illustrative dashboard image. Results are described
+                            separately.
+                          </p>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <GlassCard>
-                <h2 className="text-3xl font-semibold">{study.client}</h2>
-                <div className="mt-6 grid gap-5 md:grid-cols-2">
-                  <InfoBlock title="Challenge" copy={study.challenge} />
-                  <InfoBlock title="Strategy" copy={study.strategy} />
-                  <InfoBlock title="Timeline" copy={study.timeline} />
-                  <div>
-                    <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/35">
-                      Channels used
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {study.channels.map((channel) => (
-                        <span
-                          key={channel}
-                          className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-white/68"
-                        >
-                          {channel}
-                        </span>
-                      ))}
+                <GlassCard>
+                  <h2 className="text-3xl font-semibold">{study.client}</h2>
+                  <div className="mt-6 grid gap-5 md:grid-cols-2">
+                    <InfoBlock title="Challenge" copy={study.challenge} />
+                    <InfoBlock title="Strategy" copy={study.strategy} />
+                    <InfoBlock title="Timeline" copy={study.timeline} />
+                    <div>
+                      <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/35">
+                        Channels used
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {study.channels.map((channel) => (
+                          <span
+                            key={channel}
+                            className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-white/68"
+                          >
+                            {channel}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="mt-7 rounded-[1.25rem] border border-[#8EEA4D]/25 bg-[#8EEA4D]/8 p-5">
-                  <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-[#CFFFAB]">
-                    <BadgeCheck className="size-4" />
-                    Campaign metrics
-                  </p>
-                  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                    {[
-                      ["Spend", study.spend],
-                      ["Clicks", study.clicks],
-                      ["Conversions", study.conversions],
-                      ["Cost / conversion", study.costPerConversion],
-                      ["Click-to-conversion", study.clickToConversion],
-                      ...(study.ctr ? [["CTR", study.ctr]] : []),
-                      ...(study.averageCpc ? [["Average CPC", study.averageCpc]] : []),
-                      ...(study.impressionShare
-                        ? [["Impression share", study.impressionShare]]
-                        : []),
-                    ].map(([label, value]) => (
-                      <div key={label} className="min-w-0 rounded-xl border border-white/10 bg-black/15 p-3">
-                        <p className="text-xs uppercase tracking-[0.12em] text-white/38">{label}</p>
-                        <p className="mt-1 break-words font-semibold text-white">{value}</p>
-                      </div>
-                    ))}
+                  <div className="mt-7 rounded-[1.25rem] border border-[#8EEA4D]/25 bg-[#8EEA4D]/8 p-5">
+                    <p className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-[#CFFFAB]">
+                      <BadgeCheck className="size-4" />
+                      Campaign metrics
+                    </p>
+                    <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                      {[
+                        ["Spend", study.spend],
+                        ["Clicks", study.clicks],
+                        ["Conversions", study.conversions],
+                        ["Cost / conversion", study.costPerConversion],
+                        ["Click-to-conversion", study.clickToConversion],
+                        ...(study.ctr ? [["CTR", study.ctr]] : []),
+                        ...(study.averageCpc
+                          ? [["Average CPC", study.averageCpc]]
+                          : []),
+                        ...(study.impressionShare
+                          ? [["Impression share", study.impressionShare]]
+                          : []),
+                      ].map(([label, value]) => (
+                        <div
+                          key={label}
+                          className="min-w-0 rounded-xl border border-white/10 bg-black/15 p-3"
+                        >
+                          <p className="text-xs uppercase tracking-[0.12em] text-white/38">
+                            {label}
+                          </p>
+                          <p className="mt-1 break-words font-semibold text-white">
+                            {value}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-white/42">
+                      Last updated: {study.lastUpdated}
+                    </p>
                   </div>
-                  <p className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-white/42">
-                    Last updated: {study.lastUpdated}
-                  </p>
-                </div>
-                <Link
-                  href="/free-audit"
-                  className="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] transition hover:-translate-y-0.5"
-                >
-                  Discuss a Similar Campaign
-                  <ArrowRight className="ml-2 size-4" />
-                </Link>
-              </GlassCard>
-            </article>
+                  <Link
+                    href="/free-audit"
+                    className="mt-auto inline-flex min-h-12 items-center justify-center rounded-lg bg-[#8EEA4D] px-5 text-sm font-bold text-[#071006] transition-colors hover:bg-[#9AF060]"
+                  >
+                    Discuss a Similar Campaign
+                    <ArrowRight className="ml-2 size-4" />
+                  </Link>
+                </GlassCard>
+              </article>
             </StaggerItem>
           ))}
         </StaggerContainer>
         <p className="mt-6 text-sm leading-7 text-white/50">
-          Results vary by market, offer, budget and execution. These case studies are not guarantees
-          of future performance.
+          Results vary by market, offer, budget and execution. These case
+          studies are not guarantees of future performance.
         </p>
       </Section>
     </PageShell>
@@ -421,7 +475,9 @@ export default function CaseStudiesPage() {
 function InfoBlock({ title, copy }: Readonly<{ title: string; copy: string }>) {
   return (
     <div>
-      <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/35">{title}</p>
+      <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/35">
+        {title}
+      </p>
       <p className="mt-3 leading-7 text-white/62">{copy}</p>
     </div>
   );

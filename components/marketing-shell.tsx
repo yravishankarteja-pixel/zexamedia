@@ -1,9 +1,10 @@
-﻿import type { ReactNode } from "react";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import type { LucideIcon } from "lucide-react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { Reveal } from "@/components/animation/Reveal";
 import { phoneHref } from "@/components/site-footer";
+
 export {
   contactEmail,
   fullAddress,
@@ -17,19 +18,86 @@ export {
   whatsappUrl,
 } from "@/components/site-footer";
 
+export function Container({
+  children,
+  className = "",
+}: Readonly<{ children: ReactNode; className?: string }>) {
+  return (
+    <div
+      className={`mx-auto w-full max-w-[1200px] px-4 min-[480px]:px-6 ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+export function Eyebrow({
+  children,
+  className = "",
+}: Readonly<{ children: ReactNode; className?: string }>) {
+  return (
+    <p
+      className={`text-xs font-bold uppercase tracking-[0.16em] text-neutral-300 ${className}`}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function Button({
+  href,
+  children,
+  variant = "primary",
+  className = "",
+}: Readonly<{
+  href: string;
+  children: ReactNode;
+  variant?: "primary" | "secondary" | "link";
+  className?: string;
+}>) {
+  const styles = {
+    primary: "rounded-lg bg-[#61E003] px-6 text-black hover:bg-[#76ef1e]",
+    secondary:
+      "rounded-lg border border-white/40 px-6 text-white hover:border-[#61E003]/70",
+    link: "px-0 text-white hover:text-[#61E003]",
+  }[variant];
+  return (
+    <Link
+      href={href}
+      className={`inline-flex min-h-12 items-center justify-center gap-2 text-sm font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#61E003] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050806] ${styles} ${className}`}
+    >
+      {children}
+    </Link>
+  );
+}
+
+export function IconTile({ icon: Icon }: Readonly<{ icon: LucideIcon }>) {
+  return (
+    <span className="grid size-10 place-items-center rounded-[10px] bg-[#61E003]/10 text-[#61E003]">
+      <Icon className="size-5" strokeWidth={1.9} />
+    </span>
+  );
+}
+
+export function Card({
+  children,
+  className = "",
+}: Readonly<{ children: ReactNode; className?: string }>) {
+  return (
+    <div
+      className={`flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.045] p-5 transition-colors duration-150 hover:border-[#61E003]/40 min-[480px]:p-6 ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function PageShell({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <main className="site-page min-h-screen overflow-hidden bg-[#050806] text-white">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(142,234,77,0.06),transparent_34%),linear-gradient(225deg,rgba(255,255,255,0.045),transparent_30%),linear-gradient(180deg,#050806_0%,#081008_42%,#020302_100%)]" />
-      <div className="premium-orb premium-orb-one" />
-      <div className="premium-orb premium-orb-two" />
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.035] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:96px_96px]" />
-      <div className="floating-geo geo-cube geo-cube-a" />
-      <div className="floating-geo geo-ring geo-ring-a" />
-      <div className="floating-geo geo-prism geo-prism-a" />
-      <div className="relative z-10">
-        {children}
-      </div>
+    <main className="site-page min-h-screen overflow-hidden bg-[#050806] pb-16 text-white md:pb-0">
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[linear-gradient(128deg,rgba(97,224,3,0.045),transparent_34%),linear-gradient(180deg,#050806_0%,#081008_48%,#020302_100%)]" />
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,.8)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.8)_1px,transparent_1px)] [background-size:96px_96px]" />
+      <div className="relative z-10">{children}</div>
     </main>
   );
 }
@@ -60,92 +128,73 @@ export function PageHero({
   secondaryHref?: string;
 }>) {
   const optimizedImageSrc = imageSrc?.replace(/\.png$/, ".webp");
-
   return (
-    <section
-      className={`mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:items-center lg:py-20 ${
-        imageSrc ? "lg:grid-cols-[0.95fr_1.05fr]" : "lg:grid-cols-1"
-      }`}
-    >
-      <div>
-        <Reveal delay={0} variant="soft-drop">
-          <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-[#8EEA4D]">
-            {eyebrow}
-          </p>
-        </Reveal>
-        <Reveal delay={0.08} variant="soft-zoom">
-          <h1 className="max-w-5xl text-4xl font-semibold leading-[1.06] tracking-normal sm:text-5xl lg:text-6xl">
+    <section className="py-14 md:py-[72px] lg:py-24">
+      <Container
+        className={`grid gap-10 lg:items-center ${imageSrc ? "lg:grid-cols-[55fr_45fr]" : "grid-cols-1"}`}
+      >
+        <div>
+          <Eyebrow className="mb-5">{eyebrow}</Eyebrow>
+          <h1 className="max-w-5xl text-[clamp(36px,5vw,56px)] font-bold leading-[1.1] tracking-[-0.035em]">
             {title}
           </h1>
-        </Reveal>
-        <Reveal delay={0.16} variant="fade-up">
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-white/62">{description}</p>
-        </Reveal>
-        <Reveal delay={0.24} variant="soft-drop">
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href={primaryHref}
-              className="magnetic-cta inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1"
-            >
+          <p className="mt-6 max-w-[70ch] text-lg leading-[1.6] text-white/75">
+            {description}
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button href={primaryHref}>
               {primaryCta}
-              <ArrowRight className="ml-2 size-5" />
-            </Link>
-            <Link
-              href={secondaryHref}
-              className="premium-secondary-cta inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 backdrop-blur-xl transition hover:border-[#8EEA4D]/60 hover:bg-[#8EEA4D]/10"
-            >
+              <ArrowRight className="size-4" />
+            </Button>
+            <Button href={secondaryHref} variant="secondary">
               {secondaryCta}
-            </Link>
+            </Button>
           </div>
-        </Reveal>
-        <Reveal delay={0.32} variant="soft-drop">
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            {["30-minute audit", "Clear next step", "Call or WhatsApp"].map((item) => (
-              <div
-                key={item}
-                className="flex min-h-12 items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.045] px-4 text-sm font-semibold text-white/62"
-              >
-                <span className="size-2 rounded-full bg-[#8EEA4D]" />
-                {item}
-              </div>
-            ))}
+          <div className="mt-6 grid overflow-hidden rounded-2xl border border-white/10 sm:grid-cols-3">
+            {["30-minute audit", "Clear next step", "Call or WhatsApp"].map(
+              (item) => (
+                <div
+                  key={item}
+                  className="flex min-h-12 items-center gap-2 border-white/10 px-4 text-sm font-semibold text-white/70 not-last:border-b sm:not-last:border-b-0 sm:not-last:border-r"
+                >
+                  <span className="size-2 rounded-full bg-[#61E003]" />
+                  {item}
+                </div>
+              ),
+            )}
           </div>
-        </Reveal>
-      </div>
-      {optimizedImageSrc && (
-        <Reveal delay={0.32} variant="scale-in">
-          <div className="image-depth-card hero-visual-float relative min-h-[340px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.045] shadow-[0_30px_110px_rgba(0,0,0,0.38)] lg:min-h-[460px]">
+        </div>
+        {optimizedImageSrc && (
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
             <Image
               src={optimizedImageSrc}
               alt={imageAlt ?? title}
               fill
-              sizes="(max-width: 1024px) 92vw, 620px"
+              sizes="(max-width: 1023px) calc(100vw - 32px), 520px"
               className="object-cover"
               priority
               fetchPriority="high"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.05),rgba(5,8,6,0.88)),radial-gradient(circle_at_75%_20%,rgba(142,234,77,0.2),transparent_32%)]" />
-            <div className="absolute bottom-6 left-6 right-6 rounded-3xl border border-white/12 bg-black/42 p-5 backdrop-blur-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#8EEA4D]">
+            <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-white/10 bg-[#071006] p-4 sm:bottom-5 sm:left-5 sm:right-auto sm:max-w-[80%]">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#61E003]">
                 {metricLabel}
               </p>
-              <p className="mt-3 text-xl font-semibold leading-tight sm:text-2xl">{metricValue}</p>
+              <p className="mt-2 text-xl font-semibold leading-snug">
+                {metricValue}
+              </p>
             </div>
           </div>
-        </Reveal>
-      )}
+        )}
+      </Container>
     </section>
   );
 }
 
-export function GlassCard({ children }: Readonly<{ children: ReactNode }>) {
-  return (
-    <Reveal>
-      <div className="lift-card root-style-card rounded-[1.75rem] border border-white/10 bg-white/[0.052] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-xl transition duration-300 hover:border-[#8EEA4D]/40 hover:bg-[#8EEA4D]/8">
-        {children}
-      </div>
-    </Reveal>
-  );
+export function GlassCard({
+  children,
+  className = "",
+}: Readonly<{ children: ReactNode; className?: string }>) {
+  return <Card className={className}>{children}</Card>;
 }
 
 export function Section({
@@ -154,16 +203,16 @@ export function Section({
   children,
 }: Readonly<{ eyebrow: string; title: string; children: ReactNode }>) {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-18">
-      <Reveal>
+    <section className="py-14 md:py-[72px] lg:py-24">
+      <Container>
         <div className="mb-10 max-w-3xl">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-[#8EEA4D]">
-            {eyebrow}
-          </p>
-          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">{title}</h2>
+          <Eyebrow className="mb-4">{eyebrow}</Eyebrow>
+          <h2 className="text-[clamp(28px,3.4vw,40px)] font-bold leading-[1.2] tracking-[-0.03em]">
+            {title}
+          </h2>
         </div>
-      </Reveal>
-      <Reveal delay={0.08}>{children}</Reveal>
+        {children}
+      </Container>
     </section>
   );
 }
@@ -172,11 +221,78 @@ export function CheckList({ items }: Readonly<{ items: string[] }>) {
   return (
     <div className="grid gap-3">
       {items.map((item) => (
-        <div key={item} className="flex gap-3 text-white/68">
-          <CheckCircle2 className="mt-1 size-5 shrink-0 text-[#8EEA4D]" />
-          <span className="leading-7">{item}</span>
+        <div
+          key={item}
+          className="flex gap-2 text-sm leading-[1.65] text-white/75 sm:text-base"
+        >
+          <CheckCircle2 className="mt-1 size-4 shrink-0 text-[#61E003]" />
+          <span>{item}</span>
         </div>
       ))}
+    </div>
+  );
+}
+export function CtaBand({
+  children,
+  className = "",
+}: Readonly<{ children: ReactNode; className?: string }>) {
+  return (
+    <div
+      className={`rounded-2xl border border-[#61E003]/30 bg-[linear-gradient(135deg,rgba(97,224,3,.12),rgba(10,18,11,.95))] p-8 text-center md:p-12 lg:p-16 ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+export function FaqList({
+  items,
+}: Readonly<{ items: Array<{ question: string; answer: string }> }>) {
+  return (
+    <div className="mx-auto grid max-w-[800px] gap-3">
+      {items.map((item) => (
+        <div
+          key={item.question}
+          className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:p-6"
+        >
+          <h3 className="text-lg font-semibold leading-[1.3]">
+            {item.question}
+          </h3>
+          <p className="mt-3 leading-[1.65] text-white/75">{item.answer}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+export function StepList({
+  items,
+}: Readonly<{
+  items: Array<{ number: string; title: string; copy: string }>;
+}>) {
+  return (
+    <div className="grid gap-6 lg:grid-cols-5">
+      {items.map((item) => (
+        <div
+          key={item.number}
+          className="relative border-l border-white/10 pl-6 lg:border-l-0 lg:border-t lg:pl-0 lg:pt-7"
+        >
+          <span className="grid size-10 place-items-center rounded-full border border-[#61E003] text-sm font-bold text-[#61E003]">
+            {item.number}
+          </span>
+          <h3 className="mt-4 text-xl font-semibold leading-[1.3]">
+            {item.title}
+          </h3>
+          <p className="mt-2 text-sm leading-[1.65] text-white/70">
+            {item.copy}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+export function DataTable({ children }: Readonly<{ children: ReactNode }>) {
+  return (
+    <div className="relative overflow-hidden rounded-2xl border border-white/10 after:pointer-events-none after:absolute after:inset-y-0 after:right-0 after:w-8 after:bg-gradient-to-l after:from-[#050806] after:to-transparent">
+      <div className="overflow-x-auto">{children}</div>
     </div>
   );
 }

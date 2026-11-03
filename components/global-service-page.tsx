@@ -9,7 +9,13 @@ import {
   LockKeyhole,
   MessageSquareText,
 } from "lucide-react";
-import { CheckList, GlassCard, PageHero, PageShell, Section } from "@/components/marketing-shell";
+import {
+  CheckList,
+  GlassCard,
+  PageHero,
+  PageShell,
+  Section,
+} from "@/components/marketing-shell";
 import type { GlobalServiceConfig } from "@/lib/global-commercial-pages";
 import {
   addressCountry,
@@ -27,7 +33,9 @@ import {
 } from "@/lib/business-info";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
-export function GlobalServicePage({ config }: Readonly<{ config: GlobalServiceConfig }>) {
+export function GlobalServicePage({
+  config,
+}: Readonly<{ config: GlobalServiceConfig }>) {
   const pageUrl = absoluteUrl(`/${config.slug}`);
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -76,8 +84,18 @@ export function GlobalServicePage({ config }: Readonly<{ config: GlobalServiceCo
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-      { "@type": "ListItem", position: 2, name: "Services", item: absoluteUrl("/services") },
-      { "@type": "ListItem", position: 3, name: config.serviceName, item: pageUrl },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: absoluteUrl("/services"),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: config.serviceName,
+        item: pageUrl,
+      },
     ],
   };
 
@@ -139,15 +157,21 @@ export function GlobalServicePage({ config }: Readonly<{ config: GlobalServiceCo
         metricValue={config.metricValue}
       />
 
-      <Section eyebrow="Global service" title="Built for remote, local, national and international growth.">
-        <div className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+      <Section
+        eyebrow="Global service"
+        title="Built for remote, local, national and international growth."
+      >
+        <div className="grid gap-6 lg:grid-cols-[3fr_2fr]">
           <GlassCard>
             <Globe2 className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
-            <h2 className="text-2xl font-semibold">Work with Zexa Media from anywhere.</h2>
+            <h2 className="text-2xl font-semibold">
+              Work with Zexa Media from anywhere.
+            </h2>
             <p className="mt-4 leading-8 text-white/62">
-              Zexa Media is based at {fullAddress}, but the work is not limited by geography.
-              Audits, strategy calls, campaign planning, tracking, reporting and optimisation
-              can be handled online for businesses targeting local, national or worldwide markets.
+              Zexa Media is based at {fullAddress}, but the work is not limited
+              by geography. Audits, strategy calls, campaign planning, tracking,
+              reporting and optimisation can be handled online for businesses
+              targeting local, national or worldwide markets.
             </p>
           </GlassCard>
           <GlassCard>
@@ -164,7 +188,10 @@ export function GlobalServicePage({ config }: Readonly<{ config: GlobalServiceCo
         </div>
       </Section>
 
-      <Section eyebrow="Remote trust" title="How working with Zexa feels from anywhere.">
+      <Section
+        eyebrow="Remote trust"
+        title="How working with Zexa feels from anywhere."
+      >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {remoteTrust.map(([title, copy, Icon]) => (
             <GlassCard key={title}>
@@ -188,7 +215,10 @@ export function GlobalServicePage({ config }: Readonly<{ config: GlobalServiceCo
         </div>
       </Section>
 
-      <Section eyebrow="Outcomes" title="The goal is useful growth, not just activity.">
+      <Section
+        eyebrow="Outcomes"
+        title="The goal is useful growth, not just activity."
+      >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {config.outcomes.map(([title, copy]) => (
             <GlassCard key={title}>
@@ -199,7 +229,10 @@ export function GlobalServicePage({ config }: Readonly<{ config: GlobalServiceCo
         </div>
       </Section>
 
-      <Section eyebrow="Process" title="A practical path from audit to better execution.">
+      <Section
+        eyebrow="Process"
+        title="A practical path from audit to better execution."
+      >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {config.process.map(([step, title, copy]) => (
             <GlassCard key={step}>
@@ -224,15 +257,18 @@ export function GlobalServicePage({ config }: Readonly<{ config: GlobalServiceCo
         </div>
       </Section>
 
-      <Section eyebrow="Related services" title="Explore the connected growth stack.">
+      <Section
+        eyebrow="Related services"
+        title="Explore the connected growth stack."
+      >
         <div className="grid gap-4 md:grid-cols-3">
           {config.relatedLinks.map(([label, href]) => (
-            <Link key={href} href={href} className="group">
+            <Link key={href} href={href} className="group block h-full">
               <GlassCard>
                 <h2 className="text-xl font-semibold transition group-hover:text-[#8EEA4D]">
                   {label}
                 </h2>
-                <span className="mt-5 inline-flex items-center text-sm font-bold text-[#8EEA4D]">
+                <span className="mt-auto inline-flex items-center pt-6 text-sm font-bold text-[#8EEA4D]">
                   View service
                   <ArrowRight className="ml-2 size-4 transition group-hover:translate-x-1" />
                 </span>
@@ -254,13 +290,13 @@ export function GlobalServicePage({ config }: Readonly<{ config: GlobalServiceCo
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
             <Link
               href="/free-audit"
-              className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] transition hover:-translate-y-1"
+              className="inline-flex min-h-14 items-center justify-center rounded-lg bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] transition-colors hover:bg-[#9AF060]"
             >
               Book Free Audit
             </Link>
             <Link
               href="/contact"
-              className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 transition hover:border-[#8EEA4D]/60"
+              className="inline-flex min-h-14 items-center justify-center rounded-lg border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 transition hover:border-[#8EEA4D]/60"
             >
               Contact Zexa
             </Link>

@@ -15,13 +15,15 @@ const initialForm = {
   message: "",
 };
 
-export function AuditForm({ compact = false }: Readonly<{ compact?: boolean }>) {
+export function AuditForm({
+  compact = false,
+}: Readonly<{ compact?: boolean }>) {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState<FormStatus>("idle");
   const [error, setError] = useState("");
 
   const inputClass =
-    "min-h-12 rounded-2xl border border-white/10 bg-black/25 px-4 text-white outline-none transition focus:border-[#8EEA4D] focus:bg-black/35 focus:ring-2 focus:ring-[#8EEA4D]/20";
+    "min-h-12 rounded-lg border border-white/14 bg-[#071006] px-4 text-white outline-none transition focus:border-[#8EEA4D] focus:ring-2 focus:ring-[#8EEA4D]/20";
 
   function updateField(field: keyof typeof form, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
@@ -35,7 +37,9 @@ export function AuditForm({ compact = false }: Readonly<{ compact?: boolean }>) 
     event.preventDefault();
     if (!form.name || !form.phone || !form.service) {
       setStatus("error");
-      setError("Please add your name, phone number, and what you are looking for.");
+      setError(
+        "Please add your name, phone number, and what you are looking for.",
+      );
       return;
     }
 
@@ -48,8 +52,16 @@ export function AuditForm({ compact = false }: Readonly<{ compact?: boolean }>) 
   return (
     <form className="grid gap-4" onSubmit={handleSubmit}>
       <div className="grid gap-4 md:grid-cols-2">
-        <TextField label="Your Name" value={form.name} onChange={(value) => updateField("name", value)} />
-        <TextField label="Business Name" value={form.business} onChange={(value) => updateField("business", value)} />
+        <TextField
+          label="Your Name"
+          value={form.name}
+          onChange={(value) => updateField("name", value)}
+        />
+        <TextField
+          label="Business Name"
+          value={form.business}
+          onChange={(value) => updateField("business", value)}
+        />
         <TextField
           label="Phone Number / WhatsApp"
           value={form.phone}
@@ -99,7 +111,7 @@ export function AuditForm({ compact = false }: Readonly<{ compact?: boolean }>) 
         <label className="grid gap-2 text-sm font-semibold text-white/70">
           Tell us about your business
           <textarea
-            className="min-h-32 rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-white outline-none transition focus:border-[#8EEA4D] focus:bg-black/35 focus:ring-2 focus:ring-[#8EEA4D]/20"
+            className="min-h-32 rounded-lg border border-white/14 bg-[#071006] px-4 py-3 text-white outline-none transition focus:border-[#8EEA4D] focus:ring-2 focus:ring-[#8EEA4D]/20"
             value={form.message}
             onChange={(event) => updateField("message", event.target.value)}
           />
@@ -112,13 +124,14 @@ export function AuditForm({ compact = false }: Readonly<{ compact?: boolean }>) 
       )}
       {status === "success" && (
         <p className="rounded-2xl border border-[#8EEA4D]/35 bg-[#8EEA4D]/10 px-4 py-3 text-sm text-[#D9FFC7]">
-          Thanks. Your details are ready. Zexa Media will review them and follow up for the free audit.
+          Thanks. Your details are ready. Zexa Media will review them and follow
+          up for the free audit.
         </p>
       )}
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#8EEA4D] px-6 font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(142,234,77,0.18)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
+        className="inline-flex min-h-14 items-center justify-center rounded-lg bg-[#8EEA4D] px-6 font-bold text-[#071006] transition-colors duration-150 hover:bg-[#9AF060] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === "loading" ? (
           <>
@@ -148,7 +161,7 @@ function TextField({
     <label className="grid gap-2 text-sm font-semibold text-white/70">
       {label}
       <input
-        className="min-h-12 rounded-2xl border border-white/10 bg-black/25 px-4 text-white outline-none transition focus:border-[#8EEA4D] focus:bg-black/35 focus:ring-2 focus:ring-[#8EEA4D]/20"
+        className="min-h-12 rounded-lg border border-white/14 bg-[#071006] px-4 text-white outline-none transition focus:border-[#8EEA4D] focus:ring-2 focus:ring-[#8EEA4D]/20"
         value={value}
         onChange={(event) => onChange(event.target.value)}
         type={type}

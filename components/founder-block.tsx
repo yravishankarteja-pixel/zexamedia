@@ -13,7 +13,7 @@ export function FounderBlock({ variant }: Readonly<FounderBlockProps>) {
   return (
     <section
       aria-labelledby={`founder-heading-${variant}`}
-      className={`overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#0A100B]/90 ${
+      className={`overflow-hidden rounded-2xl border border-white/10 bg-[#0A100B]/90 ${
         isFull ? "p-5 sm:p-7 lg:p-9" : "p-5 sm:p-6"
       }`}
     >
@@ -21,12 +21,12 @@ export function FounderBlock({ variant }: Readonly<FounderBlockProps>) {
         className={`grid gap-7 ${
           isFull
             ? "md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-10"
-            : "md:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)] md:items-center"
+            : "md:grid-cols-[40fr_60fr] md:items-center"
         }`}
       >
         <div
-          className={`relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.04] ${
-            isFull ? "aspect-[4/5] md:aspect-auto md:min-h-[31rem]" : "aspect-[4/3] min-h-[15rem]"
+          className={`relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] ${
+            isFull ? "md:min-h-[31rem]" : ""
           }`}
         >
           <Image
@@ -56,7 +56,9 @@ export function FounderBlock({ variant }: Readonly<FounderBlockProps>) {
             {founder.name}
           </h2>
           <p className="mt-2 font-semibold text-[#CFFFAB]">{founder.title}</p>
-          <p className={`mt-5 text-white/64 ${isFull ? "text-lg leading-8" : "leading-7"}`}>
+          <p
+            className={`mt-5 max-w-[65ch] text-white/75 ${isFull ? "text-lg leading-8" : "leading-7"}`}
+          >
             {founder.bio}
           </p>
 
@@ -67,7 +69,9 @@ export function FounderBlock({ variant }: Readonly<FounderBlockProps>) {
                   key={item.label}
                   className="rounded-[1rem] border border-white/10 bg-white/[0.04] p-4"
                 >
-                  <p className="text-2xl font-semibold text-[#8EEA4D]">{item.value}</p>
+                  <p className="text-2xl font-semibold text-[#8EEA4D]">
+                    {item.value}
+                  </p>
                   <p className="mt-2 text-xs font-bold uppercase tracking-[0.14em] text-white/42">
                     {item.label}
                   </p>
@@ -97,7 +101,7 @@ export function FounderBlock({ variant }: Readonly<FounderBlockProps>) {
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
               href={founder.ctas.audit.href}
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#8EEA4D] px-6 text-sm font-bold text-[#071006] transition hover:-translate-y-0.5"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#61E003] px-6 text-sm font-semibold text-black transition-colors duration-150 hover:bg-[#76ef1e]"
             >
               {founder.ctas.audit.label}
               <ArrowRight className="ml-2 size-4" />
@@ -106,7 +110,7 @@ export function FounderBlock({ variant }: Readonly<FounderBlockProps>) {
               href={founder.ctas.whatsapp.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/14 bg-white/[0.05] px-6 text-sm font-bold text-white transition hover:border-[#8EEA4D]/50 hover:text-[#8EEA4D]"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/40 px-6 text-sm font-semibold text-white transition-colors duration-150 hover:border-[#61E003]/70"
             >
               <MessageCircle className="mr-2 size-4" />
               {founder.ctas.whatsapp.label}
@@ -116,7 +120,7 @@ export function FounderBlock({ variant }: Readonly<FounderBlockProps>) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${founder.name} on LinkedIn`}
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/14 px-5 text-sm font-semibold text-white/72 transition hover:border-[#8EEA4D]/50 hover:text-[#8EEA4D]"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/40 px-5 text-sm font-semibold text-white/75 transition-colors duration-150 hover:border-[#61E003]/70 hover:text-white"
             >
               <ExternalLink className="mr-2 size-4" />
               LinkedIn

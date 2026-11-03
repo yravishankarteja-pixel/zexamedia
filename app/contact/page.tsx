@@ -67,7 +67,14 @@ const contactSchema = {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
         opens: "09:00",
         closes: "19:00",
       },
@@ -144,11 +151,16 @@ export default function ContactPage() {
         metricLabel="Free audit"
         metricValue="Call Zexa"
       />
-      <Section eyebrow="Start here" title="Tell us what growth looks like for you.">
-        <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-          <GlassCard>
-            <AuditForm />
-          </GlassCard>
+      <Section
+        eyebrow="Start here"
+        title="Tell us what growth looks like for you."
+      >
+        <div className="grid gap-6 lg:grid-cols-[3fr_2fr] lg:items-start">
+          <div className="lg:sticky lg:top-24">
+            <GlassCard>
+              <AuditForm />
+            </GlassCard>
+          </div>
           <GlassCard>
             <h2 className="text-2xl font-semibold">Contact details</h2>
             <div className="mt-6 grid gap-4 leading-8 text-white/62">
@@ -162,7 +174,9 @@ export default function ContactPage() {
                     {contactEmail}
                   </a>
                 ) : (
-                  <span className="text-white/52">Domain email pending verification</span>
+                  <span className="text-white/52">
+                    Domain email pending verification
+                  </span>
                 )}
               </p>
               <p>
@@ -231,15 +245,36 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      <Section eyebrow="Before the call" title="What we review in your free marketing audit.">
+      <Section
+        eyebrow="Before the call"
+        title="What we review in your free marketing audit."
+      >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {[
-            ["Paid Ads Review", "Campaign structure, targeting, creative quality, bidding direction and lead quality."],
-            ["Social Media Audit", "Profile clarity, content quality, posting consistency, engagement and local relevance."],
-            ["Website & Landing Page", "Mobile experience, page clarity, CTA placement, load speed and conversion readiness."],
-            ["SEO Snapshot", "Basic visibility, page structure, metadata, local signals and search discoverability."],
-            ["Competitor Snapshot", "What nearby competitors are doing in ads, content, offers and search presence."],
-            ["Growth Roadmap", "A clear priority order: what to fix first, what to build next and what to ignore."],
+            [
+              "Paid Ads Review",
+              "Campaign structure, targeting, creative quality, bidding direction and lead quality.",
+            ],
+            [
+              "Social Media Audit",
+              "Profile clarity, content quality, posting consistency, engagement and local relevance.",
+            ],
+            [
+              "Website & Landing Page",
+              "Mobile experience, page clarity, CTA placement, load speed and conversion readiness.",
+            ],
+            [
+              "SEO Snapshot",
+              "Basic visibility, page structure, metadata, local signals and search discoverability.",
+            ],
+            [
+              "Competitor Snapshot",
+              "What nearby competitors are doing in ads, content, offers and search presence.",
+            ],
+            [
+              "Growth Roadmap",
+              "A clear priority order: what to fix first, what to build next and what to ignore.",
+            ],
           ].map(([title, copy]) => (
             <GlassCard key={title}>
               <h2 className="text-xl font-semibold">{title}</h2>
@@ -267,10 +302,13 @@ export default function ContactPage() {
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
                 Need direction first?
               </p>
-              <h2 className="mt-4 text-2xl font-semibold">Start with a free audit, then choose the right service.</h2>
+              <h2 className="mt-4 text-2xl font-semibold">
+                Start with a free audit, then choose the right service.
+              </h2>
               <p className="mt-4 leading-8 text-white/62">
-                We will review your current position and recommend whether ads, content,
-                branding, automation, local SEO or a landing page should come first.
+                We will review your current position and recommend whether ads,
+                content, branding, automation, local SEO or a landing page
+                should come first.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">

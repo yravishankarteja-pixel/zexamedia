@@ -3,6 +3,7 @@
 :root {
   --background: #050806;
   --foreground: #ffffff;
+  --brand: #61e003;
 }
 
 @theme inline {
@@ -25,7 +26,7 @@ html {
 }
 
 ::selection {
-  background: #8eea4d;
+  background: #61e003;
   color: #071006;
 }
 
@@ -171,14 +172,6 @@ html {
   transform: none;
 }
 
-@supports (animation-timeline: view()) {
-  .section-reveal {
-    animation: section-rise 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-range: entry 10% cover 28%;
-    animation-timeline: view();
-  }
-}
-
 .nav-link {
   position: relative;
 }
@@ -208,8 +201,7 @@ html {
 }
 
 .hero-visual-float {
-  animation: hero-visual-float 6.5s ease-in-out infinite;
-  will-change: transform;
+  animation: none;
 }
 
 .image-depth-card::after {
@@ -230,7 +222,33 @@ html {
 }
 
 .whatsapp-float {
-  animation: whatsapp-breathe 3.2s ease-in-out infinite;
+  animation: none;
+}
+
+.site-header,
+.mobile-menu-enter,
+.mobile-menu-item,
+.page-transition,
+.section-reveal {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 .animated-grid {
