@@ -483,7 +483,6 @@ export default function Home() {
       />
 
       <div className="ambient-surface pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_78%_9%,rgba(165,243,71,0.10),transparent_27%),radial-gradient(circle_at_10%_40%,rgba(65,115,55,0.10),transparent_26%),linear-gradient(180deg,#090F0B_0%,#071008_54%,#050806_100%)]" />
-      <div className="ambient-grid-layer pointer-events-none fixed inset-0 z-0 opacity-[0.035] [background-image:linear-gradient(rgba(142,234,77,.65)_1px,transparent_1px),linear-gradient(90deg,rgba(142,234,77,.65)_1px,transparent_1px)] [background-size:96px_96px]" />
       <AmbientGeometry />
 
       <div className="relative z-10 flex flex-col">

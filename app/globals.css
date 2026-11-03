@@ -3140,69 +3140,25 @@ footer {
 }
 
 .ambient-geometry {
-  color: rgba(142, 234, 77, 0.24);
+  animation: neon-triangle-scene 20s ease-in-out infinite alternate;
+  background-image: url("/images/zexa-neon-triangles.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   inset: 0;
   mix-blend-mode: screen;
-  overflow: hidden;
+  opacity: 0.48;
   pointer-events: none;
   position: fixed;
+  transform: scale(1.04);
+  transform-origin: center;
+  will-change: transform, opacity;
   z-index: 0;
 }
 
-.ambient-geometry svg {
-  height: 100%;
-  width: 100%;
-}
-
-.ambient-mesh {
-  animation: ambient-mesh-breathe 12s ease-in-out infinite;
-  opacity: 0.2;
-}
-
-.ambient-triangle {
-  fill: rgba(97, 224, 3, 0.012);
-  filter: drop-shadow(0 0 6px rgba(97, 224, 3, 0.48));
-  stroke: rgba(142, 234, 77, 0.58);
-  stroke-dasharray: 14 9;
-  stroke-width: 2;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.ambient-triangle-one {
-  animation: ambient-triangle-one 15s ease-in-out infinite;
-}
-
-.ambient-triangle-two {
-  animation: ambient-triangle-two 18s ease-in-out infinite reverse;
-}
-
-.ambient-triangle-three {
-  animation: ambient-triangle-one 20s ease-in-out infinite reverse;
-  opacity: 0.42;
-}
-
-.ambient-triangle-four {
-  animation: ambient-triangle-two 17s ease-in-out infinite;
-  opacity: 0.34;
-}
-
-.ambient-light-streak {
-  fill: none;
-  filter: drop-shadow(0 0 8px rgba(97, 224, 3, 0.52));
-  stroke: url(#zexa-neon-stroke);
-  stroke-dasharray: 0.18 0.82;
-  stroke-linecap: round;
-  stroke-width: 3;
-}
-
-.ambient-light-streak-one {
-  animation: ambient-streak-run 10s linear infinite;
-}
-
-.ambient-light-streak-two {
-  animation: ambient-streak-run 13s linear infinite reverse;
-  opacity: 0.72;
+.site-page::before,
+.site-page::after {
+  display: none;
 }
 
 .site-page::after {
@@ -3255,45 +3211,14 @@ footer {
   }
 }
 
-@keyframes ambient-mesh-breathe {
+@keyframes neon-triangle-scene {
   0%,
   100% {
-    opacity: 0.12;
+    opacity: 0.38;
+    transform: translate3d(-1.2%, -0.8%, 0) scale(1.05);
   }
   50% {
-    opacity: 0.26;
-  }
-}
-
-@keyframes ambient-triangle-one {
-  0%,
-  100% {
-    opacity: 0.26;
-    transform: translate3d(0, 0, 0) rotate(-3deg) scale(0.96);
-  }
-  50% {
-    opacity: 0.72;
-    transform: translate3d(30px, -24px, 0) rotate(6deg) scale(1.08);
-  }
-}
-
-@keyframes ambient-triangle-two {
-  0%,
-  100% {
-    opacity: 0.22;
-    transform: translate3d(0, 0, 0) rotate(4deg) scale(1);
-  }
-  50% {
-    opacity: 0.62;
-    transform: translate3d(-36px, 20px, 0) rotate(-5deg) scale(1.1);
-  }
-}
-
-@keyframes ambient-streak-run {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
+    opacity: 0.58;
+    transform: translate3d(1.2%, 0.8%, 0) scale(1.09);
   }
 }
