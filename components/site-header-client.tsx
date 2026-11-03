@@ -62,7 +62,7 @@ const industryMenuItems = [
 
 export function SiteHeaderClient() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<"services" | "industries" | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const menuId = useId();
@@ -91,7 +91,7 @@ export function SiteHeaderClient() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMenuOpen(false);
-        setMegaOpen(false);
+        setActiveDropdown(null);
       }
     };
 
@@ -138,58 +138,58 @@ export function SiteHeaderClient() {
         </Link>
 
         <div className="hidden min-w-0 flex-1 items-center justify-center lg:flex">
-          <div
-            className="relative flex items-center"
-            onMouseEnter={() => setMegaOpen(true)}
-            onMouseLeave={() => setMegaOpen(false)}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) setMegaOpen(false);
-            }}
-          >
+          <div className="relative" onMouseEnter={() => setActiveDropdown("services")} onMouseLeave={() => setActiveDropdown(null)}>
             <button
               type="button"
-              onClick={() => setMegaOpen((open) => !open)}
-              aria-expanded={megaOpen}
+              onClick={() => setActiveDropdown((open) => open === "services" ? null : "services")}
+              aria-expanded={activeDropdown === "services"}
               aria-current={servicesActive ? "page" : undefined}
               className={`relative inline-flex min-h-12 items-center gap-1 px-3 text-[0.8rem] font-semibold transition hover:text-[#8EEA4D] xl:px-4 xl:text-sm ${servicesActive ? "text-[#8EEA4D]" : "text-white/76"}`}
             >
               Services
-              <ChevronDown className={`size-4 transition ${megaOpen ? "rotate-180" : ""}`} />
+              <ChevronDown className={`size-4 transition ${activeDropdown === "services" ? "rotate-180" : ""}`} />
             </button>
+            <div className={`absolute left-1/2 top-full z-[100] w-[24rem] max-w-[calc(100vw-2rem)] -translate-x-1/2 pt-3 transition duration-200 ${activeDropdown === "services" ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}>
+              <div className="overflow-hidden rounded-2xl border border-[#8EEA4D]/25 bg-[#071008]/98 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.64),0_0_40px_rgba(142,234,77,0.08)] backdrop-blur-2xl">
+                <div className="mb-3 flex items-start gap-3 border-b border-white/10 px-2 pb-4">
+                  <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-[#8EEA4D]/12 text-[#8EEA4D]"><Sparkles className="size-5" /></div>
+                  <div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EEA4D]">Services</p><p className="mt-1 text-xs text-white/45">Choose the growth service you need.</p></div>
+                </div>
+                <div className="grid gap-1">
+                  {serviceMenuItems.map((item) => (
+                    <Link key={item.label} href={item.href} onClick={() => setActiveDropdown(null)} className={`group/item flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-semibold transition hover:bg-[#8EEA4D]/10 hover:text-white ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}>
+                      <item.icon className="size-4 shrink-0 text-[#8EEA4D]" strokeWidth={1.8} /><span className="whitespace-nowrap">{item.label}</span><ChevronRight className="ml-auto size-4 shrink-0 text-white/28 transition group-hover/item:translate-x-0.5 group-hover/item:text-[#8EEA4D]" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative" onMouseEnter={() => setActiveDropdown("industries")} onMouseLeave={() => setActiveDropdown(null)}>
             <button
               type="button"
-              onClick={() => setMegaOpen((open) => !open)}
-              aria-expanded={megaOpen}
+              onClick={() => setActiveDropdown((open) => open === "industries" ? null : "industries")}
+              aria-expanded={activeDropdown === "industries"}
               aria-current={industriesActive ? "page" : undefined}
               className={`relative inline-flex min-h-12 items-center gap-1 px-3 text-[0.8rem] font-semibold transition hover:text-[#8EEA4D] xl:px-4 xl:text-sm ${industriesActive ? "text-[#8EEA4D]" : "text-white/76"}`}
             >
               Industries
-              <ChevronDown className={`size-4 transition ${megaOpen ? "rotate-180" : ""}`} />
+              <ChevronDown className={`size-4 transition ${activeDropdown === "industries" ? "rotate-180" : ""}`} />
             </button>
-            <div className={`absolute left-1/2 top-full z-[100] w-[48rem] max-w-[calc(100vw-3rem)] -translate-x-1/2 pt-3 transition duration-200 ${megaOpen ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}>
-              <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-[#8EEA4D]/25 bg-[#071008]/98 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.64),0_0_40px_rgba(142,234,77,0.08)] backdrop-blur-2xl">
-                {[{ title: "Services", copy: "Our end-to-end growth marketing services.", items: serviceMenuItems }, { title: "Industries", copy: "Focused paths for local and service businesses.", items: industryMenuItems }].map((column, columnIndex) => (
-                  <div key={column.title} className={`min-w-0 ${columnIndex ? "border-l border-white/10 pl-4" : "pr-4"}`}>
-                    <div className="mb-3 flex items-start gap-3 px-2">
-                      <div className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-xl bg-[#8EEA4D]/12 text-[#8EEA4D]">
-                        {columnIndex ? <Building2 className="size-5" /> : <Sparkles className="size-5" />}
-                      </div>
-                      <div>
-                        <p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EEA4D]">{column.title}</p>
-                        <p className="mt-1 text-xs text-white/45">{column.copy}</p>
-                      </div>
-                    </div>
-                    <div className="grid gap-0.5">
-                      {column.items.map((item) => (
-                        <Link key={item.href} href={item.href} onClick={() => setMegaOpen(false)} className={`group/item flex items-center gap-3 rounded-xl px-3 py-2 text-sm font-semibold transition hover:bg-[#8EEA4D]/10 hover:text-white ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}>
-                          <item.icon className="size-4 shrink-0 text-[#8EEA4D]" strokeWidth={1.8} />
-                          <span>{item.label}</span>
-                          <ChevronRight className="ml-auto size-4 text-white/28 transition group-hover/item:translate-x-0.5 group-hover/item:text-[#8EEA4D]" />
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+            <div className={`absolute left-1/2 top-full z-[100] w-[25rem] max-w-[calc(100vw-2rem)] -translate-x-1/2 pt-3 transition duration-200 ${activeDropdown === "industries" ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}>
+              <div className="overflow-hidden rounded-2xl border border-[#8EEA4D]/25 bg-[#071008]/98 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.64),0_0_40px_rgba(142,234,77,0.08)] backdrop-blur-2xl">
+                <div className="mb-3 flex items-start gap-3 border-b border-white/10 px-2 pb-4">
+                  <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-[#8EEA4D]/12 text-[#8EEA4D]"><Building2 className="size-5" /></div>
+                  <div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#8EEA4D]">Industries</p><p className="mt-1 text-xs text-white/45">Explore solutions by business type.</p></div>
+                </div>
+                <div className="grid gap-1">
+                  {industryMenuItems.map((item) => (
+                    <Link key={item.label} href={item.href} onClick={() => setActiveDropdown(null)} className={`group/item flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-semibold transition hover:bg-[#8EEA4D]/10 hover:text-white ${isActive(item.href) ? "bg-[#8EEA4D]/10 text-[#8EEA4D]" : "text-white/72"}`}>
+                      <item.icon className="size-4 shrink-0 text-[#8EEA4D]" strokeWidth={1.8} /><span className="whitespace-nowrap">{item.label}</span><ChevronRight className="ml-auto size-4 shrink-0 text-white/28 transition group-hover/item:translate-x-0.5 group-hover/item:text-[#8EEA4D]" />
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
