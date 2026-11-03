@@ -32,15 +32,15 @@ export function FounderBlock({ variant }: Readonly<FounderBlockProps>) {
           <Image
             src={founder.photo}
             alt={`${founder.name}, founder of Zexa Media, Visakhapatnam`}
-            width={1000}
-            height={667}
+            width={1365}
+            height={2048}
             sizes={
               isFull
                 ? "(max-width: 767px) 100vw, (max-width: 1279px) 42vw, 470px"
                 : "(max-width: 767px) 100vw, 360px"
             }
             loading="lazy"
-            className="absolute inset-0 size-full object-cover object-center"
+            className="absolute inset-0 size-full object-cover object-[center_32%]"
           />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(5,8,6,0.42))]" />
         </div>

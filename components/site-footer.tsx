@@ -138,8 +138,8 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 lg:py-14">
-          <div>
+        <div className="grid items-start gap-x-8 gap-y-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.25fr_1fr_1fr_1fr] lg:py-14">
+          <div className="max-w-sm">
             <Link href="/" className="inline-flex" aria-label="Zexa Media home">
               <BrandMark />
             </Link>
@@ -166,52 +166,51 @@ export function SiteFooter() {
 
           <FooterLinkGroup title="Services" links={serviceLinks} />
           <FooterLinkGroup title="Industries" links={industryLinks} />
-          <div>
-            <FooterLinkGroup title="Company" links={companyLinks} />
-            <div className="mt-7 grid gap-2 border-t border-white/10 pt-5 text-sm text-white/65">
-              {contactEmail ? (
-                <a
-                  href={`mailto:${contactEmail}`}
-                  className="flex min-h-10 items-center gap-3 transition-colors hover:text-white"
-                >
-                  <Mail className="size-4 shrink-0 text-[#61E003]" />
-                  <span className="break-all">{contactEmail}</span>
-                </a>
-              ) : null}
-              <a
-                href={phoneHref}
-                className="flex min-h-10 items-center gap-3 transition-colors hover:text-white"
-              >
-                <Phone className="size-4 shrink-0 text-[#61E003]" />
-                <span>{phoneNumber}</span>
-              </a>
-              <a
-                href={secondaryPhoneHref}
-                className="flex min-h-10 items-center gap-3 transition-colors hover:text-white"
-              >
-                <Phone className="size-4 shrink-0 text-[#61E003]" />
-                <span>{secondaryPhoneNumber}</span>
-              </a>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-10 items-center gap-3 transition-colors hover:text-white"
-              >
-                <MessageCircle className="size-4 shrink-0 text-[#61E003]" />
-                <span>WhatsApp</span>
-              </a>
-              <a
-                href={mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-10 items-start gap-3 leading-6 transition-colors hover:text-white"
-              >
-                <MapPin className="mt-1 size-4 shrink-0 text-[#61E003]" />
-                <span>{fullAddress}</span>
-              </a>
-            </div>
-          </div>
+          <FooterLinkGroup title="Company" links={companyLinks} />
+        </div>
+
+        <div className="grid gap-3 border-t border-white/10 py-7 text-sm text-white/65 sm:grid-cols-2 lg:grid-cols-[0.9fr_0.9fr_0.9fr_2.3fr] lg:items-start lg:gap-6">
+          {contactEmail ? (
+            <a
+              href={`mailto:${contactEmail}`}
+              className="flex min-h-11 items-center gap-3 rounded-lg px-2 transition-colors hover:bg-white/[0.035] hover:text-white"
+            >
+              <Mail className="size-4 shrink-0 text-[#61E003]" />
+              <span className="break-all">{contactEmail}</span>
+            </a>
+          ) : null}
+          <a
+            href={phoneHref}
+            className="flex min-h-11 items-center gap-3 rounded-lg px-2 transition-colors hover:bg-white/[0.035] hover:text-white"
+          >
+            <Phone className="size-4 shrink-0 text-[#61E003]" />
+            <span>{phoneNumber}</span>
+          </a>
+          <a
+            href={secondaryPhoneHref}
+            className="flex min-h-11 items-center gap-3 rounded-lg px-2 transition-colors hover:bg-white/[0.035] hover:text-white"
+          >
+            <Phone className="size-4 shrink-0 text-[#61E003]" />
+            <span>{secondaryPhoneNumber}</span>
+          </a>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-11 items-center gap-3 rounded-lg px-2 transition-colors hover:bg-white/[0.035] hover:text-white"
+          >
+            <MessageCircle className="size-4 shrink-0 text-[#61E003]" />
+            <span>WhatsApp</span>
+          </a>
+          <a
+            href={mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-11 items-start gap-3 rounded-lg px-2 py-2 leading-6 transition-colors hover:bg-white/[0.035] hover:text-white sm:col-span-2 lg:col-span-1"
+          >
+            <MapPin className="mt-1 size-4 shrink-0 text-[#61E003]" />
+            <span>{fullAddress}</span>
+          </a>
         </div>
         <div className="flex flex-col gap-4 border-t border-white/10 py-5 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Zexa Media. All rights reserved.</p>
