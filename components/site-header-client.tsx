@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -66,6 +66,7 @@ export function SiteHeaderClient() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const menuId = useId();
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -102,6 +103,17 @@ export function SiteHeaderClient() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const closeDropdownOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener("mousedown", closeDropdownOutside);
+    return () => document.removeEventListener("mousedown", closeDropdownOutside);
+  }, []);
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
   const servicesActive = serviceMenuItems.some((item) => isActive(item.href));
@@ -114,6 +126,7 @@ export function SiteHeaderClient() {
 
   return (
     <header
+      ref={headerRef}
       className={`site-header sticky top-0 z-[80] border-b transition duration-300 ${
         scrolled
           ? "border-white/12 bg-[#050806]/94 shadow-[0_14px_34px_rgba(0,0,0,0.3)] backdrop-blur-2xl"
@@ -138,7 +151,7 @@ export function SiteHeaderClient() {
         </Link>
 
         <div className="hidden min-w-0 flex-1 items-center justify-center lg:flex">
-          <div className="relative" onMouseEnter={() => setActiveDropdown("services")} onMouseLeave={() => setActiveDropdown(null)}>
+          <div className="relative" onMouseEnter={() => setActiveDropdown("services")}>
             <button
               type="button"
               onClick={() => setActiveDropdown((open) => open === "services" ? null : "services")}
@@ -169,7 +182,7 @@ export function SiteHeaderClient() {
             </div>
           </div>
 
-          <div className="relative" onMouseEnter={() => setActiveDropdown("industries")} onMouseLeave={() => setActiveDropdown(null)}>
+          <div className="relative" onMouseEnter={() => setActiveDropdown("industries")}>
             <button
               type="button"
               onClick={() => setActiveDropdown((open) => open === "industries" ? null : "industries")}
