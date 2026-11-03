@@ -25,24 +25,24 @@ export function FounderBlock({ variant }: Readonly<FounderBlockProps>) {
         }`}
       >
         <div
-          className={`relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] ${
+          className={`relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-[radial-gradient(circle_at_50%_38%,rgba(97,224,3,0.12),rgba(255,255,255,0.025)_54%,transparent_76%)] ${
             isFull ? "md:min-h-[31rem]" : ""
           }`}
         >
           <Image
             src={founder.photo}
             alt={`${founder.name}, founder of Zexa Media, Visakhapatnam`}
-            width={1365}
-            height={2048}
+            width={941}
+            height={1672}
             sizes={
               isFull
                 ? "(max-width: 767px) 100vw, (max-width: 1279px) 42vw, 470px"
                 : "(max-width: 767px) 100vw, 360px"
             }
             loading="lazy"
-            className="absolute inset-0 size-full object-cover object-[center_32%]"
+            className="absolute inset-0 size-full object-contain object-bottom px-3 pt-3 sm:px-5 sm:pt-5"
           />
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(5,8,6,0.42))]" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-[linear-gradient(180deg,transparent,rgba(5,8,6,0.28))]" />
         </div>
 
         <div className="min-w-0">
