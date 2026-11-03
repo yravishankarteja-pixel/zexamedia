@@ -31,7 +31,6 @@ import {
 } from "@/lib/business-info";
 import { absoluteUrl, siteUrl } from "@/lib/site-url";
 
-
 const stats: Array<{
   value: string;
   label: string;
@@ -53,7 +52,6 @@ const stats: Array<{
     label: "Cities Across AP",
   },
 ];
-
 
 const services = [
   {
@@ -99,7 +97,6 @@ const services = [
     copy: "Know exactly what is working, wasting, and ready to scale.",
   },
 ];
-
 
 const caseSnapshots = [
   {
@@ -157,7 +154,6 @@ const caseSnapshots = [
   },
 ];
 
-
 const proofCards = [
   {
     metric: "182",
@@ -196,7 +192,6 @@ const pendingIndustryProof = [
   },
 ];
 
-
 const localSignals = [
   {
     title: "Dwaraka Nagar presence",
@@ -211,7 +206,6 @@ const localSignals = [
     copy: "Messaging can account for Telugu-speaking audiences, city-level competition, walk-in intent, calls, WhatsApp enquiries and appointment-led businesses.",
   },
 ];
-
 
 const trustEvidence = [
   {
@@ -236,7 +230,6 @@ const trustEvidence = [
   },
 ];
 
-
 const testimonial = {
   text: "Zexa Media made our lead flow clearer within the first month. We finally understood where enquiries were coming from and what to scale.",
   // TODO: Add the approved testimonial author's name.
@@ -250,18 +243,22 @@ const testimonial = {
   initials: "ZM",
 };
 
-
 const packages = [
   {
     name: "Basic Ads Starter",
     price: "\u20B915,000",
     whoFor: "For businesses testing one paid ads channel for the first time.",
-    features: ["Google Ads or Meta Ads", "10 static creatives", "Basic lead tracking"],
+    features: [
+      "Google Ads or Meta Ads",
+      "10 static creatives",
+      "Basic lead tracking",
+    ],
   },
   {
     name: "Growth Ads Package",
     price: "\u20B925,000",
-    whoFor: "For businesses ready to run Google and Meta together with stronger creative support.",
+    whoFor:
+      "For businesses ready to run Google and Meta together with stronger creative support.",
     features: ["Google + Meta Ads", "1 video shoot", "Monthly report"],
   },
   {
@@ -274,12 +271,16 @@ const packages = [
   {
     name: "Premium Growth Partner",
     price: "\u20B950,000",
-    whoFor: "For businesses that want full-funnel growth with tracking, automation, content, and strategy.",
-    features: ["GA4, GTM, Meta Pixel", "Automation workflow", "Strategy review"],
+    whoFor:
+      "For businesses that want full-funnel growth with tracking, automation, content, and strategy.",
+    features: [
+      "GA4, GTM, Meta Pixel",
+      "Automation workflow",
+      "Strategy review",
+    ],
     recommended: true,
   },
 ];
-
 
 const faqs = [
   {
@@ -288,7 +289,8 @@ const faqs = [
       "A practical starting range is ₹[TODO: minimum]–₹[TODO: maximum]/month in ad spend, separate from our management fee. The right budget depends on search demand, competition, location, conversion rate and lead value.",
   },
   {
-    question: "Do you work with wellness, spa, gym, clinic, or local service clients?",
+    question:
+      "Do you work with wellness, spa, gym, clinic, or local service clients?",
     answer:
       "Yes. Zexa Media works with local businesses such as wellness brands, clinics, gyms, education institutes, and service businesses that need calls, enquiries, walk-ins, and better lead follow-up.",
   },
@@ -303,7 +305,6 @@ const faqs = [
       "Zexa Media focuses on growth systems, not just posting content or running ads. We combine strategy, tracking, creatives, paid ads, follow-up systems, and reporting so every rupee is connected to business outcomes.",
   },
 ];
-
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -336,7 +337,6 @@ const organizationSchema = {
     "Zexa Media is a digital growth and performance marketing agency in Visakhapatnam helping businesses with Google Ads, Meta Ads, SEO, lead generation and marketing automation.",
   areaServed,
 };
-
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -378,14 +378,22 @@ const localBusinessSchema = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
       opens: "09:00",
       closes: "19:00",
     },
   ],
 };
 
-const HOME_H1 = "Google Ads & Meta Ads Agency in Visakhapatnam: Leads You Can Track";
+const HOME_H1 =
+  "Google Ads & Meta Ads Agency in Visakhapatnam: Leads You Can Track";
 // Alternate B: "599 Conversions from ₹2.1L Ad Spend. Performance Marketing in Vizag."
 // Alternate C: "More Calls and WhatsApp Enquiries for Vizag Businesses, Tracked to the Rupee"
 
@@ -406,12 +414,15 @@ const offerSchema = {
   })),
 };
 
-
 function Reveal({
   children,
   delay = 0,
   className = "",
-}: Readonly<{ children: React.ReactNode; delay?: number; className?: string }>) {
+}: Readonly<{
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}>) {
   return (
     <div
       className={`section-reveal ${className}`}
@@ -422,7 +433,6 @@ function Reveal({
   );
 }
 
-
 function SectionHeading({
   eyebrow,
   title,
@@ -430,23 +440,28 @@ function SectionHeading({
 }: Readonly<{ eyebrow: string; title: string; copy?: string }>) {
   return (
     <Reveal>
-      <div className="mb-9 max-w-3xl text-left">
-        <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#8EEA4D]">
-          {eyebrow}
-        </p>
-        <h2 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[2.65rem]">
-          {title}
-        </h2>
-        {copy && <p className="mt-5 text-base leading-7 text-white/58 sm:text-lg">{copy}</p>}
+      <div className="mb-10 grid gap-5 border-t border-white/10 pt-8 text-left lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.7fr)] lg:items-end lg:gap-12">
+        <div>
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-[#A5F347]">
+            {eyebrow}
+          </p>
+          <h2 className="max-w-3xl text-3xl font-semibold leading-tight tracking-[-0.025em] text-white sm:text-4xl lg:text-[2.65rem]">
+            {title}
+          </h2>
+        </div>
+        {copy && (
+          <p className="max-w-xl text-base leading-7 text-white/60 lg:justify-self-end lg:text-lg">
+            {copy}
+          </p>
+        )}
       </div>
     </Reveal>
   );
 }
 
-
 export default function Home() {
   return (
-    <main className="site-page min-h-screen overflow-hidden bg-[#050806] text-white">
+    <main className="site-page min-h-screen overflow-hidden bg-[#090F0B] text-white">
       <div className="scroll-progress fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-[#8EEA4D]" />
       <script
         type="application/ld+json"
@@ -458,57 +473,60 @@ export default function Home() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }}
       />
 
-
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_78%_12%,rgba(142,234,77,0.13),transparent_25%),linear-gradient(128deg,rgba(142,234,77,0.07),transparent_34%),linear-gradient(180deg,#030704_0%,#071008_48%,#020302_100%)]" />
-      <div className="premium-orb premium-orb-one" />
-      <div className="floating-geo geo-cube geo-cube-a" />
-      <div className="floating-geo geo-ring geo-ring-a" />
-      <div className="floating-geo geo-prism geo-prism-a" />
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.025] [background-image:linear-gradient(rgba(255,255,255,.9)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.9)_1px,transparent_1px)] [background-size:112px_112px]" />
-
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_78%_9%,rgba(165,243,71,0.10),transparent_27%),radial-gradient(circle_at_10%_40%,rgba(65,115,55,0.10),transparent_26%),linear-gradient(180deg,#090F0B_0%,#071008_54%,#050806_100%)]" />
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.022] [background-image:linear-gradient(rgba(255,255,255,.65)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.65)_1px,transparent_1px)] [background-size:96px_96px]" />
 
       <div className="relative z-10 flex flex-col">
-        <section style={{ order: 1 }} className="relative mx-auto grid w-full max-w-[90rem] min-w-0 items-center gap-10 overflow-hidden px-5 pb-12 pt-14 sm:px-8 lg:grid-cols-[0.92fr_1.08fr] lg:pb-16 lg:pt-16">
-          <div className="pointer-events-none absolute left-1/2 top-6 hidden h-28 w-28 -translate-x-1/2 rounded-[2rem] border border-[#8EEA4D]/18 bg-[#8EEA4D]/10 blur-[0.2px] lg:block geo-float-local" />
+        <section
+          style={{ order: 1 }}
+          className="relative mx-auto grid w-full max-w-7xl min-w-0 items-center gap-12 px-5 pb-16 pt-16 sm:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:pb-24 lg:pt-24"
+        >
           <div className="min-w-0">
             <Reveal>
-              <div className="mb-6 flex w-full max-w-full items-center gap-3 text-xs font-extrabold uppercase tracking-[0.2em] text-[#8EEA4D] sm:inline-flex sm:w-auto">
+              <div className="mb-6 flex w-full max-w-full items-center gap-3 text-xs font-extrabold uppercase tracking-[0.22em] text-[#A5F347] sm:inline-flex sm:w-auto">
                 <span className="min-w-0 truncate">
                   Performance marketing agency in Visakhapatnam
                 </span>
-                <span className="h-px w-14 bg-[#8EEA4D]/70" />
+                <span className="h-px w-14 bg-[#A5F347]/70" />
               </div>
             </Reveal>
             <Reveal delay={0.06}>
-              <h1 aria-label={HOME_H1} className="max-w-full text-4xl font-semibold leading-[1.02] tracking-[-0.035em] text-white [overflow-wrap:anywhere] sm:max-w-5xl sm:text-6xl sm:leading-[0.98] lg:text-[4.5rem]">
-                Google Ads &amp; Meta Ads Agency in Visakhapatnam: <span className="text-[#8EEA4D]">Leads You Can Track</span>
+              <h1
+                aria-label={HOME_H1}
+                className="max-w-full text-[clamp(2.65rem,5.2vw,4.6rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-white [overflow-wrap:anywhere]"
+              >
+                Google Ads &amp; Meta Ads Agency in Visakhapatnam:{" "}
+                <span className="text-[#A5F347]">Leads You Can Track</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-7 max-w-full text-lg leading-8 text-white/64 sm:max-w-2xl sm:text-xl">
-                Zexa Media runs high-performance Google Ads, Meta Ads, lead-generation campaigns,
-                and marketing automation engineered to deliver real ROI, not just reach.
+                Zexa Media runs high-performance Google Ads, Meta Ads,
+                lead-generation campaigns, and marketing automation engineered
+                to deliver real ROI, not just reach.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
               <div className="mt-9 flex max-w-full flex-col gap-4 sm:flex-row">
                 <a
                   href="/free-audit"
-                  className="magnetic-cta group inline-flex min-h-14 w-full max-w-full items-center justify-center rounded-full bg-[#8EEA4D] px-7 text-base font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#8EEA4D] focus:ring-offset-2 focus:ring-offset-[#050806] sm:w-auto"
+                  className="magnetic-cta group inline-flex min-h-14 w-full max-w-full items-center justify-center rounded-xl bg-[#A5F347] px-7 text-base font-bold text-[#071006] shadow-[0_14px_34px_rgba(0,0,0,0.28)] transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#A5F347] focus:ring-offset-2 focus:ring-offset-[#090F0B] sm:w-auto"
                 >
                   Book Free Audit
                   <ArrowRight className="ml-2 size-5 transition group-hover:translate-x-1" />
                 </a>
                 <a
                   href="/packages"
-                  className="premium-secondary-cta inline-flex min-h-14 w-full max-w-full items-center justify-center rounded-full border border-white/14 bg-white/7 px-7 text-base font-semibold text-white/86 transition hover:border-[#8EEA4D]/50 hover:bg-white/[0.09] sm:w-auto"
+                  className="premium-secondary-cta inline-flex min-h-14 w-full max-w-full items-center justify-center rounded-xl border border-white/16 bg-white/[0.04] px-7 text-base font-semibold text-white/86 transition hover:border-[#A5F347]/50 hover:bg-white/[0.08] sm:w-auto"
                 >
                   See Our Packages
                 </a>
@@ -516,11 +534,10 @@ export default function Home() {
             </Reveal>
           </div>
 
-
           <Reveal delay={0.14}>
             <div className="relative mx-auto w-full max-w-full min-w-0 sm:max-w-[720px]">
               <div
-                className="image-depth-card relative min-h-[320px] overflow-hidden rounded-[1.75rem] border border-[#8EEA4D]/30 bg-[#0A100B] shadow-[0_26px_90px_rgba(0,0,0,0.42),0_0_55px_rgba(142,234,77,0.08)] sm:min-h-[420px] lg:min-h-[500px]"
+                className="image-depth-card relative min-h-[320px] overflow-hidden rounded-[1.5rem] border border-[#A5F347]/25 bg-[#111B14] shadow-[0_28px_80px_rgba(0,0,0,0.38)] sm:min-h-[420px] lg:min-h-[500px]"
                 style={{ aspectRatio: "15 / 8" }}
               >
                 <Image
@@ -534,9 +551,11 @@ export default function Home() {
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,6,0.03),rgba(5,8,6,0.58)),linear-gradient(90deg,rgba(5,8,6,0.12),transparent)]" />
-                <div className="absolute bottom-4 left-4 right-4 rounded-[1.25rem] border border-[#8EEA4D]/22 bg-black/72 p-4 backdrop-blur-xl sm:bottom-6 sm:left-auto sm:right-6 sm:w-[58%] sm:p-5">
+                <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-[#A5F347]/22 bg-[#09100B]/90 p-4 shadow-2xl backdrop-blur-xl sm:bottom-6 sm:left-auto sm:right-6 sm:w-[62%] sm:p-5">
                   <div className="mb-4 flex items-center justify-between gap-4">
-                    <p className="font-semibold text-white">Campaign Snapshot</p>
+                    <p className="font-semibold text-white">
+                      Campaign Snapshot
+                    </p>
                     <span className="text-xs font-bold uppercase tracking-[0.16em] text-white/45">
                       Moon Wellness Spa
                     </span>
@@ -549,7 +568,9 @@ export default function Home() {
                     <div key={label} className="mb-3 last:mb-0">
                       <div className="flex justify-between gap-4 rounded-xl border border-white/8 bg-white/[0.035] px-3 py-2.5 text-sm">
                         <span className="text-white/62">{label}</span>
-                        <span className="font-semibold text-white">{value}</span>
+                        <span className="font-semibold text-white">
+                          {value}
+                        </span>
                       </div>
                     </div>
                   ))}
@@ -559,11 +580,10 @@ export default function Home() {
           </Reveal>
         </section>
 
-
         <section style={{ order: 2 }} className="px-5 sm:px-8">
           <Reveal>
-            <div className="mx-auto max-w-[90rem] overflow-hidden rounded-[1.25rem] border border-[#8EEA4D]/20 bg-[#071008]/94 shadow-[0_18px_60px_rgba(0,0,0,0.3)]">
-              <div className="trust-marquee border-b border-white/10 bg-white/[0.035] py-4">
+            <div className="mx-auto max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-[#111B14]/95 shadow-[0_18px_60px_rgba(0,0,0,0.26)]">
+              <div className="trust-marquee border-b border-white/10 bg-black/10 py-4">
                 <div
                   className="trust-marquee-track text-xs font-bold uppercase tracking-[0.24em] text-white/42"
                   aria-label="Google Ads, Meta Ads, WhatsApp Leads, Landing Pages, GA4 Tracking, Automation, Local SEO, Campaign Reports"
@@ -574,7 +594,7 @@ export default function Home() {
                   <div
                     key={stat.label}
                     aria-label={`${stat.value} ${stat.label}`}
-                    className="bg-[#071006]/72 px-6 py-7"
+                    className="bg-[#101A13] px-6 py-7 lg:px-8"
                   >
                     <p className="min-h-12 text-4xl font-semibold text-white sm:text-5xl">
                       {stat.value}
@@ -589,39 +609,56 @@ export default function Home() {
           </Reveal>
         </section>
 
-
-        <section style={{ order: 4 }} className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
+        <section
+          style={{ order: 4 }}
+          className="mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:py-24"
+        >
           <SectionHeading
             eyebrow="Trust system"
             title="Proof is stronger when the process is transparent."
             copy="Zexa Media improves trust by showing the work, explaining the tradeoffs, and keeping every next step tied to business outcomes."
           />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {trustEvidence.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.04}>
-                <article className="root-style-card h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35">
-                  <item.icon className="mb-7 size-7 text-[#8EEA4D]" strokeWidth={1.8} />
-                  <h2 className="text-xl font-semibold text-white">{item.title}</h2>
-                  <p className="mt-4 leading-7 text-white/58">{item.copy}</p>
-                </article>
-              </Reveal>
-            ))}
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#111B14]">
+            <div className="grid gap-px bg-white/10 md:grid-cols-2 xl:grid-cols-4">
+              {trustEvidence.map((item, index) => (
+                <Reveal key={item.title} delay={index * 0.04}>
+                  <article className="h-full min-h-64 bg-[#101A13] p-7 transition duration-300 hover:bg-[#142019]">
+                    <item.icon
+                      className="mb-8 size-7 text-[#A5F347]"
+                      strokeWidth={1.8}
+                    />
+                    <h2 className="text-xl font-semibold text-white">
+                      {item.title}
+                    </h2>
+                    <p className="mt-4 leading-7 text-white/58">{item.copy}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
-
-        <section style={{ order: 6 }} className="mx-auto max-w-7xl px-5 py-14 sm:px-8 lg:py-16">
-          <div className="grid gap-4 lg:grid-cols-[1fr_0.82fr]">
+        <section
+          style={{ order: 6 }}
+          className="mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:py-24"
+        >
+          <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="grid gap-4 md:grid-cols-2">
               {caseSnapshots.map((item, index) => (
                 <Reveal key={item.clientName} delay={index * 0.05}>
-                  <article className="root-style-card h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/30">
+                  <article className="root-style-card h-full rounded-2xl border border-white/10 bg-[#111B14] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#A5F347]/30">
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#8EEA4D]">
                       Case snapshot
                     </p>
-                    <h2 className="mt-5 text-2xl font-semibold text-white">{item.clientName}</h2>
-                    <p className="mt-2 text-sm text-white/46">{item.industry}</p>
-                    <p className="mt-2 text-xs leading-5 text-white/38">{item.period}</p>
+                    <h2 className="mt-5 text-2xl font-semibold text-white">
+                      {item.clientName}
+                    </h2>
+                    <p className="mt-2 text-sm text-white/46">
+                      {item.industry}
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-white/38">
+                      {item.period}
+                    </p>
                     <div className="mt-6 grid grid-cols-2 gap-3 text-sm">
                       {[
                         ["Spend", item.spend],
@@ -632,10 +669,14 @@ export default function Home() {
                       ].map(([label, value]) => (
                         <div
                           key={label}
-                          className="min-w-0 rounded-xl border border-white/8 bg-white/[0.035] p-3 last:col-span-2"
+                          className="min-w-0 rounded-xl border border-white/8 bg-black/10 p-3 last:col-span-2"
                         >
-                          <p className="text-xs uppercase tracking-[0.12em] text-white/38">{label}</p>
-                          <p className="mt-1 break-words font-semibold text-white">{value}</p>
+                          <p className="text-xs uppercase tracking-[0.12em] text-white/38">
+                            {label}
+                          </p>
+                          <p className="mt-1 break-words font-semibold text-white">
+                            {value}
+                          </p>
                         </div>
                       ))}
                     </div>
@@ -649,18 +690,20 @@ export default function Home() {
                 pendingIndustryProof.map((item) => (
                   <article
                     key={item.title}
-                    className="root-style-card h-full rounded-[1.35rem] border border-dashed border-white/10 bg-[#0A100B]/70 p-6"
+                    className="root-style-card h-full rounded-2xl border border-dashed border-white/10 bg-[#111B14] p-6"
                   >
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/38">
                       Proof pending
                     </p>
-                    <h2 className="mt-5 text-2xl font-semibold text-white">{item.title}</h2>
+                    <h2 className="mt-5 text-2xl font-semibold text-white">
+                      {item.title}
+                    </h2>
                     <p className="mt-4 leading-7 text-white/56">{item.copy}</p>
                   </article>
                 ))}
             </div>
             <Reveal delay={0.08}>
-              <figure className="relative h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6">
+              <figure className="relative h-full rounded-2xl border border-white/10 bg-[linear-gradient(145deg,#17231A,#0D160F)] p-7 lg:p-8">
                 <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#8EEA4D]/20 bg-[#8EEA4D]/8 px-4 py-2 text-xs font-bold text-[#CFFFAB]">
                   <MessageCircle className="size-4" />
                   WhatsApp feedback
@@ -672,7 +715,11 @@ export default function Home() {
                   {testimonial.photo ? (
                     <Image
                       src={testimonial.photo}
-                      alt={testimonial.name ? `${testimonial.name} testimonial` : "Client testimonial"}
+                      alt={
+                        testimonial.name
+                          ? `${testimonial.name} testimonial`
+                          : "Client testimonial"
+                      }
                       width={44}
                       height={44}
                       sizes="44px"
@@ -706,28 +753,32 @@ export default function Home() {
           </p>
         </section>
 
-
-        <section style={{ order: 3 }} className="mx-auto max-w-[90rem] px-5 py-16 sm:px-8 lg:py-20">
+        <section
+          style={{ order: 3 }}
+          className="mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:py-24"
+        >
           <SectionHeading
             eyebrow="Services"
             title={`${services.length} ways we turn attention into enquiries.`}
             copy="Short, focused execution across the channels that matter most."
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
               <Reveal key={service.title} delay={index * 0.04}>
                 <a
                   href={service.href}
-                  className="root-style-card group flex h-full min-h-52 flex-col rounded-[1.2rem] border border-[#8EEA4D]/16 bg-[linear-gradient(145deg,rgba(17,35,19,.9),rgba(5,12,7,.95))] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/45 hover:shadow-[0_20px_50px_rgba(0,0,0,.35)]"
+                  className="root-style-card group flex h-full min-h-60 flex-col rounded-2xl border border-white/10 bg-[linear-gradient(145deg,#17231A,#0D160F)] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#A5F347]/45 hover:shadow-[0_20px_50px_rgba(0,0,0,.35)]"
                 >
-                  <div className="mb-7 grid size-11 place-items-center rounded-full border border-white/10 bg-white/[0.05] text-white/70 transition group-hover:border-[#8EEA4D]/35 group-hover:text-[#8EEA4D]">
+                  <div className="mb-8 grid size-12 place-items-center rounded-xl border border-[#A5F347]/20 bg-[#A5F347]/[0.07] text-[#A5F347] transition group-hover:border-[#A5F347]/40 group-hover:bg-[#A5F347]/[0.11]">
                     <service.icon className="size-5" strokeWidth={1.8} />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">{service.title}</h3>
+                  <h3 className="text-xl font-semibold text-white">
+                    {service.title}
+                  </h3>
                   <p className="mt-3 leading-7 text-white/56">{service.copy}</p>
                   <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-white/70 transition group-hover:text-[#8EEA4D]">
                     View service
-                    <ArrowRight className="size-4 transition group-hover:translate-x-1" />
+                    <ArrowRight className="size-4 text-[#A5F347] transition group-hover:translate-x-1" />
                   </span>
                 </a>
               </Reveal>
@@ -735,22 +786,29 @@ export default function Home() {
           </div>
         </section>
 
-
-        <section style={{ order: 5 }} className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section
+          style={{ order: 5 }}
+          className="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24"
+        >
           <SectionHeading
             eyebrow="Local signals"
             title="Built in Visakhapatnam, tuned for local demand."
             copy="Zexa Media combines city-level search intent, local competition context, and practical lead follow-up for Vizag businesses."
           />
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-3">
             {localSignals.map((item, index) => (
               <Reveal key={item.title} delay={index * 0.05}>
                 <a
                   href="/contact"
-                  className="root-style-card group block h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35"
+                  className="root-style-card group block h-full rounded-2xl border border-white/10 bg-[#111B14] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#A5F347]/35"
                 >
-                  <MapPin className="mb-6 size-6 text-[#8EEA4D]" strokeWidth={1.8} />
-                  <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                  <MapPin
+                    className="mb-6 size-6 text-[#8EEA4D]"
+                    strokeWidth={1.8}
+                  />
+                  <h3 className="text-xl font-semibold text-white">
+                    {item.title}
+                  </h3>
                   <p className="mt-4 leading-7 text-white/56">{item.copy}</p>
                   <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white/70 transition group-hover:text-[#8EEA4D]">
                     Contact local team
@@ -762,8 +820,10 @@ export default function Home() {
           </div>
         </section>
 
-
-        <section style={{ order: 7 }} className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section
+          style={{ order: 7 }}
+          className="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24"
+        >
           <SectionHeading
             eyebrow="Proof"
             title="Fast signals business owners care about."
@@ -774,10 +834,14 @@ export default function Home() {
               <Reveal key={item.title} delay={index * 0.05}>
                 <a
                   href="/case-studies"
-                  className="root-style-card group block h-full rounded-[1.35rem] border border-white/10 bg-[#0A100B]/90 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#8EEA4D]/35"
+                  className="root-style-card group block h-full rounded-2xl border border-white/10 bg-[#111B14] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#A5F347]/35"
                 >
-                  <p className="text-5xl font-semibold text-[#8EEA4D]">{item.metric}</p>
-                  <h3 className="mt-5 text-2xl font-semibold text-white">{item.title}</h3>
+                  <p className="text-5xl font-semibold text-[#8EEA4D]">
+                    {item.metric}
+                  </p>
+                  <h3 className="mt-5 text-2xl font-semibold text-white">
+                    {item.title}
+                  </h3>
                   <p className="mt-3 leading-7 text-white/56">{item.copy}</p>
                 </a>
               </Reveal>
@@ -785,26 +849,30 @@ export default function Home() {
           </div>
         </section>
 
-
-        <section style={{ order: 8 }} className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section
+          style={{ order: 8 }}
+          className="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24"
+        >
           <FounderBlock variant="compact" />
         </section>
 
-
-        <section style={{ order: 9 }} className="mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section
+          style={{ order: 9 }}
+          className="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24"
+        >
           <SectionHeading
             eyebrow="Packages"
             title="Simple monthly growth plans."
             copy="See full inclusions, exclusions, and comparison on the packages page."
           />
-          <div className="grid gap-4 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {packages.map((item, index) => (
               <Reveal key={item.name} delay={index * 0.04}>
                 <article
-                  className={`root-style-card flex h-full flex-col rounded-[1.35rem] border p-6 ${
+                  className={`root-style-card flex h-full flex-col rounded-2xl border p-6 ${
                     item.recommended
-                      ? "border-[#8EEA4D]/42 bg-[#8EEA4D]/9"
-                      : "border-white/10 bg-[#0A100B]/90"
+                      ? "border-[#A5F347]/42 bg-[linear-gradient(145deg,rgba(165,243,71,.12),#101A13)]"
+                      : "border-white/10 bg-[#111B14]"
                   }`}
                 >
                   <div className="mb-5 flex items-start justify-between gap-3">
@@ -817,12 +885,21 @@ export default function Home() {
                       </span>
                     )}
                   </div>
-                  <p className="text-sm font-semibold text-[#CFFFAB]">{item.price}/month</p>
-                  <h3 className="mt-2 text-xl font-semibold text-white">{item.name}</h3>
-                  <p className="mt-4 min-h-20 text-sm leading-6 text-white/52">{item.whoFor}</p>
+                  <p className="text-sm font-semibold text-[#CFFFAB]">
+                    {item.price}/month
+                  </p>
+                  <h3 className="mt-2 text-xl font-semibold text-white">
+                    {item.name}
+                  </h3>
+                  <p className="mt-4 min-h-20 text-sm leading-6 text-white/52">
+                    {item.whoFor}
+                  </p>
                   <div className="mt-6 grid gap-3">
                     {item.features.map((feature) => (
-                      <div key={feature} className="flex gap-3 text-sm text-white/62">
+                      <div
+                        key={feature}
+                        className="flex gap-3 text-sm text-white/62"
+                      >
                         <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-[#8EEA4D]" />
                         <span>{feature}</span>
                       </div>
@@ -842,7 +919,8 @@ export default function Home() {
           <Reveal>
             <div className="mt-8 grid justify-items-center gap-5 text-center">
               <p className="max-w-2xl text-sm leading-7 text-white/52">
-                Flexible monthly engagements. Ad budget and third-party costs are billed separately.
+                Flexible monthly engagements. Ad budget and third-party costs
+                are billed separately.
               </p>
               <a
                 href="/packages"
@@ -855,8 +933,10 @@ export default function Home() {
           </Reveal>
         </section>
 
-
-        <section style={{ order: 10 }} className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:pb-20">
+        <section
+          style={{ order: 10 }}
+          className="mx-auto w-full max-w-5xl px-5 pb-20 sm:px-8 lg:pb-24"
+        >
           <SectionHeading
             eyebrow="FAQ"
             title="Quick answers before you book."
@@ -866,7 +946,7 @@ export default function Home() {
             {faqs.map((item) => (
               <details
                 key={item.question}
-                className="group rounded-[1.25rem] border border-white/10 bg-[#0A100B]/90 p-5"
+                className="group rounded-2xl border border-white/10 bg-[#111B14] p-5"
               >
                 <summary className="cursor-pointer list-none text-lg font-semibold text-white marker:hidden">
                   <span className="flex items-center justify-between gap-4">
@@ -882,25 +962,27 @@ export default function Home() {
           </div>
         </section>
 
-
-        <section style={{ order: 11 }} className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24">
+        <section
+          style={{ order: 11 }}
+          className="mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8 lg:pb-24"
+        >
           <Reveal>
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-[#8EEA4D]/22 bg-[#8EEA4D] p-8 text-[#071006] sm:p-10 lg:p-12">
+            <div className="relative overflow-hidden rounded-3xl border border-[#A5F347]/28 bg-[radial-gradient(circle_at_85%_120%,rgba(165,243,71,.34),transparent_36%),linear-gradient(135deg,#17231A,#0B130D)] p-8 text-white shadow-[0_30px_80px_rgba(0,0,0,.3)] sm:p-10 lg:p-12">
               <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                 <div>
-                  <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.22em] text-[#245C1B]">
+                  <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.22em] text-[#A5F347]">
                     Free audit
                   </p>
                   <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
                     Book a free 30-minute marketing audit.
                   </h2>
-                  <p className="mt-4 text-lg leading-8 text-[#183313]/78">
+                  <p className="mt-4 text-lg leading-8 text-white/62">
                     No pressure. Just clarity.
                   </p>
                 </div>
                 <a
                   href="/free-audit"
-                  className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#071006] px-7 text-base font-bold text-white transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(7,16,6,0.24)]"
+                  className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[#A5F347] px-7 text-base font-bold text-[#071006] transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(7,16,6,0.24)]"
                 >
                   Book Free Audit
                   <ArrowRight className="ml-2 size-5" />
