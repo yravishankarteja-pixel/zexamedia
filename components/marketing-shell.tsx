@@ -56,7 +56,8 @@ export function Button({
   className?: string;
 }>) {
   const styles = {
-    primary: "rounded-lg bg-[#61E003] px-6 text-black hover:bg-[#76ef1e]",
+    primary:
+      "magnetic-cta rounded-lg bg-[#61E003] px-6 text-black hover:bg-[#76ef1e]",
     secondary:
       "rounded-lg border border-white/40 px-6 text-white hover:border-[#61E003]/70",
     link: "px-0 text-white hover:text-[#61E003]",
@@ -85,7 +86,7 @@ export function Card({
 }: Readonly<{ children: ReactNode; className?: string }>) {
   return (
     <div
-      className={`flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.045] p-5 transition-colors duration-150 hover:border-[#61E003]/40 min-[480px]:p-6 ${className}`}
+      className={`lift-card flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.045] p-5 transition-[transform,border-color,box-shadow] duration-300 hover:border-[#61E003]/40 min-[480px]:p-6 ${className}`}
     >
       {children}
     </div>
@@ -165,7 +166,7 @@ export function PageHero({
           </div>
         </div>
         {optimizedImageSrc && (
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
+          <div className="hero-visual-float image-depth-card relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
             <Image
               src={optimizedImageSrc}
               alt={imageAlt ?? title}

@@ -378,7 +378,7 @@ export function SiteHeaderClient() {
           </a>
           <Link
             href="/free-audit"
-            className="inline-flex h-10 items-center rounded-lg bg-[#61E003] px-4 text-sm font-semibold text-black transition-colors duration-150 hover:bg-[#76ef1e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#61E003] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071006]"
+            className="magnetic-cta inline-flex h-10 items-center rounded-lg bg-[#61E003] px-4 text-sm font-semibold text-black transition-colors duration-150 hover:bg-[#76ef1e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#61E003] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071006]"
           >
             Book Free Audit
             <ArrowRight className="ml-2 size-4" />

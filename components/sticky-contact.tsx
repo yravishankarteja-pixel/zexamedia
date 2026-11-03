@@ -32,7 +32,7 @@ export function WhatsAppFloat() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 hidden size-14 items-center justify-center rounded-full bg-[#61E003] text-black transition-transform duration-150 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#61E003] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050806] md:inline-flex"
+      className="whatsapp-float fixed bottom-6 right-6 z-50 hidden size-14 items-center justify-center rounded-full bg-[#61E003] text-black transition-transform duration-300 hover:-translate-y-1 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#61E003] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050806] md:inline-flex"
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle className="size-6" />
