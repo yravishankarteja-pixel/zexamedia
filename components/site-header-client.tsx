@@ -150,8 +150,8 @@ export function SiteHeaderClient() {
               <ChevronDown className={`size-4 transition ${activeDropdown === "services" ? "rotate-180" : ""}`} />
             </button>
             <div
-              className={`absolute left-1/2 top-full z-[100] -translate-x-1/2 pt-3 transition duration-200 ${activeDropdown === "services" ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}
-              style={{ width: "384px", maxWidth: "calc(100vw - 32px)" }}
+              className={`absolute top-full z-[100] pt-3 transition duration-200 ${activeDropdown === "services" ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}
+              style={{ left: "256px", width: "384px", maxWidth: "calc(100vw - 32px)" }}
             >
               <div className="overflow-hidden rounded-2xl border border-[#8EEA4D]/25 bg-[#071008]/98 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.64),0_0_40px_rgba(142,234,77,0.08)] backdrop-blur-2xl">
                 <div className="mb-3 flex items-start gap-3 border-b border-white/10 px-2 pb-4">
@@ -181,8 +181,8 @@ export function SiteHeaderClient() {
               <ChevronDown className={`size-4 transition ${activeDropdown === "industries" ? "rotate-180" : ""}`} />
             </button>
             <div
-              className={`absolute left-1/2 top-full z-[100] -translate-x-1/2 pt-3 transition duration-200 ${activeDropdown === "industries" ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}
-              style={{ width: "400px", maxWidth: "calc(100vw - 32px)" }}
+              className={`absolute top-full z-[100] pt-3 transition duration-200 ${activeDropdown === "industries" ? "visible translate-y-0 opacity-100" : "invisible translate-y-2 opacity-0"}`}
+              style={{ left: "112px", width: "400px", maxWidth: "calc(100vw - 32px)" }}
             >
               <div className="overflow-hidden rounded-2xl border border-[#8EEA4D]/25 bg-[#071008]/98 p-4 shadow-[0_24px_80px_rgba(0,0,0,0.64),0_0_40px_rgba(142,234,77,0.08)] backdrop-blur-2xl">
                 <div className="mb-3 flex items-start gap-3 border-b border-white/10 px-2 pb-4">
