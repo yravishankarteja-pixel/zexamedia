@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { AmbientGeometry } from "@/components/ambient-geometry";
 import { phoneHref } from "@/components/site-footer";
 
 export {
@@ -98,6 +99,7 @@ export function PageShell({ children }: Readonly<{ children: ReactNode }>) {
     <main className="site-page min-h-screen overflow-hidden bg-[#050806] pb-16 text-white md:pb-0">
       <div className="ambient-surface pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_78%_12%,rgba(97,224,3,0.09),transparent_25%),linear-gradient(128deg,rgba(97,224,3,0.055),transparent_34%),linear-gradient(180deg,#050806_0%,#081008_48%,#020302_100%)]" />
       <div className="ambient-grid-layer pointer-events-none fixed inset-0 z-0 opacity-[0.035] [background-image:linear-gradient(rgba(142,234,77,.65)_1px,transparent_1px),linear-gradient(90deg,rgba(142,234,77,.65)_1px,transparent_1px)] [background-size:96px_96px]" />
+      <AmbientGeometry />
       <div className="relative z-10">{children}</div>
     </main>
   );
