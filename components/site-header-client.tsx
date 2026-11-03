@@ -133,10 +133,10 @@ export function SiteHeaderClient() {
     `inline-flex h-11 items-center gap-1 rounded-lg px-2 text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#63c52d] focus-visible:ring-offset-2 xl:px-3 ${active ? "bg-[#eaf8e2] text-[#347d18]" : "text-[#263129] hover:bg-[#f2f6f1] hover:text-[#347d18]"}`;
 
   return (
-    <header ref={headerRef} className={`site-header sticky top-0 z-[100] h-[72px] border-b border-[#dfe6df] bg-white transition-shadow duration-150 ${scrolled ? "shadow-[0_8px_24px_rgba(21,42,27,0.10)]" : "shadow-none"}`}>
+    <header ref={headerRef} className={`site-header sticky top-0 z-[100] h-[72px] bg-white transition-shadow duration-150 ${scrolled ? "shadow-[0_8px_24px_rgba(21,42,27,0.10)]" : "shadow-none"}`}>
       <nav className="mx-auto flex h-[72px] w-full max-w-[1600px] items-center gap-2 px-3 sm:px-5 lg:px-4 xl:gap-4 xl:px-8" aria-label="Primary navigation">
         <Link href="/" className="flex h-12 w-[116px] shrink-0 items-center justify-center rounded-lg bg-[#061008] px-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#63c52d] focus-visible:ring-offset-2 xl:w-[156px]" aria-label="Zexa Media home">
-          <Image src="/zexa-media-logo-transparent.webp" alt="Zexa Media" width={300} height={97} sizes="(max-width: 1023px) 132px, (max-width: 1279px) 108px, 144px" className="h-auto w-[108px] object-contain xl:w-[144px]" priority />
+          <Image src="/zexa-media-logo-transparent.webp" alt="Zexa Media" width={600} height={156} sizes="(max-width: 1023px) 132px, (max-width: 1279px) 108px, 144px" className="h-auto w-[108px] object-contain xl:w-[144px]" priority />
         </Link>
 
         <div className="hidden min-w-0 flex-1 items-center justify-center lg:flex">
@@ -206,7 +206,7 @@ export function SiteHeaderClient() {
         <button type="button" className={`absolute inset-0 bg-[#071006]/65 transition-opacity duration-200 motion-reduce:transition-none ${mobileOpen ? "opacity-100" : "opacity-0"}`} aria-label="Close navigation menu" tabIndex={mobileOpen ? 0 : -1} onClick={closeNavigation} />
         <div id={mobileDrawerId} role="dialog" aria-modal="true" aria-label="Navigation menu" className={`absolute right-0 top-0 flex h-dvh w-[min(92vw,420px)] flex-col overflow-hidden bg-white shadow-[-18px_0_50px_rgba(16,34,20,0.22)] transition-transform duration-200 motion-reduce:transition-none ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}>
           <div className="flex h-[72px] shrink-0 items-center justify-between border-b border-[#dfe6df] px-4">
-            <Link href="/" onClick={closeNavigation} className="flex h-12 w-[132px] items-center justify-center rounded-lg bg-[#061008] px-2"><Image src="/zexa-media-logo-transparent.webp" alt="Zexa Media" width={300} height={97} sizes="120px" className="h-auto w-[120px] object-contain" /></Link>
+            <Link href="/" onClick={closeNavigation} className="flex h-12 w-[132px] items-center justify-center rounded-lg bg-[#061008] px-2"><Image src="/zexa-media-logo-transparent.webp" alt="Zexa Media" width={600} height={156} sizes="120px" className="h-auto w-[120px] object-contain" /></Link>
             <button type="button" className="grid size-11 place-items-center rounded-lg border border-[#cad6ca] text-[#16221a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#63c52d]" onClick={closeNavigation} aria-label="Close navigation menu"><X className="size-5" /></button>
           </div>
           <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4">

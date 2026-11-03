@@ -83,8 +83,8 @@ function BrandMark() {
     <Image
       src="/zexa-media-logo-transparent.webp"
       alt="Zexa Media"
-      width={300}
-      height={97}
+      width={600}
+      height={156}
       sizes="(max-width: 640px) 180px, 210px"
       loading="lazy"
       unoptimized
